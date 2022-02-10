@@ -1,34 +1,32 @@
-function rot13(message) {
-    let decode = '';
+function openOrSenior(data) {
+    /*     let club = [];
 
-    for (let i = 0; i < message.length; i++) {
-        let char = message.charCodeAt(i);
+        for (let member of data)
+            (member[0] >= 55 && member[1] >= 7) ? club.push('Senior') : club.push('Open');
 
-        if (char >= 65 && char <= 90) {
-            if (char + 13 > 90) {
-                char -= 77;
-                decode += String.fromCodePoint(char + 64);
-            } else
-                decode += String.fromCodePoint(char + 13);
-            continue;
-        }
+        return club; */
 
-        if (char >= 97 && char <= 122) {
-            if (char + 13 > 122) {
-                char -= 109;
-                decode += String.fromCodePoint(char + 96);
-            } else
-                decode += String.fromCodePoint(char + 13);
-            continue;
-        }
-
-        decode += String.fromCodePoint(char);
-    }
-
-    return decode;
-
+    return data.reduce((club, member) => {
+        club.push((member[0] >= 55 && member[1] > 7) ? 'Senior' : 'Open');
+        return club;
+    }, []);
 }
 
-console.log(rot13('grfg'));
-console.log(rot13('Grfg'));
-console.log(rot13('Zax'));
+console.log(openOrSenior([
+    [45, 12],
+    [55, 21],
+    [19, -2],
+    [104, 20]
+]));
+console.log(openOrSenior([
+    [3, 12],
+    [55, 1],
+    [91, -2],
+    [53, 23]
+]));
+console.log(openOrSenior([
+    [59, 12],
+    [55, -1],
+    [12, -2],
+    [12, 12]
+]));

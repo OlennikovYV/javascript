@@ -1,9 +1,8 @@
-function DNAtoRNA(dna) {
-    return dna.split('').map(dnaElement => {
-        return (dnaElement == 'T' ? 'U' : dnaElement);
-    }).join('');
+function makeNegative(num) {
+    return (Math.sign(num) == 1) ? -num : num
 }
 
-console.log(DNAtoRNA('TTTT'));
-console.log(DNAtoRNA('GCAT'));
-console.log(DNAtoRNA('GACCGCCGCC'));
+console.log(makeNegative(0));
+console.log(makeNegative(5));
+console.log(makeNegative(-5));
+console.log(makeNegative(10));

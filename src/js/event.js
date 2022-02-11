@@ -1,8 +1,8 @@
-function makeNegative(num) {
-    return (Math.sign(num) == 1) ? -num : num
+function accum(s) {
+    return s.toLowerCase().split('').map((el, idx) => {
+        return el.toUpperCase() + el.toLowerCase().repeat(idx)
+    }).join('-')
 }
 
-console.log(makeNegative(0));
-console.log(makeNegative(5));
-console.log(makeNegative(-5));
-console.log(makeNegative(10));
+console.log(accum('abcd'));
+console.log(accum('AbRaC'));

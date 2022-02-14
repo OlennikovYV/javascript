@@ -1,24 +1,24 @@
-function findEvenIndex(arr) {
-    let left = 0;
-    let right = arr.reduce((acc, el) => {
-        return acc + el;
-    }, 0);
+function longestConsec(strarr, k) {
+    const n = strarr.length;
+    let arrLengths = [],
+        index,
+        result = "";
 
-    for (let i = 0; i < arr.length; i++) {
-        if (i > 0) left += arr[i - 1];
-        right -= arr[i];
+    if (n == 0 || k > n || k <= 0) return "";
 
-        if (left == right) return i;
+    for (let i = 0; i < n; i++) {
+        if (i + k > n) break;
+        arrLengths[i] = strarr.slice(i, i + k).reduce((acc, el) => {
+            return acc + el.length;
+        }, 0);
     }
 
-    return -1;
+    index = arrLengths.indexOf(Math.max(...arrLengths));
+
+    return strarr.slice(index, index + k).join("");
 }
 
-console.log(findEvenIndex([]));
-console.log(findEvenIndex([1]));
-console.log(findEvenIndex([10, -80, 10, 10, 15, 35, 20]));
-console.log(findEvenIndex([1, 2, 3, 4, 3, 2, 1]));
-console.log(findEvenIndex([1, 100, 50, -51, 1, 1]));
-console.log(findEvenIndex([1, 2, 3, 4, 5, 6]));
-console.log(findEvenIndex([20, 10, 30, 10, 10, 15, 35]));
-console.log(findEvenIndex([10, -80, 10, 10, 15, 35, 10]));
+console.log(longestConsec(["it", "wkppv", "ixoyx", "3452", "zzzzzzzzzzzz"], 2));
+console.log(longestConsec(["zone", "abigail", "theta", "form", "libe", "zas"], 2));
+console.log(longestConsec(["ejjjjmmtthh", "zxxuueeg", "aanlljrrrxx", "dqqqaaabbb", "oocccffuucccjjjkkkjyyyeehh"], 1));
+console.log(longestConsec(["zone", "abigail", "theta", "form", "libe", "zas"], 3));

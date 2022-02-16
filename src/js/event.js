@@ -1,6 +1,21 @@
-function disemvowel(str) {
-    return [...str.matchAll(/[^aeiou]/ig)].join('');
+function order(words) {
+    let arrSortWords;
+    const findIndex = word => {
+        const i = word.search(/[1-9]/);
+        return word[i];
+    };
+
+    if (words == '') return '';
+
+    words = words.split(' ');
+    arrSortWords = new Array(words.length);
+
+    for (let i = 0; i < words.length; i++) {
+        let index = findIndex(words[i]);
+        arrSortWords[index - 1] = words[i];
+    }
+
+    return arrSortWords.join(' ');
 }
 
-console.log(disemvowel('O zax dead for'));
-console.log(disemvowel('This website is for losers LOL!'));
+console.log(order('is2 Thi1s T4est 3a'));

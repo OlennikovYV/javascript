@@ -1,11 +1,6 @@
-// Sum Numbers
-function sum(numbers) {
-    "use strict";
+function greet(name, owner) {
+    return (name === owner) ? 'Hello boss' : 'Hello guest';
+}
 
-    return numbers.reduce((acc, num) => {
-        return acc + num;
-    }, 0);
-};
-
-console.log(sum([])); //0
-console.log(sum([1, 5.2, 4, 0, -1])); //9.2
+console.log(greet('Daniel', 'Daniel')); //'Hello boss'
+console.log(greet('Greg', 'Daniel')); //'Hello guest'

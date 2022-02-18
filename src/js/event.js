@@ -1,15 +1,11 @@
-const rps = (p1, p2) => {
-    const player1win = [
-        'rockscissors',
-        'scissorspaper',
-        'paperrock',
-    ];
+// Sum Numbers
+function sum(numbers) {
+    "use strict";
 
-    if (p1 === p2) return 'Draw!';
-
-    return (player1win.includes(p1 + p2)) ? 'Player 1 won!' : 'Player 2 won!';
+    return numbers.reduce((acc, num) => {
+        return acc + num;
+    }, 0);
 };
 
-console.log(rps('scissors', 'paper')); // Player 1 won!
-console.log(rps('scissors', 'rock')); // Player 2 won!
-console.log(rps('paper', 'paper')); // Draw!
+console.log(sum([])); //0
+console.log(sum([1, 5.2, 4, 0, -1])); //9.2

@@ -1,14 +1,9 @@
-var min = function(list) {
-
-    return Math.min(...list);
+function fakeBin(x) {
+    return [...x].map(el => {
+        return el < 5 ? '0' : '1';
+    }).join('');
 }
 
-var max = function(list) {
-
-    return Math.max(...list);
-}
-
-console.log(min([-52, 56, 30, 29, -54, 0, -110])); //-110
-console.log(min([42, 54, 65, 87, 0])); //0
-console.log(max([4, 6, 2, 1, 9, 63, -134, 566])); //566
-console.log(max([5])); //5
+console.log(fakeBin('45385593107843568')); //'01011110001100111'
+console.log(fakeBin('509321967506747')); //'101000111101101'
+console.log(fakeBin('366058562030849490134388085')); //'011011110000101010000011011'

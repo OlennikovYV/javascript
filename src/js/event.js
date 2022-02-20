@@ -1,8 +1,5 @@
 function friend(friends) {
-    return friends.reduce((acc, el) => {
-        if (el.length == 4) acc.push(el);
-        return acc;
-    }, []);
+    return friends.filter(el => el.length == 4);
 }
 
 console.log(friend(["Ryan", "Jimmy", "123", "4", "Cool Man"])); //["Ryan"]

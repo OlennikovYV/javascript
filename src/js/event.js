@@ -1,13 +1,10 @@
-function checkEven(number) {
-    return (number % 2 == 0);
+function hero(bullets, dragons) {
+    return bullets >= dragons * 2;
 }
 
-function simpleMultiplication(number) {
-    return number * (checkEven(number) ? 8 : 9);
-}
-
-console.log(simpleMultiplication(2)); //16
-console.log(simpleMultiplication(1)); //9
-console.log(simpleMultiplication(8)); //64
-console.log(simpleMultiplication(4)); //32
-console.log(simpleMultiplication(5)); //45
+console.log(hero(10, 5)); //true
+console.log(hero(7, 4)); //false
+console.log(hero(4, 5)); //false
+console.log(hero(100, 40)); //true
+console.log(hero(1500, 751)); //false
+console.log(hero(0, 1)); //false

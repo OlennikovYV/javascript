@@ -1,26 +1,5 @@
-function countRepeatNumbers(arrayNumbers) {
-    return arrayNumbers.reduce((acc, el) => {
-        acc[el] = (acc[el] || 0) + 1;
-        return acc;
-    }, {});
-}
-
-function checkOdd(number) {
-    return number % 2;
-}
-
 function findOdd(A) {
-    let repeatNumbers = countRepeatNumbers(A);
-    let number;
-
-    for (let key in repeatNumbers) {
-        if (checkOdd(repeatNumbers[key])) {
-            number = +key;
-            break;
-        }
-    };
-
-    return number;
+    return A.reduce((a, b) => a ^ b);
 }
 
 console.log(findOdd([20, 1, -1, 2, -2, 3, 3, 5, 5, 1, 2, 4, 20, 4, -1, -2, 5])); // 5

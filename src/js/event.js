@@ -1,10 +1,31 @@
-function hero(bullets, dragons) {
-    return bullets >= dragons * 2;
+function countRepeatNumbers(arrayNumbers) {
+    return arrayNumbers.reduce((acc, el) => {
+        acc[el] = (acc[el] || 0) + 1;
+        return acc;
+    }, {});
 }
 
-console.log(hero(10, 5)); //true
-console.log(hero(7, 4)); //false
-console.log(hero(4, 5)); //false
-console.log(hero(100, 40)); //true
-console.log(hero(1500, 751)); //false
-console.log(hero(0, 1)); //false
+function checkOdd(number) {
+    return number % 2;
+}
+
+function findOdd(A) {
+    let repeatNumbers = countRepeatNumbers(A);
+    let number;
+
+    for (let key in repeatNumbers) {
+        if (checkOdd(repeatNumbers[key])) {
+            number = +key;
+            break;
+        }
+    };
+
+    return number;
+}
+
+console.log(findOdd([20, 1, -1, 2, -2, 3, 3, 5, 5, 1, 2, 4, 20, 4, -1, -2, 5])); // 5
+console.log(findOdd([1, 1, 2, -2, 5, 2, 4, 4, -1, -2, 5])); //-1
+console.log(findOdd([20, 1, 1, 2, 2, 3, 3, 5, 5, 4, 20, 4, 5])); //5
+console.log(findOdd([10])); //10
+console.log(findOdd([1, 1, 1, 1, 1, 1, 10, 1, 1, 1, 1])); //10
+console.log(findOdd([5, 4, 3, 2, 1, 5, 4, 3, 2, 10, 10])); //1

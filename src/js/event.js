@@ -1,10 +1,32 @@
-function findOdd(A) {
-    return A.reduce((a, b) => a ^ b);
+function rowSumOddNumbers(n) {
+    function sumIntegers(row) {
+        let sum = 0;
+        for (let i = 1; i < row; i++) {
+            sum += i;
+        }
+        return sum;
+    }
+
+    function computeFirstNumber(row) {
+        return 2 * sumIntegers(row) + 1;
+    }
+
+    function sumNumbersRow(row) {
+        let sum = number = computeFirstNumber(row);
+        for (let i = 1; i < row; i++) {
+            number += 2;
+            sum = sum + number;
+        }
+        return sum;
+    }
+
+    if (n == 1) return 1;
+    return sumNumbersRow(n);
 }
 
-console.log(findOdd([20, 1, -1, 2, -2, 3, 3, 5, 5, 1, 2, 4, 20, 4, -1, -2, 5])); // 5
-console.log(findOdd([1, 1, 2, -2, 5, 2, 4, 4, -1, -2, 5])); //-1
-console.log(findOdd([20, 1, 1, 2, 2, 3, 3, 5, 5, 4, 20, 4, 5])); //5
-console.log(findOdd([10])); //10
-console.log(findOdd([1, 1, 1, 1, 1, 1, 10, 1, 1, 1, 1])); //10
-console.log(findOdd([5, 4, 3, 2, 1, 5, 4, 3, 2, 10, 10])); //1
+console.log(rowSumOddNumbers(2)); //8
+console.log(rowSumOddNumbers(3)); //27
+console.log(rowSumOddNumbers(4)); //64
+console.log(rowSumOddNumbers(5)); //125
+console.log(rowSumOddNumbers(1)); //1
+console.log(rowSumOddNumbers(42)); //74088

@@ -1,27 +1,5 @@
 function rowSumOddNumbers(n) {
-    function sumIntegers(row) {
-        let sum = 0;
-        for (let i = 1; i < row; i++) {
-            sum += i;
-        }
-        return sum;
-    }
-
-    function computeFirstNumber(row) {
-        return 2 * sumIntegers(row) + 1;
-    }
-
-    function sumNumbersRow(row) {
-        let sum = number = computeFirstNumber(row);
-        for (let i = 1; i < row; i++) {
-            number += 2;
-            sum = sum + number;
-        }
-        return sum;
-    }
-
-    if (n == 1) return 1;
-    return sumNumbersRow(n);
+    return n ** 3;
 }
 
 console.log(rowSumOddNumbers(2)); //8

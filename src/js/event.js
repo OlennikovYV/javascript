@@ -1,10 +1,8 @@
-function rowSumOddNumbers(n) {
-    return n ** 3;
+function setAlarm(employed, vacation) {
+    return (employed && employed !== vacation);
 }
 
-console.log(rowSumOddNumbers(2)); //8
-console.log(rowSumOddNumbers(3)); //27
-console.log(rowSumOddNumbers(4)); //64
-console.log(rowSumOddNumbers(5)); //125
-console.log(rowSumOddNumbers(1)); //1
-console.log(rowSumOddNumbers(42)); //74088
+console.log(setAlarm(true, true)); //false
+console.log(setAlarm(false, true)); //false
+console.log(setAlarm(false, false)); //false
+console.log(setAlarm(true, false)); //true

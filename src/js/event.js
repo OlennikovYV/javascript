@@ -1,8 +1,9 @@
-var summation = function(num) {
-    return num * (num + 1) / 2;
-};
+function cockroachSpeed(s) {
+    return Math.floor(s / 0.036);
+}
 
-console.log(summation(1)); // 1
-console.log(summation(8)); // 36
-console.log(summation(11)); // 66
-console.log(summation(53)); // 1431
+console.log(cockroachSpeed(1.08)); // 30
+console.log(cockroachSpeed(1.09)); // 30
+console.log(cockroachSpeed(0.59)); // 16
+console.log(cockroachSpeed(0.79)); // 21
+console.log(cockroachSpeed(0)); // 0

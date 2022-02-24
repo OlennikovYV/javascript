@@ -1,5 +1,5 @@
-var summation = function sum(num) {
-    return (num > 0) ? num + sum(num - 1) : 0;
+var summation = function(num) {
+    return num * (num + 1) / 2;
 };
 
 console.log(summation(1)); // 1

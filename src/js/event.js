@@ -1,9 +1,8 @@
-function cockroachSpeed(s) {
-    return Math.floor(s / 0.036);
+function invert(array) {
+    return array.reduce((acc, el) => -el, []);
 }
 
-console.log(cockroachSpeed(1.08)); // 30
-console.log(cockroachSpeed(1.09)); // 30
-console.log(cockroachSpeed(0.59)); // 16
-console.log(cockroachSpeed(0.79)); // 21
-console.log(cockroachSpeed(0)); // 0
+console.log(invert([1, 2, 3, 4, 5])); // [-1,-2,-3,-4,-5]
+console.log(invert([1, -2, 3, -4, 5])); // [-1,2,-3,4,-5]
+console.log(invert([])); // []
+console.log(invert([0])); //[-0]

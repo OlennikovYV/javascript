@@ -1,8 +1,12 @@
-function invert(array) {
-    return array.reduce((acc, el) => -el, []);
+// return masked string
+function maskify(cc) {
+    let countCharMask = cc.length - 4;
+    if (countCharMask < 1) return cc;
+    return '#'.repeat(countCharMask) + cc.slice(-4);
 }
 
-console.log(invert([1, 2, 3, 4, 5])); // [-1,-2,-3,-4,-5]
-console.log(invert([1, -2, 3, -4, 5])); // [-1,2,-3,4,-5]
-console.log(invert([])); // []
-console.log(invert([0])); //[-0]
+console.log(maskify('4556364607935616')); // '############5616'
+console.log(maskify('1')); // '1'
+console.log(maskify('11111')); // '#1111'
+console.log(maskify('4567')); // '4567'
+console.log(maskify('1234567890')); // '######7890'

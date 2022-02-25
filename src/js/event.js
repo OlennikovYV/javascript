@@ -1,8 +1,6 @@
 // return masked string
 function maskify(cc) {
-    let countCharMask = cc.length - 4;
-    if (countCharMask < 1) return cc;
-    return '#'.repeat(countCharMask) + cc.slice(-4);
+    return cc.slice(-4).padStart(cc.length, '#')
 }
 
 console.log(maskify('4556364607935616')); // '############5616'

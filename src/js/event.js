@@ -1,23 +1,10 @@
 // return masked string
 function duplicateEncode(word) {
-    const arrChar = word
-        .toLowerCase()
-        .split('');
-    const countChar = calcChar(arrChar);
-
-    function calcChar(str) {
-        return str
-            .reduce((acc, el) => {
-                acc[el] = (acc[el] || 0) + 1;
-                return acc;
-            }, {});
-    }
-
-    return arrChar
-        .reduce((acc, el) => {
-            acc.push((countChar[el] > 1 ? ')' : '('));
-            return acc;
-        }, [])
+    return word
+        .split('')
+        .map((el, index, array) => {
+            return (word.indexOf(el) != word.lastIndexOf(el) ? ')' : '(');
+        })
         .join('');
 }
 

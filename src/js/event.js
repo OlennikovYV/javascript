@@ -25,24 +25,13 @@ let array5x5 = [
 ];
 
 snail = function(array) {
-    let tempArray = [];
     let snailArray = [];
 
-    while (array != []) {
-
-        tempArray = array.shift();
-        if (!tempArray) break;
-        tempArray.map(el => snailArray.push(el));
-
+    while (array.length) {
+        snailArray.push(...array.shift());
         array.map(el => snailArray.push(el.pop()));
 
-        tempArray = array.pop();
-        if (!tempArray) break;
-        tempArray.reverse().map(el => snailArray.push(el));
-
-        if (!array) break;
-        array.reverse().map(el => snailArray.push(el.shift()));
-        array.reverse();
+        array.reverse().map(el => el.reverse());
     }
 
     return snailArray;

@@ -1,65 +1,18 @@
-let array2x2 = [
-    [1, 2],
-    [3, 4],
-];
-
-let array3x3 = [
-    [1, 2, 3],
-    [4, 5, 6],
-    [7, 8, 9],
-];
-
-let array4x4 = [
-    [1, 2, 3, 4],
-    [5, 6, 7, 8],
-    [9, 10, 11, 12],
-    [13, 14, 15, 16],
-];
-
-let array5x5 = [
-    [1, 2, 3, 4, 5],
-    [6, 7, 8, 9, 10],
-    [11, 12, 13, 14, 15],
-    [16, 17, 18, 19, 20],
-    [21, 22, 23, 24, 25],
-];
-
-snail = function(array) {
-    let snailArray = [];
-
-    while (array.length) {
-        snailArray.push(...array.shift());
-        array.map(el => snailArray.push(el.pop()));
-
-        array.reverse().map(el => el.reverse());
-    }
-
-    return snailArray;
+function humanReadable(seconds) {
+	const hours = Math.floor(seconds / 60 / 60).toString().padStart(2, '0');
+	const minutes = Math.floor((seconds / 60) - hours * 60).toString().padStart(2, '0');
+	seconds = Math.floor(seconds % 60).toString().padStart(2, '0');
+	return hours + ':' + minutes + ':' + seconds;
 }
 
-console.log(snail([
-    []
-])); // []
-console.log(snail([
-    [1]
-])); // [1]
-console.log(snail([
-    [1, 2, 3],
-    [4, 5, 6],
-    [7, 8, 9]
-])); // [1, 2, 3, 6, 9, 8, 7, 4, 5]
-console.log(snail([
-    [1, 2, 3, 4, 5],
-    [6, 7, 8, 9, 10],
-    [11, 12, 13, 14, 15],
-    [16, 17, 18, 19, 20],
-    [21, 22, 23, 24, 25]
-])); // [1, 2, 3, 4, 5, 10, 15, 20, 25, 24, 23, 22, 21, 16, 11, 6, 7, 8, 9, 14, 19, 18, 17, 12, 13]
-console.log(snail([
-    [1, 2, 3, 4, 5, 6],
-    [20, 21, 22, 23, 24, 7],
-    [19, 32, 33, 34, 25, 8],
-    [18, 31, 36, 35, 26, 9],
-    [17, 30, 29, 28, 27, 10],
-    [16, 15, 14, 13, 12, 11]
-])); // [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36]
+//max time = 359999  
+console.log(humanReadable(0));// '00:00:00'
+console.log(humanReadable(59));// '00:00:59'
+console.log(humanReadable(60));// '00:01:00'
+console.log(humanReadable(90));// '00:01:30'
+console.log(humanReadable(3599));// '00:59:59'
+console.log(humanReadable(3600));// '01:00:00'
+console.log(humanReadable(45296));// '12:34:56'
+console.log(humanReadable(86399));// '23:59:59'
+console.log(humanReadable(86400));// '24:00:00'
+console.log(humanReadable(359999));// '99:59:59'

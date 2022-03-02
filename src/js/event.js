@@ -1,41 +1,9 @@
-function validBraces(braces) {
-	const br = [['(', '{', '['], [')', '}', ']'],];
-	const stack = [];
-	let i = 0;
-
-	if (br[1].includes(braces[i])) return false;
-	stack.push(braces[i++]);
-
-	while (i < braces.length) {
-		let index = -1;
-		if (br[0].includes(braces[i])) {
-			stack.push(braces[i++]);
-			continue;
-		}
-		index = br[1].indexOf(braces[i]);
-		if (index === -1) return false;
-		if (br[0][index] === stack.pop()) {
-			i++;
-			continue;
-		}
-		return false;
-	}
-	return (stack.length) ? false : true;
+function anagrams(word, words) {
+    const sortWord = w => [...w].sort().join('');
+    word = sortWord(word);
+    return words.filter(e => word === sortWord(e));
 }
 
-console.log(validBraces("()))"));// false
-console.log(validBraces("()"));// true
-console.log(validBraces("[]"));// true
-console.log(validBraces("{}"));// true
-console.log(validBraces("(){}[]"));// true
-console.log(validBraces("([{}])"));// true
-console.log(validBraces("(}"));// false
-console.log(validBraces("[(])"));// false
-console.log(validBraces("({})[({})]"));// true
-console.log(validBraces("(})"));// false
-console.log(validBraces("(({{[[]]}}))"));// true
-console.log(validBraces("{}({})[]"));// true
-console.log(validBraces(")(}{]["));// false
-console.log(validBraces("())({}}{()][]["));// false
-console.log(validBraces("(((({{"));// false
-console.log(validBraces("}}]]))}])"));// false
+console.log(anagrams('abba', ['aabb', 'abcd', 'bbaa', 'dada'])); // ['aabb', 'bbaa']
+console.log(anagrams('racer', ['crazer', 'carer', 'racar', 'caers', 'racer'])); // ['carer', 'racer']
+console.log(anagrams('laser', ['lazing', 'lazy', 'lacer'])); // []

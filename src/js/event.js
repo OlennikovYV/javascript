@@ -1,9 +1,9 @@
-function anagrams(word, words) {
-    const sortWord = w => [...w].sort().join('');
-    word = sortWord(word);
-    return words.filter(e => word === sortWord(e));
-}
+var countBits = function (n) {
+	return [...n.toString(2)].filter(el => el === '1').length;
+};
 
-console.log(anagrams('abba', ['aabb', 'abcd', 'bbaa', 'dada'])); // ['aabb', 'bbaa']
-console.log(anagrams('racer', ['crazer', 'carer', 'racar', 'caers', 'racer'])); // ['carer', 'racer']
-console.log(anagrams('laser', ['lazing', 'lazy', 'lacer'])); // []
+console.log(countBits(0));// 0
+console.log(countBits(4));// 1
+console.log(countBits(7));// 3
+console.log(countBits(9));// 2
+console.log(countBits(10));// 2

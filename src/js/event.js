@@ -1,5 +1,5 @@
 var countBits = function (n) {
-	return [...n.toString(2)].filter(el => el === '1').length;
+	return n.toString(2).split('0').join('').length;
 };
 
 console.log(countBits(0));// 0

@@ -1,9 +1,7 @@
 function findOutlier(integers) {
-    const evenOdd = num => (num % 2) ? 1 : 0;
-    const arr = integers.map(el => evenOdd(el));
-    const sort = (arr.slice(0)).sort();
-    const findStr = (sort[0] === sort[1] ? sort[sort.length - 1] : sort[0]);
-    return integers[arr.indexOf(findStr)];
+    const even = integers.filter(el => !(el % 2));
+    const odd = integers.filter(el => (el % 2));
+    return (even.length === 1) ? even[0] : odd[0];
 }
 
 console.log(findOutlier([0, 1, 2])); // 1

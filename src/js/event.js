@@ -1,6 +1,4 @@
-function makeUpperCase(str) {
-	return str.toUpperCase();
-}
+const makeUpperCase = Function.prototype.call.bind(String.prototype.toUpperCase);
 
 console.log(makeUpperCase('hello'));//HELLO
 console.log(makeUpperCase('Sam'));//SAM

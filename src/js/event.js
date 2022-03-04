@@ -1,15 +1,14 @@
-function points(games) {
-	function calcPoint([x, , y]) {
-		if (x > y) return 3;
-		if (x < y) return 0;
-		return 1;
-	}
+function saveRhino(arr) {
+	const findMinPath = arr.map(el => Math.min(...el));
+	const indexPath = findMinPath.indexOf(Math.max(...findMinPath));
 
-	return games.reduce((acc, el) => acc + calcPoint(el), 0);
+	return ['North', 'East', 'South', 'West'][indexPath];
 }
 
-console.log(points(["1:0", "2:0", "3:0", "4:0", "2:1", "3:1", "4:1", "3:2", "4:2", "4:3"]));// 30
-console.log(points(["1:1", "2:2", "3:3", "4:4", "2:2", "3:3", "4:4", "3:3", "4:4", "4:4"]));// 10
-console.log(points(["0:1", "0:2", "0:3", "0:4", "1:2", "1:3", "1:4", "2:3", "2:4", "3:4"]));// 0
-console.log(points(["1:0", "2:0", "3:0", "4:0", "2:1", "1:3", "1:4", "2:3", "2:4", "3:4"]));// 15
-console.log(points(["1:0", "2:0", "3:0", "4:4", "2:2", "3:3", "1:4", "2:3", "2:4", "3:4"]));// 12
+// N E S W
+console.log(saveRhino([[4, 5, 7, 5, 6], [1], [2, 5, 4, 8], [5, 6]]));// 'West'
+console.log(saveRhino([[1], [1], [1], [1]]));// 'North'
+console.log(saveRhino([[1], [5], [3], [2]]));// 'East'
+console.log(saveRhino([[1, 4], [1, 5], [2, 2, 9], [2, 3, 10]]));// 'South'
+console.log(saveRhino([[2, 5, 6], [3, 8, 9], [4, 5], [1, 10]]));// 'South'
+console.log(saveRhino([[6, 6, 6, 6, 9], [4, 5, 6, 7], [9, 2, 4, 5], [7, 3]]));// 'North'

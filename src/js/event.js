@@ -1,6 +1,7 @@
-function booleanToString(b) {
-	return b.toString();
+function makeUpperCase(str) {
+	return str.toUpperCase();
 }
 
-console.log(booleanToString(true));// "true"
-console.log(booleanToString(false));// "false"
+console.log(makeUpperCase('hello'));//HELLO
+console.log(makeUpperCase('Sam'));//SAM
+console.log(makeUpperCase('San Francisco'));//SAN FRANCISCO

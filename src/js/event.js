@@ -1,11 +1,7 @@
 function toCamelCase(str) {
-    return str.replace(/[_]/g, '-')
-        .split('-')
-        .map((el, index) => {
-            if (index === 0) return el;
-            return el[0].toUpperCase() + el.slice(1);
-        })
-        .join('');
+    return str.replace(/[_-]\w/ig, match => {
+        return match.charAt(1).toUpperCase();
+    });
 }
 
 console.log(toCamelCase('')); // ''

@@ -1,10 +1,8 @@
-function toCamelCase(str) {
-    return str.replace(/[_-]\w/ig, match => {
-        return match.charAt(1).toUpperCase();
-    });
+function doubleInteger(i) {
+    return i * 2;
 }
 
-console.log(toCamelCase('')); // ''
-console.log(toCamelCase("the_stealth_warrior")); // "theStealthWarrior"
-console.log(toCamelCase("The-Stealth-Warrior")); // "TheStealthWarrior"
-console.log(toCamelCase("A-B-C")); // "ABC"
+console.log(doubleInteger(2)); // 4
+console.log(doubleInteger(221)); // 442
+console.log(doubleInteger(25498)); // 50996
+console.log(doubleInteger(8046317)); // 16092634

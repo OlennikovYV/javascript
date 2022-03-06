@@ -1,5 +1,5 @@
 function doubleInteger(i) {
-    return i * 2;
+    return i << 1;
 }
 
 console.log(doubleInteger(2)); // 4

@@ -1,65 +1,30 @@
-const opt = {
-    era: 'long',
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric',
-    weekday: 'long',
-    timezone: 'UTC',
-    hour: 'numeric',
-    minute: 'numeric',
-    second: 'numeric'
-};
-
-function getTime(min) {
-    return `${String(Math.floor(min / 60)).padStart(2, '0')}` +
-        `:` +
-        `${String(Math.floor(min % 60)).padStart(2, '0')}` +
-        ` (${min})`;
-};
-
 function newYearCelebrations(takeOffTime, minutes) {
-    const newYear = new Date(2022, 0, 1, 0, 0, 0), //01.01.2022 00:00
+    const newYear = 60 * 24,
         [takeOffHours, takeOffMinutes] = takeOffTime.split(':');
     let nowTime,
         prevTime,
-        countNewYear = 0,
-        timeZone = 0;
+        countNewYear = 0;
 
-    if (takeOffTime === '00:00') {
-        takeOffTime = new Date(2022, 0, 1, 0, 0);
-    } else {
-        takeOffTime = new Date(2021, 11, 31, takeOffHours, takeOffMinutes);
-    }
+    if (takeOffTime === '00:00')
+        nowTime = prevTime = newYear;
+    else
+        nowTime = prevTime = +takeOffHours * 60 + +takeOffMinutes;
 
-    prevTime = new Date(takeOffTime);
-    console.log(takeOffTime.toLocaleString(opt));
-    console.log(minutes)
     minutes = minutes.map((el, index) => {
         if (!index) return el;
         return el - minutes[index - 1];
     });
-    console.log(minutes);
 
     minutes.forEach(min => {
-        nowTime = new Date(prevTime);
-        nowTime.setMinutes(prevTime.getMinutes() + min);
-        console.log(`${nowTime.toLocaleString(opt)} takeOff ${getTime(min)}`);
-        if (nowTime >= newYear && prevTime <= newYear)
+        nowTime += min;
+        if (nowTime >= newYear && newYear >= prevTime)
             countNewYear++;
-        nowTime.setMinutes(nowTime.getMinutes() - 60);
-        prevTime = new Date(nowTime);
-        console.log(`${prevTime.toLocaleString(opt)}` +
-            ` prev Time zone: ${++timeZone}`);
-
-        console.log(countNewYear);
+        nowTime -= 60;
+        prevTime = nowTime;
     });
 
     if (prevTime <= newYear) countNewYear++;
     if (!countNewYear) countNewYear++;
-
-    console.groupCollapsed(`RESULT = ${countNewYear}`);
-    console.log('Nothing');
-    console.groupEnd();
 
     return countNewYear;
 }

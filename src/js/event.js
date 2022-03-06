@@ -1,23 +1,13 @@
 function dirReduc(arr) {
-    const pairsOfDirections = {
-        'NORTH': 'SOUTH',
-        'EAST': 'WEST',
-        'SOUTH': 'NORTH',
-        'WEST': 'EAST',
-    };
+    let pairsOfDirections = /NORTHSOUTH|EASTWEST|SOUTHNORTH|WESTEAST/;
 
-    let resultPath = [];
+    arr = arr.join('');
 
-    arr.map(el => {
-        if (resultPath.length)
-            if (resultPath[resultPath.length - 1] == pairsOfDirections[el]) {
-                resultPath.pop();
-                return;
-            }
-        resultPath.push(el);
-    });
+    while (pairsOfDirections.test(arr)) {
+        arr = arr.replace(pairsOfDirections, '');
+    }
 
-    return resultPath;
+    return arr.match(/NORTH|SOUTH|EAST|WEST/g) || [];
 }
 
 console.log(dirReduc(["NORTH", "SOUTH", "SOUTH", "EAST", "WEST", "NORTH", "WEST"])); // ["WEST"]

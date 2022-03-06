@@ -1,9 +1,5 @@
 function isPangram(string) {
-    return 'abcdefghijklmnopqrstuvwxyz'
-        .split('')
-        .every(el => {
-            return string.toLowerCase().indexOf(el) !== -1;
-        });
+    return (string.match(/([a-z])(?!.*\1)/gi) || []).length === 26;
 }
 
 console.log(isPangram('The quick brown fox jumps over the lazy dog.')); // True

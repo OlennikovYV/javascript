@@ -1,7 +1,25 @@
-function isPangram(string) {
-    return (string.match(/([a-z])(?!.*\1)/gi) || []).length === 26;
+function dirReduc(arr) {
+    const pairsOfDirections = {
+        'NORTH': 'SOUTH',
+        'EAST': 'WEST',
+        'SOUTH': 'NORTH',
+        'WEST': 'EAST',
+    };
+
+    let resultPath = [];
+
+    arr.map(el => {
+        if (resultPath.length)
+            if (resultPath[resultPath.length - 1] == pairsOfDirections[el]) {
+                resultPath.pop();
+                return;
+            }
+        resultPath.push(el);
+    });
+
+    return resultPath;
 }
 
-console.log(isPangram('The quick brown fox jumps over the lazy dog.')); // True
-console.log(isPangram('This is not a pangram.')); // False 
-console.log(isPangram('abcdefghijklmnopqrstuvwxyz')); // True
+console.log(dirReduc(["NORTH", "SOUTH", "SOUTH", "EAST", "WEST", "NORTH", "WEST"])); // ["WEST"]
+console.log(dirReduc(["NORTH", "WEST", "SOUTH", "EAST"])); // ["NORTH", "WEST", "SOUTH", "EAST"])
+console.log(dirReduc(["NORTH", "SOUTH", "EAST", "WEST", "EAST", "WEST"])); // []

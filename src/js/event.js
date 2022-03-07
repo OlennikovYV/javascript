@@ -1,8 +1,13 @@
-function moveZeros(arr) {
-    return [
-        ...arr.filter(el => el !== 0),
-        ...arr.filter(el => el === 0)
-    ];
-}
+function divisors(integer) {
+    let arrDivisors = [];
 
-console.log(moveZeros([1, 2, 0, 1, 0, 1, 0, 3, 0, 1])); // [1, 2, 1, 1, 3, 1, 0, 0, 0, 0]
+    for (let i = 2; i < integer; i++) {
+        if (integer % i === 0) arrDivisors.push(i);
+    }
+
+    return arrDivisors.length ? arrDivisors : `${integer} is prime`;
+};
+
+console.log(divisors(15)); // [3, 5]
+console.log(divisors(12)); // [2, 3, 4, 6]
+console.log(divisors(13)); // "13 is prime"

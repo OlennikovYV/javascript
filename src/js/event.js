@@ -1,13 +1,8 @@
-function divisors(integer) {
-    let arrDivisors = [];
+function greet(name) {
+    return `Hello, ${name === "Johnny" ? "my love" : name}!`;
+}
 
-    for (let i = 2; i < integer; i++) {
-        if (integer % i === 0) arrDivisors.push(i);
-    }
-
-    return arrDivisors.length ? arrDivisors : `${integer} is prime`;
-};
-
-console.log(divisors(15)); // [3, 5]
-console.log(divisors(12)); // [2, 3, 4, 6]
-console.log(divisors(13)); // "13 is prime"
+console.log(greet("Jim")); // "Hello, Jim!"
+console.log(greet("Jane")); // "Hello, Jane!"
+console.log(greet("Simon")); // "Hello, Simon!"
+console.log(greet("Johnny")); // "Hello, my love!"

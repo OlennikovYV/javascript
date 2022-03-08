@@ -1,11 +1,11 @@
-function towerBuilder(nFloors) {
-    return Array.from({ length: nFloors }, (v, k) => {
-        const towerSpace = ' '.repeat(nFloors - k - 1);
-        return `${towerSpace}${'*'.repeat(k + k +1)}${towerSpace}`;
-    });
+function narcissistic(value) {
+    return value.toString()
+        .split('')
+        .map((el, index, arr) => el ** (arr.length))
+        .reduce((acc, el) => acc + el, 0) === value;
 }
 
-console.log(towerBuilder(1)); // ["*"]);
-console.log(towerBuilder(2)); // [" * ","***"]);
-console.log(towerBuilder(3)); // ["  *  "," *** ","*****"]
-console.log(towerBuilder(4)); // ["   *   ","  ***  "," ***** ","*******"]
+console.log(narcissistic(7)); // true
+console.log(narcissistic(153)); // true
+console.log(narcissistic(371)); // true
+console.log(narcissistic(1652)); // false

@@ -1,13 +1,9 @@
 function comp(array1, array2) {
     let sortArray = (a, b) => a - b;
 
-    if (array1 === null || array2 === null) return false;
-
-    array1.sort(sortArray);
-    array2.sort(sortArray);
-
-    return array1.map(el => el ** 2)
-        .every((el, index) => el === array2[index]);
+    return !!array1 && !!array2 &&
+        array1.map(el => el * el).sort(sortArray).toString() ===
+        array2.sort(sortArray).toString();
 }
 
 let a1 = [

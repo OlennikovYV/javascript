@@ -1,13 +1,18 @@
-function digPow(n, p) {
-	let result = [...n.toString()].reduce((acc, el) => {
-		acc += el ** p;
-		p++;
-		return acc;
-	}, 0);
-
-	return (result % n) ? -1 : result / n;
+function expandedForm(num) {
+	return [...num.toString()].reverse()
+		.reduce((acc, el, index) => {
+			let n = el * 10 ** index;
+			if (n > 0) acc.push(n);
+			return acc;
+		}, [])
+		.reverse()
+		.reduce((acc, el) => {
+			acc += ` + ${el}`;
+			return acc;
+		}).toString();
 }
 
-console.log(digPow(89, 1));// 1
-console.log(digPow(92, 1));// -1
-console.log(digPow(46288, 3));// 51
+console.log(expandedForm(2)); // '2'
+console.log(expandedForm(12)); // '10 + 2'
+console.log(expandedForm(42)); // '40 + 2'
+console.log(expandedForm(70304)); // '70000 + 300 + 4'

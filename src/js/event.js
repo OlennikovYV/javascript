@@ -1,15 +1,9 @@
 function expandedForm(num) {
 	return [...num.toString()].reverse()
-		.reduce((acc, el, index) => {
-			let n = el * 10 ** index;
-			if (n > 0) acc.push(n);
-			return acc;
-		}, [])
+		.map((el, index) => el * 10 ** index)
+		.filter(el => el > 0)
 		.reverse()
-		.reduce((acc, el) => {
-			acc += ` + ${el}`;
-			return acc;
-		}).toString();
+		.join(' + ');
 }
 
 console.log(expandedForm(2)); // '2'

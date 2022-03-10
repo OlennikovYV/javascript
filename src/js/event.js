@@ -1,6 +1,6 @@
 var isPP = function (n) {
-	for (let i = 1; i < 50; i++)
-		for (let j = 2; j < 10; j++) {
+	for (let i = 2; i * i <= n; i++)
+		for (let j = 2; Math.pow(i, j) <= n; j++) {
 			if (Math.pow(i, j) === n) return [i, j];
 		}
 	return null;

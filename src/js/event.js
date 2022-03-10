@@ -1,12 +1,13 @@
-function expandedForm(num) {
-	return [...num.toString()].reverse()
-		.map((el, index) => el * 10 ** index)
-		.filter(el => el > 0)
-		.reverse()
-		.join(' + ');
+var isPP = function (n) {
+	for (let i = 1; i < 50; i++)
+		for (let j = 2; j < 10; j++) {
+			if (Math.pow(i, j) === n) return [i, j];
+		}
+	return null;
 }
 
-console.log(expandedForm(2)); // '2'
-console.log(expandedForm(12)); // '10 + 2'
-console.log(expandedForm(42)); // '40 + 2'
-console.log(expandedForm(70304)); // '70000 + 300 + 4'
+console.log(isPP(4));//2, 2
+console.log(isPP(16));//2, 4
+console.log(isPP(36));//6, 2
+console.log(isPP(100));//10, 2
+console.log(isPP(125));//5, 3

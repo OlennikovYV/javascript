@@ -1,46 +1,32 @@
-function smallest(n) {
-    const strNumber = String(n);
-    let arrIndexes = [],
-        arrNumbers = [],
-        minNumber,
-        minIndex;
+var lastDigit = function (str1, str2) {
+	function lastDigitNumber(num) {
+		return BigInt(num.toString().slice(-1));
+	}
 
-    function findMininumNumber(index, number) {
-        let cutNumber,
-            glueNumber,
-            arrGlueNumbers = [];
+	function binPow(x, pow) {
+		let res = 1n;
 
-        cutNumber = number.slice(index, index + 1);
-        glueNumber = number.slice(0, index) +
-            number.slice(index + 1);
+		while (pow) {
+			if (pow % 2n === 1n) {
+				res *= x;
+				res = lastDigitNumber(res);
+				--pow;
+				continue;
+			}
+			x *= x;
+			x = lastDigitNumber(x);
+			pow >>= 1n;
+		}
 
-        for (let i = 0; i < number.length; i++) {
-            let start, end, result;
+		return res;
+	}
 
-            start = glueNumber.slice(0, i);
-            end = glueNumber.slice(i);
-
-            result = start + cutNumber + end;
-            // console.log(result);
-            arrGlueNumbers.push(+result);
-        }
-
-        arrNumbers[index] = Math.min(...arrGlueNumbers);
-        arrIndexes[index] = arrGlueNumbers.indexOf(arrNumbers[index]);
-    }
-
-    for (let i = 0; i < strNumber.length; i++) {
-        findMininumNumber(i, strNumber);
-    }
-
-    minNumber = Math.min(...arrNumbers);
-    minIndex = arrNumbers.indexOf(minNumber);
-
-    return [arrNumbers[minIndex], minIndex, arrIndexes[minIndex]];
+	return Number(binPow(BigInt(str1), BigInt(str2)));
 }
 
-console.log(smallest(261235)); // [126235, 2, 0]
-console.log(smallest(209917)); // [29917, 0, 1]
-console.log(smallest(285365)); // [238565, 3, 1]
-console.log(smallest(269045)); // [26945, 3, 0]
-console.log(smallest(296837)); // [239687, 4, 1]
+console.log(lastDigit("4", "1"));// 4
+console.log(lastDigit("4", "2"));// 6
+console.log(lastDigit("9", "7"));// 9
+console.log(lastDigit("10", "10000000000"));// 0
+console.log(lastDigit("1606938044258990275541962092341162602522202993782792835301376", "2037035976334486086268445688409378161051468393665936250636140449354381299763336706183397376"));// 6
+console.log(lastDigit("3715290469715693021198967285016729344580685479654510946723", "68819615221552997273737174557165657483427362207517952651"));// 7

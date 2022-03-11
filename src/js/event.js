@@ -1,29 +1,11 @@
 var lastDigit = function (str1, str2) {
-	function lastDigitNumber(num) {
-		return BigInt(num.toString().slice(-1));
-	}
+	str1 = str1.slice(-1);
+	str2 = str2.slice(-2);
 
-	function binPow(x, pow) {
-		let res = 1n;
-
-		while (pow) {
-			if (pow % 2n === 1n) {
-				res *= x;
-				res = lastDigitNumber(res);
-				--pow;
-				continue;
-			}
-			x *= x;
-			x = lastDigitNumber(x);
-			pow >>= 1n;
-		}
-
-		return res;
-	}
-
-	return Number(binPow(BigInt(str1), BigInt(str2)));
+	return (str2 === '0' ? 1 : 0) || Math.pow(str1, str2 % 4 || 4) % 10;
 }
 
+console.log(lastDigit("4", "0"));// 1
 console.log(lastDigit("4", "1"));// 4
 console.log(lastDigit("4", "2"));// 6
 console.log(lastDigit("9", "7"));// 9

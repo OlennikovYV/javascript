@@ -1,8 +1,9 @@
-function isDivisible(n, x, y) {
-    return !(n % x || n % y)
+function paperwork(n, m) {
+    return n < 0 || m < 0 ? 0 : n * m;
 }
 
-console.log(isDivisible(3, 3, 4)); //false
-console.log(isDivisible(12, 3, 4)); //true
-console.log(isDivisible(8, 3, 4)); //false
-console.log(isDivisible(48, 3, 4)); //true
+console.log(paperwork(5, 5)); // 25
+console.log(paperwork(5, -5)); // 0
+console.log(paperwork(-5, -5)); // 0
+console.log(paperwork(-5, 5)); // 0
+console.log(paperwork(5, 0)); // 0

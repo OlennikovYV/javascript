@@ -1,9 +1,7 @@
-function positiveSum(arr) {
-    return arr.reduce((acc, el) => acc + (el > 0 ? el : 0), 0);
+function repeatStr(n, s) {
+    return s.repeat(n);
 }
 
-console.log(positiveSum([1, 2, 3, 4, 5])); //15
-console.log(positiveSum([1, -2, 3, 4, 5])); //13
-console.log(positiveSum([])); //0
-console.log(positiveSum([-1, -2, -3, -4, -5])); //0
-console.log(positiveSum([-1, 2, 3, 4, -5])); //9
+console.log(repeatStr(3, "*")); // "***"
+console.log(repeatStr(5, "#")); // "#####"
+console.log(repeatStr(2, "ha ")); // "ha ha "

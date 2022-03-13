@@ -1,8 +1,5 @@
 function positiveSum(arr) {
-    return arr.reduce((acc, el) => {
-        if (el > 0) return acc + el;
-        return acc;
-    }, 0);
+    return arr.reduce((acc, el) => acc + (el > 0 ? el : 0), 0);
 }
 
 console.log(positiveSum([1, 2, 3, 4, 5])); //15

@@ -1,9 +1,12 @@
-function paperwork(n, m) {
-    return n < 0 || m < 0 ? 0 : n * m;
+function positiveSum(arr) {
+    return arr.reduce((acc, el) => {
+        if (el > 0) return acc + el;
+        return acc;
+    }, 0);
 }
 
-console.log(paperwork(5, 5)); // 25
-console.log(paperwork(5, -5)); // 0
-console.log(paperwork(-5, -5)); // 0
-console.log(paperwork(-5, 5)); // 0
-console.log(paperwork(5, 0)); // 0
+console.log(positiveSum([1, 2, 3, 4, 5])); //15
+console.log(positiveSum([1, -2, 3, 4, 5])); //13
+console.log(positiveSum([])); //0
+console.log(positiveSum([-1, -2, -3, -4, -5])); //0
+console.log(positiveSum([-1, 2, 3, 4, -5])); //9

@@ -1,7 +1,12 @@
-function repeatStr(n, s) {
-    return s.repeat(n);
+function findMissingLetter(array) {
+    let findChar = '';
+    array.reduce((acc, el) => {
+        if (el.charCodeAt(0) - acc.charCodeAt(0) > 1)
+            findChar = String.fromCharCode(el.charCodeAt(0) - 1);
+        return acc = el;
+    });
+    return findChar;
 }
 
-console.log(repeatStr(3, "*")); // "***"
-console.log(repeatStr(5, "#")); // "#####"
-console.log(repeatStr(2, "ha ")); // "ha ha "
+console.log(findMissingLetter(['a', 'b', 'c', 'd', 'f'])); // 'e'
+console.log(findMissingLetter(['O', 'Q', 'R', 'S'])); // 'P'

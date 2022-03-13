@@ -1,8 +1,13 @@
-function findMissingLetter(array) {
-    let findChar = array[0].charCodeAt(0);
-    return String.fromCharCode(
-        array.find(el => el.charCodeAt(0) !== findChar++).charCodeAt(0) - 1);
+function rgb(r, g, b) {
+    function decToHex(num) {
+        if (num > 255) num = 255;
+        if (num < 0) num = 0;
+        return num.toString(16).padStart(2, '0').toUpperCase();
+    }
+    return decToHex(r) + decToHex(g) + decToHex(b);
 }
 
-console.log(findMissingLetter(['a', 'b', 'c', 'd', 'f'])); // 'e'
-console.log(findMissingLetter(['O', 'Q', 'R', 'S'])); // 'P'
+console.log(rgb(0, 0, 0)); // '000000'
+console.log(rgb(0, 0, -20)); // '000000'
+console.log(rgb(300, 255, 255)); // 'FFFFFF'
+console.log(rgb(173, 255, 47)); // 'ADFF2F'

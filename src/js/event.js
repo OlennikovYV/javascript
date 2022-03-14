@@ -1,7 +1,5 @@
 function monkeyCount(n) {
-	return (new Array(n)).fill(0).map((el, index) => {
-		return el = index + 1;
-	});
+	return Array.from({ length: n }, (v, k) => k + 1);
 }
 
 console.log((monkeyCount(5)));// [1, 2, 3, 4, 5]

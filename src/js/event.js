@@ -1,8 +1,5 @@
-function invert(array) {
-	return array.map(el => -el);
-}
+const reverseSeq = n => {
+	return Array.from({ length: n }, (v, k) => n - k);
+};
 
-console.log(invert([1, 2, 3, 4, 5]));// [-1,-2,-3,-4,-5]
-console.log(invert([1, -2, 3, -4, 5]));// [-1,2,-3,4,-5]
-console.log(invert([]));// []
-console.log(invert([0]));// [-0]
+console.log(reverseSeq(5));// [5, 4, 3, 2, 1]

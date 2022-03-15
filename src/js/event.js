@@ -1,10 +1,12 @@
-function isTriangle(a, b, c) {
-	return (a + b > c && b + c > a && a + c > b);
+function countPositivesSumNegatives(input) {
+	if (input === null) return [];
+	return (!input.length && []) || input.reduce((acc, el) => {
+		if (!el) return acc;
+		if (el > 0) { acc[0] += 1; return acc; }
+		if (el < 0) { acc[1] += el; return acc; }
+	}, [0, 0]);
 }
 
-console.log(isTriangle(1, 2, 2));// true
-console.log(isTriangle(7, 2, 2));// false
-console.log(isTriangle(3, 7, 10));// false
-console.log(isTriangle(9, -2, -1));// false
-console.log(isTriangle(9, 7, 5));// true
-console.log(isTriangle(3, 6, 5));// true
+console.log(countPositivesSumNegatives([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, -11, -12, -13, -14, -15]));// [10, -65]
+console.log(countPositivesSumNegatives([]));// []
+console.log(countPositivesSumNegatives(null));// []

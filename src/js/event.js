@@ -1,20 +1,7 @@
 function firstNonConsecutive(arr) {
-	let array = [],
-		diff = 0,
-		result;
+	let result = arr.find((el, index) => el != index + arr[0]);
 
-	if (arr.length < 2) return null;
-
-	for (let i = 1; i < arr.length; i++) {
-		array.push(arr[i] - arr[i - 1]);
-	}
-
-	diff = Math.max(...array);
-	result = array.indexOf(diff);
-	array.sort();
-	if (array[0] === array[array.length - 1]) return null;
-
-	return (result === -1) ? null : arr[result + 1];
+	return (Number.isInteger(result)) ? result : null;
 }
 
 console.log(firstNonConsecutive([1, 2, 3, 4, 6, 7, 8])); //6

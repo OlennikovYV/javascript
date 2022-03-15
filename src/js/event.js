@@ -1,14 +1,10 @@
-function countPositivesSumNegatives(input) {
-	if (input === null || input.length === 0) return [];
-
-	return input.reduce((acc, el) => {
-		if (!el) return acc;
-		if (el > 0) { acc[0] += 1; return acc; }
-		if (el < 0) { acc[1] += el; return acc; }
-	}, [0, 0]
-	);
+function symmetricPoint(p, q) {
+	return [2 * q[0] - p[0], 2 * q[1] - p[1]];
 }
 
-console.log(countPositivesSumNegatives([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, -11, -12, -13, -14, -15]));// [10, -65]
-console.log(countPositivesSumNegatives([]));// []
-console.log(countPositivesSumNegatives(null));// []
+console.log(symmetricPoint([0, 0], [1, 1]));// [2, 2]
+console.log(symmetricPoint([2, 6], [-2, -6]));// [-6, -18]
+console.log(symmetricPoint([10, -10], [-10, 10]));// [-30, 30]
+console.log(symmetricPoint([1, -35], [-12, 1]));// [-25, 37]
+console.log(symmetricPoint([1000, 15], [-7, -214]));// [-1014, -443]
+console.log(symmetricPoint([0, 0], [0, 0]));// [0, 0]

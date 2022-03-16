@@ -1,7 +1,11 @@
-function sumMix(x) {
-	return x.reduce((acc, el) => +acc + +el);
+function litres(time) {
+	return Math.floor(time >> 1);
 }
 
-console.log(sumMix([9, 3, '7', '3'])); //  22
-console.log(sumMix(['5', '0', 9, 3, 2, 1, '9', 6, 7])); //  42
-console.log(sumMix(['3', 6, 6, 0, '5', 8, 5, '6', 2, '0'])); //  41
+console.log(litres(2)); //  1, 'should return 1 litre'
+console.log(litres(1.4)); //  0, 'should return 0 litres'
+console.log(litres(12.3)); //  6, 'should return 6 litres'
+console.log(litres(0.82)); //  0, 'should return 0 litres'
+console.log(litres(11.8)); //  5, 'should return 5 litres'
+console.log(litres(1787)); //  893, 'should return 893 litres'
+console.log(litres(0)); //  0, 'should return 0 litres'

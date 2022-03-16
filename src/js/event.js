@@ -1,10 +1,9 @@
 function isPrime(num) {
-    const limit = Math.ceil(Math.sqrt(num));
     if (num <= 3) return num > 1;
     if (num % 2 === 0 || num % 3 === 0) return false;
 
-    for (let i = 5; i <= limit; i += 6) {
-        if (num % i === 0 || num % (i + 2) === 0) return false;
+    for (let i = 5, limit = Math.sqrt(num); i <= limit; i += 2) {
+        if (num % i === 0) return false;
     }
 
     return true;

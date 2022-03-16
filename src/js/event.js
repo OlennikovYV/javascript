@@ -1,5 +1,5 @@
 function deepCount(a) {
-	return a.reduce((acc, el) => (Array.isArray(el)) ? acc + deepCount(el) + 1 : acc + 1, 0)
+	return a.reduce((acc, el) => ++acc + (Array.isArray(el) && deepCount(el)), 0)
 }
 
 console.log(deepCount([])); // , 0, "Expected 0"

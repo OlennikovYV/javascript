@@ -1,9 +1,7 @@
-function firstNonConsecutive(arr) {
-	let result = arr.find((el, index) => el != index + arr[0]);
-
-	return (Number.isInteger(result)) ? result : null;
+function sumMix(x) {
+	return x.reduce((acc, el) => +acc + +el);
 }
 
-console.log(firstNonConsecutive([1, 2, 3, 4, 6, 7, 8])); //6
-console.log(firstNonConsecutive([1, 2, 3, 4, 5, 6, 7])); //null
-console.log(firstNonConsecutive([6, 8, 9, 10, 11, 12, 14])); //8
+console.log(sumMix([9, 3, '7', '3'])); //  22
+console.log(sumMix(['5', '0', 9, 3, 2, 1, '9', 6, 7])); //  42
+console.log(sumMix(['3', 6, 6, 0, '5', 8, 5, '6', 2, '0'])); //  41

@@ -1,17 +1,6 @@
 function solution(roman) {
-	let convert = { I: 1, V: 5, X: 10, L: 50, C: 100, D: 500, M: 1000 },
-		romanDigits = Object.keys(convert),
-		result = 0;
-
-	for (let i = 0; i < roman.length; ++i) {
-		if (romanDigits.indexOf(roman[i]) < romanDigits.indexOf(roman[i + 1])) {
-			result -= convert[roman[i]];
-		} else {
-			result += convert[roman[i]];
-		}
-	}
-
-	return result;
+	let convert = { 'I': 1, 'V': 5, 'X': 10, 'L': 50, 'C': 100, 'D': 500, 'M': 1000 };
+	return roman.split('').map(el => convert[el]).reduce((acc, el, index, arr) => acc + ((arr[index + 1] > el) ? -el : el), 0);
 }
 
 console.log(solution('XXI')); //  21

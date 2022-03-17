@@ -1,6 +1,6 @@
 function getMiddle(s) {
 	const mid = Math.ceil(s.length / 2);
-	return (s.length % 2) ? s.slice(mid - 1, mid) : s.slice(mid - 1, mid + 1);
+	return s.slice(mid - 1, (s.length % 2) ? mid : mid + 1);
 }
 
 console.log(getMiddle("test")); // "es"

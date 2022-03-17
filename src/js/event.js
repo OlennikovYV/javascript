@@ -1,27 +1,22 @@
-function isPrime(num) {
-    if (num <= 3) return num > 1;
-    if (num % 2 === 0 || num % 3 === 0) return false;
+function solution(number) {
+	let sum = 0;
 
-    for (let i = 5, limit = Math.sqrt(num); i <= limit; i += 2) {
-        if (num % i === 0) return false;
-    }
+	if (number < 3) return 0;
 
-    return true;
+	for (let i = 3; i < number; i++) {
+		if (i % 3 === 0) {
+			sum += i;
+			continue;
+		}
+		if (i % 5 === 0) {
+			sum += i;
+			continue;
+		}
+	}
+
+	return sum;
 }
 
-console.log(isPrime(0)); //   false, "0 is not prime"
-console.log(isPrime(1)); //   false, "1 is not prime"
-console.log(isPrime(2)); //   true, "2 is prime"
-console.log(isPrime(73)); //  true, "73 is prime"
-console.log(isPrime(75)); //  false, "75 is not prime"
-console.log(isPrime(-1)); //  false, "-1 is not prime"
-console.log(isPrime(4)); // "4 is not prime"
-console.log(isPrime(6)); // "6 is not prime"
-console.log(isPrime(8)); // "8 is not prime"
-console.log(isPrime(9)); // "9 is not prime"
-console.log(isPrime(45)); // "45 is not prime"
-console.log(isPrime(-5)); // "-5 is not prime"
-console.log(isPrime(-8)); // "-8 is not prime"
-console.log(isPrime(-41)); // "-41 is not prime"
-console.log(isPrime(2000001)); // "2000001 is not prime"
-console.log(isPrime(546419878976874686741867468787)); // "5464198789 is not prime"
+console.log(solution(10)); // 23
+console.log(solution(50)); // 543
+console.log(solution(100)); // 2318

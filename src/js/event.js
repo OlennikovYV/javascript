@@ -1,11 +1,23 @@
-function sumTwoSmallestNumbers(numbers) {
-	let [min1, min2] = numbers.sort((a, b) => a - b);
-
-	return min1 + min2;
+function validatePIN(pin) {
+	return /^(\d{4}|\d{6})$/.test(pin);
 }
 
-console.log(sumTwoSmallestNumbers([5, 8, 12, 19, 22])); //  13 , "Sum should be 13"
-console.log(sumTwoSmallestNumbers([15, 28, 4, 2, 43])); //  6 , "Sum should be 6"
-console.log(sumTwoSmallestNumbers([3, 87, 45, 12, 7])); //  10 , "Sum should be 10"
-console.log(sumTwoSmallestNumbers([23, 71, 33, 82, 1])); //  24 , "Sum should be 24"
-console.log(sumTwoSmallestNumbers([52, 76, 14, 12, 4])); //  16 , "Sum should be 16"
+console.log(validatePIN("1")); // false, "Wrong output for '1'"
+console.log(validatePIN("12")); // false, "Wrong output for '12'"
+console.log(validatePIN("123")); // false, "Wrong output for '123'"
+console.log(validatePIN("12345")); // false, "Wrong output for '12345'"
+console.log(validatePIN("1234567")); // false, "Wrong output for '1234567'"
+console.log(validatePIN("-1234")); // false, "Wrong output for '-1234'"
+console.log(validatePIN("1.234")); // false, "Wrong output for '1.234'"
+console.log(validatePIN("-1.234")); // false, "Wrong output for '-1.234'"
+console.log(validatePIN("00000000")); // false, "Wrong output for
+console.log(validatePIN("a234")); // false, "Wrong output for 'a234'"
+console.log(validatePIN(".234")); // false, "Wrong output for '.234'"
+console.log(validatePIN("1234")); // true, "Wrong output for '1234'"
+console.log(validatePIN("0000")); // true, "Wrong output for '0000'"
+console.log(validatePIN("1111")); // true, "Wrong output for '1111'"
+console.log(validatePIN("123456")); // true, "Wrong output for '123456'"
+console.log(validatePIN("098765")); // true, "Wrong output for '098765'"
+console.log(validatePIN("000000")); // true, "Wrong output for '000000'"
+console.log(validatePIN("123456")); // true, "Wrong output for '123456'"
+console.log(validatePIN("090909")); // true, "Wrong output for '090909'"

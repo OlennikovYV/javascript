@@ -1,17 +1,17 @@
-function solution(number) {
-	let div3 = Math.floor(--number / 3),
-		div5 = Math.floor(number / 5),
-		div15 = Math.floor(number / 15);
+function sumTwoSmallestNumbers(numbers) {
+	let min1,
+		min2,
+		findMin = arr => Math.min(...arr);
 
-	return (3 * div3 * (div3 + 1) +
-		5 * div5 * (div5 + 1) -
-		15 * div15 * (div15 + 1)) / 2;
+	min1 = findMin(numbers);
+	numbers.splice(numbers.indexOf(min1), 1);
+	min2 = findMin(numbers);
+
+	return min2 + min1;
 }
 
-console.log(solution(-1)); // 0
-console.log(solution(0)); // 0
-console.log(solution(1)); // 0
-console.log(solution(2)); // 0
-console.log(solution(10)); // 23
-console.log(solution(50)); // 543
-console.log(solution(100)); // 2318
+console.log(sumTwoSmallestNumbers([5, 8, 12, 19, 22])); //  13 , "Sum should be 13"
+console.log(sumTwoSmallestNumbers([15, 28, 4, 2, 43])); //  6 , "Sum should be 6"
+console.log(sumTwoSmallestNumbers([3, 87, 45, 12, 7])); //  10 , "Sum should be 10"
+console.log(sumTwoSmallestNumbers([23, 71, 33, 82, 1])); //  24 , "Sum should be 24"
+console.log(sumTwoSmallestNumbers([52, 76, 14, 12, 4])); //  16 , "Sum should be 16"

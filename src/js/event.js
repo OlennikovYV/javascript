@@ -1,13 +1,7 @@
 function sumTwoSmallestNumbers(numbers) {
-	let min1,
-		min2,
-		findMin = arr => Math.min(...arr);
+	let [min1, min2] = numbers.sort((a, b) => a - b);
 
-	min1 = findMin(numbers);
-	numbers.splice(numbers.indexOf(min1), 1);
-	min2 = findMin(numbers);
-
-	return min2 + min1;
+	return min1 + min2;
 }
 
 console.log(sumTwoSmallestNumbers([5, 8, 12, 19, 22])); //  13 , "Sum should be 13"

@@ -1,12 +1,11 @@
 function solution(number) {
-	let sum = 0;
+	let div3 = Math.floor(--number / 3),
+		div5 = Math.floor(number / 5),
+		div15 = Math.floor(number / 15);
 
-	for (let i = 3; i < number; i++) {
-		if (i % 3 === 0 || i % 5 === 0)
-			sum += i;
-	}
-
-	return sum;
+	return (3 * div3 * (div3 + 1) +
+		5 * div5 * (div5 + 1) -
+		15 * div15 * (div15 + 1)) / 2;
 }
 
 console.log(solution(-1)); // 0

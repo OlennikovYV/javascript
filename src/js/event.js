@@ -1,13 +1,9 @@
-function firstNonRepeatingLetter(s) {
-	for (const key in s) {
-		if (s.match(new RegExp(s[key], 'gi')).length === 1)
-			return s[key];
-	}
-
-	return '';
+function past(h, m, s) {
+	return (s + m * 60 + h * 3600) * 1000;
 }
 
-console.log(firstNonRepeatingLetter('a')); //  'a'
-console.log(firstNonRepeatingLetter('sTress')); //  'T'
-console.log(firstNonRepeatingLetter('mOonmen')); //  'e'
-console.log(firstNonRepeatingLetter('moccom')); //  'null'
+console.log(past(0, 1, 1)); // 61000
+console.log(past(1, 1, 1)); // 3661000
+console.log(past(0, 0, 0)); // 0
+console.log(past(1, 0, 1)); // 3601000
+console.log(past(1, 0, 0)); // 3600000

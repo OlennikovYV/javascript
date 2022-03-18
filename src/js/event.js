@@ -1,12 +1,18 @@
-function solution(roman) {
-	let convert = { M: 1000, CM: 900, D: 500, CD: 400, C: 100, XC: 90, L: 50, XL: 40, X: 10, IX: 9, V: 5, IV: 4, I: 1 };
+function firstNonRepeatingLetter(s) {
+	const countChars = {};
 
-	return roman.match(/CM|CD|XC|XL|IX|IV|\w/g)
-		.reduce((acc, el) => acc + convert[el], 0);
+	s.split('').map(el => {
+		const char = el.toLowerCase();
+		countChars[char] = (countChars[char] || 0) + 1;
+	});
+	for (let key in countChars)
+		if (countChars[key] === 1)
+			return s[s.toLowerCase().indexOf(key)];
+
+	return '';
 }
 
-console.log(solution('XXI')); //  21
-console.log(solution('I')); //  1
-console.log(solution('IV')); //  4
-console.log(solution('MMVIII')); //  2008
-console.log(solution('MDCLXVI')); //  1666
+console.log(firstNonRepeatingLetter('a')); //  'a'
+console.log(firstNonRepeatingLetter('sTress')); //  'T'
+console.log(firstNonRepeatingLetter('mOonmen')); //  'e'
+console.log(firstNonRepeatingLetter('moccom')); //  'null'

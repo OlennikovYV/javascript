@@ -1,9 +1,35 @@
-function past(h, m, s) {
-	return (s + m * 60 + h * 3600) * 1000;
+function getPlanetName(id) {
+    let name;
+    switch (id) {
+        case 1:
+            name = 'Mercury';
+            break;
+        case 2:
+            name = 'Venus';
+            break;
+        case 3:
+            name = 'Earth';
+            break;
+        case 4:
+            name = 'Mars';
+            break;
+        case 5:
+            name = 'Jupiter';
+            break;
+        case 6:
+            name = 'Saturn';
+            break;
+        case 7:
+            name = 'Uranus';
+            break;
+        case 8:
+            name = 'Neptune';
+    }
+
+    return name;
 }
 
-console.log(past(0, 1, 1)); // 61000
-console.log(past(1, 1, 1)); // 3661000
-console.log(past(0, 0, 0)); // 0
-console.log(past(1, 0, 1)); // 3601000
-console.log(past(1, 0, 0)); // 3600000
+console.log(getPlanetName(2)); //  'Venus'
+console.log(getPlanetName(5)); //  'Jupiter'
+console.log(getPlanetName(3)); //  'Earth'
+console.log(getPlanetName(8)); //  'Neptune'

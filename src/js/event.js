@@ -1,32 +1,18 @@
 function formatDuration(seconds) {
-    let y = Math.floor(seconds / 31536000),
-        d = Math.floor(seconds / 86400) % 365,
-        h = Math.floor(seconds / 3600) % 24,
-        m = Math.floor(seconds / 60) % 60,
-        s = seconds % 60,
-        result = '';
+    let time = { year: 31536000, day: 86400, hour: 3600, minute: 60, second: 1 },
+        result = [];
 
-    function setText(time) {
-        time[0] = (time[0] ? time[0] + ' year' : '') + (time[0] > 1 ? 's' : '');
-        time[1] = (time[1] ? time[1] + ' day' : '') + (time[1] > 1 ? 's' : '');
-        time[2] = (time[2] ? time[2] + ' hour' : '') + (time[2] > 1 ? 's' : '');
-        time[3] = (time[3] ? time[3] + ' minute' : '') + (time[3] > 1 ? 's' : '');
-        time[4] = (time[4] ? time[4] + ' second' : '') + (time[4] > 1 ? 's' : '');
+    if (seconds === 0) return 'now';
 
-        return time;
-    }
+    for (let key in time)
+        if (seconds >= time[key]) {
+            let el = Math.floor(seconds / time[key]);
 
-    if (!seconds) return 'now';
+            result.push(el += el > 1 ? ' ' + key + 's' : ' ' + key);
+            seconds %= time[key];
+        }
 
-    result = setText([y, d, h, m, s]).filter(el => el);
-
-    if (result.length > 1)
-        result[result.length - 1] = ' and ' + result[result.length - 1];
-    if (result.length > 2)
-        for (let i = 0; i < result.length - 2; i++)
-            result[i] = result[i] + ', ';
-
-    return result.join('');
+    return result.length > 1 ? result.join(', ').replace(/,([^,]*)$/, ' and' + '$1') : result[0];
 }
 
 console.log(formatDuration(1)); //  "1 second"

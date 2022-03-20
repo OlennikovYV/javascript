@@ -7,7 +7,7 @@ var array1 = [true, true, true, false,
 ];
 
 function countSheeps(arrayOfSheep) {
-    return arrayOfSheep.reduce((acc, el) => el ? acc + el : acc, 0);
+    return arrayOfSheep.filter(Boolean).length;
 }
 
 console.log(countSheeps(array1)); // 17

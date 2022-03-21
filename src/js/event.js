@@ -13,7 +13,10 @@ var decompose = function (arrays) {
 
 	for (let i = 0; i < n; i++) {
 		for (let j = i; j < n; j++) {
-			matrix.l[j][i] = matrix.u[j][i] / matrix.u[i][i];
+			if (j > i) {
+				matrix.l[i][j] = 0;
+			} else
+				matrix.l[j][i] = matrix.u[j][i] / matrix.u[i][i];
 		}
 	}
 
@@ -26,11 +29,6 @@ var decompose = function (arrays) {
 			for (let j = k - 1; j < n; j++)
 				matrix.u[i][j] = matrix.u[i][j] - matrix.l[i][k - 1] * matrix.u[k - 1][j];
 	}
-
-	for (let i = 0; i < n; i++)
-		for (let j = 0; j < n; j++) {
-			if (j > i) matrix.l[i][j] = 0;
-		}
 
 	return matrix;
 };

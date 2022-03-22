@@ -1,37 +1,11 @@
-const m1 = [[1, 2],
-[3, 4]];
+function remainder(n, m) {
+	if (n < m) [n, m] = [m, n];
+	if (!m) return NaN;
+	return n % m;
+}
 
-var decompose = function (arrays) {
-	let matrix = {
-		l: [],
-		u: [],
-	},
-		n = arrays.length;
-
-	matrix.u = JSON.parse(JSON.stringify(arrays));
-	matrix.l = JSON.parse(JSON.stringify(arrays));
-
-	for (let i = 0; i < n; i++) {
-		for (let j = i; j < n; j++) {
-			if (j > i) {
-				matrix.l[i][j] = 0;
-			} else
-				matrix.l[j][i] = matrix.u[j][i] / matrix.u[i][i];
-		}
-	}
-
-	for (let k = 1; k < n; k++) {
-		for (let i = k - 1; i < n; i++)
-			for (let j = i; j < n; j++)
-				matrix.l[j][i] = matrix.u[j][i] / matrix.u[i][i];
-
-		for (let i = k; i < n; i++)
-			for (let j = k - 1; j < n; j++)
-				matrix.u[i][j] = matrix.u[i][j] - matrix.l[i][k - 1] * matrix.u[k - 1][j];
-	}
-
-	return matrix;
-};
-
-console.table(decompose(m1).l); //  [[1, 0] [3, 1]]
-console.table(decompose(m1).u); //  [[1, 2] [0, -2]]
+console.table(remainder(17, 5)); // 2
+console.table(remainder(13, 72)); // 7
+console.table(remainder(0, -1)); // 0
+console.table(remainder(0, 1)); // NaN
+console.table(remainder(0, 0)); // NaN

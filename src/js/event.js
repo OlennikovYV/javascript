@@ -1,7 +1,5 @@
 function remainder(n, m) {
-	if (n < m) [n, m] = [m, n];
-	if (!m) return NaN;
-	return n % m;
+	return n < m ? m % n : n % m;
 }
 
 console.table(remainder(17, 5)); // 2

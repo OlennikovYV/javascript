@@ -1,7 +1,5 @@
 function solve(s) {
-    let countChar = s.length,
-        countUpperCase = [...s].reduce((acc, el) => acc + (el === el.toUpperCase()), 0);
-    return (countChar - countUpperCase < countChar / 2) ?
+    return (s.replace(/[A-Z]/g, '').length < s.length / 2) ?
         s.toUpperCase() :
         s.toLowerCase();
 }

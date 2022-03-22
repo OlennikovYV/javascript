@@ -1,9 +1,13 @@
-function remainder(n, m) {
-	return n < m ? m % n : n % m;
+function finalGrade(exam, projects) {
+    return exam > 90 || projects > 10 ? 100 :
+        exam > 75 && projects >= 5 ? 90 :
+        exam > 50 && projects >= 2 ? 75 : 0;
 }
 
-console.table(remainder(17, 5)); // 2
-console.table(remainder(13, 72)); // 7
-console.table(remainder(0, -1)); // 0
-console.table(remainder(0, 1)); // NaN
-console.table(remainder(0, 0)); // NaN
+console.log(finalGrade(100, 12)); //  100
+console.log(finalGrade(99, 0)); //  100
+console.log(finalGrade(10, 15)); //  100
+console.log(finalGrade(85, 5)); //  90
+console.log(finalGrade(55, 3)); //  75
+console.log(finalGrade(55, 0)); //  0
+console.log(finalGrade(20, 2)); //  0

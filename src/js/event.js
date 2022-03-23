@@ -1,6 +1,10 @@
-const zeroFuel = (distanceToPump, mpg, fuelLeft) => {
-    return distanceToPump <= mpg * fuelLeft;
-};
+function isDivideBy(number, a, b) {
+    return number % a === 0 && number % b === 0;
+}
 
-console.log(zeroFuel(50, 25, 2)); //  true
-console.log(zeroFuel(100, 50, 1)); //  false
+console.log(isDivideBy(-12, 2, -6)); //  true
+console.log(isDivideBy(-12, 2, -5)); //  false
+console.log(isDivideBy(45, 1, 6)); //  false
+console.log(isDivideBy(45, 5, 15)); //  true
+console.log(isDivideBy(4, 1, 4)); //  true
+console.log(isDivideBy(15, -5, 3)); //  true

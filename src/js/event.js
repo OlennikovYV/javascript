@@ -1,10 +1,9 @@
-function pillars(num_pill, dist, width) {
-    return (num_pill > 1) ?
-        (num_pill - 2) * width + (num_pill - 1) * dist * 100 :
-        0;
-}
+function smash(words) {
+	return words.join(' ');
+};
 
-console.log(pillars(1, 10, 10)); //  0
-console.log(pillars(2, 20, 25)); //  2000
-console.log(pillars(3, 20, 25)); //  4025
-console.log(pillars(11, 15, 30)); //  15270
+console.log(smash([])); //  ""
+console.log(smash(["hello"])); //  "hello"
+console.log(smash(["hello", "world"])); //  "hello world"
+console.log(smash(["hello", "amazing", "world"])); //  "hello amazing world"
+console.log(smash(["this", "is", "a", "really", "long", "sentence"])); //  "this is a really long sentence"

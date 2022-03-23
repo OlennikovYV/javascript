@@ -1,9 +1,16 @@
-function smash(words) {
-	return words.join(' ');
-};
+function dontGiveMeFive(start, end) {
+    let count = 0;
 
-console.log(smash([])); //  ""
-console.log(smash(["hello"])); //  "hello"
-console.log(smash(["hello", "world"])); //  "hello world"
-console.log(smash(["hello", "amazing", "world"])); //  "hello amazing world"
-console.log(smash(["this", "is", "a", "really", "long", "sentence"])); //  "this is a really long sentence"
+    for (let i = start; i <= end; i++)
+        if (String(i).indexOf('5') === -1)
+            count++;
+
+    return count;
+}
+
+console.log(dontGiveMeFive(-9, 9)); //  17
+console.log(dontGiveMeFive(-1, 9)); //  10
+console.log(dontGiveMeFive(1, 9)); //  8
+console.log(dontGiveMeFive(4, 17)); //  12
+console.log(dontGiveMeFive(22, 47)); //  23
+console.log(dontGiveMeFive(50, 100)); //  37

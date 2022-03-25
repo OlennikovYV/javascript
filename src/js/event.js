@@ -1,11 +1,9 @@
 function updateLight(current) {
-	const trafficLight = ["green", "yellow", "red"];
-
-	let index = trafficLight.indexOf(current);
-	index++;
-	if (index > 2) index = 0;
-
-	return trafficLight[index];
+	return {
+		"green": "yellow",
+		"yellow": "red",
+		"red": "green"
+	}[current];
 }
 
 console.log(updateLight("green")); //  "yellow"

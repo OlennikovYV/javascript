@@ -1,12 +1,13 @@
-function abbrevName(name) {
-	return name.toUpperCase()
-		.split(' ')
-		.map(e => e[0])
-		.join('.');
+function updateLight(current) {
+	const trafficLight = ["green", "yellow", "red"];
+
+	let index = trafficLight.indexOf(current);
+	index++;
+	if (index > 2) index = 0;
+
+	return trafficLight[index];
 }
 
-console.log(abbrevName("Sam Harris")); //  "S.H"
-console.log(abbrevName("Patrick Feenan")); //  "P.F"
-console.log(abbrevName("Evan Cole")); //  "E.C"
-console.log(abbrevName("P Favuzzi")); //  "P.F"
-console.log(abbrevName("David Mendieta")); //  "D.M"
+console.log(updateLight("green")); //  "yellow"
+console.log(updateLight("yellow")); //  "red"
+console.log(updateLight("red")); //  "green"

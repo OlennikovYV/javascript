@@ -1,11 +1,6 @@
-function updateLight(current) {
-	return {
-		"green": "yellow",
-		"yellow": "red",
-		"red": "green"
-	}[current];
-}
+const areaOrPerimeter = function (l, w) {
+	return l === w ? l * w : 2 * (l + w);
+};
 
-console.log(updateLight("green")); //  "yellow"
-console.log(updateLight("yellow")); //  "red"
-console.log(updateLight("red")); //  "green"
+console.log(areaOrPerimeter(4, 4)); //  16
+console.log(areaOrPerimeter(6, 10)); //  32

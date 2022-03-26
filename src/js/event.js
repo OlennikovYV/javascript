@@ -1,6 +1,12 @@
-const areaOrPerimeter = function (l, w) {
-	return l === w ? l * w : 2 * (l + w);
-};
+function reverseWords(str) {
+    return str
+        .split(' ')
+        .reverse()
+        .join(' ');
+}
 
-console.log(areaOrPerimeter(4, 4)); //  16
-console.log(areaOrPerimeter(6, 10)); //  32
+console.log(reverseWords("hello world!")); // "world! hello"
+console.log(reverseWords("yoda doesn't speak like this")); // "this like speak doesn't yoda"
+console.log(reverseWords("foobar")); // "foobar"
+console.log(reverseWords("kata editor")); // "editor kata"
+console.log(reverseWords("row row row your boat")); // "boat your row row row"

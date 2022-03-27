@@ -1,8 +1,8 @@
-var uniqueInOrder = function(iterable) {
-    return [...iterable].filter((el, index) => {
-        return el != iterable[index - 1];
-    });
+function check(a, x) {
+    return !!a.filter(el => el === x).length;
 }
 
-console.log(uniqueInOrder('AAAABBBCCDAABBB')); // ['A','B','C','D','A','B']
-console.log(uniqueInOrder([1, 2, 2, 3, 3])); // [1,2,3]
+console.log(check([66, 101], 66)); //  true
+console.log(check([101, 45, 75, 105, 99, 107], 107)); //  true
+console.log(check(['t', 'e', 's', 't'], 'e')); //  true
+console.log(check(['what', 'a', 'great', 'kata'], 'kat')); //  false

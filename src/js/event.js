@@ -1,10 +1,7 @@
 var uniqueInOrder = function(iterable) {
-    let result = [];
-    for (let i = 0; i < iterable.length; i++) {
-        if (iterable[i] != iterable[i + 1])
-            result.push(iterable[i]);
-    }
-    return result;
+    return [...iterable].filter((el, index) => {
+        return el != iterable[index - 1];
+    });
 }
 
 console.log(uniqueInOrder('AAAABBBCCDAABBB')); // ['A','B','C','D','A','B']

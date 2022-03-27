@@ -1,12 +1,11 @@
-function reverseWords(str) {
-    return str
-        .split(' ')
-        .reverse()
-        .join(' ');
+var uniqueInOrder = function(iterable) {
+    let result = [];
+    for (let i = 0; i < iterable.length; i++) {
+        if (iterable[i] != iterable[i + 1])
+            result.push(iterable[i]);
+    }
+    return result;
 }
 
-console.log(reverseWords("hello world!")); // "world! hello"
-console.log(reverseWords("yoda doesn't speak like this")); // "this like speak doesn't yoda"
-console.log(reverseWords("foobar")); // "foobar"
-console.log(reverseWords("kata editor")); // "editor kata"
-console.log(reverseWords("row row row your boat")); // "boat your row row row"
+console.log(uniqueInOrder('AAAABBBCCDAABBB')); // ['A','B','C','D','A','B']
+console.log(uniqueInOrder([1, 2, 2, 3, 3])); // [1,2,3]

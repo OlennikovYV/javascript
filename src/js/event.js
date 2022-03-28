@@ -1,8 +1,18 @@
-function check(a, x) {
-    return a.includes(x);
+String.prototype.camelCase = function () {
+	return this
+		.trim()
+		.split(' ')
+		.map(el => {
+			if (el) {
+				return el[0].toUpperCase() + el.slice(1);
+			}
+			return el;
+		})
+		.join('');
 }
 
-console.log(check([66, 101], 66)); //  true
-console.log(check([101, 45, 75, 105, 99, 107], 107)); //  true
-console.log(check(['t', 'e', 's', 't'], 'e')); //  true
-console.log(check(['what', 'a', 'great', 'kata'], 'kat')); //  false
+console.log("test case".camelCase()); //  "TestCase"
+console.log("camel case method".camelCase()); //  "CamelCaseMethod"
+console.log("say hello ".camelCase()); //  "SayHello"
+console.log(" camel case word".camelCase()); //  "CamelCaseWord"
+console.log("".camelCase()); //  ""

@@ -1,5 +1,5 @@
 function digitize(n) {
-    return [...String(n)].reverse().map(Number);
+    return Array.from(String(n), Number);
 }
 
 console.log(digitize(35231)); // [1,3,2,5,3]

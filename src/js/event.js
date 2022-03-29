@@ -1,18 +1,11 @@
-String.prototype.camelCase = function () {
-	return this
-		.trim()
-		.split(' ')
-		.map(el => {
-			if (el) {
-				return el[0].toUpperCase() + el.slice(1);
-			}
-			return el;
-		})
-		.join('');
+function twiceAsOld(dadYearsOld, sonYearsOld) {
+	return (dadYearsOld >= sonYearsOld * 2)
+		? (dadYearsOld - sonYearsOld * 2)
+		: (sonYearsOld * 2 - dadYearsOld);
 }
 
-console.log("test case".camelCase()); //  "TestCase"
-console.log("camel case method".camelCase()); //  "CamelCaseMethod"
-console.log("say hello ".camelCase()); //  "SayHello"
-console.log(" camel case word".camelCase()); //  "CamelCaseWord"
-console.log("".camelCase()); //  ""
+console.log(twiceAsOld(36, 7)); //  22
+console.log(twiceAsOld(55, 30)); //  5
+console.log(twiceAsOld(42, 21)); //  0
+console.log(twiceAsOld(22, 1)); //  20
+console.log(twiceAsOld(29, 0)); //  29

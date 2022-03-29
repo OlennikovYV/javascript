@@ -10,20 +10,14 @@ const code = ['a', 'e', 'i', 'o', 'u'];
 function encode(string) {
     return string
         .split('')
-        .map(el => {
-            if (code.includes(el)) return code.indexOf(el) + 1;
-            return el;
-        })
+        .map(el => code.indexOf(el) + 1 || el)
         .join('');
 }
 
 function decode(string) {
     return string
         .split('')
-        .map(el => {
-            if (el >= 1 && el <= 5) return code[el - 1];
-            return el;
-        })
+        .map(el => code[Number(el) - 1] || el)
         .join('');
 }
 

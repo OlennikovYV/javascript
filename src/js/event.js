@@ -1,10 +1,12 @@
-function maxMultiple(divisor, bound) {
-    return Math.floor(bound / divisor) * divisor;
+function squareDigits(num) {
+    return Number(
+        Array
+        .from(String(num), Number)
+        .map(el => el ** 2)
+        .join('')
+    );
 }
 
-console.log(maxMultiple(2, 7)); // 6
-console.log(maxMultiple(3, 10)); // 9
-console.log(maxMultiple(7, 17)); // 14
-console.log(maxMultiple(10, 50)); // 50
-console.log(maxMultiple(37, 200)); // 185
-console.log(maxMultiple(7, 100)); // 98
+console.log(squareDigits(3212)); //  9414)
+console.log(squareDigits(2112)); //  4114)
+console.log(squareDigits(0)); //  0)

@@ -1,6 +1,8 @@
-function digitize(n) {
-    return Array.from(String(n), Number);
-}
+function check(a, x) {
+    return a.includes(x);
+};
 
-console.log(digitize(35231)); // [1,3,2,5,3]
-console.log(digitize(0)); // [0]
+console.log(check([66, 101], 66)); //  true
+console.log(check([80, 117, 115, 104, 45, 85, 112, 115], 45)); //  true
+console.log(check(['t', 'e', 's', 't'], 'e')); //  true
+console.log(check(['what', 'a', 'great', 'kata'], 'kat')); //  false

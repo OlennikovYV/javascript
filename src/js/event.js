@@ -1,12 +1,18 @@
-function squareDigits(num) {
-    return Number(
-        Array
-        .from(String(num), Number)
-        .map(el => el ** 2)
-        .join('')
-    );
+function calculateYears(principal, interest, tax, desired) {
+    let year = 0,
+        [P, I, T, D] = [principal, interest, tax, desired],
+        sum;
+
+    if (P === D) return 0;
+
+    while ((sum = P + (P * I) - (P * I * T)) <= D) {
+        P = sum;
+        ++year;
+    }
+
+    return ++year;
 }
 
-console.log(squareDigits(3212)); //  9414)
-console.log(squareDigits(2112)); //  4114)
-console.log(squareDigits(0)); //  0)
+console.log(calculateYears(1000, 0.05, 0.18, 1100)); //  3
+console.log(calculateYears(1000, 0.01625, 0.18, 1200)); //  14
+console.log(calculateYears(1000, 0.05, 0.18, 1000)); //  0

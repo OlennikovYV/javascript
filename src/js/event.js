@@ -1,8 +1,10 @@
-function check(a, x) {
-    return a.includes(x);
-};
+function maxMultiple(divisor, bound) {
+    return Math.floor(bound / divisor) * divisor;
+}
 
-console.log(check([66, 101], 66)); //  true
-console.log(check([80, 117, 115, 104, 45, 85, 112, 115], 45)); //  true
-console.log(check(['t', 'e', 's', 't'], 'e')); //  true
-console.log(check(['what', 'a', 'great', 'kata'], 'kat')); //  false
+console.log(maxMultiple(2, 7)); // 6
+console.log(maxMultiple(3, 10)); // 9
+console.log(maxMultiple(7, 17)); // 14
+console.log(maxMultiple(10, 50)); // 50
+console.log(maxMultiple(37, 200)); // 185
+console.log(maxMultiple(7, 100)); // 98

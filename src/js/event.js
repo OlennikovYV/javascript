@@ -1,16 +1,13 @@
 function calculateYears(principal, interest, tax, desired) {
     let year = 0,
-        [P, I, T, D] = [principal, interest, tax, desired],
-        sum;
+        [P, I, T, D] = [principal, interest, tax, desired];
 
-    if (P === D) return 0;
-
-    while ((sum = P + (P * I) - (P * I * T)) <= D) {
-        P = sum;
-        ++year;
+    while (P < D) {
+        P += (P * I) * (1 - T);
+        year++;
     }
 
-    return ++year;
+    return year;
 }
 
 console.log(calculateYears(1000, 0.05, 0.18, 1100)); //  3

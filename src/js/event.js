@@ -1,15 +1,9 @@
-function calculateYears(principal, interest, tax, desired) {
-	let year = 0,
-		[P, I, T, D] = [principal, interest, tax, desired];
-
-	while (P < D) {
-		P += (P * I) * (1 - T);
-		year++;
-	}
-
-	return year;
+function twiceAsOld(dadYearsOld, sonYearsOld) {
+	return Math.abs(dadYearsOld - sonYearsOld * 2);
 }
 
-console.log(calculateYears(1000, 0.05, 0.18, 1100)); //  3
-console.log(calculateYears(1000, 0.01625, 0.18, 1200)); //  14
-console.log(calculateYears(1000, 0.05, 0.18, 1000)); //  0
+console.log(twiceAsOld(36, 7)); //  22
+console.log(twiceAsOld(55, 30)); //  5
+console.log(twiceAsOld(42, 21)); //  0
+console.log(twiceAsOld(22, 1)); //  20
+console.log(twiceAsOld(29, 0)); //  29

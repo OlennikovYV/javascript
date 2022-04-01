@@ -1,9 +1,16 @@
-function digital_root(n) {
-	return (n - 1) % 9 + 1;
+function getDivisorsCnt(n) {
+	let count = 0;
+
+	for (let i = 1; i <= n; i++) {
+		if (n % i === 0) {
+			count++;
+		}
+	}
+
+	return count;
 }
 
-console.log(digital_root(16)); //  7
-console.log(digital_root(456)); //  6
-console.log(digital_root(942)); //  6
-console.log(digital_root(132189)); //  6
-console.log(digital_root(493193)); //  2
+console.log(getDivisorsCnt(1)); //  1
+console.log(getDivisorsCnt(10)); //  4
+console.log(getDivisorsCnt(11)); //  2
+console.log(getDivisorsCnt(54)); //  8

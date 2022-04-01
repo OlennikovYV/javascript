@@ -1,11 +1,11 @@
 function digital_root(n) {
-	while (n.toString().length > 1) {
-		n = Array
-			.from(String(n), Number)
-			.reduce((acc, el) => acc + el, 0);
-	}
+	if (n.toString().length === 1) return n;
 
-	return n;
+	return digital_root(
+		Array
+			.from(String(n), Number)
+			.reduce((acc, el) => acc + el, 0)
+	)
 }
 
 console.log(digital_root(16)); //  7

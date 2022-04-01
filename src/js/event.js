@@ -1,11 +1,5 @@
 function digital_root(n) {
-	if (n.toString().length === 1) return n;
-
-	return digital_root(
-		Array
-			.from(String(n), Number)
-			.reduce((acc, el) => acc + el, 0)
-	)
+	return (n - 1) % 9 + 1;
 }
 
 console.log(digital_root(16)); //  7

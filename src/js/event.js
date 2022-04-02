@@ -1,17 +1,9 @@
 function nbDig(n, d) {
-    let count = 0;
-
-    for (let k = 0; k <= n; k++) {
-        const square = k ** 2;
-        count += Array
-            .from(String(square), Number)
-            .reduce((acc, el) => {
-                if (el === d) acc += 1;
-                return acc;
-            }, 0);
-    }
-
-    return count;
+    return Array
+        .from(Array(n + 1), (el, index) => index ** 2)
+        .join('')
+        .match(new RegExp(d, 'g'))
+        .length;
 }
 
 console.log(nbDig(10, 1)); //   4

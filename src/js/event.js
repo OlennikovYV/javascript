@@ -1,13 +1,5 @@
 function solution(str) {
-    const result = [];
-
-    for (let i = 0; i < str.length; i += 2) {
-        result.push(
-            str[i] + (i + 1 < str.length ? str[i + 1] : '_')
-        );
-    }
-
-    return result;
+    return (str + '_').match(/../g) || [];
 }
 
 console.log(solution("abcdef")); //  ["ab", "cd", "ef"]

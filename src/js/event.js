@@ -1,14 +1,8 @@
 function solution(input, markers) {
     return input
+        .replace(new RegExp(`\s*[${markers.join('')}].+`, 'g'), '')
         .split('\n')
-        .map(el => {
-            markers.forEach(mark => {
-                const ind = el.indexOf(mark);
-                if (ind > -1)
-                    el = el.slice(0, ind);
-            });
-            return el.trimEnd();
-        })
+        .map(el => el.trim())
         .join('\n');
 };
 

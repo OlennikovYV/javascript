@@ -1,11 +1,18 @@
-function bonusTime(salary, bonus) {
-	return `\u00A3` + salary * (bonus ? 10 : 1);
+//S - 5, O - 0, I - 1
+function correct(string) {
+	let code = {
+		'5': 'S',
+		'0': 'O',
+		'1': 'I',
+	};
+	return Array
+		.from(String(string))
+		.map(el => code[el] ?? el)
+		.join('');
 }
 
-console.log(bonusTime(10000, true)); //  '£100000'
-console.log(bonusTime(25000, true)); //  '£250000'
-console.log(bonusTime(10000, false)); //  '£10000'
-console.log(bonusTime(60000, false)); //  '£60000'
-console.log(bonusTime(2, true)); //  '£20'
-console.log(bonusTime(78, false)); //  '£78'
-console.log(bonusTime(67890, true)); //  '£678900'
+console.log(correct("L0ND0N")); // "LONDON"
+console.log(correct("DUBL1N")); // "DUBLIN"
+console.log(correct("51NGAP0RE")); // "SINGAPORE"
+console.log(correct("BUDAPE5T")); // "BUDAPEST"
+console.log(correct("PAR15")); // "PARIS"

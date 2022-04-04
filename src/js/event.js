@@ -1,5 +1,5 @@
 function bonusTime(salary, bonus) {
-	return `\u00A3${(bonus ? salary * 10 : salary)}`;
+	return `\u00A3` + salary * (bonus ? 10 : 1);
 }
 
 console.log(bonusTime(10000, true)); //  '£100000'

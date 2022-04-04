@@ -1,14 +1,11 @@
 //S - 5, O - 0, I - 1
 function correct(string) {
-	let code = {
+	const code = {
 		'5': 'S',
 		'0': 'O',
 		'1': 'I',
 	};
-	return Array
-		.from(String(string))
-		.map(el => code[el] ?? el)
-		.join('');
+	return string.replace(/[501]/g, el => code[el]);
 }
 
 console.log(correct("L0ND0N")); // "LONDON"

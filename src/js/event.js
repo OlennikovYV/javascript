@@ -1,13 +1,5 @@
 function incrementString(strng) {
-	let digit = '',
-		digitEnd = strng.match(/\d+$/);
-
-	if (!digitEnd) return strng + '1';
-
-	digit = String(+digitEnd[0] + 1);
-	digit = digit.padStart(digitEnd[0].length, '0');
-
-	return strng.slice(0, digitEnd.index) + digit;
+	return strng.replace(/[0-8]?9*$/, el => String(++el));
 }
 
 console.log(incrementString("foobar000")); //  "foobar001"

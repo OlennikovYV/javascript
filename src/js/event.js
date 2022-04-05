@@ -1,15 +1,25 @@
-//S - 5, O - 0, I - 1
-function correct(string) {
-	const code = {
-		'5': 'S',
-		'0': 'O',
-		'1': 'I',
-	};
-	return string.replace(/[501]/g, el => code[el]);
+function high(x) {
+	let words,
+		wordsScores;
+
+	words = x.split(' ');
+
+	wordsScores = words
+		.map(word => word
+			.split('')
+			.reduce((acc, char) => acc + (char.charCodeAt(0) - 96), 0)
+		);
+
+	return words[
+		wordsScores.indexOf(Math.max(...wordsScores))
+	];
 }
 
-console.log(correct("L0ND0N")); // "LONDON"
-console.log(correct("DUBL1N")); // "DUBLIN"
-console.log(correct("51NGAP0RE")); // "SINGAPORE"
-console.log(correct("BUDAPE5T")); // "BUDAPEST"
-console.log(correct("PAR15")); // "PARIS"
+console.log(high('man i need a taxi up to ubud')); //  'taxi'
+console.log(high('what time are we climbing up the volcano')); //  'volcano'
+console.log(high('take me to semynak')); //  'semynak'
+console.log(high('aa b')); //  'aa'
+console.log(high('b aa')); //  'b'
+console.log(high('bb d')); //  'bb'
+console.log(high('d bb')); //  'd'
+console.log(high('aaa b')); //  'aaa'

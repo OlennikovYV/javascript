@@ -1,25 +1,15 @@
-function high(x) {
-	let words,
-		wordsScores;
+function zeros(n) {
+	let result = 0;
 
-	words = x.split(' ');
+	while (n > 0) {
+		n = Math.floor(n / 5);
+		result += n;
+	}
 
-	wordsScores = words
-		.map(word => word
-			.split('')
-			.reduce((acc, char) => acc + (char.charCodeAt(0) - 96), 0)
-		);
-
-	return words[
-		wordsScores.indexOf(Math.max(...wordsScores))
-	];
+	return result;
 }
 
-console.log(high('man i need a taxi up to ubud')); //  'taxi'
-console.log(high('what time are we climbing up the volcano')); //  'volcano'
-console.log(high('take me to semynak')); //  'semynak'
-console.log(high('aa b')); //  'aa'
-console.log(high('b aa')); //  'b'
-console.log(high('bb d')); //  'bb'
-console.log(high('d bb')); //  'd'
-console.log(high('aaa b')); //  'aaa'
+console.log(zeros(0)); //  0, "Testing with n = 0"
+console.log(zeros(5)); //  1, "Testing with n = 5"
+console.log(zeros(6)); //  1, "Testing with n = 6"
+console.log(zeros(30)); //  7, "Testing with n = 30"

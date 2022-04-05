@@ -1,15 +1,18 @@
-function zeros(n) {
-	let result = 0;
+function incrementString(strng) {
+	let digit = '',
+		digitEnd = strng.match(/\d+$/);
 
-	while (n > 0) {
-		n = Math.floor(n / 5);
-		result += n;
-	}
+	if (!digitEnd) return strng + '1';
 
-	return result;
+	digit = String(+digitEnd[0] + 1);
+	digit = digit.padStart(digitEnd[0].length, '0');
+
+	return strng.slice(0, digitEnd.index) + digit;
 }
 
-console.log(zeros(0)); //  0, "Testing with n = 0"
-console.log(zeros(5)); //  1, "Testing with n = 5"
-console.log(zeros(6)); //  1, "Testing with n = 6"
-console.log(zeros(30)); //  7, "Testing with n = 30"
+console.log(incrementString("foobar000")); //  "foobar001"
+console.log(incrementString("foo")); //  "foo1"
+console.log(incrementString("foobar001")); //  "foobar002"
+console.log(incrementString("foobar99")); //  "foobar100"
+console.log(incrementString("foobar099")); //  "foobar100"
+console.log(incrementString("")); //  "1"

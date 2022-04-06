@@ -8,13 +8,7 @@ function scramble(str1, str2) {
 
 	str2 = Array.from(str2);
 
-	for (let i = 0; i < str2.length; i++) {
-		if (str1[str2[i]] === 0 || str1[str2[i]] === undefined)
-			return false;
-		str1[str2[i]]--;
-	}
-
-	return true;
+	return str2.every(el => --str1[el] >= 0);
 }
 
 console.log(scramble('rkqodlw', 'world')); // true

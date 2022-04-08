@@ -1,6 +1,8 @@
 function find_average(array) {
-	if (!array.length) return 0;
-	return array.reduce((acc, el) => acc + el) / array.length;
+	const sum = array.reduce((acc, el) => acc + el);
+	const length = array.length;
+
+	return length === 0 ? 0 : sum / length;
 }
 
 console.log(find_average([1, 1, 1])); //  1

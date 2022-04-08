@@ -1,15 +1,41 @@
-function multiply(a, b) {
-	return (BigInt(a) * BigInt(b)).toString();
+function nextBigger(n) {
+    const combination = [];
+    let nextBigger = Number.MAX_VALUE;
+
+    function getCombination(array, memo) {
+        let currentElement;
+
+        memo = memo || [];
+
+        for (let i = 0; i < array.length; i++) {
+            currentElement = array.splice(i, 1);
+
+            if (array.length === 0) {
+                let digit = +memo.concat(currentElement).join('');
+                if (digit > n && digit < nextBigger) {
+                    nextBigger = digit;
+                    if (combination.length > 0)
+                        combination.pop();
+                    combination.push(digit);
+                }
+            }
+
+            getCombination(array.slice(), memo.concat(currentElement));
+            array.splice(i, 0, currentElement[0]);
+        }
+
+        return combination;
+    }
+
+    getCombination(Array.from(String(n), Number));
+
+    return combination.length > 0 ? combination[0] : -1;
 }
 
-console.log(multiply("2", "3")); //  "6"
-console.log(multiply("30", "69")); //  "2070"
-console.log(multiply("11", "85")); //  "935"
-console.log(multiply("2", "0")); //  "0"
-console.log(multiply("0", "30")); //  "0"
-console.log(multiply("0000001", "3")); //  "3"
-console.log(multiply("1009", "03")); //  "3027"
-console.log(multiply("98765", "56894")); //  "5619135910"
-console.log(multiply("1020303004875647366210", "2774537626200857473632627613")); //  "2830869077153280552556547081187254342445169156730"
-console.log(multiply("58608473622772837728372827", "7586374672263726736374")); //  "444625839871840560024489175424316205566214109298"
-console.log(multiply("9007199254740991", "9007199254740991")); //  "81129638414606663681390495662081"
+console.log(nextBigger(12)); // 21
+console.log(nextBigger(513)); // 531
+console.log(nextBigger(2017)); // 2071
+console.log(nextBigger(414)); // 441
+console.log(nextBigger(144)); // 414
+console.log(nextBigger(321)); // -1
+console.log(nextBigger(1234567890)); //1234567908

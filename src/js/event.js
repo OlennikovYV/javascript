@@ -1,7 +1,5 @@
 function multiply(a, b) {
-	let mult = BigInt(a) * BigInt(b);
-
-	return mult.toString();
+	return (BigInt(a) * BigInt(b)).toString();
 }
 
 console.log(multiply("2", "3")); //  "6"

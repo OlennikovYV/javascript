@@ -1,5 +1,5 @@
-function findDifference(a, b) {
-    return Math.abs((a[0] * a[1] * a[2]) - (b[0] * b[1] * b[2]));
+function findDifference([a1, a2, a3], [b1, b2, b3]) {
+    return Math.abs((a1 * a2 * a3) - (b1 * b2 * b3));
 }
 
 

@@ -1,8 +1,5 @@
 function arrayPlusArray(arr1, arr2) {
-    return arr1.reduce((acc, el, index) => {
-        acc = acc + el + arr2[index];
-        return acc;
-    }, 0);
+    return arr1.concat(arr2).reduce((acc, el) => acc + el);
 }
 
 console.log(arrayPlusArray([1, 2, 3], [4, 5, 6])); //  21

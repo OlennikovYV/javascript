@@ -1,8 +1,18 @@
-function arrayPlusArray(arr1, arr2) {
-    return arr1.concat(arr2).reduce((acc, el) => acc + el);
-}
+const add = (a, b) => a + b
 
-console.log(arrayPlusArray([1, 2, 3], [4, 5, 6])); //  21
-console.log(arrayPlusArray([-1, -2, -3], [-4, -5, -6])); //  -21
-console.log(arrayPlusArray([0, 0, 0], [4, 5, 6])); //  15
-console.log(arrayPlusArray([100, 200, 300], [400, 500, 600])); //  2100
+const divide = (a, b) => a / b
+
+const multiply = (a, b) => a * b
+
+const mod = (a, b) => a % b
+
+const exponent = (a, b) => a ** b
+
+const subt = (a, b) => a - b
+
+console.log(add(1, 2)); // 3
+console.log(multiply(1, 2)); // 2
+console.log(divide(2, 1)); // 2
+console.log(mod(1, 2)); // 1
+console.log(exponent(1, 2)); // 1
+console.log(subt(1, 2)); // -1

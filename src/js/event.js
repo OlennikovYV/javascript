@@ -1,6 +1,11 @@
-function oddCount(n) {
-    return Math.floor(n / 2);
+function arrayPlusArray(arr1, arr2) {
+    return arr1.reduce((acc, el, index) => {
+        acc = acc + el + arr2[index];
+        return acc;
+    }, 0);
 }
 
-console.log(oddCount(15)); //  7, "Oops! Wrong."
-console.log(oddCount(15023)); //  7511, "Oops! Wrong."
+console.log(arrayPlusArray([1, 2, 3], [4, 5, 6])); //  21
+console.log(arrayPlusArray([-1, -2, -3], [-4, -5, -6])); //  -21
+console.log(arrayPlusArray([0, 0, 0], [4, 5, 6])); //  15
+console.log(arrayPlusArray([100, 200, 300], [400, 500, 600])); //  2100

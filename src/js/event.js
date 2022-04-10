@@ -1,4 +1,4 @@
-const getChar = (c) => String.fromCharCode(c);
+const getChar = String.fromCharCode;
 
 console.log(getChar(55)); // '7'
 console.log(getChar(56)); // '8'

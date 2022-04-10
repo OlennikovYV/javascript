@@ -1,24 +1,6 @@
 function changer(str) {
-    const vowels = ['a', 'e', 'i', 'o', 'u'];
-    return str
-        .toLowerCase()
-        .split('')
-        .map(el => {
-            if (/[a-z]/.test(el)) {
-                let codeChar;
-                if (el === 'z') return 'A';
-
-                codeChar = String.fromCharCode(el.codePointAt(0) + 1);
-
-                if (vowels.indexOf(codeChar) !== -1) {
-                    return codeChar.toUpperCase();
-                }
-
-                return codeChar;
-            }
-            return el;
-        })
-        .join('');
+    const chars = 'abcdEefghIijklmnOopqrstUuvwxyzA';
+    return str.replace(/[a-z]/g, ch => chars[chars.indexOf(ch) + 1]);
 }
 
 console.log(changer('Cat30')); //  'dbU30'

@@ -1,18 +1,13 @@
-const add = (a, b) => a + b
+const getChar = (c) => String.fromCharCode(c);
 
-const divide = (a, b) => a / b
-
-const multiply = (a, b) => a * b
-
-const mod = (a, b) => a % b
-
-const exponent = (a, b) => a ** b
-
-const subt = (a, b) => a - b
-
-console.log(add(1, 2)); // 3
-console.log(multiply(1, 2)); // 2
-console.log(divide(2, 1)); // 2
-console.log(mod(1, 2)); // 1
-console.log(exponent(1, 2)); // 1
-console.log(subt(1, 2)); // -1
+console.log(getChar(55)); // '7'
+console.log(getChar(56)); // '8'
+console.log(getChar(57)); // '9'
+console.log(getChar(58)); // ':'
+console.log(getChar(59)); // ';'
+console.log(getChar(60)); // '<'
+console.log(getChar(61)); // '='
+console.log(getChar(62)); // '>'
+console.log(getChar(63)); // '?'
+console.log(getChar(64)); // '@'
+console.log(getChar(65)); // 'A'

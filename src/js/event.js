@@ -1,33 +1,15 @@
 function score(dice) {
-	const points3x = [
-		1000,
-		200,
-		300,
-		400,
-		500,
-		600,
-	];
-	const countDice = {};
-	let result;
+	const countDice = [0, 0, 0, 0, 0, 0];
+	const points3x = [1000, 200, 300, 400, 500, 600];
+	const points1x = [100, 0, 0, 0, 50, 0];
 
-	dice.reduce((acc, el) => {
-		acc[el] = (acc[el] || 0) + 1;
-		return acc;
-	}, countDice);
+	dice.map(el => countDice[el - 1]++);
 
-	result = [1, 2, 3, 4, 5, 6].reduce((acc, el) => {
-		if (countDice[el] >= 3) {
-			acc += points3x[el - 1]
-			countDice[el] -= 3;
-		}
-
-		if (el === 1) acc += (countDice[el] || 0) * 100;
-		if (el === 5) acc += (countDice[el] || 0) * 50;
-
-		return acc;
+	return countDice.reduce((acc, el, index) => {
+		return acc +
+			(el >= 3 ? points3x[index] : 0) +
+			(points1x[index] * (el % 3));
 	}, 0);
-
-	return result;
 }
 
 /* 

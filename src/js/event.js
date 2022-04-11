@@ -1,11 +1,29 @@
-function changer(str) {
-    const chars = 'abcdEefghIijklmnOopqrstUuvwxyzA';
-    return str.replace(/[a-z]/g, ch => chars[chars.indexOf(ch) + 1]);
+function permutations(string) {
+	var combinations = [];
+
+	function permute(array, memo) {
+		let currentElement;
+
+		memo = memo || [];
+
+		for (let i = 0; i < array.length; i++) {
+			currentElement = array.splice(i, 1);
+			if (array.length === 0) {
+				let item = memo.concat(currentElement).join('');
+				combinations.push(item);
+			}
+			permute(array.slice(), memo.concat(currentElement));
+			array.splice(i, 0, currentElement[0]);
+		}
+
+		return combinations;
+	}
+
+	permute(string.split(''));
+
+	return [...new Set(combinations)];
 }
 
-console.log(changer('Cat30')); //  'dbU30'
-console.log(changer('Alice')); //  'bmjdf'
-console.log(changer('sponge1')); //  'tqpOhf1'
-console.log(changer('Hello World')); //  'Ifmmp xpsmE'
-console.log(changer('dogs')); //  'Epht'
-console.log(changer('z')); //  'A'
+console.log(permutations('a')); //  ['a']
+console.log(permutations('ab').sort()); //  ['ab', 'ba'].sort()
+console.log(permutations('aabb').sort()); //  ['aabb', 'abab', 'abba', 'baab', 'baba', 'bbaa'].sort()

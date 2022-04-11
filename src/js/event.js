@@ -1,28 +1,25 @@
-function score(dice) {
-	const countDice = [0, 0, 0, 0, 0, 0];
-	const points3x = [1000, 200, 300, 400, 500, 600];
-	const points1x = [100, 0, 0, 0, 50, 0];
+function isValidIP(str) {
+	let ip = str.split('.');
 
-	dice.map(el => countDice[el - 1]++);
-
-	return countDice.reduce((acc, el, index) => {
-		return acc +
-			(el >= 3 ? points3x[index] : 0) +
-			(points1x[index] * (el % 3));
-	}, 0);
+	return (ip.length === 4) && ip.every(el => {
+		return el === String(+el) && (+el <= 255) && (+el >= 0)
+	});
 }
 
-/* 
-Three 1's => 1000 points
-Three 6's =>  600 points
-Three 5's =>  500 points
-Three 4's =>  400 points
-Three 3's =>  300 points
-Three 2's =>  200 points
-One   1   =>  100 points
-One   5   =>   50 point 
-*/
-
-console.log(score([2, 3, 4, 6, 2])); //  0
-console.log(score([4, 4, 4, 3, 3])); //  400
-console.log(score([2, 4, 4, 5, 4])); //  450
+console.log(isValidIP("0.0.0.0")); //  true
+console.log(isValidIP("12.255.56.1")); //  true
+console.log(isValidIP("137.255.156.100")); //  true
+console.log(isValidIP('')); //  false
+console.log(isValidIP('abc.def.ghi.jkl')); //  false
+console.log(isValidIP('123.456.789.0')); //  false
+console.log(isValidIP('12.34.56')); //  false
+console.log(isValidIP('01.02.03.04')); //  false
+console.log(isValidIP('256.1.2.3')); //  false
+console.log(isValidIP('1.2.3.4.5')); //  false
+console.log(isValidIP('123,45,67,89')); //  false
+console.log(isValidIP('1e0.1e1.1e2.2e2')); //  false
+console.log(isValidIP(' 1.2.3.4')); //  false
+console.log(isValidIP('1.2.3.4 ')); //  false
+console.log(isValidIP('12.34.56.-7')); //  false
+console.log(isValidIP('1.2.3.4\n')); //  false
+console.log(isValidIP('\n1.2.3.4')); //  false

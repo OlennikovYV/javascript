@@ -1,29 +1,46 @@
-function permutations(string) {
-	var combinations = [];
+function score(dice) {
+	const points3x = [
+		1000,
+		200,
+		300,
+		400,
+		500,
+		600,
+	];
+	const countDice = {};
+	let result;
 
-	function permute(array, memo) {
-		let currentElement;
+	dice.reduce((acc, el) => {
+		acc[el] = (acc[el] || 0) + 1;
+		return acc;
+	}, countDice);
 
-		memo = memo || [];
-
-		for (let i = 0; i < array.length; i++) {
-			currentElement = array.splice(i, 1);
-			if (array.length === 0) {
-				let item = memo.concat(currentElement).join('');
-				combinations.push(item);
-			}
-			permute(array.slice(), memo.concat(currentElement));
-			array.splice(i, 0, currentElement[0]);
+	result = [1, 2, 3, 4, 5, 6].reduce((acc, el) => {
+		if (countDice[el] >= 3) {
+			acc += points3x[el - 1]
+			countDice[el] -= 3;
 		}
 
-		return combinations;
-	}
+		if (el === 1) acc += (countDice[el] || 0) * 100;
+		if (el === 5) acc += (countDice[el] || 0) * 50;
 
-	permute(string.split(''));
+		return acc;
+	}, 0);
 
-	return [...new Set(combinations)];
+	return result;
 }
 
-console.log(permutations('a')); //  ['a']
-console.log(permutations('ab').sort()); //  ['ab', 'ba'].sort()
-console.log(permutations('aabb').sort()); //  ['aabb', 'abab', 'abba', 'baab', 'baba', 'bbaa'].sort()
+/* 
+Three 1's => 1000 points
+Three 6's =>  600 points
+Three 5's =>  500 points
+Three 4's =>  400 points
+Three 3's =>  300 points
+Three 2's =>  200 points
+One   1   =>  100 points
+One   5   =>   50 point 
+*/
+
+console.log(score([2, 3, 4, 6, 2])); //  0
+console.log(score([4, 4, 4, 3, 3])); //  400
+console.log(score([2, 4, 4, 5, 4])); //  450

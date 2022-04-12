@@ -1,10 +1,9 @@
-function doubleChar(str) {
-    return str.replace(/(.)/g, "$1$1");
+function powersOfTwo(n) {
+    return (new Array(n + 1))
+        .fill(e => 0)
+        .map((e, i) => 2 ** i);
 }
 
-console.log(doubleChar("abcd")); //  "aabbccdd"
-console.log(doubleChar("Adidas")); //  "AAddiiddaass"
-console.log(doubleChar("1337")); //  "11333377"
-console.log(doubleChar("illuminati")); //  "iilllluummiinnaattii"
-console.log(doubleChar("123456")); //  "112233445566"
-console.log(doubleChar("%^&*(")); //  "%%^^&&**(("
+console.log(powersOfTwo(0)); //  [1]
+console.log(powersOfTwo(1)); //  [1, 2]
+console.log(powersOfTwo(4)); //  [1, 2, 4, 8, 16]

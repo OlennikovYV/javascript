@@ -1,5 +1,5 @@
 function doubleChar(str) {
-    return str.replace(/./g, e => e.repeat(2));
+    return str.replace(/(.)/g, "$1$1");
 }
 
 console.log(doubleChar("abcd")); //  "aabbccdd"

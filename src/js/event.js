@@ -1,7 +1,5 @@
 function powersOfTwo(n) {
-    return (new Array(n + 1))
-        .fill(e => 0)
-        .map((e, i) => 2 ** i);
+    return Array.from({ length: n + 1 }, (e, i) => 2 ** i);
 }
 
 console.log(powersOfTwo(0)); //  [1]

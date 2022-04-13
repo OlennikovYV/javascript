@@ -1,15 +1,32 @@
-function gimme(triplet) {
-    const arraySort = Array
-        .from(triplet)
-        .sort((a, b) => a - b);
-    return triplet.indexOf(arraySort[1]);
+function getGrade(s1, s2, s3) {
+    const mid = (s1 + s2 + s3) / 3;
+    switch (true) {
+        case (mid >= 90 && mid <= 100):
+            return 'A';
+        case (mid >= 80 && mid < 90):
+            return 'B';
+        case (mid >= 70 && mid < 80):
+            return 'C';
+        case (mid >= 60 && mid < 70):
+            return 'D';
+        case (mid >= 0 && mid < 60):
+            return 'F';
+    }
 }
 
-console.log(gimme([2, 3, 1])); //  0
-console.log(gimme([5, 10, 14])); //  1
-console.log(gimme([2.1, 3.2, 1.4])); //  0
-console.log(gimme([5.9, 10.4, 14.2])); //  1
-console.log(gimme([-2, -3, -1])); //  0
-console.log(gimme([-5, -10, -14])); //  1
-console.log(gimme([-2, -3.2, 1])); //  0
-console.log(gimme([-5.2, -10.6, 14])); //  0
+console.log(getGrade(95, 90, 93)); //  'A'
+console.log(getGrade(100, 85, 96)); //  'A'
+console.log(getGrade(92, 93, 94)); //  'A'
+console.log(getGrade(70, 70, 100)); //  'B'
+console.log(getGrade(82, 85, 87)); //  'B'
+console.log(getGrade(84, 79, 85)); //  'B'
+console.log(getGrade(89, 89, 90)); //  'B' 
+console.log(getGrade(70, 70, 70)); //  'C'
+console.log(getGrade(75, 70, 79)); //  'C'
+console.log(getGrade(60, 82, 76)); //  'C'
+console.log(getGrade(65, 70, 59)); //  'D'
+console.log(getGrade(66, 62, 68)); //  'D'
+console.log(getGrade(58, 62, 70)); //  'D'
+console.log(getGrade(44, 55, 52)); //  'F'
+console.log(getGrade(48, 55, 52)); //  'F'
+console.log(getGrade(58, 59, 60)); //  'F'

@@ -1,15 +1,15 @@
 function getGrade(s1, s2, s3) {
     const mid = (s1 + s2 + s3) / 3;
     switch (true) {
-        case (mid >= 90 && mid <= 100):
+        case (mid >= 90):
             return 'A';
-        case (mid >= 80 && mid < 90):
+        case (mid >= 80):
             return 'B';
-        case (mid >= 70 && mid < 80):
+        case (mid >= 70):
             return 'C';
-        case (mid >= 60 && mid < 70):
+        case (mid >= 60):
             return 'D';
-        case (mid >= 0 && mid < 60):
+        case (mid >= 0):
             return 'F';
     }
 }

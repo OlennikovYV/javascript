@@ -1,7 +1,5 @@
 var countSheep = function(num) {
-    return Array(num)
-        .fill('')
-        .map((e, i) => `${i + 1} sheep...`)
+    return Array.from({ length: num }, (e, i) => `${++i} sheep...`)
         .join('');
 }
 

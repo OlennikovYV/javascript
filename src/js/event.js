@@ -1,7 +1,11 @@
-function grow(x) {
-    return x.reduce((acc, el) => acc * el)
+var countSheep = function(num) {
+    return Array(num)
+        .fill('')
+        .map((e, i) => `${i + 1} sheep...`)
+        .join('');
 }
 
-console.log(grow([1, 2, 3])); //  6
-console.log(grow([4, 1, 1, 1, 4])); //  16
-console.log(grow([2, 2, 2, 2, 2, 2])); //  64
+console.log(countSheep(0)); //  ""
+console.log(countSheep(1)); //  "1 sheep..."
+console.log(countSheep(2)); //  "1 sheep...2 sheep..."
+console.log(countSheep(3)); //  "1 sheep...2 sheep...3 sheep..."

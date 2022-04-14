@@ -1,27 +1,13 @@
 function queueTime(customers, n) {
-    let selfCheckout = Array.from(Array(n), e => 0);
-    let queuesTime = 0;
-    let time = 0;
+    let selfCheckout = Array(n).fill(0);
 
-    do {
-        selfCheckout.forEach((el, i) => {
-            if (el === 0 && customers.length > 0) {
-                let customer = customers.shift();
-                if (customer)
-                    selfCheckout[i] = customer;
-            }
-        })
-
-        queuesTime = Math.min(...selfCheckout);
-        selfCheckout = selfCheckout.map(e => e - queuesTime);
-        time += queuesTime;
+    for (let timeCustomer of customers) {
+        const indexInQueue = selfCheckout
+            .indexOf(Math.min(...selfCheckout));
+        selfCheckout[indexInQueue] += timeCustomer;
     }
-    while (customers.length > 0)
 
-    queuesTime = Math.max(...selfCheckout);
-    time += queuesTime;
-
-    return time
+    return Math.max(...selfCheckout);
 }
 
 console.log(queueTime([], 1)); //  0

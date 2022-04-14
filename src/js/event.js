@@ -1,32 +1,31 @@
-function getGrade(s1, s2, s3) {
-    const mid = (s1 + s2 + s3) / 3;
-    switch (true) {
-        case (mid >= 90):
-            return 'A';
-        case (mid >= 80):
-            return 'B';
-        case (mid >= 70):
-            return 'C';
-        case (mid >= 60):
-            return 'D';
-        case (mid >= 0):
-            return 'F';
+function queueTime(customers, n) {
+    let selfCheckout = Array.from(Array(n), e => 0);
+    let queuesTime = 0;
+    let time = 0;
+
+    do {
+        selfCheckout.forEach((el, i) => {
+            if (el === 0 && customers.length > 0) {
+                let customer = customers.shift();
+                if (customer)
+                    selfCheckout[i] = customer;
+            }
+        })
+
+        queuesTime = Math.min(...selfCheckout);
+        selfCheckout = selfCheckout.map(e => e - queuesTime);
+        time += queuesTime;
     }
+    while (customers.length > 0)
+
+    queuesTime = Math.max(...selfCheckout);
+    time += queuesTime;
+
+    return time
 }
 
-console.log(getGrade(95, 90, 93)); //  'A'
-console.log(getGrade(100, 85, 96)); //  'A'
-console.log(getGrade(92, 93, 94)); //  'A'
-console.log(getGrade(70, 70, 100)); //  'B'
-console.log(getGrade(82, 85, 87)); //  'B'
-console.log(getGrade(84, 79, 85)); //  'B'
-console.log(getGrade(89, 89, 90)); //  'B' 
-console.log(getGrade(70, 70, 70)); //  'C'
-console.log(getGrade(75, 70, 79)); //  'C'
-console.log(getGrade(60, 82, 76)); //  'C'
-console.log(getGrade(65, 70, 59)); //  'D'
-console.log(getGrade(66, 62, 68)); //  'D'
-console.log(getGrade(58, 62, 70)); //  'D'
-console.log(getGrade(44, 55, 52)); //  'F'
-console.log(getGrade(48, 55, 52)); //  'F'
-console.log(getGrade(58, 59, 60)); //  'F'
+console.log(queueTime([], 1)); //  0
+console.log(queueTime([1, 2, 3, 4], 1)); //  10
+console.log(queueTime([2, 2, 3, 3, 4, 4], 2)); //  9
+console.log(queueTime([1, 2, 3, 4, 5], 100)); //  5
+console.log(queueTime([32, 50, 12, 14, 28, 4, 38, 8, 19, 24, 22, 4, 11, 35, 4, 7, 22], 3)); //  117

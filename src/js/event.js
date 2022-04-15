@@ -1,9 +1,3 @@
-var countSheep = function(num) {
-    return Array.from({ length: num }, (e, i) => `${++i} sheep...`)
-        .join('');
-}
+const greet = () => `hello world!`;
 
-console.log(countSheep(0)); //  ""
-console.log(countSheep(1)); //  "1 sheep..."
-console.log(countSheep(2)); //  "1 sheep...2 sheep..."
-console.log(countSheep(3)); //  "1 sheep...2 sheep...3 sheep..."
+console.log(greet()); //  "hello world!"

@@ -1,12 +1,14 @@
-function checkForFactor(base, factor) {
-    return base % factor === 0;
+function sortArray(array) {
+    let odd = [];
+
+    const checkOdd = num => num % 2 !== 0;
+    array.forEach(el => checkOdd(el) ? odd.push(el) : 0);
+    odd.sort((a, b) => a - b);
+
+    return array.map(el => checkOdd(el) ? odd.shift() : el);
 }
 
-console.log(checkForFactor(10, 2)); //  true
-console.log(checkForFactor(63, 7)); //  true
-console.log(checkForFactor(2450, 5)); //  true
-console.log(checkForFactor(24612, 3)); //  true
-console.log(checkForFactor(9, 2)); //  false
-console.log(checkForFactor(653, 7)); //  false
-console.log(checkForFactor(2453, 5)); //  false
-console.log(checkForFactor(24617, 3)); //  false
+console.log(sortArray([5, 3, 2, 8, 1, 4])); //  [1, 3, 2, 8, 5, 4]
+console.log(sortArray([5, 3, 1, 8, 0])); //  [1, 3, 5, 8, 0]
+console.log(sortArray([5, 3, 2, 8, 1, 4])); // [ 1, 3, 5, 2, 8, 4 ]
+console.log(sortArray([])); // []

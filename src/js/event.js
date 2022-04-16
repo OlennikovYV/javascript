@@ -1,12 +1,27 @@
-function sortArray(array) {
-    let odd = [];
+function titleCase(title, minorWords) {
+    const firstCharUpper = text => {
+        text = text.toLowerCase();
+        return text[0].toUpperCase() + text.slice(1);
+    }
 
-    odd = array.filter(el => el % 2 !== 0).sort((a, b) => a - b);
+    if (!title) return '';
 
-    return array.map(el => el % 2 !== 0 ? odd.shift() : el);
+    title = title.toLowerCase().split(' ');
+    if (minorWords)
+        minorWords = minorWords.toLowerCase().split(' ');
+
+    return title
+        .map((el, i) => {
+            if (i === 0) return firstCharUpper(el);
+            if (minorWords)
+                if (minorWords.indexOf(el) !== -1) return el;
+            return firstCharUpper(el);
+        })
+        .join(' ');
 }
 
-console.log(sortArray([5, 3, 2, 8, 1, 4])); //  [1, 3, 2, 8, 5, 4]
-console.log(sortArray([5, 3, 1, 8, 0])); //  [1, 3, 5, 8, 0]
-console.log(sortArray([5, 3, 2, 8, 1, 4])); // [ 1, 3, 2, 8, 5, 4 ]
-console.log(sortArray([])); // []
+console.log(titleCase('')); //  ''
+console.log(titleCase('a clash of KINGS', 'a an the of')); //  'A Clash of Kings'
+console.log(titleCase('THE WIND IN THE WILLOWS', 'The In')); //  'The Wind in the Willows'
+console.log(titleCase('the quick brown fox')); //  'The Quick Brown Fox'
+console.log(titleCase('First a of in', 'an often into')); //  'First a of in'

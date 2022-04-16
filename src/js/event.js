@@ -1,20 +1,15 @@
 function titleCase(title, minorWords) {
-    const firstCharUpper = text => {
-        text = text.toLowerCase();
-        return text[0].toUpperCase() + text.slice(1);
-    }
+    const firstCharUpper = text => text[0].toUpperCase() + text.slice(1);
 
     if (!title) return '';
 
     title = title.toLowerCase().split(' ');
-    if (minorWords)
-        minorWords = minorWords.toLowerCase().split(' ');
+    minorWords = (minorWords) ? minorWords.toLowerCase().split(' ') : [];
 
     return title
         .map((el, i) => {
             if (i === 0) return firstCharUpper(el);
-            if (minorWords)
-                if (minorWords.indexOf(el) !== -1) return el;
+            if (minorWords.indexOf(el) !== -1) return el;
             return firstCharUpper(el);
         })
         .join(' ');

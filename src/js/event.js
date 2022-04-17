@@ -1,22 +1,9 @@
-function titleCase(title, minorWords) {
-    const firstCharUpper = text => text[0].toUpperCase() + text.slice(1);
-
-    if (!title) return '';
-
-    title = title.toLowerCase().split(' ');
-    minorWords = (minorWords) ? minorWords.toLowerCase().split(' ') : [];
-
-    return title
-        .map((el, i) => {
-            if (i === 0) return firstCharUpper(el);
-            if (minorWords.indexOf(el) !== -1) return el;
-            return firstCharUpper(el);
-        })
-        .join(' ');
+function solution(nums) {
+    return nums ? nums.sort((a, b) => a - b) : [];
 }
 
-console.log(titleCase('')); //  ''
-console.log(titleCase('a clash of KINGS', 'a an the of')); //  'A Clash of Kings'
-console.log(titleCase('THE WIND IN THE WILLOWS', 'The In')); //  'The Wind in the Willows'
-console.log(titleCase('the quick brown fox')); //  'The Quick Brown Fox'
-console.log(titleCase('First a of in', 'an often into')); //  'First a of in'
+console.log(solution([1, 2, 3, 10, 5])); //  [1,2,3,5,10]
+console.log(solution(null)); //  []
+console.log(solution([])); //  []
+console.log(solution([20, 2, 10])); //  [2,10,20]
+console.log(solution([2, 20, 10])); //  [2,10,20]

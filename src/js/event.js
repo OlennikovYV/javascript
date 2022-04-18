@@ -1,15 +1,8 @@
 // write the function isAnagram
 var isAnagram = function(test, original) {
-    const sortString = str => str
-        .toLowerCase()
-        .split('')
-        .sort((a, b) => a.charCodeAt(0) - b.charCodeAt(0))
-        .join('');
+    const sortString = str => str.toLowerCase().split('').sort().join('');
 
-    test = sortString(test);
-    original = sortString(original);
-
-    return test === original;
+    return sortString(test) === sortString(original);
 };
 
 console.log(isAnagram("foefet", "toffee")); //  true, 'The word foefet is an anagram of toffee'

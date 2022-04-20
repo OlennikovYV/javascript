@@ -1,17 +1,7 @@
-function DNAStrand(dna) {
-    const dnaDecode = {
-        A: 'T',
-        C: 'G',
-        T: 'A',
-        G: 'C',
-    };
-
-    return dna
-        .split('')
-        .map(el => dnaDecode[el])
-        .join('');
+function move(position, roll) {
+    return position + roll * 2;
 }
 
-console.log(DNAStrand("AAAA")); // "TTTT","String AAAA is"
-console.log(DNAStrand("ATTGC")); // "TAACG","String ATTGC is"
-console.log(DNAStrand("GTAT")); // "CATA","String GTAT is"
+console.log(move(0, 4)); //  8
+console.log(move(3, 6)); //  15
+console.log(move(2, 5)); //  12

@@ -1,9 +1,4 @@
-function xor(a, b) {
-    return a != b;
-}
+const arr = N => N ? Array.from(Array(N), (el, i) => i) : [];
 
-console.log(xor(false, false)); //  false
-console.log(xor(true, false)); //  true
-console.log(xor(false, true)); //  true
-console.log(xor(true, true)); //  false
-console.log(xor(true, true)); //  false
+console.log(arr(4), [0, 1, 2, 3])
+console.log(arr(), [])

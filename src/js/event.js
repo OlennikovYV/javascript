@@ -1,12 +1,9 @@
-function isPalindrome(x) {
-    return x.toLowerCase() === x.toLowerCase().split('').reverse().join('');
+function xor(a, b) {
+    return Boolean(a ^ b);
 }
 
-console.log(isPalindrome("a")); //  true
-console.log(isPalindrome("aba")); //  true
-console.log(isPalindrome("Abba")); //  true
-console.log(isPalindrome("hello")); //  false
-console.log(isPalindrome("Bob")); //  true
-console.log(isPalindrome("Madam")); //  true
-console.log(isPalindrome("AbBa")); //  true
-console.log(isPalindrome("")); //  true
+console.log(xor(false, false)); //  false
+console.log(xor(true, false)); //  true
+console.log(xor(false, true)); //  true
+console.log(xor(true, true)); //  false
+console.log(xor(true, true)); //  true

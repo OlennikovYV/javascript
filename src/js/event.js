@@ -6,31 +6,12 @@ function Fighter(name, health, damagePerAttack) {
 }
 
 function declareWinner(fighter1, fighter2, firstAttacker) {
-    let currentFighter;
+    const countRound1 = Math.ceil(fighter1.health / fighter2.damagePerAttack);
+    const countRound2 = Math.ceil(fighter2.health / fighter1.damagePerAttack);
 
-    if (fighter1.name === firstAttacker) {
-        currentFighter = fighter1;
-    } else {
-        currentFighter = fighter2;
-    }
-
-    do {
-        if (currentFighter === fighter1) {
-            fighter2.health -= fighter1.damagePerAttack;
-        } else {
-            fighter1.health -= fighter2.damagePerAttack;
-        }
-
-        if (fighter1.health <= 0 || fighter2.health <= 0) break;
-
-        currentFighter = (
-            currentFighter === fighter1 ?
-            fighter2 :
-            fighter1
-        );
-    } while (1);
-
-    return currentFighter.name;
+    return countRound1 > countRound2 ?
+        fighter1.name :
+        countRound2 > countRound1 ? fighter2.name : firstAttacker;
 }
 
 console.log(declareWinner(new Fighter("Lew", 10, 2), new Fighter("Harry", 5, 4), "Lew")); // "Lew"

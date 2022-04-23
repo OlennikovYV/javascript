@@ -1,7 +1,10 @@
-function howManyLightsabersDoYouOwn(name) {
-    return name === 'Zach' ? 18 : 0;
+function getRealFloor(n) {
+    return n > 13 ? n - 2 :
+        n > 0 ? n - 1 :
+        n === 0 ? 0 : n;
 }
 
-console.log(howManyLightsabersDoYouOwn()); //  0
-console.log(howManyLightsabersDoYouOwn("Adam")); //  0
-console.log(howManyLightsabersDoYouOwn("Zach")); //  18
+console.log(getRealFloor(-2)); //  -2
+console.log(getRealFloor(1)); //  0
+console.log(getRealFloor(5)); //  4
+console.log(getRealFloor(15)); //  13

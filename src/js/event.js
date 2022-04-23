@@ -1,7 +1,13 @@
-function dutyFree(normPrice, discount, hol) {
-    return Math.floor((hol * 100) / (normPrice * discount))
+function findMultiples(integer, limit) {
+    const result = [];
+    for (let i = integer; i <= limit; i++)
+        if (i % integer === 0)
+            result.push(i);
+    return result;
 }
 
-console.log(dutyFree(12, 50, 1000)); //  166
-console.log(dutyFree(17, 10, 500)); //  294
-console.log(dutyFree(24, 35, 3000)); //  357
+console.log(findMultiples(5, 25)); //  [5, 10, 15, 20, 25]
+console.log(findMultiples(1, 2)); //  [1, 2]
+console.log(findMultiples(5, 7)); //  [5]
+console.log(findMultiples(4, 27)); //  [4, 8, 12, 16, 20, 24]
+console.log(findMultiples(11, 54)); //  [11, 22, 33, 44]

@@ -1,6 +1,7 @@
-function angle(n) {
-    return 180 * (n - 2);
+function howManyLightsabersDoYouOwn(name) {
+    return name === 'Zach' ? 18 : 0;
 }
 
-console.log(angle(3)); //  180
-console.log(angle(4)); //  360
+console.log(howManyLightsabersDoYouOwn()); //  0
+console.log(howManyLightsabersDoYouOwn("Adam")); //  0
+console.log(howManyLightsabersDoYouOwn("Zach")); //  18

@@ -1,4 +1,3 @@
-# project
-Test GitHub project
+# CodeWars
 
 CodeWars tasks

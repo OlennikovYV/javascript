@@ -1,6 +1,6 @@
 function findMultiples(integer, limit) {
     const result = [];
-    for (let i = integer; i <= limit; i++)
+    for (let i = integer; i <= limit; i += integer)
         if (i % integer === 0)
             result.push(i);
     return result;

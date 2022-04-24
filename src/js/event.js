@@ -2,8 +2,7 @@
 
 function flattenAndSort(array) {
     // Good luck, brave code warrior!
-    const flat = arr => arr.reduce((acc, val) => acc.concat(val), []);
-    return flat(array).sort((a, b) => a - b);
+    return [].concat(...array).sort((a, b) => a - b);
 }
 
 console.log(flattenAndSort([])); //  []

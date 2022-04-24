@@ -1,9 +1,27 @@
-function getRealFloor(n) {
-    return n > 13 ? n - 2 :
-        n > 0 ? n - 1 : n;
+"use strict";
+
+function flattenAndSort(array) {
+    // Good luck, brave code warrior!
+    const flat = arr => arr.reduce((acc, val) => acc.concat(val), []);
+    return flat(array).sort((a, b) => a - b);
 }
 
-console.log(getRealFloor(-2)); //  -2
-console.log(getRealFloor(1)); //  0
-console.log(getRealFloor(5)); //  4
-console.log(getRealFloor(15)); //  13
+console.log(flattenAndSort([])); //  []
+console.log(flattenAndSort([
+    [],
+    []
+])); //  []
+console.log(flattenAndSort([
+    [],
+    [1]
+])); //  [1]
+console.log(flattenAndSort([
+    [3, 2, 1],
+    [7, 9, 8],
+    [6, 4, 5]
+])); //  [1, 2, 3, 4, 5, 6, 7, 8, 9]
+console.log(flattenAndSort([
+    [1, 3, 5],
+    [100],
+    [2, 4, 6]
+])); //  [1, 2, 3, 4, 5, 6, 100]

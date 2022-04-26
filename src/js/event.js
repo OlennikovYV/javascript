@@ -1,6 +1,6 @@
-function between(a, b) {
-    return Array.from(Array(b - a + 1), (el, index) => el = index + a)
+function reverseList(list) {
+    return list.reverse();
 }
 
-console.log(between(1, 4)); //  [1, 2, 3, 4])
-console.log(between(-2, 2)); //  [-2, -1, 0, 1, 2])
+console.log(reverseList([1, 2, 3, 4])); //  [4,3,2,1]
+console.log(reverseList([3, 1, 5, 4])); //  [4,5,1,3]

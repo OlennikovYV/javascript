@@ -1,6 +1,6 @@
-function reverseList(list) {
-    return list.reverse();
+function include(arr, item) {
+    return arr.includes(item);
 }
 
-console.log(reverseList([1, 2, 3, 4])); //  [4,3,2,1]
-console.log(reverseList([3, 1, 5, 4])); //  [4,5,1,3]
+console.log(include([1, 2, 3, 4], 3)); //  true 
+console.log(include([1, 2, 4, 5], 3)); //  false

@@ -1,16 +1,12 @@
-function howMuchILoveYou(nbPetals) {
-    const petals = [
-        'not at all',
-        'I love you',
-        'a little',
-        'a lot',
-        'passionately',
-        'madly',
-    ];
+multiplicationTable = function(size) {
+    const matrixNxN = Array.from(Array(size), el => Array(size));
 
-    return petals[nbPetals % petals.length];
+    for (let i = 0; i <= size - 1; i++)
+        for (let j = 0; j <= size - 1; j++) {
+            matrixNxN[i][j] = (i + 1) * (j + 1);
+        }
+
+    return matrixNxN
 }
 
-console.log(howMuchILoveYou(7)); // "I love you"
-console.log(howMuchILoveYou(3)); // "a lot"
-console.log(howMuchILoveYou(6)); // "not at all"
+console.log(multiplicationTable(3)); // [[1,2,3], [2,4,6], [3,6,9]]

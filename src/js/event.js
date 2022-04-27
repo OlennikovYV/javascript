@@ -1,16 +1,14 @@
 function howMuchILoveYou(nbPetals) {
     const petals = [
+        'not at all',
         'I love you',
         'a little',
         'a lot',
         'passionately',
         'madly',
-        'not at all',
     ];
 
-    return nbPetals % petals.length !== 0 ?
-        petals[(nbPetals % petals.length) - 1] :
-        petals[petals.length - 1];
+    return petals[nbPetals % petals.length];
 }
 
 console.log(howMuchILoveYou(7)); // "I love you"

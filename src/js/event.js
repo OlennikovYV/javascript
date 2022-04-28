@@ -1,6 +1,11 @@
-var findAverage = function(nums) {
-    return nums.reduce((acc, el) => acc + el, 0) / nums.length;
+const greet_abe = () => {
+    let name = 'Abe';
+    return "Hello, " + name + '!'
+};
+const greet_ben = () => {
+    let name = 'Ben';
+    return "Hello, " + name + '!';
 }
 
-console.log(findAverage([1])); //  1
-console.log(findAverage([1, 3, 5, 7])); //  4
+console.log(greet_abe()); //  'Hello, Abe!', 'greet_abe() is not greeting Abe'
+console.log(greet_ben()); //  'Hello, Ben!', 'greet_ben() is not greeting Ben'

@@ -1,5 +1,5 @@
 function alphanumeric(string) {
-    return /^[A-Za-z0-9]+$/.test(string);
+    return /^[a-z\d]+$/i.test(string);
 }
 
 console.log(alphanumeric("Mazinkaiser")); //  true

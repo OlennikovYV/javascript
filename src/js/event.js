@@ -1,11 +1,8 @@
-const greet_abe = () => {
-    let name = 'Abe';
-    return "Hello, " + name + '!'
-};
-const greet_ben = () => {
-    let name = 'Ben';
-    return "Hello, " + name + '!';
+function alphanumeric(string) {
+    return /^[A-Za-z0-9]+$/.test(string);
 }
 
-console.log(greet_abe()); //  'Hello, Abe!', 'greet_abe() is not greeting Abe'
-console.log(greet_ben()); //  'Hello, Ben!', 'greet_ben() is not greeting Ben'
+console.log(alphanumeric("Mazinkaiser")); //  true
+console.log(alphanumeric("hello world_")); //  false
+console.log(alphanumeric("PassW0rd")); //  true
+console.log(alphanumeric("     ")); //  false

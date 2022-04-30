@@ -19,7 +19,7 @@ function greet(language) {
         welsh: 'Croeso',
     };
 
-    return (language in welcome) ? welcome[language] : 'Welcome';
+    return welcome[language] || welcome['english'];
 }
 
 console.log(greet('english')); //  'Welcome'

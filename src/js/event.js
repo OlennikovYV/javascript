@@ -1,7 +1,9 @@
-const quarterOf = (month) => {
-    return Math.ceil(month / 3);
+function testEven(n) {
+    return n % 2 === 0
 }
 
-console.log(quarterOf(3)); //  1
-console.log(quarterOf(8)); //  3
-console.log(quarterOf(11)); //  4
+console.log(testEven(0)); //  true, "testEven for 0"
+console.log(testEven(0.5)); //  false, "testEven for 0.5"
+console.log(testEven(1)); //  false, "testEven for 1"
+console.log(testEven(2)); //  true, "testEven for 2"
+console.log(testEven(-4)); //  true, "testEven for 2"

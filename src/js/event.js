@@ -1,14 +1,9 @@
-const sequenceSum = (begin, end, step) => {
-    let sum = 0;
+function hexToDec(hexString) {
+    return parseInt(hexString, 16);
+}
 
-    if (begin > end) return 0;
-
-    for (let i = begin; i <= end; i += step)
-        sum += i;
-
-    return sum;
-};
-
-console.log(sequenceSum(2, 6, 2)); //  12
-console.log(sequenceSum(1, 5, 1)); //  15
-console.log(sequenceSum(1, 5, 3)); //  5
+console.log(hexToDec("1")); //  1
+console.log(hexToDec("a")); //  10
+console.log(hexToDec("10")); //  16
+console.log(hexToDec("FF")); //  255
+console.log(hexToDec("-C")); //  -12

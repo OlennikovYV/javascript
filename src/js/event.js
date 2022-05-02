@@ -1,9 +1,9 @@
-function hexToDec(hexString) {
-    return parseInt(hexString, 16);
-}
+function gooseFilter(birds) {
+    var geese = ["African", "Roman Tufted", "Toulouse", "Pilgrim", "Steinbacher"];
 
-console.log(hexToDec("1")); //  1
-console.log(hexToDec("a")); //  10
-console.log(hexToDec("10")); //  16
-console.log(hexToDec("FF")); //  255
-console.log(hexToDec("-C")); //  -12
+    return birds.filter(el => !geese.includes(el));
+};
+
+console.log(gooseFilter(["Mallard", "Hook Bill", "African", "Crested", "Pilgrim", "Toulouse", "Blue Swedish"])); // ["Mallard", "Hook Bill", "Crested", "Blue Swedish"]
+console.log(gooseFilter(["Mallard", "Barbary", "Hook Bill", "Blue Swedish", "Crested"])); // ["Mallard", "Barbary", "Hook Bill", "Blue Swedish", "Crested"]
+console.log(gooseFilter(["African", "Roman Tufted", "Toulouse", "Pilgrim", "Steinbacher"])); // []

@@ -1,9 +1,8 @@
-function gooseFilter(birds) {
-    var geese = ["African", "Roman Tufted", "Toulouse", "Pilgrim", "Steinbacher"];
+function combat(health, damage) {
+    const newHealth = health - damage;
+    return newHealth < 0 ? 0 : newHealth;
+}
 
-    return birds.filter(el => !geese.includes(el));
-};
-
-console.log(gooseFilter(["Mallard", "Hook Bill", "African", "Crested", "Pilgrim", "Toulouse", "Blue Swedish"])); // ["Mallard", "Hook Bill", "Crested", "Blue Swedish"]
-console.log(gooseFilter(["Mallard", "Barbary", "Hook Bill", "Blue Swedish", "Crested"])); // ["Mallard", "Barbary", "Hook Bill", "Blue Swedish", "Crested"]
-console.log(gooseFilter(["African", "Roman Tufted", "Toulouse", "Pilgrim", "Steinbacher"])); // []
+console.log(combat(100, 5)); //  95
+console.log(combat(92, 8)); //  84
+console.log(combat(20, 30)); //  0, "Health cannot go below 0"

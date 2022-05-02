@@ -2,8 +2,7 @@ function twoSort(s) {
     return s
         .sort()[0]
         .split('')
-        .map((el, i, arr) => arr.length - 1 !== i ? el + '***' : el)
-        .join('');
+        .join('***');
 }
 
 console.log(twoSort(["bitcoin", "take", "over", "the", "world", "maybe", "who", "knows", "perhaps"])); //  'b***i***t***c***o***i***n'

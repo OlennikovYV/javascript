@@ -1,6 +1,5 @@
 function combat(health, damage) {
-    const newHealth = health - damage;
-    return newHealth < 0 ? 0 : newHealth;
+    return health < damage ? 0 : health - damage;
 }
 
 console.log(combat(100, 5)); //  95

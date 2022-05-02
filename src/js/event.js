@@ -1,14 +1,8 @@
 function factorial(n) {
-    let fact = 1;
-
     if (n < 0 || n > 12)
         throw RangeError('RangeError');
 
-    while (n >= 1) {
-        fact *= n--;
-    }
-
-    return fact;
+    return n ? n * factorial(n - 1) : 1;
 }
 
 console.log(factorial(0)); //  1, "factorial for 0 is 1"

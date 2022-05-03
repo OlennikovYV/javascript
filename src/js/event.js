@@ -1,9 +1,14 @@
-function twoSort(s) {
-    return s
-        .sort()[0]
-        .split('')
-        .join('***');
+function warnTheSheep(queue) {
+    queue.reverse();
+    if (queue[0] === 'wolf')
+        return 'Pls go away and stop eating my sheep';
+
+    return `Oi! Sheep number ${queue.indexOf('wolf')}! You are about to be eaten by a wolf!`;
 }
 
-console.log(twoSort(["bitcoin", "take", "over", "the", "world", "maybe", "who", "knows", "perhaps"])); //  'b***i***t***c***o***i***n'
-console.log(twoSort(["turns", "out", "random", "test", "cases", "are", "easier", "than", "writing", "out", "basic", "ones"])); //  'a***r***e'
+console.log(warnTheSheep(["sheep", "sheep", "sheep", "sheep", "sheep", "wolf", "sheep", "sheep"])); // "Oi! Sheep number 2! You are about to be eaten by a wolf!"
+console.log(warnTheSheep(["sheep", "wolf", "sheep", "sheep", "sheep", "sheep", "sheep"])); // "Oi! Sheep number 5! You are about to be eaten by a wolf!"
+console.log(warnTheSheep(["wolf", "sheep", "sheep", "sheep", "sheep", "sheep", "sheep"])); // "Oi! Sheep number 6! You are about to be eaten by a wolf!"
+console.log(warnTheSheep(["sheep", "wolf", "sheep"])); // "Oi! Sheep number 1! You are about to be eaten by a wolf!"
+console.log(warnTheSheep(["wolf"])); // "Pls go away and stop eating my sheep"
+console.log(warnTheSheep(["sheep", "sheep", "wolf"])); // "Pls go away and stop eating my sheep"

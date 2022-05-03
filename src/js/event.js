@@ -1,9 +1,9 @@
 function warnTheSheep(queue) {
-    queue.reverse();
-    if (queue[0] === 'wolf')
-        return 'Pls go away and stop eating my sheep';
+    const wolf = queue.reverse().indexOf('wolf');
 
-    return `Oi! Sheep number ${queue.indexOf('wolf')}! You are about to be eaten by a wolf!`;
+    return wolf === 0 ?
+        'Pls go away and stop eating my sheep' :
+        `Oi! Sheep number ${queue.indexOf('wolf')}! You are about to be eaten by a wolf!`;
 }
 
 console.log(warnTheSheep(["sheep", "sheep", "sheep", "sheep", "sheep", "wolf", "sheep", "sheep"])); // "Oi! Sheep number 2! You are about to be eaten by a wolf!"

@@ -1,26 +1,11 @@
 function sumPairs(ints, s) {
-    const nums = {};
-    let minIndex = ints.length;
-    let pairs = [];
+    const nums = new Set();
 
-    for (let i = 0; i < ints.length; i++) {
-        nums[ints[i]] = i;
+    for (let number of ints) {
+        if (nums.has(s - number)) return [s - number, number];
+        nums.add(number);
     }
 
-    for (let i = 0; i < ints.length; i++) {
-        const find = s - ints[i];
-
-        if (i !== nums[find])
-            if (nums[find]) {
-                let maxIndex = i > nums[find] ? i : nums[find]
-                if (maxIndex < minIndex) {
-                    pairs = [ints[i], find];
-                    minIndex = maxIndex;
-                }
-            }
-    }
-
-    return !pairs.length ? undefined : pairs;
 }
 
 console.log(sumPairs([1, 4, 8, 7, 3, 15], 8)); //  [1, 7], "Basic: [1, 4, 8, 7, 3, 15] should return [1, 7] for sum = 8"

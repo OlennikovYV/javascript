@@ -1,13 +1,5 @@
 function sumTriangularNumbers(n) {
-    let sum = 0;
-
-    if (n < 0) return 0;
-
-    for (let i = 0; i <= n; i++) {
-        sum += i / 2 * (i + 1);
-    }
-
-    return sum;
+    return n > 0 ? n * (n + 1) * (n + 2) / 6 : 0;
 }
 
 console.log(sumTriangularNumbers(6)); //  56

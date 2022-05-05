@@ -1,8 +1,5 @@
 function shortcut(string) {
-    return string
-        .split('')
-        .filter(el => !['a', 'e', 'i', 'o', 'u'].includes(el))
-        .join('');
+    return string.replace(/[aeiou]/g, '');
 }
 
 console.log(shortcut('hello')); //  'hll'

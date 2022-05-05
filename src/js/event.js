@@ -1,7 +1,10 @@
-function removeUrlAnchor(url) {
-    return url.split('#')[0];
+function findLongest(str) {
+    const arrLength = str.split(' ').map(el => el.length);
+    return Math.max(...arrLength);
 }
 
-console.log(removeUrlAnchor('www.codewars.com#about')); //  'www.codewars.com'
-console.log(removeUrlAnchor('www.codewars.com/katas/?page=1#about')); //  'www.codewars.com/katas/?page=1'
-console.log(removeUrlAnchor('www.codewars.com/katas/')); //  'www.codewars.com/katas/'
+console.log(findLongest("The quick white fox jumped around the massive dog")); //  7
+console.log(findLongest("Take me to tinseltown with you")); //  10
+console.log(findLongest("Sausage chops")); //  7
+console.log(findLongest("Wind your body and wiggle your belly")); //  6
+console.log(findLongest("Lets all go on holiday")); //  7

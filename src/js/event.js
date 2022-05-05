@@ -1,8 +1,7 @@
-function shortcut(string) {
-    return string.replace(/[aeiou]/g, '');
+function removeUrlAnchor(url) {
+    return url.replace(/[#].+/, '');
 }
 
-console.log(shortcut('hello')); //  'hll'
-console.log(shortcut('how are you today?')); //  'hw r y tdy?'
-console.log(shortcut('complain')); //  'cmpln'
-console.log(shortcut('never')); //  'nvr'
+console.log(removeUrlAnchor('www.codewars.com#about')); //  'www.codewars.com'
+console.log(removeUrlAnchor('www.codewars.com/katas/?page=1#about')); //  'www.codewars.com/katas/?page=1'
+console.log(removeUrlAnchor('www.codewars.com/katas/')); //  'www.codewars.com/katas/'

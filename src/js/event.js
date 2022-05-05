@@ -1,9 +1,11 @@
-function sumTriangularNumbers(n) {
-    return n > 0 ? n * (n + 1) * (n + 2) / 6 : 0;
+function shortcut(string) {
+    return string
+        .split('')
+        .filter(el => !['a', 'e', 'i', 'o', 'u'].includes(el))
+        .join('');
 }
 
-console.log(sumTriangularNumbers(6)); //  56
-console.log(sumTriangularNumbers(34)); //  7140
-console.log(sumTriangularNumbers(-291)); //  0
-console.log(sumTriangularNumbers(943)); //  140205240
-console.log(sumTriangularNumbers(-971)); //  0
+console.log(shortcut('hello')); //  'hll'
+console.log(shortcut('how are you today?')); //  'hw r y tdy?'
+console.log(shortcut('complain')); //  'cmpln'
+console.log(shortcut('never')); //  'nvr'

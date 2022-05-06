@@ -1,15 +1,17 @@
-function maxLuckyNumber(nums) {
-    const counts = {};
-    const luckyArray = [];
-
-    nums.forEach(el => counts[el] ? counts[el]++ : counts[el] = 1);
-
-    for (let key in counts)
-        if (Number(key) === counts[key]) luckyArray.push(counts[key]);
-
-    return luckyArray.length ? Math.max(...luckyArray) : -1;
+function arithmetic(a, b, operator) {
+    switch (operator) {
+        case ('add'):
+            return a + b;
+        case ('subtract'):
+            return a - b;
+        case ('multiply'):
+            return a * b;
+        case ('divide'):
+            return a / b;
+    }
 }
 
-console.log(maxLuckyNumber([2, 2, 10, 6, 6, 6, 6, 6, 6])); //  6
-console.log(maxLuckyNumber([1, 2, 3, 4, 5])); //  1
-console.log(maxLuckyNumber([2, 4, 4, 5])); //  -1
+console.log(arithmetic(1, 2, "add")); //  3
+console.log(arithmetic(8, 2, "subtract")); //  6
+console.log(arithmetic(5, 2, "multiply")); //  10
+console.log(arithmetic(8, 2, "divide")); //  4

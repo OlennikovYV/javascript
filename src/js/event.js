@@ -1,10 +1,7 @@
-function findLongest(str) {
-    const arrLength = str.split(' ').map(el => el.length);
-    return Math.max(...arrLength);
+function squareOrSquareRoot(array) {
+    return array.map(el => Math.sqrt(el) % 1 > 0 ? el ** 2 : Math.sqrt(el));
 }
 
-console.log(findLongest("The quick white fox jumped around the massive dog")); //  7
-console.log(findLongest("Take me to tinseltown with you")); //  10
-console.log(findLongest("Sausage chops")); //  7
-console.log(findLongest("Wind your body and wiggle your belly")); //  6
-console.log(findLongest("Lets all go on holiday")); //  7
+console.log(squareOrSquareRoot([4, 3, 9, 7, 2, 1])); // [ 2, 9, 3, 49, 4, 1 ]
+console.log(squareOrSquareRoot([100, 101, 5, 5, 1, 1])); // [ 10, 10201, 25, 25, 1, 1 ]
+console.log(squareOrSquareRoot([1, 2, 3, 4, 5, 6])); // [ 1, 4, 9, 2, 25, 36 ]

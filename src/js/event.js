@@ -1,12 +1,9 @@
-function reverse(string) {
-    return string
-        .split(' ')
-        .reverse()
-        .join(' ');
+function hello(name) {
+    return name ?
+        `Hello, ${name[0].toUpperCase()+name.slice(1).toLowerCase()}!` :
+        `Hello, World!`;
 }
 
-console.log(reverse('I am an expert at this')); //  'this at expert an am I'
-console.log(reverse('This is so easy')); //  'easy so is This'
-console.log(reverse('no one cares')); //  'cares one no'
-console.log(reverse('')); //  ''
-console.log(reverse('CodeWars')); //  'CodeWars'
+console.log(hello('alice')); //  'Hello, Alice!', "returns 'Hello, Alice!' when given 'alice'"
+console.log(hello()); //  'Hello, World!', "returns 'Hello, World!' when name is not given"
+console.log(hello('')); //  'Hello, World!', "returns 'Hello, World!' when name is an empty string"

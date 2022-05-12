@@ -1,12 +1,14 @@
-function index(array, n) {
-    return array[n] ** n || -1;
+function problem(x) {
+    return typeof x === "string" ? 'Error' : x * 50 + 6;
 }
 
-console.log(index([1, 2, 3, 4], 2)); // 9
-console.log(index([1, 3, 10, 100], 3)); // 1000000
-console.log(index([1, 2], 3)); // -1
-console.log(index([1, 1, 1, 1, 1, 1, 1, 1, 1, 1], 9)); // 1
-console.log(index([1, 1, 1, 1, 1, 1, 1, 1, 1, 2], 9)); // 512
-console.log(index([29, 82, 45, 10], 3)); // 1000
-console.log(index([6, 31], 3)); // -1
-console.log(index([75, 68, 35, 61, 9, 36, 89, 0, 30], 10)); // -1
+console.log(problem("hello")); //  "Error"
+console.log(problem(1)); //  56
+console.log(problem(5)); //  256
+console.log(problem(0)); //  6
+console.log(problem(1.2)); //  66
+console.log(problem(3)); //  156
+console.log(problem("RyanIsCool")); //  "Error"
+console.log(problem(-3)); //  -144
+console.log(problem("")); //  "Error"
+console.log(problem(0.03)); //  7.5

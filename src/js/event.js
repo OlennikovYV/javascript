@@ -1,6 +1,7 @@
-function chromosomeCheck(sperm) {
-    return `Congratulations! You're going to have a ${sperm === 'XY' ? 'son' : 'daughter'}.`;
+function distinct(a) {
+    return [...new Set(a)];
 }
 
-console.log(chromosomeCheck('XY')); //  "Congratulations! You're going to have a son."
-console.log(chromosomeCheck('XX')); //  "Congratulations! You're going to have a daughter."
+console.log(distinct([1])); //  [1]
+console.log(distinct([1, 2])); //  [1,2]
+console.log(distinct([1, 1, 2])); //  [1,2]

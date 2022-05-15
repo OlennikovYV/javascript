@@ -1,16 +1,10 @@
-const factorial = (n) => {
-    let result = 1;
-
-    while (n > 0) {
-        result *= n;
-        n--;
-    }
-
-    return result;
+function remove(string) {
+    return string.replace(/\!/g, '') + '!';
 }
 
-console.log(factorial(0)); //  1
-console.log(factorial(1)); //  1
-console.log(factorial(4)); //  24
-console.log(factorial(7)); //  5040
-console.log(factorial(17)); //  355687428096000
+console.log(remove("Hi!")); //  "Hi!"
+console.log(remove("Hi!!!")); //  "Hi!"
+console.log(remove("!Hi")); //  "Hi!"
+console.log(remove("!Hi!")); //  "Hi!"
+console.log(remove("Hi! Hi!")); //  "Hi Hi!"
+console.log(remove("Hi")); //  "Hi!"

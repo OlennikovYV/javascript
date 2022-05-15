@@ -1,11 +1,16 @@
-function predictAge(age1, age2, age3, age4, age5, age6, age7, age8) {
-    let result = Array.from(arguments);
-    result = result.map(age => age * age);
-    result = result.reduce((sum, age) => sum + age);
-    result = Math.sqrt(result);
-    result = result / 2;
+const factorial = (n) => {
+    let result = 1;
 
-    return Math.floor(result);
+    while (n > 0) {
+        result *= n;
+        n--;
+    }
+
+    return result;
 }
 
-console.log(predictAge(65, 60, 75, 55, 60, 63, 64, 45)); // 86
+console.log(factorial(0)); //  1
+console.log(factorial(1)); //  1
+console.log(factorial(4)); //  24
+console.log(factorial(7)); //  5040
+console.log(factorial(17)); //  355687428096000

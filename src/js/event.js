@@ -1,10 +1,5 @@
 function findUniq(arr) {
-    let result = arr;
-    result = result.sort((a, b) => a - b);
-
-    return result[0] !== result[1] ?
-        result[0] :
-        result[result.length - 1];
+    return arr.find(el => arr.indexOf(el) === arr.lastIndexOf(el));
 }
 
 console.log(findUniq([0.55, 0, 0])); //  0.55

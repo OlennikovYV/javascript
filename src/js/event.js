@@ -1,17 +1,11 @@
 var humanYearsCatYearsDogYears = function(humanYears) {
-    const calcYearsAnimal = (yearsHuman, animal) => {
-        if (yearsHuman < 1) return 0;
-        if (yearsHuman === 1) return 15;
-        if (yearsHuman === 2) return 24;
-
-        return 24 + (yearsHuman - 2) * (animal === 'cat' ? 4 : 5);
-    }
-
+    if (humanYears === 1) return [humanYears, 15, 15];
+    if (humanYears === 2) return [humanYears, 24, 24];
 
     return [
         humanYears,
-        calcYearsAnimal(humanYears, 'cat'),
-        calcYearsAnimal(humanYears, 'dog'),
+        24 + (humanYears - 2) * 4,
+        24 + (humanYears - 2) * 5,
     ];
 }
 

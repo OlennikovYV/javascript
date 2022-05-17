@@ -1,14 +1,9 @@
-var humanYearsCatYearsDogYears = function(humanYears) {
-    if (humanYears === 1) return [humanYears, 15, 15];
-    if (humanYears === 2) return [humanYears, 24, 24];
-
-    return [
-        humanYears,
-        24 + (humanYears - 2) * 4,
-        24 + (humanYears - 2) * 5,
-    ];
+function sumDigits(number) {
+    return String(Math.abs(number))
+        .split('')
+        .reduce((sum, str) => sum + Number(str), 0);
 }
 
-console.log(humanYearsCatYearsDogYears(1)); //  [1,15,15]
-console.log(humanYearsCatYearsDogYears(2)); //  [2,24,24]
-console.log(humanYearsCatYearsDogYears(10)); //  [10,56,64]
+console.log(sumDigits(10)); //  1
+console.log(sumDigits(99)); //  18
+console.log(sumDigits(-32)); //  5

@@ -1,11 +1,27 @@
-function findUniq(arr) {
-    return arr.find(el => arr.indexOf(el) === arr.lastIndexOf(el));
+function vertMirror(strng) {
+    const result = strng.split('\n');
+
+    return result
+        .map(line => line
+            .split('')
+            .reverse()
+            .join(''))
+        .join('\n');
 }
 
-console.log(findUniq([0.55, 0, 0])); //  0.55
-console.log(findUniq([1, 0, 0])); //  1
-console.log(findUniq([0, 1, 0])); //  1
-console.log(findUniq([0, 0, 1])); //  1
-console.log(findUniq([1, 1, 1, 2, 1, 1])); //  2
-console.log(findUniq([1, 1, 2, 1, 1])); //  2
-console.log(findUniq([3, 10, 3, 3, 3])); //  10
+function horMirror(strng) {
+    const result = strng.split('\n');
+
+    return result
+        .reverse()
+        .join('\n');
+}
+
+function oper(fct, s) {
+    return fct(s);
+}
+
+console.log(oper(vertMirror, "hSgdHQ\nHnDMao\nClNNxX\niRvxxH\nbqTVvA\nwvSyRu")); //  "QHdgSh\noaMDnH\nXxNNlC\nHxxvRi\nAvVTqb\nuRySvw"
+console.log(oper(vertMirror, "IzOTWE\nkkbeCM\nWuzZxM\nvDddJw\njiJyHF\nPVHfSx")); //  "EWTOzI\nMCebkk\nMxZzuW\nwJddDv\nFHyJij\nxSfHVP"
+console.log(oper(horMirror, "lVHt\nJVhv\nCSbg\nyeCt")); //  "yeCt\nCSbg\nJVhv\nlVHt"
+console.log(oper(horMirror, "njMK\ndbrZ\nLPKo\ncEYz")); //  "cEYz\nLPKo\ndbrZ\nnjMK"

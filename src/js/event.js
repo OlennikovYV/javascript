@@ -1,5 +1,5 @@
 function smallEnough(a, limit) {
-    return !a.filter(el => el > limit).length;
+    return a.every(el => el <= limit);
 }
 
 console.log(smallEnough([66, 101], 200)); //  true

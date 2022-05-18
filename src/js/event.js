@@ -1,5 +1,5 @@
 function smallEnough(a, limit) {
-    return a.every(el => el <= limit);
+    return Math.max(...a) <= limit;
 }
 
 console.log(smallEnough([66, 101], 200)); //  true

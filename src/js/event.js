@@ -1,17 +1,8 @@
 function evaporator(content, evap_per_day, threshold) {
-    let days = 0;
-    let thresholdML = 0;
+    threshold = threshold / 100;
+    evap_per_day = evap_per_day / 100;
 
-    threshold = content - content / 100 * threshold;
-
-    while (thresholdML < threshold) {
-        const evap = content / 100 * evap_per_day;
-        thresholdML += evap;
-        content -= evap;
-        days++;
-    }
-
-    return days;
+    return Math.ceil(Math.log(threshold) / Math.log(1 - evap_per_day));
 }
 
 console.log(evaporator(10, 10, 10)); // 22

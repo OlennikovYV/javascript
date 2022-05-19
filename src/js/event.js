@@ -1,28 +1,18 @@
-function alphabetWar(fight) {
-    const scores = {
-        'w': -4,
-        'p': -3,
-        'b': -2,
-        's': -1,
-        'z': 1,
-        'd': 2,
-        'q': 3,
-        'm': 4,
-    };
-    let result = 0;
+function evaporator(content, evap_per_day, threshold) {
+    let days = 0;
+    let thresholdML = 0;
 
-    fight
-        .split('')
-        .map(alpha => {
-            result += (scores[alpha] || 0);
-        })
+    threshold = content - content / 100 * threshold;
 
-    return result ?
-        `${result < 0 ? 'Left' : 'Right'} side win!` :
-        `Let's fight again!`
+    while (thresholdML < threshold) {
+        const evap = content / 100 * evap_per_day;
+        thresholdML += evap;
+        content -= evap;
+        days++;
+    }
+
+    return days;
 }
 
-console.log(alphabetWar("z")); //  "Right side wins!"
-console.log(alphabetWar("zdqmwpbs")); //  "Let's fight again!"
-console.log(alphabetWar("zzzzs")); //  "Right side wins!"
-console.log(alphabetWar("wwwwww")); //  "Left side wins!"
+console.log(evaporator(10, 10, 10)); // 22
+console.log(evaporator(10, 10, 5)); // 29

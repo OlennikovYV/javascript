@@ -1,19 +1,7 @@
 function shark(pontoonDistance, sharkDistance, youSpeed, sharkSpeed, dolphin) {
-    let diffSpeed;
-    let diffDistance;
-    let timeCatch;
-
     if (dolphin) sharkSpeed /= 2;
-    if (sharkDistance <= pontoonDistance) return `Shark Bait!`;
-    if (sharkSpeed <= youSpeed) return `Alive!`;
 
-    diffSpeed = sharkSpeed - youSpeed;
-    diffDistance = sharkDistance - pontoonDistance;
-    timeCatch = diffDistance / diffSpeed;
-    distanceCath = timeCatch * sharkSpeed;
-
-
-    return distanceCath > sharkDistance ?
+    return pontoonDistance / youSpeed < sharkDistance / sharkSpeed ?
         `Alive!` :
         `Shark Bait!`;
 }

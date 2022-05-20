@@ -1,13 +1,12 @@
-function shark(pontoonDistance, sharkDistance, youSpeed, sharkSpeed, dolphin) {
-    if (dolphin) sharkSpeed /= 2;
+function findSum(n) {
+    return Array.from(Array(n), (el, i) => ++i)
+        .reduce((sum, el) => {
+            if (el % 3 === 0 || el % 5 === 0)
+                return sum + el;
 
-    return pontoonDistance / youSpeed < sharkDistance / sharkSpeed ?
-        `Alive!` :
-        `Shark Bait!`;
+            return sum;
+        }, 0);
 }
 
-console.log(shark(12, 50, 4, 8, true)); //  "Alive!"
-console.log(shark(7, 55, 4, 16, true)); //  "Alive!"
-console.log(shark(24, 0, 4, 8, true)); //  "Shark Bait!"
-console.log(shark(7, 8, 3, 4, true)); //  "Alive!"
-console.log(shark(44, 87, 4, 9, false)); //  "Shark Bait!"
+console.log(findSum(5)); //  8
+console.log(findSum(10)); //  33

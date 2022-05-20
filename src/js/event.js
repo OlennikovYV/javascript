@@ -1,9 +1,25 @@
-function hoopCount(n) {
-    const HOOPS_LIMIT = 10;
-    return n < HOOPS_LIMIT ?
-        'Keep at it until you get it' :
-        'Great, now move on to tricks';
+function shark(pontoonDistance, sharkDistance, youSpeed, sharkSpeed, dolphin) {
+    let diffSpeed;
+    let diffDistance;
+    let timeCatch;
+
+    if (dolphin) sharkSpeed /= 2;
+    if (sharkDistance <= pontoonDistance) return `Shark Bait!`;
+    if (sharkSpeed <= youSpeed) return `Alive!`;
+
+    diffSpeed = sharkSpeed - youSpeed;
+    diffDistance = sharkDistance - pontoonDistance;
+    timeCatch = diffDistance / diffSpeed;
+    distanceCath = timeCatch * sharkSpeed;
+
+
+    return distanceCath > sharkDistance ?
+        `Alive!` :
+        `Shark Bait!`;
 }
 
-console.log(hoopCount(3)); // "Keep at it until you get it"
-console.log(hoopCount(11)); // "Great, now move on to tricks"
+console.log(shark(12, 50, 4, 8, true)); //  "Alive!"
+console.log(shark(7, 55, 4, 16, true)); //  "Alive!"
+console.log(shark(24, 0, 4, 8, true)); //  "Shark Bait!"
+console.log(shark(7, 8, 3, 4, true)); //  "Alive!"
+console.log(shark(44, 87, 4, 9, false)); //  "Shark Bait!"

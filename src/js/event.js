@@ -1,11 +1,12 @@
 function findSum(n) {
-    return Array.from(Array(n), (el, i) => ++i)
-        .reduce((sum, el) => {
-            if (el % 3 === 0 || el % 5 === 0)
-                return sum + el;
+    let result = 0;
 
-            return sum;
-        }, 0);
+    for (let i = 1; i <= n; i++) {
+        if (i % 3 === 0 || i % 5 === 0)
+            result += i;
+    }
+
+    return result;
 }
 
 console.log(findSum(5)); //  8

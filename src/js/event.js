@@ -1,13 +1,11 @@
-function findSum(n) {
-    let result = 0;
-
-    for (let i = 1; i <= n; i++) {
-        if (i % 3 === 0 || i % 5 === 0)
-            result += i;
-    }
-
-    return result;
+function lowercaseCount(str) {
+    return str.replace(/[^a-z]+/g, '').length;
 }
 
-console.log(findSum(5)); //  8
-console.log(findSum(10)); //  33
+console.log(lowercaseCount("abc")); //  3
+console.log(lowercaseCount("abcABC123")); //  3
+console.log(lowercaseCount("abcABC123!@€£#$%^&*()_-+=}{[]|\':;?/>.<,~")); //  3
+console.log(lowercaseCount("")); //  0
+console.log(lowercaseCount("ABC123!@€£#$%^&*()_-+=}{[]|\':;?/>.<,~")); //  0
+console.log(lowercaseCount("abcdefghijklmnopqrstuvwxyz")); //  26
+console.log(lowercaseCount("|8rv>C4o7im=7.qwgtAbhvw{q$+")); //  26

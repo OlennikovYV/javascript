@@ -1,6 +1,6 @@
 function reverseLetter(str) {
-    return str.replace(/[^a-z]/g, '')
-        .split('')
+    return str
+        .match(/[a-z]/g)
         .reverse()
         .join('');
 }
@@ -8,5 +8,4 @@ function reverseLetter(str) {
 console.log(reverseLetter("krishan")); // "nahsirk"
 console.log(reverseLetter("ultr53o?n")); // "nortlu"
 console.log(reverseLetter("ab23c")); // "cba"
-console.log(reverseLetter("krish21an")); // "nahsirk"
-console.log(reverseLetter("psj#dvbupoifdcvew)dnxqn,fkbrh!nofc5_fai/x")); // "xiafcfonhrbkfnqxndwevcdfiopubvdjsp"
+console.log(reverseLetter("k_rish21an")); // "nahsirk"

@@ -1,16 +1,12 @@
 function rowWeights(array) {
-    const result = [0, 0];
-    const checkEven = num => num % 2 === 0;
+    let queue1 = array
+        .filter(el => el % 2 !== 0)
+        .reduce((acc, el) => acc + el, 0);
+    let queue2 = array
+        .filter(el => el % 2 === 0)
+        .reduce((acc, el) => acc + el, 0);
 
-    array.map((el, i) => {
-        if (checkEven(i + 1)) {
-            result[1] += el;
-        } else {
-            result[0] += el;
-        }
-    })
-
-    return result;
+    return [queue1, queue2];
 }
 
 console.log(rowWeights([80])); //  [80,0]

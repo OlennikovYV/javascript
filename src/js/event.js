@@ -1,11 +1,7 @@
 function solution(pairs) {
-  const result = [];
-
-  for (let key in pairs) {
-    result.push(`${key} = ${pairs[key]}`);
-  }
-
-  return result.join(',');
+  return Object.keys(pairs)
+    .map(key => `${key} = ${pairs[key]}`)
+    .join(',');
 }
 
 console.log(solution({ a: 1, b: '2' })); // should return "a = 1,b = 2"

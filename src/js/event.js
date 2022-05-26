@@ -1,19 +1,16 @@
-function expressionMatter(a, b, c) {
-    let sums = [];
-
-    sums.push(a + b + c);
-    sums.push(a * b * c);
-    sums.push((a + b) * c);
-    sums.push(a + b * c);
-    sums.push(a * (b + c));
-    sums.push(a * b + c);
-
-    return Math.max(...sums);
+function roundToNext5(n) {
+  return Math.ceil(n / 5) * 5;
 }
 
-console.log(expressionMatter(2, 1, 2)); //  6
-console.log(expressionMatter(2, 1, 1)); //  4
-console.log(expressionMatter(1, 1, 1)); //  3
-console.log(expressionMatter(1, 2, 3)); //  9
-console.log(expressionMatter(1, 3, 1)); //  5
-console.log(expressionMatter(2, 2, 2)); //  8
+console.log(roundToNext5(0)); //  0
+console.log(roundToNext5(1)); //  5
+console.log(roundToNext5(-1)); //  0
+console.log(roundToNext5(-5)); //  -5
+console.log(roundToNext5(3)); //  5
+console.log(roundToNext5(5)); //  5
+console.log(roundToNext5(7)); //  10
+console.log(roundToNext5(20)); //  20
+console.log(roundToNext5(39)); //  40
+console.log(roundToNext5(990)); //  990
+console.log(roundToNext5(121)); //  125
+console.log(roundToNext5(555)); //  555

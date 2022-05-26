@@ -1,16 +1,8 @@
-function roundToNext5(n) {
-  return Math.ceil(n / 5) * 5;
+function getSize(width, height, depth) {
+  const area = width * height * 2 + width * depth * 2 + height * depth * 2;
+  const volume = width * height * depth;
+  return [area, volume];
 }
 
-console.log(roundToNext5(0)); //  0
-console.log(roundToNext5(1)); //  5
-console.log(roundToNext5(-1)); //  0
-console.log(roundToNext5(-5)); //  -5
-console.log(roundToNext5(3)); //  5
-console.log(roundToNext5(5)); //  5
-console.log(roundToNext5(7)); //  10
-console.log(roundToNext5(20)); //  20
-console.log(roundToNext5(39)); //  40
-console.log(roundToNext5(990)); //  990
-console.log(roundToNext5(121)); //  125
-console.log(roundToNext5(555)); //  555
+console.log(getSize(4, 2, 6)); //  [88, 48]
+console.log(getSize(10, 10, 10)); //  [600, 1000]

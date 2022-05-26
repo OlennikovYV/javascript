@@ -1,8 +1,13 @@
-function position(letter) {
-  const BEGIN_ALPHABET = 96;
-  return `Position of alphabet: ${letter.charCodeAt(0) - BEGIN_ALPHABET}`;
+function solution(pairs) {
+  const result = [];
+
+  for (let key in pairs) {
+    result.push(`${key} = ${pairs[key]}`);
+  }
+
+  return result.join(',');
 }
 
-console.log(position('a')); // 'Position of alphabet: 1'
-console.log(position('z')); // 'Position of alphabet: 26'
-console.log(position('e')); // 'Position of alphabet: 5'
+console.log(solution({ a: 1, b: '2' })); // should return "a = 1,b = 2"
+console.log(solution({ a: 1 })); // should return "a = 1"
+console.log(solution({ a: 2, b: 4, c: '8' })); // should return "a = 2,b = 4,c = 8"

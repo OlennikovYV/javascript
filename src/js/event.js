@@ -1,5 +1,5 @@
 function none(arr, fun) {
-  return arr.filter(fun).length === 0;
+  return arr.some(fun) === false;
 }
 
 console.log(

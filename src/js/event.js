@@ -1,9 +1,15 @@
-function getEvenNumbers(numbersArray) {
-  return numbersArray.filter(el => el % 2 === 0);
+function sumMul(n, m) {
+  let sum = 0;
+
+  if (m <= 0 || n <= 0) return 'INVALID';
+
+  for (let i = 0; i < m; i += 1) {
+    if (i % n === 0) sum += i;
+  }
+
+  return sum;
 }
 
-console.log(getEvenNumbers([1, 2, 3, 6, 8, 10])); //  [2, 6, 8, 10]
-console.log(getEvenNumbers([1, 2])); //  [2]
-console.log(getEvenNumbers([12, 14, 15])); //  [12, 14]
-console.log(getEvenNumbers([13, 15])); //  []
-console.log(getEvenNumbers([1, 3, 9])); //  []
+console.log(sumMul(0, 0)); //  'INVALID'
+console.log(sumMul(2, 9)); //  20
+console.log(sumMul(4, -7)); //  'INVALID'

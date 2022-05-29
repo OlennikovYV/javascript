@@ -1,10 +1,5 @@
 function remove(s, n) {
-  while (n) {
-    s = s.replace('!', '');
-    n -= 1;
-  }
-
-  return s;
+  return n > 0 ? remove(s.replace('!', ''), n - 1) : s;
 }
 
 console.log(remove('Hi!', 1)); //  'Hi'

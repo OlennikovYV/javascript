@@ -1,16 +1,10 @@
 function remove(s, n) {
-  return s
-    .split('')
-    .map(el => {
-      if (el === '!')
-        if (n > 0) {
-          n -= 1;
-          return '';
-        }
+  while (n) {
+    s = s.replace('!', '');
+    n -= 1;
+  }
 
-      return el;
-    })
-    .join('');
+  return s;
 }
 
 console.log(remove('Hi!', 1)); //  'Hi'

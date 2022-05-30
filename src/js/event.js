@@ -1,8 +1,9 @@
+const isLowerCase = str => str.toLowerCase() === str;
+const swapCase = str =>
+  isLowerCase(str) ? str.toUpperCase() : str.toLowerCase();
+
 String.prototype.toAlternatingCase = function () {
-  const string = this.split('')
-    .map(el => (el.toLowerCase() === el ? el.toUpperCase() : el.toLowerCase()))
-    .join('');
-  return string;
+  return [...this].map(swapCase).join('');
 };
 
 console.log('hello world'.toAlternatingCase()); //  'HELLO WORLD'
@@ -12,5 +13,4 @@ console.log('HeLLo WoRLD'.toAlternatingCase()); //  'hEllO wOrld'
 console.log('12345'.toAlternatingCase()); //  '12345'
 console.log('1a2b3c4d5e'.toAlternatingCase()); //  '1A2B3C4D5E'
 console.log('String.prototype.toAlternatingCase'.toAlternatingCase()); // ('sTRING.PROTOTYPE.TOaLTERNATINGcASE');
-
 console.log('Hello World'.toAlternatingCase().toAlternatingCase()); // ('Hello World');

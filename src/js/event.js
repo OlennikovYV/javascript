@@ -1,15 +1,16 @@
-function remove(s, n) {
-  return n > 0 ? remove(s.replace('!', ''), n - 1) : s;
-}
+String.prototype.toAlternatingCase = function () {
+  const string = this.split('')
+    .map(el => (el.toLowerCase() === el ? el.toUpperCase() : el.toLowerCase()))
+    .join('');
+  return string;
+};
 
-console.log(remove('Hi!', 1)); //  'Hi'
-console.log(remove('Hi!', 100)); //  'Hi'
-console.log(remove('Hi!!!', 1)); //  'Hi!!'
-console.log(remove('Hi!!!', 100)); //  'Hi'
-console.log(remove('!Hi', 1)); //  'Hi'
-console.log(remove('!Hi!', 1)); //  'Hi!'
-console.log(remove('!Hi!', 100)); //  'Hi'
-console.log(remove('!!!Hi !!hi!!! !hi', 1)); //  '!!Hi !!hi!!! !hi'
-console.log(remove('!!!Hi !!hi!!! !hi', 3)); //  'Hi !!hi!!! !hi'
-console.log(remove('!!!Hi !!hi!!! !hi', 5)); //  'Hi hi!!! !hi'
-console.log(remove('!!!Hi !!hi!!! !hi', 100)); //  'Hi hi hi'
+console.log('hello world'.toAlternatingCase()); //  'HELLO WORLD'
+console.log('HELLO WORLD'.toAlternatingCase()); //  'hello world'
+console.log('hello WORLD'.toAlternatingCase()); //  'HELLO world'
+console.log('HeLLo WoRLD'.toAlternatingCase()); //  'hEllO wOrld'
+console.log('12345'.toAlternatingCase()); //  '12345'
+console.log('1a2b3c4d5e'.toAlternatingCase()); //  '1A2B3C4D5E'
+console.log('String.prototype.toAlternatingCase'.toAlternatingCase()); // ('sTRING.PROTOTYPE.TOaLTERNATINGcASE');
+
+console.log('Hello World'.toAlternatingCase().toAlternatingCase()); // ('Hello World');

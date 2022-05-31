@@ -1,11 +1,8 @@
-function array(arr) {
-  let array = arr;
-
-  return array.split(',').slice(1, -1).join(' ') || null;
+class Kata {
+  static getVolumeOfCuboid(length, width, height) {
+    return length * width * height;
+  }
 }
 
-console.log(array('1')); //  ''
-console.log(array('1,2')); //  ''
-console.log(array('1,2,3')); //  '2'
-console.log(array('1,2,3,4')); //  '2 3'
-console.log(array('1,2,3,4,5')); //  '2 3 4'
+console.log(Kata.getVolumeOfCuboid(1, 2, 2)); //  4
+console.log(Kata.getVolumeOfCuboid(6.3, 2, 5)); //  63

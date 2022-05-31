@@ -1,7 +1,7 @@
 function array(arr) {
-  let array = arr.split(',');
+  let array = arr;
 
-  return array.length > 2 ? array.slice(1, -1).join(' ') : null;
+  return array.split(',').slice(1, -1).join(' ') || null;
 }
 
 console.log(array('1')); //  ''

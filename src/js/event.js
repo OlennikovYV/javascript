@@ -1,20 +1,13 @@
-const sortFIO = (a, b) => {
-  const compare_name = a[0].localeCompare(b[0]);
-  const compare_family = a[1].localeCompare(b[1]);
-
-  return compare_family || compare_name;
-};
 function meeting(s) {
   let str = s.toUpperCase();
 
   str = str
+    .replace(/(\w+):(\w+)/g, '$2, $1')
     .split(';')
-    .map(el => el.split(':'))
-    .sort(sortFIO)
-    .map(el => `(${el[1]}, ${el[0]})`)
-    .join('');
+    .sort()
+    .join(')(');
 
-  return str;
+  return `(${str})`;
 }
 
 console.log(

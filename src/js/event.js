@@ -1,16 +1,11 @@
-const isLowerCase = str => str.toLowerCase() === str;
-const swapCase = str =>
-  isLowerCase(str) ? str.toUpperCase() : str.toLowerCase();
+function array(arr) {
+  let array = arr.split(',');
 
-String.prototype.toAlternatingCase = function () {
-  return [...this].map(swapCase).join('');
-};
+  return array.length > 2 ? array.slice(1, -1).join(' ') : null;
+}
 
-console.log('hello world'.toAlternatingCase()); //  'HELLO WORLD'
-console.log('HELLO WORLD'.toAlternatingCase()); //  'hello world'
-console.log('hello WORLD'.toAlternatingCase()); //  'HELLO world'
-console.log('HeLLo WoRLD'.toAlternatingCase()); //  'hEllO wOrld'
-console.log('12345'.toAlternatingCase()); //  '12345'
-console.log('1a2b3c4d5e'.toAlternatingCase()); //  '1A2B3C4D5E'
-console.log('String.prototype.toAlternatingCase'.toAlternatingCase()); // ('sTRING.PROTOTYPE.TOaLTERNATINGcASE');
-console.log('Hello World'.toAlternatingCase().toAlternatingCase()); // ('Hello World');
+console.log(array('1')); //  ''
+console.log(array('1,2')); //  ''
+console.log(array('1,2,3')); //  '2'
+console.log(array('1,2,3,4')); //  '2 3'
+console.log(array('1,2,3,4,5')); //  '2 3 4'

@@ -1,6 +1,5 @@
 function enough(cap, on, wait) {
-  const waitBus = cap - on - wait;
-  return waitBus < 0 ? Math.abs(waitBus) : 0;
+  return Math.max(0, wait + on - cap);
 }
 
 console.log(enough(10, 5, 5)); // 0

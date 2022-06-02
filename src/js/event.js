@@ -1,18 +1,14 @@
 function capitalize(s) {
-  let capitalizeEven = '';
-  let capitalizeOdd = '';
+  const arrayString = s.split('');
 
-  for (let i = 0; i < s.length; i += 1) {
-    i % 2 === 0
-      ? (capitalizeEven += s[i].toUpperCase())
-      : (capitalizeEven += s[i].toLowerCase());
+  const even = arrayString.map((el, i) => {
+    return i % 2 === 0 ? el.toUpperCase() : el.toLowerCase();
+  });
+  const odd = arrayString.map((el, i) => {
+    return i % 2 !== 0 ? el.toUpperCase() : el.toLowerCase();
+  });
 
-    i % 2 !== 0
-      ? (capitalizeOdd += s[i].toUpperCase())
-      : (capitalizeOdd += s[i].toLowerCase());
-  }
-
-  return [capitalizeEven, capitalizeOdd];
+  return [even.join(''), odd.join('')];
 }
 
 console.log(capitalize('abcdef')); //['AbCdEf', 'aBcDeF']

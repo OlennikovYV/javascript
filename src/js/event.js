@@ -1,20 +1,20 @@
-function solve(s) {
-  const CODE_CHAR_A = 96;
-  const numAlpha = alpha => alpha.charCodeAt(0) - CODE_CHAR_A;
+function isSortedAndHow(array) {
+  const ascendingSort = array[1] - array[0] > 0;
+  let sorting = true;
+  let result = '';
 
-  let arraySubstConsonants = s.match(/[^aeiou]+/g);
+  for (let i = 0; i < array.length - 1; i += 1) {
+    const diffirent = array[i + 1] - array[i];
+    sorting = ascendingSort ? diffirent >= 0 : diffirent <= 0;
+    if (sorting === false) break;
+  }
 
-  arraySubstConsonants = arraySubstConsonants.map(el => {
-    return el.split('').reduce((acc, el) => acc + numAlpha(el), 0);
-  }, 0);
+  result += sorting ? 'yes' : 'no';
+  if (sorting) result += ascendingSort ? ', ascending' : ', descending';
 
-  return Math.max(...arraySubstConsonants);
+  return result;
 }
 
-console.log(solve('zodiac')); //  26
-console.log(solve('chruschtschov')); //  80
-console.log(solve('khrushchev')); //  38
-console.log(solve('strength')); //  57
-console.log(solve('catchphrase')); //  73
-console.log(solve('twelfthstreet')); //  103
-console.log(solve('mischtschenkoana')); //  80
+console.log(isSortedAndHow([1, 2])); // 'yes, ascending'
+console.log(isSortedAndHow([15, 7, 3, -8])); // 'yes, descending'
+console.log(isSortedAndHow([4, 2, 30])); // 'no'

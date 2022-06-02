@@ -1,7 +1,21 @@
-function enough(cap, on, wait) {
-  return Math.max(0, wait + on - cap);
+function capitalize(s) {
+  let capitalizeEven = '';
+  let capitalizeOdd = '';
+
+  for (let i = 0; i < s.length; i += 1) {
+    i % 2 === 0
+      ? (capitalizeEven += s[i].toUpperCase())
+      : (capitalizeEven += s[i].toLowerCase());
+
+    i % 2 !== 0
+      ? (capitalizeOdd += s[i].toUpperCase())
+      : (capitalizeOdd += s[i].toLowerCase());
+  }
+
+  return [capitalizeEven, capitalizeOdd];
 }
 
-console.log(enough(10, 5, 5)); // 0
-console.log(enough(100, 60, 50)); // 10
-console.log(enough(20, 5, 5)); // 0
+console.log(capitalize('abcdef')); //['AbCdEf', 'aBcDeF']
+console.log(capitalize('codewars')); //['CoDeWaRs', 'cOdEwArS']
+console.log(capitalize('abracadabra')); //['AbRaCaDaBrA', 'aBrAcAdAbRa']
+console.log(capitalize('codewarriors')); //['CoDeWaRrIoRs', 'cOdEwArRiOrS']

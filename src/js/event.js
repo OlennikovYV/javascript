@@ -1,17 +1,18 @@
-function capitalize(s) {
-  const arrayString = s.split('');
+function sumOfDifferences(arr) {
+  const result = [];
+  let [...calcArray] = arr;
 
-  const even = arrayString.map((el, i) => {
-    return i % 2 === 0 ? el.toUpperCase() : el.toLowerCase();
-  });
-  const odd = arrayString.map((el, i) => {
-    return i % 2 !== 0 ? el.toUpperCase() : el.toLowerCase();
-  });
+  if (calcArray.length < 2) return 0;
 
-  return [even.join(''), odd.join('')];
+  calcArray.sort((a, b) => b - a);
+  for (let i = 0; i < calcArray.length - 1; i += 1) {
+    result.push(calcArray[i] - calcArray[i + 1] || 0);
+  }
+
+  return result.reduce((acc, el) => acc + el);
 }
 
-console.log(capitalize('abcdef')); //['AbCdEf', 'aBcDeF']
-console.log(capitalize('codewars')); //['CoDeWaRs', 'cOdEwArS']
-console.log(capitalize('abracadabra')); //['AbRaCaDaBrA', 'aBrAcAdAbRa']
-console.log(capitalize('codewarriors')); //['CoDeWaRrIoRs', 'cOdEwArRiOrS']
+console.log(sumOfDifferences([])); // 0
+console.log(sumOfDifferences([-1])); // -1
+console.log(sumOfDifferences([1, 2, 10])); // 9
+console.log(sumOfDifferences([-3, -2, -1])); // 2

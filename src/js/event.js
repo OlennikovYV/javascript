@@ -1,5 +1,5 @@
 function noBoringZeros(n) {
-  return +String(n).replace(/[0]+$/, '');
+  return Number(String(n).replace(/0+$/, ''));
 }
 
 console.log(noBoringZeros(1450)); // 145

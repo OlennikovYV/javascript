@@ -1,17 +1,17 @@
 function calculateTip(amount, rating) {
   const tips = {
     TERRIBLE: 0,
-    POOR: 5,
-    GOOD: 10,
-    GREAT: 15,
-    EXCELLENT: 20,
+    POOR: 0.05,
+    GOOD: 0.1,
+    GREAT: 0.15,
+    EXCELLENT: 0.2,
   };
 
-  const tip = tips[rating.toUpperCase()];
+  rating = rating.toUpperCase();
 
-  if (tip === undefined) return 'Rating not recognised';
-
-  return Math.ceil(amount * tip * 0.01);
+  return rating in tips
+    ? Math.ceil(amount * tips[rating])
+    : 'Rating not recognised';
 }
 
 console.log(calculateTip(20, 'Excellent')); // 4

@@ -1,7 +1,5 @@
 function strCount(str, letter) {
-  const regExp = new RegExp(letter, 'g');
-
-  return (str.match(regExp) || []).length;
+  return str.split(letter).length - 1;
 }
 
 console.log(strCount('Hello', 'o')); // 1

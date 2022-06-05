@@ -1,20 +1,13 @@
-function calculateTip(amount, rating) {
-  const tips = {
-    TERRIBLE: 0,
-    POOR: 0.05,
-    GOOD: 0.1,
-    GREAT: 0.15,
-    EXCELLENT: 0.2,
-  };
+function vowelIndices(word) {
+  const vowels = ['a', 'e', 'i', 'o', 'u', 'y'];
 
-  rating = rating.toUpperCase();
-
-  return rating in tips
-    ? Math.ceil(amount * tips[rating])
-    : 'Rating not recognised';
+  return word.split('').reduce((acc, el, i) => {
+    if (vowels.includes(el.toLowerCase())) acc.push(i + 1);
+    return acc;
+  }, []);
 }
 
-console.log(calculateTip(20, 'Excellent')); // 4
-console.log(calculateTip(26.95, 'good')); // 3
-console.log(calculateTip(23, 'TERRIBLE')); // 0
-console.log(calculateTip(26, 'None')); // 'Rating not recognised'
+console.log(vowelIndices('mmm')); // []
+console.log(vowelIndices('apple')); // [1, 5]
+console.log(vowelIndices('super')); // [2, 4]
+console.log(vowelIndices('orange')); // [1, 3, 6]

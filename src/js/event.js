@@ -1,19 +1,21 @@
-function wave(str) {
-  let result = [];
+function whatday(num) {
+  const days = {
+    1: 'Sunday',
+    2: 'Monday',
+    3: 'Tuesday',
+    4: 'Wednesday',
+    5: 'Thursday',
+    6: 'Friday',
+    7: 'Saturday',
+  };
 
-  str.split('').forEach((el, i) => {
-    if (el !== ' ') {
-      result.push(
-        str.slice(0, i).toLowerCase() +
-          str[i].toUpperCase() +
-          str.slice(i + 1).toLowerCase()
-      );
-    }
-  });
-
-  return result;
+  return 1 <= num && num <= 7
+    ? days[num]
+    : 'Wrong, please enter a number between 1 and 7';
 }
 
-console.log(wave('Codewars'));
-console.log(wave('Hello'));
-console.log(wave('Two words'));
+console.log(whatday(1)); // 'Sunday'
+console.log(whatday(2)); // 'Monday'
+console.log(whatday(3)); // 'Tuesday'
+console.log(whatday(8)); // 'Wrong, please enter a number between 1 and 7'
+console.log(whatday(20)); // 'Wrong, please enter a number between 1 and 7'

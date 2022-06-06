@@ -1,16 +1,17 @@
 function wave(str) {
   let result = [];
-  const string = str;
-  return string.split('').reduce((acc, el, i) => {
+
+  str.split('').forEach((el, i) => {
     if (el !== ' ') {
-      const str =
-        string.slice(0, i).toLowerCase() +
-        string[i].toUpperCase() +
-        string.slice(i + 1).toLowerCase();
-      acc.push(str);
+      result.push(
+        str.slice(0, i).toLowerCase() +
+          str[i].toUpperCase() +
+          str.slice(i + 1).toLowerCase()
+      );
     }
-    return acc;
-  }, result);
+  });
+
+  return result;
 }
 
 console.log(wave('Codewars'));

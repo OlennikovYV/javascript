@@ -1,13 +1,18 @@
-function vowelIndices(word) {
-  const vowels = ['a', 'e', 'i', 'o', 'u', 'y'];
-
-  return word.split('').reduce((acc, el, i) => {
-    if (vowels.includes(el.toLowerCase())) acc.push(i + 1);
+function wave(str) {
+  let result = [];
+  const string = str;
+  return string.split('').reduce((acc, el, i) => {
+    if (el !== ' ') {
+      const str =
+        string.slice(0, i).toLowerCase() +
+        string[i].toUpperCase() +
+        string.slice(i + 1).toLowerCase();
+      acc.push(str);
+    }
     return acc;
-  }, []);
+  }, result);
 }
 
-console.log(vowelIndices('mmm')); // []
-console.log(vowelIndices('apple')); // [1, 5]
-console.log(vowelIndices('super')); // [2, 4]
-console.log(vowelIndices('orange')); // [1, 3, 6]
+console.log(wave('Codewars'));
+console.log(wave('Hello'));
+console.log(wave('Two words'));

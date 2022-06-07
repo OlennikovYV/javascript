@@ -1,13 +1,9 @@
 function twoOldestAges(ages) {
-  let primaryOldestAge;
-  let secondOldestAge;
   let [...oldestAges] = ages;
 
   oldestAges.sort((a, b) => a - b);
-  primaryOldestAge = oldestAges.pop();
-  secondOldestAge = oldestAges.pop();
 
-  return [secondOldestAge, primaryOldestAge];
+  return oldestAges.slice(-2);
 }
 
 let results1 = [1, 5, 87, 45, 8, 8];

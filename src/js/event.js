@@ -1,6 +1,5 @@
 function breakChocolate(n, m) {
-  const count = n * m - 1;
-  return count > 0 ? count : 0;
+  return n * m === 0 ? 0 : n * m - 1;
 }
 
 console.log(breakChocolate(5, 5)); // 24

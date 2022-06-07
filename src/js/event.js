@@ -1,14 +1,7 @@
-function twoOldestAges(ages) {
-  let [...oldestAges] = ages;
-
-  oldestAges.sort((a, b) => a - b);
-
-  return oldestAges.slice(-2);
+function breakChocolate(n, m) {
+  const count = n * m - 1;
+  return count > 0 ? count : 0;
 }
 
-let results1 = [1, 5, 87, 45, 8, 8];
-console.log(twoOldestAges(results1)); // 45, 87
-results1 = [6, 5, 83, 5, 3, 18];
-console.log(twoOldestAges(results1)); // 18, 83
-results1 = [11, 53, 8, 29, 61, 61, 23, 35];
-console.log(twoOldestAges(results1)); // 53, 61
+console.log(breakChocolate(5, 5)); // 24
+console.log(breakChocolate(1, 1)); // 0

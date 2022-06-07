@@ -1,19 +1,8 @@
-function whatday(num) {
-  const days = [
-    'Sunday',
-    'Monday',
-    'Tuesday',
-    'Wednesday',
-    'Thursday',
-    'Friday',
-    'Saturday',
-  ];
+var a = 'dev';
+var b = 'Lab';
 
-  return days[num - 1] || 'Wrong, please enter a number between 1 and 7';
-}
+var name = a + b;
 
-console.log(whatday(1)); // 'Sunday'
-console.log(whatday(2)); // 'Monday'
-console.log(whatday(3)); // 'Tuesday'
-console.log(whatday(8)); // 'Wrong, please enter a number between 1 and 7'
-console.log(whatday(20)); // 'Wrong, please enter a number between 1 and 7'
+console.log(a); // 'dev'
+console.log(b); // 'Lab'
+console.log(name); // 'devLab'

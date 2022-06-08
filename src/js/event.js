@@ -1,16 +1,5 @@
-const countSetBit = num => {
-  let count = 0;
-  while (num) {
-    count += num & 1;
-    num >>>= 1;
-  }
-  return count;
-};
-
 function isPowerOfTwo(n) {
-  let num = n;
-
-  return countSetBit(num) === 1;
+  return Math.log2(n) % 1 === 0;
 }
 
 console.log(isPowerOfTwo(2)); // true

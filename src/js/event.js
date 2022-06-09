@@ -1,8 +1,5 @@
 function addLength(str) {
-  return str.split(' ').map(el => {
-    const lengthWord = `${el} ${el.length}`;
-    return lengthWord;
-  });
+  return str.split(' ').map(el => `${el} ${el.length}`);
 }
 
 console.log(addLength('apple ban')); // ['apple 5', 'ban 3']

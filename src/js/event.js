@@ -1,5 +1,5 @@
 function checkTheBucket(bucket) {
-  return bucket.filter(el => el === 'gold').length > 0;
+  return bucket.includes('gold');
 }
 
 console.log(checkTheBucket(['stone', 'stone', 'stone', 'stone', 'stone'])); // false

@@ -1,9 +1,7 @@
 function mango(quantity, price) {
-  const Residue = quantity % 3;
-  const paid = quantity - Residue;
-  const costPaid = (paid / 3) * 2;
+  const freeProduct = Math.floor(quantity / 3);
 
-  return costPaid * price + Residue * price;
+  return (quantity - freeProduct) * price;
 }
 
 console.log(mango(3, 3)); // 6

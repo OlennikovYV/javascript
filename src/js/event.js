@@ -1,8 +1,10 @@
-function otherAngle(a, b) {
-  return 180 - (a + b);
+function mango(quantity, price) {
+  const Residue = quantity % 3;
+  const paid = quantity - Residue;
+  const costPaid = (paid / 3) * 2;
+
+  return costPaid * price + Residue * price;
 }
 
-console.log(otherAngle(30, 60)); // 90
-console.log(otherAngle(60, 60)); // 60
-console.log(otherAngle(43, 78)); // 59
-console.log(otherAngle(10, 20)); // 150
+console.log(mango(3, 3)); // 6
+console.log(mango(9, 5)); // 30

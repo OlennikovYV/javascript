@@ -1,8 +1,9 @@
-function mango(quantity, price) {
-  const freeProduct = Math.floor(quantity / 3);
-
-  return (quantity - freeProduct) * price;
+function checkTheBucket(bucket) {
+  return bucket.filter(el => el === 'gold').length > 0;
 }
 
-console.log(mango(3, 3)); // 6
-console.log(mango(9, 5)); // 30
+console.log(checkTheBucket(['stone', 'stone', 'stone', 'stone', 'stone'])); // false
+console.log(checkTheBucket(['stone', 'stone', 'stone', 'stone', 'gold'])); // true
+console.log(checkTheBucket(['gold', 'stone', 'stone', 'stone', 'stone'])); // true
+console.log(checkTheBucket([])); // false
+console.log(checkTheBucket(['stone', 'stone', 'stone', 'gold', 'gold'])); // true

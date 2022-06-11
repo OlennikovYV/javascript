@@ -1,5 +1,5 @@
-const square = num => num * num;
+function getAge(inputString) {
+  return Number(inputString.split(' ')[0]);
+}
 
-console.log(square(1)); // 1
-console.log(square(2)); // 4
-console.log(square(3)); // 9
+console.log(getAge('4 years old')); // 4

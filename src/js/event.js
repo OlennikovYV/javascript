@@ -1,5 +1,3 @@
-function getAge(inputString) {
-  return parseInt(inputString[0]);
-}
+const getAge = parseInt;
 
 console.log(getAge('4 years old')); // 4

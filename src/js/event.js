@@ -1,27 +1,7 @@
-function solve(arr) {
-  const isIndexAlphabeticCharacter = (char, index) => {
-    const INDEX_BEGUN_ALPHABET = 96;
-    const indexInAlphabet = char.toLowerCase().charCodeAt(0);
-
-    return indexInAlphabet - INDEX_BEGUN_ALPHABET === index + 1;
-  };
-
-  const countCharSymmetry = string => {
-    return string.split('').reduce((acc, el, index) => {
-      if (isIndexAlphabeticCharacter(el, index)) acc += 1;
-      return acc;
-    }, 0);
-  };
-
-  // debugger;
-  return arr.map(el => {
-    const count = countCharSymmetry(el);
-    if (count > 0) return count;
-    return count;
-  });
+function evenNumbers(array, number) {
+  return array.filter(el => el % 2 === 0).slice(-number);
 }
 
-console.log(solve(['abode', 'ABc', 'xyzD'])); // [4,3,1]
-console.log(solve(['abide', 'ABc', 'xyz'])); // [4,3,0]
-console.log(solve(['IAMDEFANDJKL', 'thedefgh', 'xyzDEFghijabc'])); // [6, 5, 7]
-console.log(solve(['encode', 'abc', 'xyzD', 'ABmD'])); // [1, 3, 1, 3]
+console.log(evenNumbers([1, 2, 3, 4, 5, 6, 7, 8, 9], 3)); // [4, 6, 8]
+console.log(evenNumbers([-22, 5, 3, 11, 26, -6, -7, -8, -9, -8, 26], 2)); // [-8, 26]
+console.log(evenNumbers([6, -25, 3, 7, 5, 5, 7, -3, 23], 1)); // [6]

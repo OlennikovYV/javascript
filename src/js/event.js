@@ -1,19 +1,11 @@
-function sumOfMinimums(arr) {
-  return arr.reduce((acc, el) => acc + Math.min(...el), 0);
+function sayHello(name, city, state) {
+  const fullName = name.join(' ');
+  const location = `${city}, ${state}`;
+  return `Hello, ${fullName}! Welcome to ${location}!`;
 }
 
+console.log(sayHello(['John', 'Smith'], 'Phoenix', 'Arizona')); // 'Hello, John Smith! Welcome to Phoenix, Arizona!'
 console.log(
-  sumOfMinimums([
-    [7, 9, 8, 6, 2],
-    [6, 3, 5, 4, 3],
-    [5, 8, 7, 4, 5],
-  ])
-); // 9
-console.log(
-  sumOfMinimums([
-    [11, 12, 14, 54],
-    [67, 89, 90, 56],
-    [7, 9, 4, 3],
-    [9, 8, 6, 7],
-  ])
-); // 76
+  sayHello(['Franklin', 'Delano', 'Roosevelt'], 'Chicago', 'Illinois')
+); // 'Hello, Franklin Delano Roosevelt! Welcome to Chicago, Illinois!'
+console.log(sayHello(['Wallace', 'Russel', 'Osbourne'], 'Albany', 'New York')); // 'Hello, Wallace Russel Osbourne! Welcome to Albany, New York!'

@@ -1,13 +1,19 @@
-var cubeChecker = function (volume, side) {
-  return volume > 0 && side > 0 && volume === Math.pow(side, 3);
-};
+function sumOfMinimums(arr) {
+  return arr.map(el => Math.min(...el)).reduce((acc, el) => acc + el);
+}
 
-console.log(cubeChecker(56.3, 1)); // false
-console.log(cubeChecker(-1, 2)); // false
-console.log(cubeChecker(8, 3)); // false
-console.log(cubeChecker(8, 2)); // true
-console.log(cubeChecker(-8, -2)); // false
-console.log(cubeChecker(0, 0)); // false
-console.log(cubeChecker(1, 5)); // false
-console.log(cubeChecker(125, 5)); // true
-console.log(cubeChecker(125, -5)); // false
+console.log(
+  sumOfMinimums([
+    [7, 9, 8, 6, 2],
+    [6, 3, 5, 4, 3],
+    [5, 8, 7, 4, 5],
+  ])
+); // 9
+console.log(
+  sumOfMinimums([
+    [11, 12, 14, 54],
+    [67, 89, 90, 56],
+    [7, 9, 4, 3],
+    [9, 8, 6, 7],
+  ])
+); // 76

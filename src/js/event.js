@@ -1,7 +1,5 @@
 function sayHello(name, city, state) {
-  const fullName = name.join(' ');
-  const location = `${city}, ${state}`;
-  return `Hello, ${fullName}! Welcome to ${location}!`;
+  return `Hello, ${name.join(' ')}! Welcome to ${city}, ${state}!`;
 }
 
 console.log(sayHello(['John', 'Smith'], 'Phoenix', 'Arizona')); // 'Hello, John Smith! Welcome to Phoenix, Arizona!'

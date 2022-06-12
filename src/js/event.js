@@ -1,5 +1,5 @@
 function sumOfMinimums(arr) {
-  return arr.map(el => Math.min(...el)).reduce((acc, el) => acc + el);
+  return arr.reduce((acc, el) => acc + Math.min(...el), 0);
 }
 
 console.log(

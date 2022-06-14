@@ -1,5 +1,8 @@
-function removeExclamationMarks(s) {
-  return s.replace(/!/g, '');
+function apple(x) {
+  const str1 = 'Help yourself to a honeycomb Yorkie for the glovebox.';
+  const str2 = "It's hotter than the sun!!";
+  return parseInt(x) ** 2 < 1000 ? str1 : str2;
 }
 
-console.log(removeExclamationMarks('Hello World!')); // "Hello World"
+console.log(apple('50')); // "It's hotter than the sun!!"
+console.log(apple(4)); // 'Help yourself to a honeycomb Yorkie for the glovebox.'

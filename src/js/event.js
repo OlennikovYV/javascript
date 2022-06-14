@@ -1,8 +1,7 @@
-function apple(x) {
-  const str1 = 'Help yourself to a honeycomb Yorkie for the glovebox.';
-  const str2 = "It's hotter than the sun!!";
-  return Math.pow(x, 2) < 1000 ? str1 : str2;
-}
+var greet = function (name) {
+  const firstName = name[0].toUpperCase() + name.slice(1).toLowerCase();
 
-console.log(apple('50')); // "It's hotter than the sun!!"
-console.log(apple(4)); // 'Help yourself to a honeycomb Yorkie for the glovebox.'
+  return `Hello ${firstName}!`;
+};
+
+console.log(greet('riley')); // 'Hello Riley!'

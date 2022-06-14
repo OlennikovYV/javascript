@@ -1,17 +1,8 @@
 function dashatize(num) {
-  let number = Math.abs(num);
-
-  if (Number.isNaN(number)) return 'NaN';
-
-  number = String(number)
-    .split('')
-    .map(el => (el % 2 === 0 ? el : `-${el}-`))
-    .join('');
-
-  number = number.replace(/--/g, '-');
-  number = number.replace(/^[-]|[-]$/g, '');
-
-  return number;
+  return String(num)
+    .replace(/([13579])/g, '-$1-')
+    .replace(/--/g, '-')
+    .replace(/^-|-$/g, '');
 }
 
 console.log(dashatize(274)); // "2-7-4", "Should return 2-7-4"

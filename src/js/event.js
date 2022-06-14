@@ -1,7 +1,7 @@
-var greet = function (name) {
-  const firstName = name[0].toUpperCase() + name.slice(1).toLowerCase();
+function sortByLength(array) {
+  return array.sort((a, b) => a.length - b.length);
+}
 
-  return `Hello ${firstName}!`;
-};
-
-console.log(greet('riley')); // 'Hello Riley!'
+console.log(sortByLength(['Beg', 'Life', 'I', 'To'])); // ['I', 'To', 'Beg', 'Life']);
+console.log(sortByLength(['', 'Moderately', 'Brains', 'Pizza'])); // ['', 'Pizza', 'Brains', 'Moderately']);
+console.log(sortByLength(['Longer', 'Longest', 'Short'])); // ['Short', 'Longer', 'Longest']);

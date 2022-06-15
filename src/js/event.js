@@ -1,3 +1,3 @@
-var websites = Array.from({ length: 1000 }, () => 'codewars');
+var websites = new Array(1000).fill('codewars');
 
 // 'Every element in the array must contain the value "codewars"'

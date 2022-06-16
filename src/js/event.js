@@ -1,8 +1,5 @@
 function sortGiftCode(code) {
-  return code
-    .split('')
-    .sort((a, b) => a.charCodeAt(0) - b.charCodeAt(0))
-    .join('');
+  return code.split('').sort().join('');
 }
 
 console.log(sortGiftCode('abcdef')); // 'abcdef'

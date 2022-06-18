@@ -1,10 +1,15 @@
-var fibonacci = function (n, memo = [0, 1, 1]) {
-  if (memo[n]) return memo[n];
+function memo(func) {
+  const cache = {};
+  return function (n) {
+    if (cache[n] === undefined) cache[n] = func(n);
+    return cache[n];
+  };
+}
 
-  memo[n] = fibonacci(n - 1, memo) + fibonacci(n - 2, memo);
-
-  return memo[n];
-};
+const fibonacci = memo(function (n) {
+  if (n < 2) return n;
+  return fibonacci(n - 1) + fibonacci(n - 2);
+});
 
 console.log(fibonacci(70)); // 190392490709135
 console.log(fibonacci(60)); // 1548008755920

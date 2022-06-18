@@ -1,15 +1,9 @@
-function memo(func) {
-  const cache = {};
+const fibonacci = (function (n) {
+  let cache = [0, 1];
   return function (n) {
-    if (cache[n] === undefined) cache[n] = func(n);
-    return cache[n];
+    return (cache[n] = cache[n] || fibonacci(n - 1) + cache[n - 2]);
   };
-}
-
-const fibonacci = memo(function (n) {
-  if (n < 2) return n;
-  return fibonacci(n - 1) + fibonacci(n - 2);
-});
+})();
 
 console.log(fibonacci(70)); // 190392490709135
 console.log(fibonacci(60)); // 1548008755920

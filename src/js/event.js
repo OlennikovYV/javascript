@@ -1,7 +1,18 @@
-function digits(n) {
-  return String(n).length;
-}
+const ultimateReverse = s => {
+  let indexBegin = 0;
+  let indexEnd;
+  let result = [];
+  const reverseString = s.join('').split('').reverse().join('');
 
-console.log(digits(5)); // 1, 'Fail!'
-console.log(digits(12345)); // 5, 'Fail!'
-console.log(digits(9876543210)); // 10, 'Fail!'
+  for (let i = 0; i < s.length; i += 1) {
+    indexEnd = indexBegin + s[i].length;
+    result.push(reverseString.slice(indexBegin, indexEnd));
+    indexBegin = indexEnd;
+  }
+
+  return result;
+};
+
+console.log(
+  ultimateReverse(['I', 'like', 'big', 'butts', 'and', 'I', 'cannot', 'lie!'])
+); // ['!', 'eilt', 'onn', 'acIdn', 'ast', 't', 'ubgibe', 'kilI'];

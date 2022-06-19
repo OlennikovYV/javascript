@@ -1,10 +1,7 @@
-const fibonacci = (function (n) {
-  let cache = [0, 1];
-  return function (n) {
-    return (cache[n] = cache[n] || fibonacci(n - 1) + cache[n - 2]);
-  };
-})();
+function digits(n) {
+  return String(n).length;
+}
 
-console.log(fibonacci(70)); // 190392490709135
-console.log(fibonacci(60)); // 1548008755920
-console.log(fibonacci(50)); // 12586269025
+console.log(digits(5)); // 1, 'Fail!'
+console.log(digits(12345)); // 5, 'Fail!'
+console.log(digits(9876543210)); // 10, 'Fail!'

@@ -1,5 +1,7 @@
 function getAverage(marks) {
-  return Math.floor(marks.reduce((sum, mark) => sum + mark) / marks.length);
+  const sum = marks.reduce((sum, mark) => sum + mark);
+
+  return Math.floor(sum / marks.length);
 }
 
 console.log(getAverage([2, 2, 2, 2])); // 2

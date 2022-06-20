@@ -1,7 +1,7 @@
-function buildString(...template) {
-  return `I like ${template.join(', ')}!`;
+function getAverage(marks) {
+  return Math.floor(marks.reduce((sum, mark) => sum + mark) / marks.length);
 }
 
-console.log(buildString('Cheese', 'Milk', 'Chocolate')); // 'I like Cheese, Milk, Chocolate!',
-console.log(buildString('Cheese', 'Milk')); // 'I like Cheese, Milk!',
-console.log(buildString('Chocolate')); // 'I like Chocolate!',
+console.log(getAverage([2, 2, 2, 2])); // 2
+console.log(getAverage([1, 2, 3, 4, 5])); // 3
+console.log(getAverage([1, 1, 1, 1, 1, 1, 1, 2])); // 1

@@ -1,5 +1,7 @@
-function formatMoney(amount) {
-  return '$' + amount.toFixed(2);
+function buildString(...template) {
+  return `I like ${template.join(', ')}!`;
 }
 
-console.log(formatMoney(39.99)); // '$39.99'
+console.log(buildString('Cheese', 'Milk', 'Chocolate')); // 'I like Cheese, Milk, Chocolate!',
+console.log(buildString('Cheese', 'Milk')); // 'I like Cheese, Milk!',
+console.log(buildString('Chocolate')); // 'I like Chocolate!',

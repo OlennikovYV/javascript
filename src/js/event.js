@@ -1,10 +1,7 @@
 function minValue(values) {
-  let [...result] = values;
-  result = new Set(result);
-  result = [...result];
-  result.sort();
+  let result = Array.from(new Set(values));
 
-  return +result.join('');
+  return parseInt(result.join(''));
 }
 
 console.log(minValue([1, 3, 1])); // 13

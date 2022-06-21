@@ -1,5 +1,5 @@
 function triangular(n) {
-  return n > 0 ? (1 / 2) * n * (n + 1) : 0;
+  return n > 0 ? (n * n + n) / 2 : 0;
 }
 
 console.log(triangular(2)); // 3

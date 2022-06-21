@@ -1,11 +1,6 @@
-function removeDuplicateWords(s) {
-  const result = new Set(s.split(' '));
-  return Array.from(result).join(' ');
+function triangular(n) {
+  return n > 0 ? (1 / 2) * n * (n + 1) : 0;
 }
 
-console.log(
-  removeDuplicateWords(
-    'alpha beta beta gamma gamma gamma delta alpha beta beta gamma gamma gamma delta'
-  )
-);
-// 'alpha beta gamma delta'
+console.log(triangular(2)); // 3
+console.log(triangular(4)); // 10

@@ -1,10 +1,10 @@
-function Sleigh() {}
+function Sleigh() {
+  this.SantaName = 'Santa Claus';
+  this.SantaPassword = 'Ho Ho Ho!';
+}
 
 Sleigh.prototype.authenticate = function (name, password) {
-  const isSantaName = name === 'Santa Claus';
-  const isSantaPassword = password === 'Ho Ho Ho!';
-
-  return isSantaName && isSantaPassword;
+  return this.SantaName === name && this.SantaPassword === password;
 };
 
 const sleigh = new Sleigh();

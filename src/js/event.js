@@ -1,5 +1,5 @@
 function isDigit(s) {
-  return !isNaN(parseFloat(s)) && isFinite(s);
+  return s == parseFloat(s);
 }
 
 console.log(isDigit('2342')); // true

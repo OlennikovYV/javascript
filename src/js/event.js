@@ -1,8 +1,5 @@
-function closeCompare(a, b, margin) {
-  const diff = a - b;
-  if (margin === undefined) margin = 0;
-
-  return Math.abs(diff) <= margin ? 0 : a < b ? -1 : 1;
+function closeCompare(a, b, margin = 0) {
+  return Math.abs(a - b) <= margin ? 0 : Math.sign(a - b);
 }
 
 console.log(closeCompare(4, 5)); // -1

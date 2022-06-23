@@ -1,11 +1,9 @@
-function closeCompare(a, b, margin = 0) {
-  return Math.abs(a - b) <= margin ? 0 : Math.sign(a - b);
+function isDigit(s) {
+  return !isNaN(parseFloat(s)) && isFinite(s);
 }
 
-console.log(closeCompare(4, 5)); // -1
-console.log(closeCompare(5, 5)); // 0
-console.log(closeCompare(6, 5)); // 1
-console.log(closeCompare(-6, -5)); // -1
-console.log(closeCompare(2, 5, 3)); // 0
-console.log(closeCompare(8.1, 5, 3)); // 1
-console.log(closeCompare(1.99, 5, 3)); // -1
+console.log(isDigit('2342')); // true
+console.log(isDigit('-234.4')); // true
+console.log(isDigit('s2342')); // false
+console.log(isDigit('23 42')); // false
+console.log(isDigit('23x42')); // false

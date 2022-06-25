@@ -1,6 +1,6 @@
-function goals(laLigaGoals, copaDelReyGoals, championsLeagueGoals) {
-  return laLigaGoals + copaDelReyGoals + championsLeagueGoals;
+function parseF(s) {
+  return isNaN(parseFloat(s)) ? null : parseFloat(s);
 }
 
-console.log(goals(0, 0, 0)); // 0
-console.log(goals(43, 10, 5)); // 58
+console.log(parseF('1')); // 1.0
+console.log(parseF('r')); // 0

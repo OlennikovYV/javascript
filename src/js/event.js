@@ -1,5 +1,10 @@
-function add(n) {
-  return m => n + m;
-}
+String.prototype.digit = function () {
+  return /^[\d]$/.test(this);
+};
 
-console.log(add(1)(3)); // 4
+console.log(''.digit()); // false
+console.log('7'.digit()); // true
+console.log(' '.digit()); // false
+console.log('a'.digit()); // false
+console.log('a5'.digit()); // false
+console.log('14'.digit()); // false

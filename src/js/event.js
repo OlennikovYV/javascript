@@ -1,7 +1,5 @@
-var repeatIt = function (str, n) {
-  return typeof str === 'string' ? str.repeat(n) : 'Not a string';
-};
+function add(n) {
+  return m => n + m;
+}
 
-console.log(repeatIt([], 3)); // 'Not a string'
-console.log(repeatIt('*', 3)); // '***'
-console.log(repeatIt('Hello', 11)); // 'HelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHello'
+console.log(add(1)(3)); // 4

@@ -1,20 +1,11 @@
 function maxRot(n) {
-  const tempDigit = [];
-  let result = [];
-  let digit = String(n).split('');
-  const length = digit.length;
-  result.push([...digit]);
-  for (let i = 0; i < length; i += 1) {
-    const num = digit.shift();
-    digit.push(num);
-    result.push([...tempDigit, ...digit]);
-    tempDigit.push(digit.shift());
-    result.push([...tempDigit, ...digit]);
+  let str = n.toString();
+  let arr = [str];
+  for (let i = 0; i <= str.length - 1; i++) {
+    str = str.slice(0, i) + str.slice(i + 1) + str[i];
+    arr.push(str.split().join());
   }
-
-  result = result.map(el => +el.join(''));
-
-  return Math.max(...result);
+  return Math.max.apply(null, arr);
 }
 
 console.log(maxRot(38458215)); // 85821534

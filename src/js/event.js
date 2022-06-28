@@ -1,28 +1,12 @@
-function factorial(num) {
-  let result = 1;
-
-  if (num === 0) return 1;
-
-  while (num > 0) {
-    result *= num;
-    num -= 1;
-  }
-  return result;
+function checkCoupon(enteredCode, correctCode, currentDate, expirationDate) {
+  return (
+    new Date(expirationDate) - new Date(currentDate) >= 0 &&
+    enteredCode === correctCode
+  );
 }
 
-function sumFactorial(num) {
-  let arrayDigit = String(num).split('');
-
-  return arrayDigit.reduce((acc, el) => acc + factorial(+el), 0);
-}
-
-function strong(n) {
-  return n == sumFactorial(n) ? 'STRONG!!!!' : 'Not Strong !!';
-}
-
-console.log(strong(1)); // "STRONG!!!!"
-console.log(strong(2)); // "STRONG!!!!"
-console.log(strong(145)); // "STRONG!!!!"
-console.log(strong(7)); // "Not Strong !!"
-console.log(strong(93)); // "Not Strong !!"
-console.log(strong(185)); // "Not Strong !!"
+console.log(checkCoupon('123', '123', 'September 5, 2014', 'October 1, 2014')); //  true
+console.log(checkCoupon('123a', '123', 'September 5, 2014', 'October 1, 2014')); //  false
+console.log(
+  checkCoupon('123', '123', 'September 5, 2014', 'September 4, 2014')
+); // false

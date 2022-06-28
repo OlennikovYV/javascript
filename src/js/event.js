@@ -1,6 +1,6 @@
 function checkCoupon(enteredCode, correctCode, currentDate, expirationDate) {
   return (
-    new Date(expirationDate) - new Date(currentDate) >= 0 &&
+    new Date(expirationDate) >= new Date(currentDate) &&
     enteredCode === correctCode
   );
 }

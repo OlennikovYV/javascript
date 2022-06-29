@@ -1,12 +1,12 @@
-function checkCoupon(enteredCode, correctCode, currentDate, expirationDate) {
-  return (
-    new Date(expirationDate) >= new Date(currentDate) &&
-    enteredCode === correctCode
-  );
-}
+reverse = function (array) {
+  const result = [];
 
-console.log(checkCoupon('123', '123', 'September 5, 2014', 'October 1, 2014')); //  true
-console.log(checkCoupon('123a', '123', 'September 5, 2014', 'October 1, 2014')); //  false
-console.log(
-  checkCoupon('123', '123', 'September 5, 2014', 'September 4, 2014')
-); // false
+  for (let i = array.length - 1; i >= 0; i -= 1) {
+    result.push(array[i]);
+  }
+
+  return result;
+};
+
+console.log(reverse([1, 2, 3])); // [3, 2, 1]
+console.log(reverse([1, null, 14, 'two'])); // ['two', 14, null, 1]

@@ -1,11 +1,7 @@
 reverse = function (array) {
-  const result = [];
-
-  for (let i = array.length - 1; i >= 0; i -= 1) {
-    result.push(array[i]);
-  }
-
-  return result;
+  return array.reduce((acc, el) => {
+    return [el].concat(acc);
+  }, []);
 };
 
 console.log(reverse([1, 2, 3])); // [3, 2, 1]

@@ -1,8 +1,15 @@
-reverse = function (array) {
-  return array.reduce((acc, el) => {
-    return [el].concat(acc);
-  }, []);
-};
+class God {
+  static create() {
+    this.humans = [new Man(), new Woman()];
+    return this.humans;
+  }
+}
 
-console.log(reverse([1, 2, 3])); // [3, 2, 1]
-console.log(reverse([1, null, 14, 'two'])); // ['two', 14, null, 1]
+class Human {}
+class Man extends Human {}
+class Woman extends Human {}
+
+let humans = God.create();
+
+console.log(humans[0] instanceof Man); // True
+console.log(humans[1] instanceof Woman); // True

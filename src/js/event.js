@@ -1,13 +1,8 @@
 function pickIt(arr) {
   var odd = [],
     even = [];
-  for (let i = 0; i < arr.length; i += 1) {
-    const digit = arr[i];
-    if (digit % 2 === 0) {
-      even.push(digit);
-    } else {
-      odd.push(digit);
-    }
+  for (let el of arr) {
+    (el % 2 === 0 ? even : odd).push(el);
   }
 
   return [odd, even];

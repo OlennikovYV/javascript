@@ -1,7 +1,14 @@
-function getNumberFromString(s) {
-  return Number(s.replace(/\D/g, ''));
+function switcheroo(x) {
+  return x
+    .split('')
+    .map(el => {
+      if (el === 'a') return 'b';
+      if (el === 'b') return 'a';
+      return el;
+    })
+    .join('');
 }
 
-console.log(getNumberFromString('1')); // 1
-console.log(getNumberFromString('123')); // 123
-console.log(getNumberFromString('this is number: 7')); // 7
+console.log(switcheroo('abc')); // 'bac'
+console.log(switcheroo('aaabcccbaaa')); // 'bbbacccabbb'
+console.log(switcheroo('ccccc')); // 'ccccc'

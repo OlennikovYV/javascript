@@ -1,12 +1,5 @@
 function switcheroo(x) {
-  return x
-    .split('')
-    .map(el => {
-      if (el === 'a') return 'b';
-      if (el === 'b') return 'a';
-      return el;
-    })
-    .join('');
+  return x.replace(/[ab]/g, x => (x === 'a' ? 'b' : 'a'));
 }
 
 console.log(switcheroo('abc')); // 'bac'

@@ -1,8 +1,5 @@
 function getNumberFromString(s) {
-  return +s
-    .split('')
-    .filter(el => /[0-9]/g.test(el))
-    .join('');
+  return Number(s.replace(/\D/g, ''));
 }
 
 console.log(getNumberFromString('1')); // 1

@@ -1,10 +1,10 @@
-function sumCubes(n) {
-  return ((n * (n + 1)) / 2) ** 2;
+function solution(a, b) {
+  const short = a.length < b.length ? a : b;
+  const long = a.length > b.length ? a : b;
+  return `${short}${long}${short}`;
 }
 
-console.log(sumCubes(1)); // 1
-console.log(sumCubes(2)); // 9
-console.log(sumCubes(3)); // 36
-console.log(sumCubes(4)); // 100
-console.log(sumCubes(10)); // 3025
-console.log(sumCubes(123)); // 58155876
+console.log(solution('45', '1')); // '1451'
+console.log(solution('13', '200')); // '1320013'
+console.log(solution('Soon', 'Me')); // 'MeSoonMe'
+console.log(solution('U', 'False')); // 'UFalseU'

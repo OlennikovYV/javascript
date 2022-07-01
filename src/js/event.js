@@ -1,11 +1,7 @@
 function sumCubes(n) {
-  let sum = 0;
-
-  for (let i = 1; i <= n; i += 1) {
-    sum = sum + i ** 3;
-  }
-
-  return sum;
+  return Array.from(Array(n), (el, i) => (i + 1) ** 3).reduce(
+    (sum, num) => sum + num
+  );
 }
 
 console.log(sumCubes(1)); // 1

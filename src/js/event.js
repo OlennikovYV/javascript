@@ -1,7 +1,5 @@
 function sumCubes(n) {
-  return Array.from(Array(n), (el, i) => (i + 1) ** 3).reduce(
-    (sum, num) => sum + num
-  );
+  return ((n * (n + 1)) / 2) ** 2;
 }
 
 console.log(sumCubes(1)); // 1

@@ -1,7 +1,5 @@
 function solution(a, b) {
-  const short = a.length < b.length ? a : b;
-  const long = a.length > b.length ? a : b;
-  return `${short}${long}${short}`;
+  return a.length < b.length ? a + b + a : b + a + b;
 }
 
 console.log(solution('45', '1')); // '1451'

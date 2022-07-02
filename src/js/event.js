@@ -1,8 +1,6 @@
-function solution(a, b) {
-  return a.length < b.length ? a + b + a : b + a + b;
-}
+const Ball = function (ballType = 'regular') {
+  this.ballType = ballType;
+};
 
-console.log(solution('45', '1')); // '1451'
-console.log(solution('13', '200')); // '1320013'
-console.log(solution('Soon', 'Me')); // 'MeSoonMe'
-console.log(solution('U', 'False')); // 'UFalseU'
+console.log(new Ball().ballType); // 'regular'
+console.log(new Ball('super').ballType); // 'super'

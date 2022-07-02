@@ -1,9 +1,7 @@
 const quote = function (fighter) {
-  const george = 'I am not impressed by your performance.';
-  const conor =
-    "I'd like to take this chance to apologize.. To absolutely NOBODY!";
-
-  return fighter.toLowerCase() === 'george saint pierre' ? george : conor;
+  return fighter.toLowerCase() === 'george saint pierre'
+    ? 'I am not impressed by your performance.'
+    : "I'd like to take this chance to apologize.. To absolutely NOBODY!";
 };
 
 console.log(quote('george saint pierre')); //  'I am not impressed by your performance.'

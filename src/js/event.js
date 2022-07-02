@@ -1,10 +1,6 @@
-function getASCIInumber(str) {
-  return str.charCodeAt(0);
-}
-
 function uniTotal(string) {
   return [...string].reduce((sum, char) => {
-    return sum + getASCIInumber(char);
+    return sum + char.charCodeAt(0);
   }, 0);
 }
 

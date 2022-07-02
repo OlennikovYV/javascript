@@ -1,14 +1,13 @@
-function uniTotal(string) {
-  return [...string].reduce((sum, char) => {
-    return sum + char.charCodeAt(0);
-  }, 0);
-}
+const quote = function (fighter) {
+  const george = 'I am not impressed by your performance.';
+  const conor =
+    "I'd like to take this chance to apologize.. To absolutely NOBODY!";
 
-console.log(uniTotal('')); // 0
-console.log(uniTotal('a')); // 97
-console.log(uniTotal('b')); // 98
-console.log(uniTotal('c')); // 99
-console.log(uniTotal('d')); // 100
-console.log(uniTotal('e')); // 101
-console.log(uniTotal('aaa')); // 291
-console.log(uniTotal('Mary Had A Little Lamb')); // 1873
+  return fighter.toLowerCase() === 'george saint pierre' ? george : conor;
+};
+
+console.log(quote('george saint pierre')); //  'I am not impressed by your performance.'
+console.log(quote('conor mcgregor')); //  "I'd like to take this chance to apologize.. To absolutely NOBODY!"
+
+console.log(quote('George Saint Pierre')); //  'I am not impressed by your performance.'
+console.log(quote('Conor McGregor')); //  "I'd like to take this chance to apologize.. To absolutely NOBODY!"

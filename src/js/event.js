@@ -1,11 +1,12 @@
-const quote = function (fighter) {
-  return fighter.toLowerCase() === 'george saint pierre'
-    ? 'I am not impressed by your performance.'
-    : "I'd like to take this chance to apologize.. To absolutely NOBODY!";
-};
+function pointsPer48(ppg, mpg) {
+  if (ppg === 0) return 0;
+  return Math.round(parseFloat((ppg / mpg) * 48) * 10) / 10;
+}
 
-console.log(quote('george saint pierre')); //  'I am not impressed by your performance.'
-console.log(quote('conor mcgregor')); //  "I'd like to take this chance to apologize.. To absolutely NOBODY!"
-
-console.log(quote('George Saint Pierre')); //  'I am not impressed by your performance.'
-console.log(quote('Conor McGregor')); //  "I'd like to take this chance to apologize.. To absolutely NOBODY!"
+console.log(pointsPer48(12, 20)); // 28.8
+console.log(pointsPer48(10, 10)); // 48.0
+console.log(pointsPer48(5, 17)); // 14.1
+console.log(pointsPer48(0, 0)); // 0
+console.log(pointsPer48(30.8, 34.7)); // 42.6
+console.log(pointsPer48(22.9, 33.8)); // 32.5
+console.log(pointsPer48(50.8, 14)); // 174.2

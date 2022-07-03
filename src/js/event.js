@@ -1,5 +1,5 @@
 function pointsPer48(ppg, mpg) {
-  return Number(((ppg / mpg) * 48).toFixed(1)) || 0;
+  return mpg == 0 ? 0 : Math.round((ppg / mpg) * 48 * 10) / 10;
 }
 
 console.log(pointsPer48(12, 20)); // 28.8

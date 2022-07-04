@@ -1,12 +1,12 @@
-var health = 100;
-var position = 0;
-var coins = 0;
-
-function main() {
-  rollDice();
-  move();
-  combat();
-  getCoins();
-  buyHealth();
-  printStatus();
+function toFreud(string) {
+  if (string === '') return '';
+  return Array.from(Array(string.split(' ').length))
+    .fill('sex')
+    .join(' ');
 }
+
+console.log(toFreud('')); // ''
+console.log(toFreud('test')); // 'sex'
+console.log(toFreud('This is a test')); // 'sex sex sex sex'
+console.log(toFreud('This is a longer test')); // 'sex sex sex sex sex'
+console.log(toFreud("You're becoming a true freudian expert")); //  'sex sex sex sex sex sex'

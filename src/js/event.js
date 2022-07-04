@@ -1,9 +1,11 @@
-function toFreud(string) {
-  return string.replace(/\S+/g, 'sex');
+function generateShape(integer) {
+  let square = [];
+
+  for (let i = 0; i < integer; i += 1) {
+    square.push('+'.repeat(integer));
+  }
+
+  return square.join('\n');
 }
 
-console.log(toFreud('')); // ''
-console.log(toFreud('test')); // 'sex'
-console.log(toFreud('This is a test')); // 'sex sex sex sex'
-console.log(toFreud('This is a longer test')); // 'sex sex sex sex sex'
-console.log(toFreud("You're becoming a true freudian expert")); //  'sex sex sex sex sex sex'
+console.log(generateShape(8)); // '++++++++\n++++++++\n++++++++\n++++++++\n++++++++\n++++++++\n++++++++\n++++++++'

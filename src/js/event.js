@@ -1,5 +1,5 @@
 function toFreud(string) {
-  return string.replace(/[^ ]+/g, 'sex');
+  return string.replace(/\S+/g, 'sex');
 }
 
 console.log(toFreud('')); // ''

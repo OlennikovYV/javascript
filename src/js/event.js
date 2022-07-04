@@ -1,8 +1,5 @@
 function toFreud(string) {
-  if (string === '') return '';
-  return Array.from(Array(string.split(' ').length))
-    .fill('sex')
-    .join(' ');
+  return string.replace(/[^ ]+/g, 'sex');
 }
 
 console.log(toFreud('')); // ''

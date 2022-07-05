@@ -1,8 +1,5 @@
-function count(array) {
-  return array.reduce((obj, el) => {
-    obj[el] ? (obj[el] += 1) : (obj[el] = 1);
-    return obj;
-  }, {});
+function orderOperations() {
+  return (2 + 2) * (2 + 2) * 2;
 }
 
-console.log(count(['a', 'a', 'b', 'b', 'b'])); // { a: 2, b: 3 }
+console.log(orderOperations()); // 32

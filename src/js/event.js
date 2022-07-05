@@ -1,11 +1,24 @@
-function generateShape(integer) {
-  let square = [];
+function nearestSq(n) {
+  let minSqrt, maxSqrt;
+  let minSquare, maxSquare;
+  let minDiff, maxDiff;
+  const sqrt = Math.sqrt(n);
 
-  for (let i = 0; i < integer; i += 1) {
-    square.push('+'.repeat(integer));
-  }
+  if (sqrt === n) return n;
 
-  return square.join('\n');
+  minSqrt = Math.floor(sqrt);
+  maxSqrt = Math.ceil(sqrt);
+  minSquare = minSqrt ** 2;
+  maxSquare = maxSqrt ** 2;
+
+  minDiff = n - minSquare;
+  maxDiff = maxSquare - n;
+
+  return minDiff <= maxDiff ? minSquare : maxSquare;
 }
 
-console.log(generateShape(8)); // '++++++++\n++++++++\n++++++++\n++++++++\n++++++++\n++++++++\n++++++++\n++++++++'
+console.log(nearestSq(1)); // 1
+console.log(nearestSq(2)); // 1
+console.log(nearestSq(10)); // 9
+console.log(nearestSq(111)); // 121
+console.log(nearestSq(9999)); // 10000

@@ -1,5 +1,7 @@
-function orderOperations() {
-  return (2 + 2) * (2 + 2) * 2;
+function shortenToDate(longDate) {
+  return longDate.replace(/[,][ ][\d]+[a|p]m/g, '');
 }
 
-console.log(orderOperations()); // 32
+console.log(shortenToDate('Friday May 2, 9am')); // 'Friday May 2'
+console.log(shortenToDate('Tuesday January 29, 10pm')); // 'Tuesday January 29'
+console.log(shortenToDate('Monday December 25, 10pm')); // 'Monday December 25'

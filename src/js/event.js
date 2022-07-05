@@ -1,5 +1,5 @@
 function shortenToDate(longDate) {
-  return longDate.replace(/[,][ ][\d]+[a|p]m/g, '');
+  return longDate.split(',')[0];
 }
 
 console.log(shortenToDate('Friday May 2, 9am')); // 'Friday May 2'

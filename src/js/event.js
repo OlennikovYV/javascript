@@ -1,20 +1,5 @@
 function nearestSq(n) {
-  let minSqrt, maxSqrt;
-  let minSquare, maxSquare;
-  let minDiff, maxDiff;
-  const sqrt = Math.sqrt(n);
-
-  if (sqrt === n) return n;
-
-  minSqrt = Math.floor(sqrt);
-  maxSqrt = Math.ceil(sqrt);
-  minSquare = minSqrt ** 2;
-  maxSquare = maxSqrt ** 2;
-
-  minDiff = n - minSquare;
-  maxDiff = maxSquare - n;
-
-  return minDiff <= maxDiff ? minSquare : maxSquare;
+  return Math.pow(Math.round(Math.sqrt(n)), 2);
 }
 
 console.log(nearestSq(1)); // 1

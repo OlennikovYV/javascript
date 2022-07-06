@@ -1,11 +1,11 @@
 function uefaEuro2016(teams, scores) {
   const players = teams.join(' - ');
+  const [score1, score2] = scores;
+  const winner = score1 > score2 ? teams[0] : teams[1];
 
   return scores[0] === scores[1]
     ? `At match ${players}, teams played draw.`
-    : scores[0] > scores[1]
-    ? `At match ${players}, ${teams[0]} won!`
-    : `At match ${players}, ${teams[1]} won!`;
+    : `At match ${players}, ${winner} won!`;
 }
 
 console.log(uefaEuro2016(['Germany', 'Ukraine'], [2, 0])); // 'At match Germany - Ukraine, Germany won!'

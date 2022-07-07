@@ -1,26 +1,6 @@
 function highestRank(arr) {
-  let countDigit = {};
-  let maxCount = 0;
-  let result = 0;
-
-  for (let i = 0; i < arr.length; i += 1) {
-    const digit = arr[i];
-    if (countDigit[digit]) {
-      countDigit[digit] += 1;
-    } else countDigit[digit] = 1;
-  }
-
-  for (let key in countDigit) {
-    if (countDigit[key] > maxCount) maxCount = countDigit[key];
-  }
-
-  for (let key in countDigit) {
-    if (countDigit[key] === maxCount) {
-      if (Number(key) > result) result = Number(key);
-    }
-  }
-
-  return result;
+  const countDigit = digit => arr.filter(el => el === digit).length;
+  return arr.sort((a, b) => countDigit(b) - countDigit(a) || b - a)[0];
 }
 
 let arr = [12, 10, 8, 12, 7, 6, 4, 10, 12];

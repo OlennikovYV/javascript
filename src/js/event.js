@@ -1,10 +1,9 @@
-function guessBlue(blueStart, redStart, bluePulled, redPulled) {
-  const blueBalls = blueStart - bluePulled;
-  const redBalls = redStart - redPulled;
-
-  return blueBalls / (blueBalls + redBalls);
+function isDivisible(wallLength, pixelSize) {
+  return wallLength % pixelSize === 0;
 }
 
-console.log(guessBlue(5, 5, 2, 3)); // 0.6
-console.log(guessBlue(5, 7, 4, 3)); // 0.2
-console.log(guessBlue(12, 18, 4, 6)); // 0.4
+console.log(isDivisible(4050, 27)); // true
+console.log(isDivisible(4066, 27)); // false
+console.log(isDivisible(10000, 20)); // true
+console.log(isDivisible(10005, 20)); // false
+console.log(isDivisible(10005, 1)); // true

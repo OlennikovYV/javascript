@@ -1,9 +1,14 @@
-function highestRank(arr) {
-  const countDigit = digit => arr.filter(el => el === digit).length;
-  return arr.sort((a, b) => countDigit(b) - countDigit(a) || b - a)[0];
+function isLockNessMonster(s) {
+  return s.includes('tree fiddy') || s.includes('3.50');
 }
 
-let arr = [12, 10, 8, 12, 7, 6, 4, 10, 12];
-console.log(highestRank(arr)); // 12
-arr = [1, 1, 2, 2, 3, 3, 4, 4, 7];
-console.log(highestRank(arr)); // 12
+console.log(
+  isLockNessMonster(
+    'Your girlscout cookies are ready to ship. Your total comes to tree fiddy'
+  )
+); //
+console.log(
+  isLockNessMonster(
+    'Yo, I heard you were on the lookout for Nessie. Let me know if you need assistance.'
+  )
+); //

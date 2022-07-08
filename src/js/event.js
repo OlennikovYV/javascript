@@ -1,8 +1,11 @@
 var number = function (busStops) {
-  return busStops.reduce((count, people) => {
-    count += people[0];
-    count -= people[1];
-    return count;
+  const ENTER = 0;
+  const EXIT = 1;
+
+  return busStops.reduce((peopleOfBus, people) => {
+    peopleOfBus += people[ENTER];
+    peopleOfBus -= people[EXIT];
+    return peopleOfBus;
   }, 0);
 };
 

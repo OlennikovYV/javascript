@@ -1,10 +1,5 @@
 function numberToPower(number, power) {
-  let pow = number;
-
-  if (power === 0) return 1;
-  for (let i = 1; i < power; i += 1) pow *= number;
-
-  return pow;
+  return power === 0 ? 1 : number * numberToPower(number, (power -= 1));
 }
 
 console.log(numberToPower(4, 2)); // 16

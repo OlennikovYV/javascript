@@ -1,10 +1,10 @@
 const isEven = num => num % 2 === 0;
 function menFromBoys(arr) {
-  let result;
   const mans = [];
   const boys = [];
+  const people = Array.from(new Set(arr));
 
-  arr.map(el => {
+  people.map(el => {
     if (isEven(el)) mans.push(el);
     else boys.push(el);
   });
@@ -12,7 +12,7 @@ function menFromBoys(arr) {
   mans.sort((a, b) => a - b);
   boys.sort((a, b) => b - a);
 
-  return [...new Set(mans), ...new Set(boys)];
+  return mans.concat(boys);
 }
 
 console.log(menFromBoys([7, 3, 14, 17])); // [14, 17, 7, 3]

@@ -1,14 +1,12 @@
-function isLockNessMonster(s) {
-  return /tree fiddy|3.50/.test(s);
+function numberToPower(number, power) {
+  let pow = number;
+
+  if (power === 0) return 1;
+  for (let i = 1; i < power; i += 1) pow *= number;
+
+  return pow;
 }
 
-console.log(
-  isLockNessMonster(
-    'Your girlscout cookies are ready to ship. Your total comes to tree fiddy'
-  )
-); //
-console.log(
-  isLockNessMonster(
-    'Yo, I heard you were on the lookout for Nessie. Let me know if you need assistance.'
-  )
-); //
+console.log(numberToPower(4, 2)); // 16
+console.log(numberToPower(10, 4)); // 10000
+console.log(numberToPower(10, 0)); // 1

@@ -1,15 +1,5 @@
 function overTheRoad(address, n) {
-  let countHouse, numberHouseOtherSide;
-
-  if (address % 2 === 0) {
-    countHouse = n + 1 - address / 2;
-    numberHouseOtherSide = countHouse * 2 - 1;
-  } else {
-    countHouse = (address + 1) / 2;
-    numberHouseOtherSide = (n + 1 - countHouse) * 2;
-  }
-
-  return numberHouseOtherSide;
+  return n * 2 + 1 - address;
 }
 
 console.log(overTheRoad(1, 3)); // 6

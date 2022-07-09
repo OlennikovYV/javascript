@@ -1,11 +1,15 @@
-function overTheRoad(address, n) {
-  return n * 2 + 1 - address;
+function validPhoneNumber(phoneNumber) {
+  return /^\([\d]{3}\) [\d]{3}\-\d{4}$/.test(phoneNumber);
 }
 
-console.log(overTheRoad(1, 3)); // 6
-console.log(overTheRoad(3, 3)); // 4
-console.log(overTheRoad(2, 3)); // 5
-console.log(overTheRoad(3, 5)); // 8
-console.log(overTheRoad(7, 11)); // 16
-console.log(overTheRoad(20, 1000000)); // 1999981
-console.log(overTheRoad(23633656673, 310027696726)); // 596421736780
+console.log(validPhoneNumber('(123) 456-7890')); // true
+console.log(validPhoneNumber('(1111)555 2345')); // false
+console.log(validPhoneNumber('(098) 123 4567')); // false
+
+console.log(validPhoneNumber('(1111)555 2345')); // false
+console.log(validPhoneNumber('(098) 123 4567')); // false
+console.log(validPhoneNumber('(123)456-7890')); // false
+console.log(validPhoneNumber('abc(123)456-7890')); // false
+console.log(validPhoneNumber('(123)456-7890abc')); // false
+console.log(validPhoneNumber('abc(123)456-7890abc')); // false
+console.log(validPhoneNumber('abc(123) 456-7890')); // false

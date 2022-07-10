@@ -1,5 +1,5 @@
 function stringClean(s) {
-  return s.replace(/[\d]+/g, '');
+  return s.replace(/\d/g, '');
 }
 
 console.log(stringClean('')); // '');

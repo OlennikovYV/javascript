@@ -1,20 +1,11 @@
 function tripledouble(num1, num2) {
-  let digit = 0;
-  let result = false;
-
-  while (digit < 10) {
-    const checkDigit1 = digit.toString();
-    const checkDigit2 = digit.toString();
-    const regexp1 = new RegExp(checkDigit1.repeat(3));
-    const regexp2 = new RegExp(checkDigit2.repeat(2));
-    result = regexp1.test(num1) && regexp2.test(num2);
-
-    if (result) return Number(result);
-
-    digit += 1;
+  for (let i = 0; i < 10; i += 1) {
+    if (new RegExp(`${i}{3}`).test(num1) && new RegExp(`${i}{2}`).test(num2)) {
+      return 1;
+    }
   }
 
-  return Number(result);
+  return 0;
 }
 
 console.log(tripledouble(451999277, 41177722899)); // 1

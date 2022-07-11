@@ -1,13 +1,10 @@
-var OrderPeople = function (people) {
-  return people.sort((a, b) => a.age - b.age); //complete this function
+String.prototype.isUpperCase = function () {
+  return this.toUpperCase() == this;
 };
 
-console.log(
-  OrderPeople([
-    { age: 83, name: 'joel' },
-    { age: 46, name: 'roger' },
-    { age: 99, name: 'vinny' },
-    { age: 26, name: 'don' },
-    { age: 74, name: 'brendan' },
-  ])
-); // [{age:26,name:"don"},{age:46,name:"roger"},{age:74,name:"brendan"},{age:83,name:"joel"},{age:99,name:"vinny"}]
+console.log('c'.isUpperCase()); // false
+console.log('C'.isUpperCase()); // true
+console.log('hello I AM DONALD'.isUpperCase()); // false
+console.log('HELLO I AM DONALD'.isUpperCase()); // true
+console.log('ACSKLDFJSgSKLDFJSKLDFJ'.isUpperCase()); // false
+console.log('ACSKLDFJSGSKLDFJSKLDFJ'.isUpperCase()); // true

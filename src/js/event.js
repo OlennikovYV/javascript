@@ -1,17 +1,9 @@
-function disariumNumber(n) {
-  let disram;
-
-  disram = String(n)
-    .split('')
-    .reduce((sum, digit, index) => {
-      return (sum += (+digit) ** (index + 1));
-    }, 0);
-
-  return disram === n ? 'Disarium !!' : 'Not !!';
+function validateCode(code) {
+  return /^[123]/.test(code);
 }
 
-console.log(disariumNumber(89)); // 'Disarium !!'
-console.log(disariumNumber(564)); // 'Not !!'
-console.log(disariumNumber(1024)); // 'Not !!'
-console.log(disariumNumber(135)); // 'Disarium !!'
-console.log(disariumNumber(136586)); // 'Not !!'
+console.log(validateCode(123)); // true
+console.log(validateCode(248)); // true
+console.log(validateCode(8)); // false
+console.log(validateCode(321)); // true
+console.log(validateCode(9453)); // false

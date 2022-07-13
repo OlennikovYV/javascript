@@ -4,7 +4,7 @@ function Point(a, b) {
 }
 
 function distanceBetweenPoints(a, b) {
-  return +Math.sqrt(Math.pow(b.x - a.x, 2) + Math.pow(b.y - a.y, 2)).toFixed(6);
+  return +Math.hypot(b.x - a.x, b.y - a.y).toFixed(6);
 }
 
 console.log(distanceBetweenPoints(new Point(3, 3), new Point(3, 3)));

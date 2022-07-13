@@ -1,5 +1,5 @@
 function trueOrFalse(val) {
-  return val ? 'true' : 'false';
+  return Boolean(val).toString();
 }
 
 const a = 1;

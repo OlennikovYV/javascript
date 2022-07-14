@@ -1,13 +1,6 @@
-class Person {
-  constructor(name, age) {
-    this.name = name;
-    this.age = age;
-  }
+v;
 
-  get info() {
-    return `${this.name}s age is ${this.age}`;
-  }
-}
-
-const john = new Person('john', 34);
-console.log(john.info); // 'johns age is 34'
+console.log(sayHello('Mr. Spock')); // 'Hello, Mr. Spock'
+console.log(sayHello('Captain Kirk')); // 'Hello, Captain Kirk'
+console.log(sayHello('Liutenant Uhura')); // 'Hello, Liutenant Uhura'
+console.log(sayHello('Dr. McCoy')); // 'Hello, Dr. McCoy'

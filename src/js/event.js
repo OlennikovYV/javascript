@@ -1,6 +1,6 @@
-v;
+function spacify(str) {
+  return str.split('').join(' ');
+}
 
-console.log(sayHello('Mr. Spock')); // 'Hello, Mr. Spock'
-console.log(sayHello('Captain Kirk')); // 'Hello, Captain Kirk'
-console.log(sayHello('Liutenant Uhura')); // 'Hello, Liutenant Uhura'
-console.log(sayHello('Dr. McCoy')); // 'Hello, Dr. McCoy'
+console.log(spacify('hello world')); // 'h e l l o   w o r l d'
+console.log(spacify('12345')); // '1 2 3 4 5'

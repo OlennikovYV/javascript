@@ -1,17 +1,22 @@
-function Point(a, b) {
-  this.x = a;
-  this.y = b;
+function isChar(symbol) {
+  return /[a-zA-Z]/.test(symbol);
 }
 
-function distanceBetweenPoints(a, b) {
-  return +Math.hypot(b.x - a.x, b.y - a.y).toFixed(6);
+function checkRegister(a, b) {
+  return a === a.toUpperCase() ? 'U' : 'L';
 }
 
-console.log(distanceBetweenPoints(new Point(3, 3), new Point(3, 3)));
-// 0
-console.log(distanceBetweenPoints(new Point(1, 6), new Point(4, 2)));
-// 5
-console.log(
-  distanceBetweenPoints(new Point(-10.2, 12.5), new Point(0.3, 14.7))
-);
-// 10.728001
+function sameCase(a, b) {
+  if (!isChar(a) || !isChar(b)) return -1;
+
+  return checkRegister(a) === checkRegister(b) ? 1 : 0;
+}
+
+console.log(sameCase('C', 'B')); // 1
+console.log(sameCase('b', 'a')); // 1
+console.log(sameCase('d', 'd')); // 1
+console.log(sameCase('A', 's')); // 0
+console.log(sameCase('c', 'B')); // 0
+console.log(sameCase('b', 'Z')); // 0
+console.log(sameCase('\t', 'Z')); // -1
+console.log(sameCase('H', ':')); // -1

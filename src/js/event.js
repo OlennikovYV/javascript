@@ -1,10 +1,5 @@
 function billboard(name, price = 30) {
-  let cost = 0;
-
-  for (let i = 0; i < name.length; i += 1) {
-    cost += price;
-  }
-  return cost;
+  return name.length / (1 / price);
 }
 
 console.log(billboard('Jeong-Ho Aristotelis')); // 600

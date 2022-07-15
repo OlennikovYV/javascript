@@ -1,15 +1,8 @@
 function tidyNumber(n) {
   const arrayDigit = String(n).split('');
-  let result = true;
+  arrayDigit.sort();
 
-  for (let i = 0; i < arrayDigit.length - 1; i += 1) {
-    if (+arrayDigit[i] > +arrayDigit[i + 1]) {
-      result = false;
-      break;
-    }
-  }
-
-  return result;
+  return arrayDigit.join('') == n;
 }
 
 console.log(tidyNumber(12)); // true

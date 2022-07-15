@@ -1,18 +1,5 @@
 function duckDuckGoose(players, goose) {
-  const mod = goose % players.length;
-  let index;
-
-  if (mod === 0) {
-    index = players.length - 1;
-  } else {
-    if (players.length > goose) {
-      index = goose - 1;
-    } else {
-      index = mod - 1;
-    }
-  }
-
-  return players[index]?.name;
+  return players[(goose - 1) % players.length].name;
 }
 
 class Player {

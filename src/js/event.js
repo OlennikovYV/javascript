@@ -1,15 +1,36 @@
-function billboard(name, price = 30) {
-  return name.length / (1 / price);
+function duckDuckGoose(players, goose) {
+  const mod = goose % players.length;
+  let index;
+
+  if (mod === 0) {
+    index = players.length - 1;
+  } else {
+    if (players.length > goose) {
+      index = goose - 1;
+    } else {
+      index = mod - 1;
+    }
+  }
+
+  return players[index]?.name;
 }
 
-console.log(billboard('Jeong-Ho Aristotelis')); // 600
-console.log(billboard('Abishai Charalampos')); // 570
-console.log(billboard('Idwal Augustin')); // 420
-console.log(billboard('Hadufuns John', 20)); // 260
-console.log(billboard('Zoroaster Donnchadh')); // 570
-console.log(billboard('Claude Miljenko')); // 450
-console.log(billboard('Werner Vígi', 15)); // 165
-console.log(billboard('Anani Fridumar')); // 420
-console.log(billboard('Paolo Oli')); // 270
-console.log(billboard('Hjalmar Liupold', 40)); // 600
-console.log(billboard('Simon Eadwulf')); // 390
+class Player {
+  constructor(name) {
+    this.name = name;
+  }
+}
+
+let ex_names = ['a', 'b', 'c', 'd', 'c', 'e', 'f', 'g', 'h', 'z'];
+let players = ex_names.map(n => new Player(n));
+
+console.log(duckDuckGoose(players, 1)); // 'a'
+console.log(duckDuckGoose(players, 3)); // 'c'
+console.log(duckDuckGoose(players, 10)); // 'z'
+console.log(duckDuckGoose(players, 20)); // 'z'
+console.log(duckDuckGoose(players, 30)); // 'z'
+console.log(duckDuckGoose(players, 18)); // 'g'
+console.log(duckDuckGoose(players, 28)); // 'g'
+console.log(duckDuckGoose(players, 12)); // 'b'
+console.log(duckDuckGoose(players, 2)); // 'b'
+console.log(duckDuckGoose(players, 7)); // 'f'

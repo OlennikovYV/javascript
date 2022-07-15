@@ -1,12 +1,20 @@
-function tidyNumber(n) {
-  const arrayDigit = String(n).split('');
-  arrayDigit.sort();
+function billboard(name, price = 30) {
+  let cost = 0;
 
-  return arrayDigit.join('') == n;
+  for (let i = 0; i < name.length; i += 1) {
+    cost += price;
+  }
+  return cost;
 }
 
-console.log(tidyNumber(12)); // true
-console.log(tidyNumber(102)); // false
-console.log(tidyNumber(9672)); // false
-console.log(tidyNumber(2789)); // true
-console.log(tidyNumber(2335)); // true
+console.log(billboard('Jeong-Ho Aristotelis')); // 600
+console.log(billboard('Abishai Charalampos')); // 570
+console.log(billboard('Idwal Augustin')); // 420
+console.log(billboard('Hadufuns John', 20)); // 260
+console.log(billboard('Zoroaster Donnchadh')); // 570
+console.log(billboard('Claude Miljenko')); // 450
+console.log(billboard('Werner Vígi', 15)); // 165
+console.log(billboard('Anani Fridumar')); // 420
+console.log(billboard('Paolo Oli')); // 270
+console.log(billboard('Hjalmar Liupold', 40)); // 600
+console.log(billboard('Simon Eadwulf')); // 390

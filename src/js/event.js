@@ -1,8 +1,5 @@
 function integrate(coefficient, exponent) {
-  const num1 = exponent + 1;
-  const num2 = coefficient / num1;
-
-  return `${num2}x^${num1}`;
+  return `${coefficient / ++exponent}x^${exponent}`;
 }
 
 console.log(integrate(3, 2)); // '1x^3'

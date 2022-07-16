@@ -1,13 +1,10 @@
 function outed(meet, boss) {
-  let score = 0;
-  let countPeople = 0;
+  let names = Object.keys(meet);
+  let score = names.reduce((sumScores, name) => sumScores + meet[name], 0);
 
-  for (let name in meet) {
-    score += meet[name] * (name === boss ? 2 : 1);
-    countPeople += 1;
-  }
+  score += meet[boss];
 
-  return score / countPeople <= 5 ? 'Get Out Now!' : 'Nice Work Champ!';
+  return score / names.length <= 5 ? 'Get Out Now!' : 'Nice Work Champ!';
 }
 
 console.log(

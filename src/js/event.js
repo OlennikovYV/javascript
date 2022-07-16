@@ -1,23 +1,10 @@
-function duckDuckGoose(players, goose) {
-  return players[(goose - 1) % players.length].name;
+function whoIsPaying(name) {
+  return name.length < 3 ? [name] : [name, name.slice(0, 2)];
 }
 
-class Player {
-  constructor(name) {
-    this.name = name;
-  }
-}
-
-let ex_names = ['a', 'b', 'c', 'd', 'c', 'e', 'f', 'g', 'h', 'z'];
-let players = ex_names.map(n => new Player(n));
-
-console.log(duckDuckGoose(players, 1)); // 'a'
-console.log(duckDuckGoose(players, 3)); // 'c'
-console.log(duckDuckGoose(players, 10)); // 'z'
-console.log(duckDuckGoose(players, 20)); // 'z'
-console.log(duckDuckGoose(players, 30)); // 'z'
-console.log(duckDuckGoose(players, 18)); // 'g'
-console.log(duckDuckGoose(players, 28)); // 'g'
-console.log(duckDuckGoose(players, 12)); // 'b'
-console.log(duckDuckGoose(players, 2)); // 'b'
-console.log(duckDuckGoose(players, 7)); // 'f'
+console.log(whoIsPaying('Mexico')); // ['Mexico', 'Me']
+console.log(whoIsPaying('Melania')); // ['Melania', 'Me']
+console.log(whoIsPaying('Melissa')); // ['Melissa', 'Me']
+console.log(whoIsPaying('Me')); // ['Me']
+console.log(whoIsPaying('')); // ['']
+console.log(whoIsPaying('I')); // ['I']

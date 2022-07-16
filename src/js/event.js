@@ -1,10 +1,12 @@
-function whoIsPaying(name) {
-  return name.length < 3 ? [name] : [name, name.slice(0, 2)];
+function integrate(coefficient, exponent) {
+  const num1 = exponent + 1;
+  const num2 = coefficient / num1;
+
+  return `${num2}x^${num1}`;
 }
 
-console.log(whoIsPaying('Mexico')); // ['Mexico', 'Me']
-console.log(whoIsPaying('Melania')); // ['Melania', 'Me']
-console.log(whoIsPaying('Melissa')); // ['Melissa', 'Me']
-console.log(whoIsPaying('Me')); // ['Me']
-console.log(whoIsPaying('')); // ['']
-console.log(whoIsPaying('I')); // ['I']
+console.log(integrate(3, 2)); // '1x^3'
+console.log(integrate(12, 5)); // '2x^6'
+console.log(integrate(20, 1)); // '10x^2'
+console.log(integrate(40, 3)); // '10x^4'
+console.log(integrate(90, 2)); // '30x^3'

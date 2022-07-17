@@ -1,10 +1,16 @@
-function encode(str, n) {
-  const key = String(n);
-
-  return Array.from(str, (char, index) => {
-    return char.charCodeAt(0) - 96 + Number(key[index % key.length]);
-  });
+function typeOfSum(a, b) {
+  return typeof (a + b);
 }
 
-console.log(encode('scout', 1939)); // [20, 12, 18, 30, 21]);
-console.log(encode('masterpiece', 1939)); // [14, 10, 22, 29, 6, 27, 19, 18, 6, 12, 8]
+console.log(typeOfSum(12, 1)); // 'number'
+console.log(typeOfSum('d', 1)); // 'string'
+console.log(typeOfSum(1, 'a')); // 'string'
+console.log(typeOfSum('dd', '')); // 'string'
+console.log(typeOfSum(true, 1)); // 'number'
+console.log(typeOfSum('s', false)); // 'string'
+console.log(typeOfSum(null, 1)); // 'number'
+console.log(typeOfSum('s', null)); // 'string'
+console.log(typeOfSum(null, undefined)); // 'number'
+console.log(typeOfSum(undefined, 're')); // 'string'
+console.log(typeOfSum(undefined, true)); // 'number'
+console.log(typeOfSum(null, false)); // 'number'

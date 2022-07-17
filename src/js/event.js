@@ -1,16 +1,9 @@
 function encode(str, n) {
-  const codeAtStart = 96;
-  const codeArray = [];
-  const secretWord = String(n);
+  const key = String(n);
 
-  str.split('').map((char, index) => {
-    const codeChar = char.charCodeAt(0) - codeAtStart;
-    let indexSecretWord =
-      index >= secretWord.length ? index % secretWord.length : index;
-    codeArray.push(codeChar + Number(secretWord[indexSecretWord]));
+  return Array.from(str, (char, index) => {
+    return char.charCodeAt(0) - 96 + Number(key[index % key.length]);
   });
-
-  return codeArray;
 }
 
 console.log(encode('scout', 1939)); // [20, 12, 18, 30, 21]);

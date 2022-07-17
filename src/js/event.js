@@ -1,63 +1,17 @@
-function outed(meet, boss) {
-  let names = Object.keys(meet);
-  let score = names.reduce((sumScores, name) => sumScores + meet[name], 0);
+function encode(str, n) {
+  const codeAtStart = 96;
+  const codeArray = [];
+  const secretWord = String(n);
 
-  score += meet[boss];
+  str.split('').map((char, index) => {
+    const codeChar = char.charCodeAt(0) - codeAtStart;
+    let indexSecretWord =
+      index >= secretWord.length ? index % secretWord.length : index;
+    codeArray.push(codeChar + Number(secretWord[indexSecretWord]));
+  });
 
-  return score / names.length <= 5 ? 'Get Out Now!' : 'Nice Work Champ!';
+  return codeArray;
 }
 
-console.log(
-  outed(
-    {
-      tim: 0,
-      jim: 2,
-      randy: 0,
-      sandy: 7,
-      andy: 0,
-      katie: 5,
-      laura: 1,
-      saajid: 2,
-      alex: 3,
-      john: 2,
-      mr: 0,
-    },
-    'laura'
-  )
-); // 'Get Out Now!'
-console.log(
-  outed(
-    {
-      tim: 1,
-      jim: 3,
-      randy: 9,
-      sandy: 6,
-      andy: 7,
-      katie: 6,
-      laura: 9,
-      saajid: 9,
-      alex: 9,
-      john: 9,
-      mr: 8,
-    },
-    'katie'
-  )
-); // 'Nice Work Champ!'
-console.log(
-  outed(
-    {
-      tim: 2,
-      jim: 4,
-      randy: 0,
-      sandy: 5,
-      andy: 8,
-      katie: 6,
-      laura: 2,
-      saajid: 2,
-      alex: 3,
-      john: 2,
-      mr: 8,
-    },
-    'john'
-  )
-); // 'Get Out Now!'
+console.log(encode('scout', 1939)); // [20, 12, 18, 30, 21]);
+console.log(encode('masterpiece', 1939)); // [14, 10, 22, 29, 6, 27, 19, 18, 6, 12, 8]

@@ -1,6 +1,6 @@
 class FileNameExtractor {
   static extractFileName(dirtyFileName) {
-    return dirtyFileName.replace(/^\d*_(.*)\..*$/, '$1');
+    return dirtyFileName.replace(/^\d+_|\.[^.]+$/g, '');
   }
 }
 

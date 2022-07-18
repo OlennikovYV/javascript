@@ -1,8 +1,6 @@
 class FileNameExtractor {
   static extractFileName(dirtyFileName) {
-    let array = dirtyFileName.split('.');
-    array.pop();
-    return array.join('.').replace(/^[\d]+_/, '');
+    return dirtyFileName.match(/^\d+_([^.]+\.[^.]+)/)[1];
   }
 }
 

@@ -1,17 +1,15 @@
 function reverse(str) {
-  return (
-    str.trim() &&
-    str
-      .split(' ')
-      .map((word, index) => {
-        if (index % 2 !== 0) {
-          return word.split('').reverse().join('');
-        }
+  return str
+    .split(' ')
+    .map((word, index) => {
+      if (index % 2 !== 0) {
+        return word.split('').reverse().join('');
+      }
 
-        return word;
-      })
-      .join(' ')
-  );
+      return word;
+    })
+    .join(' ')
+    .trim();
 }
 
 console.log(reverse('  ')); // ''

@@ -1,19 +1,20 @@
-function reverse(str) {
-  return str
-    .split(' ')
-    .map((word, index) => {
-      if (index % 2 !== 0) {
-        return word.split('').reverse().join('');
-      }
-
-      return word;
-    })
-    .join(' ')
-    .trim();
+class FileNameExtractor {
+  static extractFileName(dirtyFileName) {
+    let array = dirtyFileName.split('.');
+    array.pop();
+    return array.join('.').replace(/^[\d]+_/, '');
+  }
 }
 
-console.log(reverse('  ')); // ''
-console.log(reverse('Reverse this string, please!'));
-// 'Reverse siht string, !esaelp'
-console.log(reverse("I really don't like reversing strings!"));
-// "I yllaer don't ekil reversing !sgnirts"
+console.log(
+  FileNameExtractor.extractFileName(
+    '1_FILE_NAME.EXTENSION.OTHEREXTENSIONadasdassdassds34'
+  )
+);
+// 'FILE_NAME.EXTENSION'
+console.log(
+  FileNameExtractor.extractFileName(
+    '1231231223123131_FILE_NAME.EXTENSION.OTHEREXTENSION'
+  )
+);
+// 'FILE_NAME.EXTENSION'

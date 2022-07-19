@@ -1,13 +1,15 @@
 function sortMyString(s) {
-  const oddString = [];
-  const evenString = [];
+  const oddString = s
+    .split('')
+    .filter((char, index) => index % 2 === 0)
+    .join('');
 
-  s.split('').map((char, index) => {
-    if (index % 2 === 0) oddString.push(char);
-    if (index % 2 !== 0) evenString.push(char);
-  });
+  const evenString = s
+    .split('')
+    .filter((char, index) => index % 2 !== 0)
+    .join('');
 
-  return oddString.join('') + ' ' + evenString.join('');
+  return oddString + ' ' + evenString;
 }
 
 console.log(sortMyString('CodeWars')); // 'CdWr oeas'

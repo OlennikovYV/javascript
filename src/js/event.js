@@ -1,9 +1,12 @@
-function charFreq(message) {
-  return message.split('').reduce((object, char) => {
-    object[char] ? (object[char] += 1) : (object[char] = 1);
-    return object;
-  }, {});
+function last(x) {
+  return x.split(' ').sort((a, b) => {
+    return a.charCodeAt(a.length - 1) - b.charCodeAt(b.length - 1);
+  });
 }
 
-console.log(charFreq('I like cats'));
-// {a: 1, ' ': 2, c: 1, e: 1, I: 1, k: 1, l: 1, i: 1, s: 1, t: 1}
+console.log(last('man i need a taxi up to ubud'));
+// ['a', 'need','ubud', 'i', 'taxi', 'man', 'to', 'up', ]
+console.log(last('what time are we climbing up the volcano'));
+// ['time', 'are','we', 'the', 'climbing', 'volcano', 'up', 'what', ]
+console.log(last('take me to semynak'));
+// ['take', 'me','semynak', 'to', ]

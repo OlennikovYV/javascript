@@ -1,22 +1,10 @@
 function decipherThis(str) {
-  const array = str.split(' ');
-  const firstChar = array.map(word => parseInt(word));
-  const wordChar = array.map(word => {
-    let chars = (word.match(/[a-z]+/gi) || []).join('');
-    if (chars) {
-      if (chars.length > 1) {
-        const first = chars.slice(0, 1);
-        const last = chars.slice(-1);
-        chars = last + chars.slice(1, -1) + first;
-      }
-    } else chars = '';
-
-    return chars;
-  });
-
-  return array
-    .map(
-      (word, index) => String.fromCharCode(firstChar[index]) + wordChar[index]
+  return str
+    .split(' ')
+    .map(word =>
+      word
+        .replace(/^\d+/, num => String.fromCharCode(num))
+        .replace(/^(.)(.)(.*)(.)$/, '$1$4$3$2')
     )
     .join(' ');
 }

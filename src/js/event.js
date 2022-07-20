@@ -1,15 +1,15 @@
 function upArray(arr) {
-  let i = arr.length - 1;
+  let index = arr.length - 1;
   let rest = 1;
 
-  if (arr.length === 0) return null;
-  if (arr.every(digit => digit >= 0 && digit <= 9) === false) return null;
+  if (!arr.length || arr.every(digit => digit >= 0 && digit <= 9) === false)
+    return null;
 
-  while (i >= 0 && rest) {
-    const digit = arr[i] + rest;
-    arr[i] = digit > 9 ? digit - 10 : digit;
+  while (index >= 0 && rest) {
+    const digit = arr[index] + rest;
+    arr[index] = digit > 9 ? digit - 10 : digit;
     rest = digit > 9;
-    i -= 1;
+    index -= 1;
   }
 
   if (rest) arr.unshift(1);

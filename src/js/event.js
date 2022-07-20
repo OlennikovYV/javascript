@@ -1,15 +1,20 @@
-function decipherThis(str) {
-  return str
-    .split(' ')
-    .map(word =>
-      word
-        .replace(/^\d+/, num => String.fromCharCode(num))
-        .replace(/^(.)(.)(.*)(.)$/, '$1$4$3$2')
-    )
-    .join(' ');
+function Ship(draft, crew) {
+  this.draft = draft;
+  this.crew = crew;
 }
 
-console.log(
-  decipherThis('72eva 97 103o 97t 116sih 97dn 115ee 104wo 121uo 100o')
-);
-// 'Have a go at this and see how you do'
+Ship.prototype.isWorthIt = function () {
+  const weightMan = 1.5;
+  const loot = this.draft - this.crew * weightMan > 20;
+
+  return loot;
+};
+
+let emptyShip = new Ship(0, 0);
+console.log(emptyShip.isWorthIt()); // false
+emptyShip = new Ship(15, 20);
+console.log(emptyShip.isWorthIt()); // false
+emptyShip = new Ship(35, 20);
+console.log(emptyShip.isWorthIt()); // false
+emptyShip = new Ship(100, 20);
+console.log(emptyShip.isWorthIt()); // false

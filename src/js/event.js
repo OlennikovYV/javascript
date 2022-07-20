@@ -4,10 +4,7 @@ function Ship(draft, crew) {
 }
 
 Ship.prototype.isWorthIt = function () {
-  const weightMan = 1.5;
-  const loot = this.draft - this.crew * weightMan > 20;
-
-  return loot;
+  return this.draft - this.crew * 1.5 > 20;
 };
 
 let emptyShip = new Ship(0, 0);

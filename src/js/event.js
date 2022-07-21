@@ -1,26 +1,9 @@
 function grader(score) {
-  let ball;
-
-  switch (true) {
-    case score < 0.6:
-    case score > 1:
-      ball = 'F';
-      break;
-    case score < 0.7:
-      ball = 'D';
-      break;
-    case score < 0.8:
-      ball = 'C';
-      break;
-    case score < 0.9:
-      ball = 'B';
-      break;
-    case score <= 1:
-      ball = 'A';
-      break;
-  }
-
-  return ball;
+  if (score > 1 || score < 0.6) return 'F';
+  if (score < 0.7) return 'D';
+  if (score < 0.8) return 'C';
+  if (score < 0.9) return 'B';
+  return 'A';
 }
 
 console.log(grader(0)); // 'F'

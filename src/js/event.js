@@ -1,5 +1,5 @@
-function combineNames(firstname, lastname) {
-  return firstname + ' ' + lastname;
+function combineNames(...names) {
+  return names.join(' ');
 }
 
 console.log(combineNames('James', 'Stevens')); // 'James Stevens'

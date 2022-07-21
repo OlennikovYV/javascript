@@ -1,3 +1,3 @@
-# CodeWars
+# Javascript
 
-CodeWars tasks
+Solution to javascript problems codewars site.

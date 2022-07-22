@@ -1,10 +1,6 @@
-function kebabize(str) {
-  return str
-    .replace(/\d/g, '')
-    .replace(/(\B[A-Z])/g, x => '-' + x)
-    .toLowerCase();
+function main(verb, noun) {
+  return verb + noun;
 }
 
-console.log(kebabize('myCamelCasedString')); // 'my-camel-cased-string'
-console.log(kebabize('myCamelHas3Humps')); // 'my-camel-has-humps'
-console.log(kebabize('9p16m')); // 'pm'
+console.log(main('take ', 'item')); // 'take item'
+console.log(main('use ', 'sword')); // 'use sword'

@@ -1,9 +1,11 @@
 function countDevelopers(list) {
-  return list.reduce((sum, man) => {
-    if (man.continent === 'Europe' && man.language === 'JavaScript')
-      return (sum += 1);
-    return sum;
-  }, 0);
+  return list.reduce(
+    (sum, man) =>
+      man.continent === 'Europe' && man.language === 'JavaScript'
+        ? (sum += 1)
+        : sum,
+    0
+  );
 }
 
 const list1 = [

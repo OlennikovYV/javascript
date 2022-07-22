@@ -1,8 +1,7 @@
 function kebabize(str) {
   return str
     .replace(/\d/g, '')
-    .split(/(?=[A-Z]+)/g)
-    .join('-')
+    .replace(/(\B[A-Z])/g, x => '-' + x)
     .toLowerCase();
 }
 

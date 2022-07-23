@@ -1,9 +1,7 @@
-function seatsInTheater(nCols, nRows, col, row) {
-  return (nCols - col + 1) * (nRows - row);
+function capitalizeWord(word) {
+  return word[0].toUpperCase() + word.slice(1);
 }
 
-console.log(seatsInTheater(16, 11, 5, 3)); // 96
-console.log(seatsInTheater(1, 1, 1, 1)); // 0
-console.log(seatsInTheater(13, 6, 8, 3)); // 18
-console.log(seatsInTheater(60, 100, 60, 1)); // 99
-console.log(seatsInTheater(1000, 1000, 1000, 1000)); // 0
+console.log(capitalizeWord('word')); // 'Word'
+console.log(capitalizeWord('i')); // 'I'
+console.log(capitalizeWord('glasswear')); // 'Glasswear'

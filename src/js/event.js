@@ -1,8 +1,11 @@
 function partsSums(ls) {
-  ls.unshift(0);
-  let sum = ls.reduce((sum, num) => sum + num, 0);
+  let sumsArray = [0];
 
-  return ls.map(num => (sum -= num));
+  for (let index in ls.reverse()) {
+    sumsArray.push(ls[index] + sumsArray[index]);
+  }
+
+  return sumsArray.reverse();
 }
 
 console.log(partsSums([])); // [0]

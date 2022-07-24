@@ -1,18 +1,8 @@
 function partsSums(ls) {
-  let i = 0;
-  const length = ls.length;
+  ls.unshift(0);
   let sum = ls.reduce((sum, num) => sum + num, 0);
-  let sumsArray = [];
 
-  sumsArray.push(sum);
-
-  while (i < length) {
-    sum -= ls[i];
-    sumsArray.push(sum);
-    i += 1;
-  }
-
-  return sumsArray;
+  return ls.map(num => (sum -= num));
 }
 
 console.log(partsSums([])); // [0]

@@ -1,18 +1,11 @@
-function partsSums(ls) {
-  let sumsArray = [0];
-
-  for (let index in ls.reverse()) {
-    sumsArray.push(ls[index] + sumsArray[index]);
-  }
-
-  return sumsArray.reverse();
+function leo(oscar) {
+  if (oscar < 86 || oscar === 87) return 'When will you give Leo an Oscar?';
+  if (oscar === 86) return 'Not even for Wolf of wallstreet?!';
+  if (oscar === 88) return 'Leo finally won the oscar! Leo is happy';
+  if (oscar > 88) return 'Leo got one already!';
 }
 
-console.log(partsSums([])); // [0]
-console.log(partsSums([0, 1, 3, 6, 10])); // [20, 20, 19, 16, 10, 0]
-console.log(partsSums([1, 2, 3, 4, 5, 6])); // [21, 20, 18, 15, 11, 6, 0]
-console.log(
-  partsSums([744125, 935, 407, 454, 430, 90, 144, 6710213, 889, 810, 2579358])
-);
-// [10037855, 9293730, 9292795, 9292388, 9291934, 9291504, 9291414, 9291270,
-// 2581057, 2580168, 2579358, 0,]
+console.log(leo(89)); // 'Leo got one already!'
+console.log(leo(88)); // 'Leo finally won the oscar! Leo is happy'
+console.log(leo(87)); // 'When will you give Leo an Oscar?'
+console.log(leo(86)); // 'Not even for Wolf of wallstreet?!'

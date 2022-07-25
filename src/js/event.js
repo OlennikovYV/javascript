@@ -1,5 +1,5 @@
 function catMouse(x) {
-  return x.replace(/^C|m$/g, '').length > 3 ? 'Escaped!' : 'Caught!';
+  return x.length > 5 ? 'Escaped!' : 'Caught!';
 }
 
 console.log(catMouse('C....m')); // 'Escaped!'

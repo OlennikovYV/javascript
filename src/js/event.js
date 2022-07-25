@@ -1,5 +1,5 @@
 function catMouse(x) {
-  return x.length > 5 ? 'Escaped!' : 'Caught!';
+  return /C.{0,3}m/.test(x) ? 'Caught!' : 'Escaped!';
 }
 
 console.log(catMouse('C....m')); // 'Escaped!'

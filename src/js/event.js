@@ -1,13 +1,15 @@
-function solve(s) {
-  return s
-    .match(/[oeaiou]+/g)
-    .reduce((max, chars) => Math.max(max, chars.length), 0);
+function specialNumber(n) {
+  return /^[0-5]+$/.test(String(n)) ? 'Special!!' : 'NOT!!';
 }
 
-console.log(solve('codewarriors')); // 2
-console.log(solve('suoidea')); // 3
-console.log(solve('ultrarevolutionariees')); // 3
-console.log(solve('strengthlessnesses')); // 1
-console.log(solve('cuboideonavicuare')); // 2
-console.log(solve('chrononhotonthuooaos')); // 5
-console.log(solve('iiihoovaeaaaoougjyaw')); // 8
+console.log(specialNumber(2)); // 'Special!!'
+console.log(specialNumber(3)); // 'Special!!'
+console.log(specialNumber(6)); // 'NOT!!'
+console.log(specialNumber(9)); // 'NOT!!'
+console.log(specialNumber(11)); // 'Special!!'
+console.log(specialNumber(55)); // 'Special!!'
+console.log(specialNumber(26)); // 'NOT!!'
+console.log(specialNumber(92)); // 'NOT!!'
+console.log(specialNumber(25432)); // 'Special!!'
+console.log(specialNumber(2783)); // 'NOT!!'
+console.log(specialNumber(40243154225)); // 'Special!!'

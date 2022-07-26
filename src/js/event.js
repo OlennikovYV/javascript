@@ -1,5 +1,7 @@
 function solve(s) {
-  return Math.max(...s.match(/[oeaiou]+/g).map(array => array.length));
+  return s
+    .match(/[oeaiou]+/g)
+    .reduce((max, chars) => Math.max(max, chars.length), 0);
 }
 
 console.log(solve('codewarriors')); // 2

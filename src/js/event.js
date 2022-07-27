@@ -4,19 +4,18 @@ function nbMonths(
   savingperMonth,
   percentLossByMonth
 ) {
-  const percent = 0.5;
-  let currentSum = 0;
+  let Savings = 0;
   let countMonth = 0;
 
-  while (startPriceOld + currentSum < startPriceNew) {
-    if (countMonth % 2 === 1) percentLossByMonth += percent;
-    currentSum += savingperMonth;
-    startPriceOld = startPriceOld * ((100 - percentLossByMonth) / 100);
-    startPriceNew = startPriceNew * ((100 - percentLossByMonth) / 100);
+  while (startPriceOld + Savings < startPriceNew) {
+    if (countMonth % 2 === 1) percentLossByMonth += 0.5;
+    Savings += savingperMonth;
+    startPriceOld -= startPriceOld * (percentLossByMonth / 100);
+    startPriceNew -= startPriceNew * (percentLossByMonth / 100);
     countMonth += 1;
   }
 
-  return [countMonth, Math.round(currentSum + startPriceOld - startPriceNew)];
+  return [countMonth, Math.round(Savings + startPriceOld - startPriceNew)];
 }
 
 console.log(nbMonths(2000, 8000, 1000, 1.5)); // [6, 766]

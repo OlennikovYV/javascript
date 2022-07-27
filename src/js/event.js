@@ -1,19 +1,12 @@
 function race(v1, v2, g) {
-  let diff;
-  let hours, minutes, seconds;
-
-  if (v1 > v2) return null;
-
-  diff = g / (v2 - v1);
-  hours = Math.trunc(diff);
-  minutes = (diff - hours) * 60;
-  seconds = (minutes - Math.trunc(minutes + 001)) * 60;
-
-  return [
-    Math.trunc(hours),
-    Math.trunc(minutes + 0.0001),
-    Math.floor(seconds + 0.0001),
-  ];
+  let time = g / (v2 - v1);
+  return v2 > v1
+    ? [
+        Math.floor(time),
+        Math.floor((time * 60) % 60),
+        Math.floor((time * 3600) % 60),
+      ]
+    : null;
 }
 
 console.log(race(920, 850, 70)); // null

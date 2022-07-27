@@ -1,15 +1,23 @@
-function specialNumber(n) {
-  return /^[0-5]+$/.test(String(n)) ? 'Special!!' : 'NOT!!';
+function nbMonths(
+  startPriceOld,
+  startPriceNew,
+  savingperMonth,
+  percentLossByMonth
+) {
+  const percent = 0.5;
+  let currentSum = 0;
+  let countMonth = 0;
+
+  while (startPriceOld + currentSum < startPriceNew) {
+    if (countMonth % 2 === 1) percentLossByMonth += percent;
+    currentSum += savingperMonth;
+    startPriceOld = startPriceOld * ((100 - percentLossByMonth) / 100);
+    startPriceNew = startPriceNew * ((100 - percentLossByMonth) / 100);
+    countMonth += 1;
+  }
+
+  return [countMonth, Math.round(currentSum + startPriceOld - startPriceNew)];
 }
 
-console.log(specialNumber(2)); // 'Special!!'
-console.log(specialNumber(3)); // 'Special!!'
-console.log(specialNumber(6)); // 'NOT!!'
-console.log(specialNumber(9)); // 'NOT!!'
-console.log(specialNumber(11)); // 'Special!!'
-console.log(specialNumber(55)); // 'Special!!'
-console.log(specialNumber(26)); // 'NOT!!'
-console.log(specialNumber(92)); // 'NOT!!'
-console.log(specialNumber(25432)); // 'Special!!'
-console.log(specialNumber(2783)); // 'NOT!!'
-console.log(specialNumber(40243154225)); // 'Special!!'
+console.log(nbMonths(2000, 8000, 1000, 1.5)); // [6, 766]
+console.log(nbMonths(12000, 8000, 1000, 1.5)); // [0, 4000]

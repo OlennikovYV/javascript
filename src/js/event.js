@@ -1,13 +1,5 @@
 function isPalindrome(line) {
-  const isNumber = typeof line === 'number';
-  let word = String(line).split('');
-  word = word.reverse().join('');
-
-  if (isNumber) {
-    word = Number(word);
-  }
-
-  return word === line;
+  return String(line) == String(line).split('').reverse().join('');
 }
 
 console.log(isPalindrome('anna')); // true

@@ -1,13 +1,8 @@
 function fuelPrice(litres, pricePerLitre) {
-  let discount = 0;
+  const discount = Math.min(Math.floor(litres / 2) * 0.05, 0.25);
+  const price = litres * (pricePerLitre - discount);
 
-  if (2 <= litres && litres < 4) discount = 5;
-  if (4 <= litres && litres < 6) discount = 10;
-  if (6 <= litres && litres < 8) discount = 15;
-  if (8 <= litres && litres < 10) discount = 20;
-  if (litres >= 10) discount = 25;
-
-  return Math.round(litres * (pricePerLitre * 100 - discount)) / 100;
+  return Math.round(price * 100) / 100;
 }
 
 console.log(fuelPrice(5, 1.23)); // 5.65

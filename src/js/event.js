@@ -1,11 +1,16 @@
-function bump(x) {
-  return x.split('').filter(road => road === 'n').length <= 15
-    ? 'Woohoo!'
-    : 'Car Dead';
+function fuelPrice(litres, pricePerLitre) {
+  let discount = 0;
+
+  if (2 <= litres && litres < 4) discount = 5;
+  if (4 <= litres && litres < 6) discount = 10;
+  if (6 <= litres && litres < 8) discount = 15;
+  if (8 <= litres && litres < 10) discount = 20;
+  if (litres >= 10) discount = 25;
+
+  return Math.round(litres * (pricePerLitre * 100 - discount)) / 100;
 }
 
-console.log(bump('n')); // 'Woohoo!'
-console.log(bump('__nn_nnnn__n_n___n____nn__nnn')); // 'Woohoo!'
-console.log(bump('nnn_n__n_n___nnnnn___n__nnn__')); // 'Woohoo!'
-console.log(bump('_nnnnnnn_n__n______nn__nn_nnn')); // 'Car Dead'
-console.log(bump('______n___n_')); // 'Woohoo!'
+console.log(fuelPrice(5, 1.23)); // 5.65
+console.log(fuelPrice(8, 2.5)); // 18.4
+console.log(fuelPrice(5, 5.6)); // 27.5
+console.log(fuelPrice(158, 18.67)); // 2910.36

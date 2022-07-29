@@ -1,20 +1,7 @@
-function movie(card, ticket, perc) {
-  let percent = perc;
-  let systemA = ticket;
-  let systemB = card + ticket * percent;
-  let count = 1;
-
-  while (systemA <= Math.ceil(systemB)) {
-    count += 1;
-    percent *= perc;
-    systemA += ticket;
-    systemB += ticket * percent;
-  }
-
-  return count;
+function twoDecimalPlaces(n) {
+  return Math.round(n * 100) / 100;
 }
 
-console.log(movie(500, 15, 0.9)); // 43
-console.log(movie(100, 10, 0.95)); // 24
-console.log(movie(0, 10, 0.95)); // 2
-console.log(movie(881404, 8, 0.32)); // 110177
+console.log(twoDecimalPlaces(4.659725356)); // 4.66,
+console.log(twoDecimalPlaces(173735326.3783732637948948)); // 173735326.38,
+console.log(twoDecimalPlaces(4.653725356)); // 4.65,

@@ -11,10 +11,7 @@ function correctPolishLetters(string) {
     ż: 'z',
   };
 
-  return string
-    .split('')
-    .map(char => convert[char] || char)
-    .join('');
+  return string.replace(/[ąćęłńóśźż]/g, char => convert[char]);
 }
 
 console.log(correctPolishLetters('Jędrzej Błądziński')); // 'Jedrzej Bladzinski'

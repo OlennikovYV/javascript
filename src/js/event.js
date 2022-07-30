@@ -13,7 +13,7 @@ function correctPolishLetters(string) {
 
   return string
     .split('')
-    .map(char => (convert[char] ? convert[char] : char))
+    .map(char => convert[char] || char)
     .join('');
 }
 

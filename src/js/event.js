@@ -1,24 +1,15 @@
-function calculate(num1, operation, num2) {
-  switch (operation) {
-    case '+':
-      return num1 + num2;
-    case '-':
-      return num1 - num2;
-    case '/':
-      return num2 === 0 ? (result = null) : (result = num1 / num2);
-    case '*':
-      return num1 * num2;
-    default:
-      return null;
+function differenceOfSquares(n) {
+  let squareSum = 0;
+  let sumSquare = 0;
+
+  for (let i = 0; i <= n; i += 1) {
+    squareSum += i;
+    sumSquare += i ** 2;
   }
+
+  return squareSum ** 2 - sumSquare;
 }
 
-console.log(calculate(3.2, '+', 8)); // 11.2
-console.log(calculate(3.2, '-', 8)); // -4.8
-console.log(calculate(3.2, '/', 8)); // 0.4
-console.log(calculate(3.2, '*', 8)); // 25.6
-console.log(calculate(-3, '+', 0)); // -3
-console.log(calculate(-3, '-', 0)); // -3
-console.log(calculate(-3, '/', 0)); // null
-console.log(calculate(-3, '*', 0)); // 0
-console.log(calculate(-3, 'w', 0)); // null
+console.log(differenceOfSquares(5)); // 170
+console.log(differenceOfSquares(10)); // 2640
+console.log(differenceOfSquares(100)); // 25164150

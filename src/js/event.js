@@ -1,24 +1,16 @@
 function calculate(num1, operation, num2) {
-  let result;
-
   switch (operation) {
     case '+':
-      result = num1 + num2;
-      break;
+      return num1 + num2;
     case '-':
-      result = num1 - num2;
-      break;
+      return num1 - num2;
     case '/':
-      num2 === 0 ? (result = null) : (result = num1 / num2);
-      break;
+      return num2 === 0 ? (result = null) : (result = num1 / num2);
     case '*':
-      result = num1 * num2;
-      break;
+      return num1 * num2;
     default:
-      result = null;
+      return null;
   }
-
-  return result;
 }
 
 console.log(calculate(3.2, '+', 8)); // 11.2

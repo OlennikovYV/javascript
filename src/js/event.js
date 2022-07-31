@@ -1,13 +1,5 @@
 function differenceOfSquares(n) {
-  let squareSum = 0;
-  let sumSquare = 0;
-
-  for (let i = 0; i <= n; i += 1) {
-    squareSum += i;
-    sumSquare += i ** 2;
-  }
-
-  return squareSum ** 2 - sumSquare;
+  return (n * (n * n - 1) * (3 * n + 2)) / 12;
 }
 
 console.log(differenceOfSquares(5)); // 170

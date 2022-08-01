@@ -1,7 +1,15 @@
-function differenceOfSquares(n) {
-  return (n * (n * n - 1) * (3 * n + 2)) / 12;
+function all(arr, fun) {
+  return arr.every(fun);
 }
 
-console.log(differenceOfSquares(5)); // 170
-console.log(differenceOfSquares(10)); // 2640
-console.log(differenceOfSquares(100)); // 25164150
+console.log(
+  all([1, 2, 3, 4, 5], function (v) {
+    return v < 9;
+  })
+); // true
+
+console.log(
+  all([1, 2, 3, 4, 5], function (v) {
+    return v > 9;
+  })
+); // false

@@ -1,10 +1,8 @@
 function divCon(x) {
-  return x.reduce((sum, digit) => {
-    if (typeof digit === 'string') sum -= Number(digit);
-    if (typeof digit === 'number') sum += digit;
-
-    return sum;
-  }, 0);
+  return x.reduce(
+    (sum, digit) => (typeof digit === 'number' ? sum + digit : sum - digit),
+    0
+  );
 }
 
 console.log(divCon([9, 3, '7', '3'])); // 2

@@ -1,6 +1,4 @@
-function all(arr, fun) {
-  return arr.every(fun);
-}
+const all = Function.prototype.call.bind(Array.prototype.every);
 
 console.log(
   all([1, 2, 3, 4, 5], function (v) {

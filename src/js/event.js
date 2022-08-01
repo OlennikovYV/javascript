@@ -1,13 +1,8 @@
-const all = Function.prototype.call.bind(Array.prototype.every);
+const factorial = n => {
+  return n === 0 ? 1 : n * factorial(n - 1);
+};
 
-console.log(
-  all([1, 2, 3, 4, 5], function (v) {
-    return v < 9;
-  })
-); // true
-
-console.log(
-  all([1, 2, 3, 4, 5], function (v) {
-    return v > 9;
-  })
-); // false
+console.log(factorial(0)); // 1
+console.log(factorial(1)); // 1
+console.log(factorial(2)); // 2
+console.log(factorial(3)); // 6

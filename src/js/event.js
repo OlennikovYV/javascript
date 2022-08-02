@@ -1,15 +1,9 @@
 function beggars(values, n) {
   let result = Array(n).fill(0);
-  let index = 1;
 
-  if (n === 0) return [];
+  if (!n) return [];
 
-  for (let i = 0; i < values.length; i += 1) {
-    result[index - 1] += values[i];
-
-    index += 1;
-    if (index > n) index = 1;
-  }
+  for (let i = 0; i < values.length; i += 1) result[i % n] += values[i];
 
   return result;
 }

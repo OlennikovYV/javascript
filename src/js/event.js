@@ -1,7 +1,5 @@
 function contamination(text, char) {
-  if (!text || !char) return '';
-
-  return text.replace(/./g, char);
+  return char.repeat(text.length);
 }
 
 console.log(contamination('abc', 'z')); // 'zzz'

@@ -1,15 +1,11 @@
-function beggars(values, n) {
-  let result = Array(n).fill(0);
+function contamination(text, char) {
+  if (!text || !char) return '';
 
-  if (!n) return [];
-
-  for (let i = 0; i < values.length; i += 1) result[i % n] += values[i];
-
-  return result;
+  return text.replace(/./g, char);
 }
 
-console.log(beggars([1, 2, 3, 4, 5], 1)); // [15]
-console.log(beggars([1, 2, 3, 4, 5], 2)); // [9, 6]
-console.log(beggars([1, 2, 3, 4, 5], 3)); // [5, 7, 3]
-console.log(beggars([1, 2, 3, 4, 5], 6)); // [1, 2, 3, 4, 5, 0]
-console.log(beggars([1, 2, 3, 4, 5], 0)); // []
+console.log(contamination('abc', 'z')); // 'zzz'
+console.log(contamination('', 'z')); // ''
+console.log(contamination('abc', '')); // ''
+console.log(contamination('_3ebzgh4', '&')); // '&&&&&&&&'
+console.log(contamination('//case', ' ')); // '      '

@@ -1,10 +1,21 @@
-function divCon(x) {
-  return x.reduce(
-    (sum, digit) => (typeof digit === 'number' ? sum + digit : sum - digit),
-    0
-  );
+function beggars(values, n) {
+  let result = Array(n).fill(0);
+  let index = 1;
+
+  if (n === 0) return [];
+
+  for (let i = 0; i < values.length; i += 1) {
+    result[index - 1] += values[i];
+
+    index += 1;
+    if (index > n) index = 1;
+  }
+
+  return result;
 }
 
-console.log(divCon([9, 3, '7', '3'])); // 2
-console.log(divCon(['5', '0', 9, 3, 2, 1, '9', 6, 7])); // 14
-console.log(divCon(['3', 6, 6, 0, '5', 8, 5, '6', 2, '0'])); // 13
+console.log(beggars([1, 2, 3, 4, 5], 1)); // [15]
+console.log(beggars([1, 2, 3, 4, 5], 2)); // [9, 6]
+console.log(beggars([1, 2, 3, 4, 5], 3)); // [5, 7, 3]
+console.log(beggars([1, 2, 3, 4, 5], 6)); // [1, 2, 3, 4, 5, 0]
+console.log(beggars([1, 2, 3, 4, 5], 0)); // []

@@ -1,21 +1,13 @@
 // Add rooms here
-var rooms = {
-  roomA: {
-    name: 'Room A',
-    description: 'room',
-    completed: true,
-  },
-  roomB: {
-    name: 'Room B',
-    description: 'room',
-    completed: true,
-  },
-  roomC: {
-    name: 'Room C',
-    description: 'room',
-    completed: true,
-  },
-};
+let rooms = {};
+
+for (let i = 0; i < 3; i += 1) {
+  rooms[`room ${i + 1}`] = {
+    'room ${i+1}': i + 1,
+    description: `room ${i + 1}`,
+    completed: i % 2,
+  };
+}
 
 const keys = Object.keys(rooms);
 console.log(keys.length >= 3); // true

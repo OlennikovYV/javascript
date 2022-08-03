@@ -1,9 +1,5 @@
-function contamination(text, char) {
-  return char.repeat(text.length);
-}
+var TempleStrings = function (obj, feature) {
+  return `${obj} are ${feature}`;
+};
 
-console.log(contamination('abc', 'z')); // 'zzz'
-console.log(contamination('', 'z')); // ''
-console.log(contamination('abc', '')); // ''
-console.log(contamination('_3ebzgh4', '&')); // '&&&&&&&&'
-console.log(contamination('//case', ' ')); // '      '
+console.log(TempleStrings('Animals', 'Good')); // 'Animals are Good'

@@ -1,22 +1,16 @@
-// Add rooms here
-let rooms = {};
+function aliasGen(first, second) {
+  const checkFirstChar = char => /[A-Z]/i.test(char);
 
-for (let i = 0; i < 3; i += 1) {
-  rooms[`room ${i + 1}`] = {
-    'room ${i+1}': i + 1,
-    description: `room ${i + 1}`,
-    completed: i % 2,
-  };
+  if (checkFirstChar(first[0]) !== true || checkFirstChar(second[0]) !== true)
+    return 'Your name must start with a letter from A - Z.';
+
+  return `${firstName[first[0].toUpperCase()]} ${
+    surname[second[0].toUpperCase()]
+  }`;
 }
 
-const keys = Object.keys(rooms);
-console.log(keys.length >= 3); // true
-
-keys.forEach(name => {
-  console.log(typeof rooms[name] === 'object'); // `${name} should be an object`
-});
-
-keys.forEach(name => {
-  let numKeys = Object.keys(rooms[name]).length;
-  console.log(numKeys >= 3); // `not enough properties for room: ${name}`
-});
+// console.log(aliasGen('Mike', 'Millington')); // 'Malware Mike');
+// console.log(aliasGen('Fahima', 'Tash')); // 'Function T-Rex');
+// console.log(aliasGen('Daisy', 'Petrovic')); // 'Data Payload');
+// console.log(aliasGen('7393424', 'Anumbha')); // 'Your name must start with a letter from A - Z.'
+// console.log(aliasGen('Anuddanumbha', '23200')); // 'Your name must start with a letter from A - Z.'

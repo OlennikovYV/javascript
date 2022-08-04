@@ -1,12 +1,11 @@
 function squares(x, n) {
   let result = [];
-  let square = x;
 
   if (n <= 0) return result;
 
   for (let i = 0; i < n; i += 1) {
-    result.push(square);
-    square = square ** 2;
+    result.push(x);
+    x *= x;
   }
 
   return result;

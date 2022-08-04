@@ -1,74 +1,21 @@
-var firstName = {
-  A: 'Alpha',
-  B: 'Beta',
-  C: 'Cache',
-  D: 'Data',
-  E: 'Energy',
-  F: 'Function',
-  G: 'Glitch',
-  H: 'Half-life',
-  I: 'Ice',
-  J: 'Java',
-  K: 'Keystroke',
-  L: 'Logic',
-  M: 'Malware',
-  N: 'Nagware',
-  O: 'OS',
-  P: 'Phishing',
-  Q: 'Quantum',
-  R: 'RAD',
-  S: 'Strike',
-  T: 'Trojan',
-  U: 'Ultraviolet',
-  V: 'Vanilla',
-  W: 'WiFi',
-  X: 'Xerox',
-  Y: 'Y',
-  Z: 'Zero',
-};
+function squares(x, n) {
+  let result = [];
+  let square = x;
 
-var surname = {
-  A: 'Analogue',
-  B: 'Bomb',
-  C: 'Catalyst',
-  D: 'Discharge',
-  E: 'Electron',
-  F: 'Faraday',
-  G: 'Gig',
-  H: 'Hacker',
-  I: 'IP',
-  J: 'Jabber',
-  K: 'Killer',
-  L: 'Lazer',
-  M: 'Mike',
-  N: 'n00b',
-  O: 'Overclock',
-  P: 'Payload',
-  Q: 'Quark',
-  R: 'Roy',
-  S: 'Spy',
-  T: 'T-Rex',
-  U: 'Unit',
-  V: 'Virus',
-  W: 'Worm',
-  X: 'X',
-  Y: 'Yob',
-  Z: 'Zombie',
-};
+  if (n <= 0) return result;
 
-function aliasGen(first, second) {
-  const checkFirstChar = char => /[A-Z]/i.test(char);
+  for (let i = 0; i < n; i += 1) {
+    result.push(square);
+    square = square ** 2;
+  }
 
-  if (checkFirstChar(first[0]) !== true || checkFirstChar(second[0]) !== true)
-    return 'Your name must start with a letter from A - Z.';
-
-  return `${firstName[first[0].toUpperCase()]} ${
-    surname[second[0].toUpperCase()]
-  }`;
+  return result;
 }
 
-console.log(aliasGen('Mike', 'Millington')); // 'Malware Mike');
-console.log(aliasGen('Fahima', 'Tash')); // 'Function T-Rex');
-console.log(aliasGen('Daisy', 'Petrovic')); // 'Data Payload');
-console.log(aliasGen('7393424', 'Anumbha')); // 'Your name must start with a letter from A - Z.'
-console.log(aliasGen('Anuddanumbha', '23200')); // 'Your name must start with a letter from A - Z.'
+console.log(squares(2, 5)); // [2,4,16,256,65536]
+console.log(squares(3, 3)); // [3,9,81]
+console.log(squares(5, 3)); // [5,25,625]
+console.log(squares(10, 4)); // [10,100,10000,100000000]
+
+console.log(squares(2, 0)); // []
+console.log(squares(2, -5)); // []

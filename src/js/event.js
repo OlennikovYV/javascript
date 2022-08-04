@@ -1,13 +1,54 @@
-function squares(x, n) {
-  return Array.from({ length: n }, (_, index) =>
-    Math.pow(x, Math.pow(2, index))
-  );
+function switcher(x) {
+  const alphabet = {
+    29: ' ',
+    28: '?',
+    27: '!',
+    26: 'a',
+    25: 'b',
+    24: 'c',
+    23: 'd',
+    22: 'e',
+    21: 'f',
+    20: 'g',
+    19: 'h',
+    18: 'i',
+    17: 'j',
+    16: 'k',
+    15: 'l',
+    14: 'm',
+    13: 'n',
+    12: 'o',
+    11: 'p',
+    10: 'q',
+    9: 'r',
+    8: 's',
+    7: 't',
+    6: 'u',
+    5: 'v',
+    4: 'w',
+    3: 'x',
+    2: 'y',
+    1: 'z',
+  };
+  return x.map(el => alphabet[el]).join('');
 }
 
-console.log(squares(2, 5)); // [2,4,16,256,65536]
-console.log(squares(3, 3)); // [3,9,81]
-console.log(squares(5, 3)); // [5,25,625]
-console.log(squares(10, 4)); // [10,100,10000,100000000]
-
-console.log(squares(2, 0)); // []
-console.log(squares(2, -5)); // []
+console.log(switcher(['24', '12', '23', '22', '4', '26', '9', '8'])); // 'codewars'
+console.log(
+  switcher([
+    '25',
+    '7',
+    '8',
+    '4',
+    '14',
+    '23',
+    '8',
+    '25',
+    '23',
+    '29',
+    '16',
+    '16',
+    '4',
+  ])
+); // 'btswmdsbd kkw'
+console.log(switcher(['4', '24'])); // 'wc'

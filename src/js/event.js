@@ -1,14 +1,7 @@
 function squares(x, n) {
-  let result = [];
-
-  if (n <= 0) return result;
-
-  for (let i = 0; i < n; i += 1) {
-    result.push(x);
-    x *= x;
-  }
-
-  return result;
+  return Array.from({ length: n }, (_, index) =>
+    Math.pow(x, Math.pow(2, index))
+  );
 }
 
 console.log(squares(2, 5)); // [2,4,16,256,65536]

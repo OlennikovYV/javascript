@@ -1,19 +1,7 @@
 function solve(s) {
-  let upCase = 0;
-  let loCase = 0;
-  let num = 0;
-  let spec = 0;
-
-  s.split('').map(char => {
-    if (/[a-z]+/i.test(char)) {
-      if (char.toUpperCase() === char) upCase += 1;
-      if (char.toLowerCase() === char) loCase += 1;
-    }
-    if (/[0-9]/.test(char)) num += 1;
-    if (/[^0-9|^a-z]/i.test(char)) spec += 1;
-  });
-
-  return [upCase, loCase, num, spec];
+  return [/[A-Z]/, /[a-z]/, /[\d]/, /[\W]/].map(
+    regExp => s.split(regExp).length - 1
+  );
 }
 
 console.log(solve('Codewars@codewars123.com')); // [1, 18, 3, 2]

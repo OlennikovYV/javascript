@@ -1,11 +1,10 @@
 function sumOfN(n) {
   let result = [0];
+  const sign = n < 0 ? -1 : 1;
 
   for (let i = 1; i < Math.abs(n) + 1; i += 1) {
-    result.push(result[i - 1] + i);
+    result.push(result[i - 1] + i * sign);
   }
-
-  if (n < 0) result = result.map(el => (el === 0 ? 0 : -el));
 
   return result;
 }

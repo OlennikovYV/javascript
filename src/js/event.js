@@ -1,14 +1,16 @@
-function solve(s) {
-  return [/[A-Z]/, /[a-z]/, /[\d]/, /[\W]/].map(
-    regExp => s.split(regExp).length - 1
-  );
+function sumOfN(n) {
+  let result = [0];
+
+  for (let i = 1; i < Math.abs(n) + 1; i += 1) {
+    result.push(result[i - 1] + i);
+  }
+
+  if (n < 0) result = result.map(el => (el === 0 ? 0 : -el));
+
+  return result;
 }
 
-console.log(solve('Codewars@codewars123.com')); // [1, 18, 3, 2]
-console.log(solve('bgA5<1d-tOwUZTS8yQ')); // [7, 6, 3, 2]
-console.log(solve('P*K4%>mQUDaG$h=cx2?.Czt7!Zn16p@5H')); // [9, 9, 6, 9]
-console.log(solve("RYT'>s&gO-.CM9AKeH?,5317tWGpS<*x2ukXZD"));
-// [15, 8, 6, 9]
-console.log(solve('$Cnl)Sr<7bBW-&qLHI!mY41ODe')); // [10, 7, 3, 6]
-console.log(solve('@mw>0=QD-iAx!rp9TaG?o&M%l$34L.nbft'));
-// [7, 13, 4, 10]
+console.log(sumOfN(3)); // [0, 1, 3, 6]
+console.log(sumOfN(-4)); // [0, -1, -3, -6, -10]
+console.log(sumOfN(1)); // [0, 1]
+console.log(sumOfN(-6)); // [0, -1, -3, -6, -10, -15, -21]

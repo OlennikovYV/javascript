@@ -1,5 +1,5 @@
 function solve(arr) {
-  return [...new Set(arr.reverse())].reverse();
+  return arr.filter((el, i) => arr.lastIndexOf(el) === i);
 }
 
 console.log(solve([3, 4, 4, 3, 6, 3])); // [4, 6, 3]

@@ -1,12 +1,7 @@
 function giveMeFive(obj) {
-  let result = [];
-
-  for (let key in obj) {
-    if (key.length === 5) result.push(key);
-    if (obj[key].length === 5) result.push(obj[key]);
-  }
-
-  return result;
+  return Object.entries(obj)
+    .flat(1)
+    .filter(value => value.length === 5);
 }
 
 console.log(giveMeFive({ Our: 'earth', is: 'a', beautyful: 'world' }));

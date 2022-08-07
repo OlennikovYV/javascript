@@ -1,19 +1,7 @@
 function findChildren(dancingBrigade) {
-  const countChars = {};
-  let sortChar;
-
-  dancingBrigade.split('').map(char => {
-    char = char.toLowerCase();
-    countChars[char] ? (countChars[char] += 1) : (countChars[char] = 1);
-  });
-
-  sortChar = Object.keys(countChars).sort();
-
-  return sortChar
-    .map(char => {
-      let charString = char.toUpperCase();
-      return charString + char.repeat(countChars[char] - 1);
-    })
+  return dancingBrigade
+    .split('')
+    .sort((a, b) => a.localeCompare(b, 'kf', { caseFirst: 'upper' }))
     .join('');
 }
 

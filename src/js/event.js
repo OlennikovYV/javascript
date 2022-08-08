@@ -1,5 +1,5 @@
 function vaporcode(string) {
-  return string.replace(/ /g, '').toUpperCase().split('').join('  ');
+  return string.replace(/\s+/g, '').toUpperCase().split('').join('  ');
 }
 
 console.log(vaporcode('Lets go to the movies'));

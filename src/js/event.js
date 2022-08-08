@@ -1,10 +1,10 @@
 function logicalCalc(array, op) {
-  return array.reduce((acc, bool) => {
-    if (op === 'AND') acc = acc & bool;
-    if (op === 'OR') acc = acc | bool;
-    if (op === 'XOR') acc = acc ^ bool;
-    return Boolean(acc);
-  });
+  const ops = {
+    AND: (a, b) => a && b,
+    OR: (a, b) => a || b,
+    XOR: (a, b) => a !== b,
+  };
+  return array.reduce(ops[op]);
 }
 
 console.log(logicalCalc([true, true, true, false], 'AND')); // false

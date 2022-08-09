@@ -1,5 +1,5 @@
 function meeting(x) {
-  return x.indexOf('O') !== -1 ? x.indexOf('O') : 'None available!';
+  return x.includes('O') ? x.indexOf('O') : 'None available!';
 }
 
 console.log(meeting(['X', 'O', 'X'])); // 1

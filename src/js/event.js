@@ -1,30 +1,40 @@
-function logicalCalc(array, op) {
-  const ops = {
-    AND: (a, b) => a && b,
-    OR: (a, b) => a || b,
-    XOR: (a, b) => a !== b,
-  };
-  return array.reduce(ops[op]);
+function grabDoll(dolls) {
+  var bag = [];
+
+  for (let i = 0; i < dolls.length; i += 1) {
+    if (dolls[i] === 'Hello Kitty' || dolls[i] === 'Barbie doll')
+      bag.push(dolls[i]);
+    if (bag.length < 3) continue;
+    break;
+  }
+
+  return bag;
 }
 
-console.log(logicalCalc([true, true, true, false], 'AND')); // false
-console.log(logicalCalc([true, true, true, false], 'OR')); // true
-console.log(logicalCalc([true, true, true, false], 'XOR')); // true
-console.log(logicalCalc([true, true, false, false], 'AND')); // false
-console.log(logicalCalc([true, true, false, false], 'OR')); // true
-console.log(logicalCalc([true, true, false, false], 'XOR')); // false
-console.log(logicalCalc([true, false, false, false], 'AND')); // false
-console.log(logicalCalc([true, false, false, false], 'OR')); // true
-console.log(logicalCalc([true, false, false, false], 'XOR')); // true
-console.log(logicalCalc([true, true], 'AND')); // true
-console.log(logicalCalc([true, true], 'OR')); // true
-console.log(logicalCalc([true, true], 'XOR')); // false
-console.log(logicalCalc([false, false], 'AND')); // false
-console.log(logicalCalc([false, false], 'OR')); // false
-console.log(logicalCalc([false, false], 'XOR')); // false
-console.log(logicalCalc([false], 'AND')); // false
-console.log(logicalCalc([false], 'OR')); // false
-console.log(logicalCalc([false], 'XOR')); // false
-console.log(logicalCalc([true], 'AND')); // true
-console.log(logicalCalc([true], 'OR')); // true
-console.log(logicalCalc([true], 'XOR')); // true
+console.log(grabDoll(['Mickey Mouse', 'Hello Kitty', 'Snow white']));
+//  ['Hello Kitty']
+console.log(
+  grabDoll(['Mickey Mouse', 'Hello Kitty', 'Hello Kitty', 'Snow white'])
+);
+//  ['Hello Kitty', 'Hello Kitty']
+console.log(
+  grabDoll([
+    'Mickey Mouse',
+    'Hello Kitty',
+    'Hello Kitty',
+    'Barbie doll',
+    'Snow white',
+  ])
+);
+//  ['Hello Kitty', 'Hello Kitty', 'Barbie doll']
+console.log(
+  grabDoll([
+    'Mickey Mouse',
+    'Barbie doll',
+    'Hello Kitty',
+    'Hello Kitty',
+    'Hello Kitty',
+    'Snow white',
+  ])
+);
+//  ['Barbie doll', 'Hello Kitty', 'Hello Kitty']

@@ -1,33 +1,7 @@
-function grabDoll(dolls) {
-  return dolls
-    .filter(doll => doll == 'Hello Kitty' || doll == 'Barbie doll')
-    .slice(0, 3);
+function meeting(x) {
+  return x.indexOf('O') !== -1 ? x.indexOf('O') : 'None available!';
 }
 
-console.log(grabDoll(['Mickey Mouse', 'Hello Kitty', 'Snow white']));
-//  ['Hello Kitty']
-console.log(
-  grabDoll(['Mickey Mouse', 'Hello Kitty', 'Hello Kitty', 'Snow white'])
-);
-//  ['Hello Kitty', 'Hello Kitty']
-console.log(
-  grabDoll([
-    'Mickey Mouse',
-    'Hello Kitty',
-    'Hello Kitty',
-    'Barbie doll',
-    'Snow white',
-  ])
-);
-//  ['Hello Kitty', 'Hello Kitty', 'Barbie doll']
-console.log(
-  grabDoll([
-    'Mickey Mouse',
-    'Barbie doll',
-    'Hello Kitty',
-    'Hello Kitty',
-    'Hello Kitty',
-    'Snow white',
-  ])
-);
-//  ['Barbie doll', 'Hello Kitty', 'Hello Kitty']
+console.log(meeting(['X', 'O', 'X'])); // 1
+console.log(meeting(['O', 'X', 'X', 'X', 'X'])); // 0
+console.log(meeting(['X', 'X', 'X', 'X', 'X'])); // 'None available!'

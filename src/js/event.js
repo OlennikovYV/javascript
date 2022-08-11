@@ -1,5 +1,5 @@
 function toCsvText(array) {
-  return array.map(str => str.join()).join('\n');
+  return array.join('\n');
 }
 
 console.log(

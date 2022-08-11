@@ -1,19 +1,9 @@
 function containAllRots(strng, arr) {
-  function getAllRotation(str) {
-    let allRotation = [];
-
-    for (let i = 0; i < str.length; i += 1) {
-      let rotation = str.slice(i) + str.slice(0, i);
-
-      allRotation.push(rotation);
-    }
-
-    return allRotation;
+  for (let i = 0; i < strng.length; i += 1) {
+    if (arr.indexOf(strng.slice(i) + strng.slice(0, i)) === -1) return false;
   }
 
-  if (strng === '') return true;
-
-  return getAllRotation(strng).every(str => arr.includes(str));
+  return true;
 }
 
 console.log(containAllRots('', [])); // true

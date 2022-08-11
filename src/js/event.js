@@ -1,12 +1,12 @@
 function checkExam(array1, array2) {
-  let scores = 0;
-
-  array1.forEach((answers, index) => {
-    if (answers !== array2[index] && array2[index] !== '') scores -= 1;
-    if (answers === array2[index]) scores += 4;
-  });
-
-  return scores >= 0 ? scores : 0;
+  return Math.max(
+    array2.reduce(
+      (sum, val, index) =>
+        val ? (val === array1[index] ? sum + 4 : (sum -= 1)) : sum,
+      0
+    ),
+    0
+  );
 }
 
 console.log(checkExam(['a', 'a', 'b', 'b'], ['a', 'c', 'b', 'd'])); // 6

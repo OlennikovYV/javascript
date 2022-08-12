@@ -1,15 +1,11 @@
-function checkExam(array1, array2) {
-  return Math.max(
-    array2.reduce(
-      (sum, val, index) =>
-        val ? (val === array1[index] ? sum + 4 : (sum -= 1)) : sum,
-      0
-    ),
-    0
+function ipToInt32(ip) {
+  return parseInt(
+    ip
+      .split('.')
+      .map(num => Number(num).toString(2).padStart(8, '0'))
+      .join(''),
+    2
   );
 }
 
-console.log(checkExam(['a', 'a', 'b', 'b'], ['a', 'c', 'b', 'd'])); // 6
-console.log(checkExam(['a', 'a', 'c', 'b'], ['a', 'a', 'b', ''])); // 7
-console.log(checkExam(['a', 'a', 'b', 'c'], ['a', 'a', 'b', 'c'])); // 16
-console.log(checkExam(['b', 'c', 'b', 'a'], ['', 'a', 'a', 'c'])); // 0
+console.log(ipToInt32('128.32.10.1')); // 2149583361

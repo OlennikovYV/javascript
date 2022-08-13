@@ -1,7 +1,5 @@
 function stringy(size) {
-  return Array.from({ length: size }, (el, i) =>
-    i % 2 === 0 ? '1' : '0'
-  ).join('');
+  return ''.padStart(size, '10');
 }
 
 console.log(stringy(1)); // '1'

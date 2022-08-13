@@ -1,9 +1,10 @@
 function cleanString(s) {
-  const result = [];
-
-  s.split('').map(el => (el === '#' ? result.pop() : result.push(el)));
-
-  return result.join('');
+  return s
+    .split('')
+    .reduce(
+      (result, el) => (el === '#' ? result.slice(0, -1) : result + el),
+      ''
+    );
 }
 
 console.log(cleanString('abc#d##c')); // 'ac'

@@ -1,14 +1,7 @@
-function cleanString(s) {
-  return s
-    .split('')
-    .reduce(
-      (result, el) => (el === '#' ? result.slice(0, -1) : result + el),
-      ''
-    );
+function sixToast(num) {
+  return Math.abs(6 - num);
 }
 
-console.log(cleanString('abc#d##c')); // 'ac'
-console.log(cleanString('abc####d##c#')); // ''
-console.log(cleanString('abc##d######')); // ''
-console.log(cleanString('#######')); // ''
-console.log(cleanString('')); // ''
+console.log(sixToast(6)); // 0
+console.log(sixToast(17)); // 11
+console.log(sixToast(3)); // 3

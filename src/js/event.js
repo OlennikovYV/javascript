@@ -1,15 +1,7 @@
 function capitalize(s, arr) {
-  let result = '';
-
-  for (let i = 0; i < s.length; i += 1) {
-    if (arr.indexOf(i) !== -1) {
-      result += s[i].toUpperCase();
-    } else {
-      result += s[i];
-    }
-  }
-
-  return result;
+  return s
+    .split('')
+    .map((char, i) => (arr.includes(i) ? char.toUpperCase() : char)).join``;
 }
 
 console.log(capitalize('abcdef', [1, 2, 5])); // 'aBCdeF'

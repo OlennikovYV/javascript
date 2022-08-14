@@ -1,7 +1,12 @@
-function sixToast(num) {
-  return Math.abs(6 - num);
+function alternateCase(s) {
+  return s
+    .split('')
+    .map(char =>
+      char === char.toUpperCase() ? char.toLowerCase() : char.toUpperCase()
+    )
+    .join('');
 }
 
-console.log(sixToast(6)); // 0
-console.log(sixToast(17)); // 11
-console.log(sixToast(3)); // 3
+console.log(alternateCase('abc')); // 'ABC'
+console.log(alternateCase('ABC')); // 'abc'
+console.log(alternateCase('Hello World')); // 'hELLO wORLD'

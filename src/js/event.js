@@ -1,8 +1,5 @@
 function explode(s) {
-  return s
-    .split('')
-    .map(el => el.repeat(Number(el)))
-    .join('');
+  return s.replace(/\d/g, digit => digit.repeat(digit));
 }
 
 console.log(explode('312')); //"333122"

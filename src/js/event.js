@@ -1,12 +1,5 @@
-function alternateCase(s) {
-  return s
-    .split('')
-    .map(char =>
-      char === char.toUpperCase() ? char.toLowerCase() : char.toUpperCase()
-    )
-    .join('');
+function generateIntegers(m, n) {
+  return Array.from({ length: n - m + 1 }, (_, i) => i + m);
 }
 
-console.log(alternateCase('abc')); // 'ABC'
-console.log(alternateCase('ABC')); // 'abc'
-console.log(alternateCase('Hello World')); // 'hELLO wORLD'
+console.log(generateIntegers(2, 5)); // [2, 3, 4, 5]

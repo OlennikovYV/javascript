@@ -1,7 +1,9 @@
-function generateIntegers(m, n) {
-  return Array(n - m + 1)
-    .fill()
-    .map(_ => m++);
+function explode(s) {
+  return s
+    .split('')
+    .map(el => el.repeat(Number(el)))
+    .join('');
 }
 
-console.log(generateIntegers(2, 5)); // [2, 3, 4, 5]
+console.log(explode('312')); //"333122"
+console.log(explode('102269')); //"12222666666999999999"

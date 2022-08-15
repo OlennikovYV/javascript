@@ -1,5 +1,5 @@
 function solution(value) {
-  return `Value is ${(value + '').padStart(5, '0')}`;
+  return `Value is ${value.toString().padStart(5, '0')}`;
 }
 
 console.log(solution(5)); // 'Value is 00005'

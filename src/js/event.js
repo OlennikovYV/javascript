@@ -1,12 +1,8 @@
-function capitalize(s, arr) {
-  return s
-    .split('')
-    .map((char, i) => (arr.includes(i) ? char.toUpperCase() : char)).join``;
+function solution(value) {
+  return `Value is ${(value + '').padStart(5, '0')}`;
 }
 
-console.log(capitalize('abcdef', [1, 2, 5])); // 'aBCdeF'
-console.log(capitalize('abcdef', [1, 2, 5, 100])); // 'aBCdeF'
-console.log(capitalize('codewars', [1, 3, 5, 50])); // 'cOdEwArs'
-console.log(capitalize('abracadabra', [2, 6, 9, 10])); // 'abRacaDabRA'
-console.log(capitalize('codewarriors', [5])); // 'codewArriors'
-console.log(capitalize('indexinglessons', [0])); // 'Indexinglessons'
+console.log(solution(5)); // 'Value is 00005'
+console.log(solution(1204)); // 'Value is 01204'
+console.log(solution(109)); // 'Value is 00109'
+console.log(solution(0)); // 'Value is 00000'

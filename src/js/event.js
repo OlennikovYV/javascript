@@ -1,8 +1,9 @@
-function solution(value) {
-  return `Value is ${value.toString().padStart(5, '0')}`;
+function evil(n) {
+  return n.toString(2).match(/1/g, '').length % 2
+    ? `It's Odious!`
+    : `It's Evil!`;
 }
 
-console.log(solution(5)); // 'Value is 00005'
-console.log(solution(1204)); // 'Value is 01204'
-console.log(solution(109)); // 'Value is 00109'
-console.log(solution(0)); // 'Value is 00000'
+console.log(evil(1)); // "It's Odious!"
+console.log(evil(2)); // "It's Odious!"
+console.log(evil(3)); // "It's Evil!"

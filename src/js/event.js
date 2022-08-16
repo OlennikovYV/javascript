@@ -1,5 +1,5 @@
 var FilterString = function (value) {
-  return Number(value.replace(/[^\d]/g, ''));
+  return Number(value.replace(/\D/g, ''));
 };
 
 console.log(FilterString('123')); // 123

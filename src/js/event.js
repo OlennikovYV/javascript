@@ -1,6 +1,7 @@
-var websites = [];
+var FilterString = function (value) {
+  return Number(value.replace(/[^\d]/g, ''));
+};
 
-websites.push('codewars');
-
-console.log(websites.length); // 1
-console.log(websites.includes('codewars')); // true
+console.log(FilterString('123')); // 123
+console.log(FilterString('a1b2c3')); // 123
+console.log(FilterString('aa1bb2cc3dd')); // 123

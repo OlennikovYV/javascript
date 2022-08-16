@@ -1,12 +1,5 @@
 function lostSheep(friday, saturday, total) {
-  let returnedSheepFriday = sumReturnedSheep(friday);
-  let returnedSheepSaturDay = sumReturnedSheep(saturday);
-
-  function sumReturnedSheep(sheeps) {
-    return sheeps.length ? sheeps.reduce((sum, sheep) => sum + sheep) : 0;
-  }
-
-  return total - (returnedSheepFriday + returnedSheepSaturDay);
+  return friday.concat(saturday).reduce((sum, sheep) => sum - sheep, total);
 }
 
 console.log(lostSheep([1, 2], [3, 4], 15)); // 5

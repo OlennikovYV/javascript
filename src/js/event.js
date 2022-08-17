@@ -1,7 +1,7 @@
-var FilterString = function (value) {
-  return Number(value.replace(/\D/g, ''));
-};
+var laLigaGoals = 43;
+var championsLeagueGoals = 10;
+var copaDelReyGoals = 5;
 
-console.log(FilterString('123')); // 123
-console.log(FilterString('a1b2c3')); // 123
-console.log(FilterString('aa1bb2cc3dd')); // 123
+var totalGoals = laLigaGoals + championsLeagueGoals + copaDelReyGoals;
+
+console.log(totalGoals); // 58

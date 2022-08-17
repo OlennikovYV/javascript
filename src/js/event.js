@@ -1,31 +1,8 @@
 function abbreviate(string) {
-  let words = string.split(' ');
-  let abbreviatePhrase = words.map(el => {
-    if (el.includes('-')) {
-      return el
-        .split('-')
-        .map(el => setAbbreviate(el))
-        .join('-');
-    } else {
-      return setAbbreviate(el);
-    }
-  });
-
-  function setAbbreviate(str) {
-    const symbol = [',', '!'];
-    let comma = '';
-
-    if (str.length < 4) return str;
-
-    if (symbol.includes(str.slice(-1))) {
-      comma = str.slice(-1);
-      str = str.slice(0, -1);
-    }
-
-    return str.slice(0, 1) + (str.length - 2) + str.slice(-1) + comma;
-  }
-
-  return abbreviatePhrase.join(' ');
+  return string.replace(
+    /\w{4,}/g,
+    word => word[0] + (word.length - 2) + word.slice(-1)
+  );
 }
 
 console.log(abbreviate('internationalization')); // 'i18n'

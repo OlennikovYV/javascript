@@ -1,7 +1,15 @@
-var laLigaGoals = 43;
-var championsLeagueGoals = 10;
-var copaDelReyGoals = 5;
+function defineSuit(card) {
+  const suits = {
+    '♣': 'clubs',
+    '♦': 'diamonds',
+    '♥': 'hearts',
+    '♠': 'spades',
+  };
 
-var totalGoals = laLigaGoals + championsLeagueGoals + copaDelReyGoals;
+  return suits[card.replace(/[A-Z\d]/g, '')];
+}
 
-console.log(totalGoals); // 58
+console.log(defineSuit('Q♠')); //'spades'
+console.log(defineSuit('9♦')); //'diamonds'
+console.log(defineSuit('J♥')); //'hearts'
+console.log(defineSuit('10♥')); //'hearts'

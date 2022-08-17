@@ -6,7 +6,7 @@ function defineSuit(card) {
     '♠': 'spades',
   };
 
-  return suits[card.replace(/[A-Z\d]/g, '')];
+  return suits[card.slice(-1)];
 }
 
 console.log(defineSuit('Q♠')); //'spades'

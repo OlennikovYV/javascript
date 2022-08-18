@@ -1,13 +1,8 @@
 function arrayLeaders(numbers) {
-  const leaders = [];
-
-  numbers.reverse().reduce((sum, num) => {
-    if (num > sum) leaders.push(num);
-
-    return sum + num;
-  }, 0);
-
-  return leaders.reverse();
+  return numbers.filter(
+    (num, i) =>
+      numbers.slice(i + 1).reduce((sum, number) => sum + number, 0) < num
+  );
 }
 
 console.log(arrayLeaders([1, 2, 3, 4, 0])); // [4]

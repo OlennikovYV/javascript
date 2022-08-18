@@ -1,6 +1,6 @@
 function toTime(seconds) {
-  return `${Math.trunc(seconds / 3600)} hour(s) and ${Math.trunc(
-    (seconds / 60) % 60
+  return `${Math.floor(seconds / 3600)} hour(s) and ${Math.floor(
+    (seconds % 3600) / 60
   )} minute(s)`;
 }
 

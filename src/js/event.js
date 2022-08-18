@@ -1,6 +1,4 @@
-const isReallyNaN = val => {
-  return val !== val;
-};
+const isReallyNaN = Number.isNaN;
 
 console.log(isReallyNaN(37)); // false
 console.log(isReallyNaN('37')); // false

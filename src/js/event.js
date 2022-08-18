@@ -1,7 +1,7 @@
 function toTime(seconds) {
-  return `${Math.floor(seconds / 3600)} hour(s) and ${Math.floor(
-    (seconds % 3600) / 60
-  )} minute(s)`;
+  return `${(seconds / 3600) ^ 0} hour(s) and ${
+    ((seconds % 3600) / 60) ^ 0
+  } minute(s)`;
 }
 
 console.log(toTime(3600)); // '1 hour(s) and 0 minute(s)'

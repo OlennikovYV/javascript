@@ -1,5 +1,5 @@
 const isReallyNaN = val => {
-  return Number.isNaN(val);
+  return val !== val;
 };
 
 console.log(isReallyNaN(37)); // false

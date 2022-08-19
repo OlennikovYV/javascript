@@ -1,18 +1,8 @@
 function padIt(str, n) {
-  let result = '';
-  let currentIndex = 1;
-  const halfString = Math.ceil(n / 2);
-
-  while (result.length < n + str.length) {
-    if (currentIndex === halfString + 1) {
-      result += str;
-    } else {
-      result += '*';
-    }
-    currentIndex += 1;
+  while (n > 0) {
+    str = n-- % 2 ? '*' + str : str + '*';
   }
-
-  return result;
+  return str;
 }
 
 console.log(padIt('a', 1)); // '*a'

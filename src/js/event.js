@@ -1,13 +1,13 @@
-function arrayLeaders(numbers) {
-  return numbers.filter(
-    (num, i) =>
-      numbers.slice(i + 1).reduce((sum, number) => sum + number, 0) < num
-  );
+function padIt(str, n) {
+  const countSymbol = Math.ceil(n / 2);
+  const stringBegin = ''.padStart(countSymbol, '*');
+  const stringEnd = ''.padStart(n - countSymbol, '*');
+
+  return stringBegin + str + stringEnd;
 }
 
-console.log(arrayLeaders([1, 2, 3, 4, 0])); // [4]
-console.log(arrayLeaders([16, 17, 4, 3, 5, 2])); // [17,5,2]
-console.log(arrayLeaders([-1, -29, -26, -2])); // [-1]
-console.log(arrayLeaders([-36, -12, -27])); //  [-36,-12]
-console.log(arrayLeaders([5, -2, 2])); // [5,2]
-console.log(arrayLeaders([0, -1, -29, 3, 2])); //  [0,-1,3,2]
+console.log(padIt('a', 1)); // '*a'
+console.log(padIt('a', 2)); // '*a*'
+console.log(padIt('a', 3)); // '**a*'
+console.log(padIt('a', 4)); // '**a**'
+console.log(padIt('a', 5)); // '***a**'

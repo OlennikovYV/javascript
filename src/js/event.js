@@ -1,11 +1,11 @@
 function calc(x) {
-  let total1 = [...x].reduce((sum, char) => sum + char.charCodeAt(0), '');
-  let total2 = total1.replace(/7/g, '1');
+  const sum = str =>
+    str.split('').reduce((total, char) => total + Number(char), 0);
 
-  total1 = [...total1].reduce((sum, char) => sum + char.charCodeAt(0), 0);
-  total2 = [...total2].reduce((sum, char) => sum + char.charCodeAt(0), 0);
+  const total1 = x.replace(/./g, char => char.charCodeAt(0));
+  const total2 = total1.replace(/7/g, '1');
 
-  return total1 - total2;
+  return sum(total1) - sum(total2);
 }
 
 console.log(calc('ABC')); // 6

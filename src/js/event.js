@@ -1,8 +1,5 @@
 function evensAndOdds(num) {
-  const convertBIN = num => num.toString(2);
-  const convertHEX = num => num.toString(16);
-
-  return num % 2 ? convertHEX(num) : convertBIN(num);
+  return num.toString(num % 2 ? 16 : 2);
 }
 
 console.log(evensAndOdds(2)); // '10'

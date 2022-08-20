@@ -1,5 +1,5 @@
 function evensAndOdds(num) {
-  return num.toString(num % 2 ? 16 : 2);
+  return num.toString([2, 16][num % 2]);
 }
 
 console.log(evensAndOdds(2)); // '10'

@@ -1,38 +1,38 @@
-function toLeetSpeak(str) {
+function wordsToMarks(string) {
   const alphabet = {
-    A: '@',
-    B: '8',
-    C: '(',
-    D: 'D',
-    E: '3',
-    F: 'F',
-    G: '6',
-    H: '#',
-    I: '!',
-    J: 'J',
-    K: 'K',
-    L: '1',
-    M: 'M',
-    N: 'N',
-    O: '0',
-    P: 'P',
-    Q: 'Q',
-    R: 'R',
-    S: '$',
-    T: '7',
-    U: 'U',
-    V: 'V',
-    W: 'W',
-    X: 'X',
-    Y: 'Y',
-    Z: '2',
+    a: 1,
+    b: 2,
+    c: 3,
+    d: 4,
+    e: 5,
+    f: 6,
+    g: 7,
+    h: 8,
+    i: 9,
+    j: 10,
+    k: 11,
+    l: 12,
+    m: 13,
+    n: 14,
+    o: 15,
+    p: 16,
+    q: 17,
+    r: 18,
+    s: 19,
+    t: 20,
+    u: 21,
+    v: 22,
+    w: 23,
+    x: 24,
+    y: 25,
+    z: 26,
   };
 
-  return [...str].map(char => alphabet[char] || char).join('');
+  return [...string].reduce((sum, char) => sum + alphabet[char], 0);
 }
 
-console.log(toLeetSpeak('LEET')); // '1337'
-console.log(toLeetSpeak('CODEWARS')); // '(0D3W@R$'
-console.log(toLeetSpeak('HELLO WORLD')); // '#3110 W0R1D'
-console.log(toLeetSpeak('LOREM IPSUM DOLOR SIT AMET')); // '10R3M !P$UM D010R $!7 @M37'
-console.log(toLeetSpeak('THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG')); // '7#3 QU!(K 8R0WN F0X JUMP$ 0V3R 7#3 1@2Y D06'
+console.log(wordsToMarks('attitude')); // 100
+console.log(wordsToMarks('friends')); // 75
+console.log(wordsToMarks('family')); // 66
+console.log(wordsToMarks('selfness')); // 99
+console.log(wordsToMarks('knowledge')); // 96

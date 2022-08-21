@@ -1,9 +1,13 @@
-function wordsToMarks(string) {
-  return [...string].reduce((sum, char) => sum + char.charCodeAt(0) - 96, 0);
+function wordValue(a) {
+  function sumChar(str) {
+    return [...str].reduce(
+      (sum, char) => (char !== ' ' ? sum + char.charCodeAt(0) - 96 : sum),
+      0
+    );
+  }
+
+  return a.map((word, i) => sumChar(word) * (i + 1));
 }
 
-console.log(wordsToMarks('attitude')); // 100
-console.log(wordsToMarks('friends')); // 75
-console.log(wordsToMarks('family')); // 66
-console.log(wordsToMarks('selfness')); // 99
-console.log(wordsToMarks('knowledge')); // 96
+console.log(wordValue(['codewars', 'abc', 'xyz'])); // [88, 12, 225]
+console.log(wordValue(['abc abc', 'abc abc', 'abc', 'abc'])); // [12, 24, 18, 24]

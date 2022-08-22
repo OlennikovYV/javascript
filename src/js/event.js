@@ -1,16 +1,10 @@
-function Hero(name) {
-  let nameHero = name || 'Hero';
-
-  return {
-    name: nameHero,
-    position: '00',
-    health: 100,
-    damage: 5,
-    experience: 0,
-  };
+function add(a, b) {
+  return a == b;
 }
 
-const hero = new Hero('Hero');
-
-console.log(JSON.stringify(hero));
-// {"name":"Hero","position":"00","health":100,"damage":5,"experience":0}
+console.log(add('1', 1)); // true
+console.log(add(1, '1')); // true
+console.log(add(1, '0')); // false
+console.log(add('11', 11)); // true
+console.log(add(12, 12)); // true
+console.log(add(120, '021')); // false

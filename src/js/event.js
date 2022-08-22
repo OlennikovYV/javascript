@@ -1,7 +1,6 @@
 function multiplyAll(arr) {
-  const [...array] = arr;
   return function (num) {
-    return array.map(el => el * num);
+    return arr.map(el => el * num);
   };
 }
 

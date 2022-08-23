@@ -5,11 +5,8 @@ const f4 = x => x.split('').concat().reverse().join('').split(' ');
 const f5 = xs => xs.concat().reverse();
 const f6 = xs => xs.join('_');
 
-function chained(functions) {
-  return function (x) {
-    return functions.reduce((sum, el) => el(sum), x);
-  };
-}
+const chained = functions => value =>
+  functions.reduce((result, func) => func(result), value);
 
 console.log(chained([f1, f2, f3])(0)); // 4
 console.log(chained([f1, f2, f3])(2)); // 36

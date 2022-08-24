@@ -1,8 +1,6 @@
 class Block {
-  constructor([width, length, height]) {
-    this.width = width;
-    this.length = length;
-    this.height = height;
+  constructor(data) {
+    [this.width, this.length, this.height] = data;
   }
 
   getWidth() {
@@ -18,16 +16,13 @@ class Block {
   }
 
   getVolume() {
-    return this.width * this.length * this.height;
+    const { width, length, height } = this;
+    return width * length * height;
   }
 
   getSurfaceArea() {
-    return (
-      2 *
-      (this.width * this.length +
-        this.length * this.height +
-        this.width * this.height)
-    );
+    const { width, length, height } = this;
+    return 2 * (width * length + length * height + width * height);
   }
 }
 

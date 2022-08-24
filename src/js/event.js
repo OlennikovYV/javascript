@@ -1,6 +1,5 @@
 function discoverOriginalPrice(discountedPrice, salePercentage) {
-  const roundNumber = num => Math.round(num) / 100;
-  return roundNumber((discountedPrice / (100 - salePercentage)) * 10000);
+  return Number((discountedPrice / (1 - salePercentage / 100)).toFixed(2));
 }
 
 console.log(discoverOriginalPrice(75, 25)); // 100

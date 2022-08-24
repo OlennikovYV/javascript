@@ -1,5 +1,8 @@
 function discoverOriginalPrice(discountedPrice, salePercentage) {
-  return Number((discountedPrice / (1 - salePercentage / 100)).toFixed(2));
+  const percent = 1 - salePercentage / 100;
+  const originalPrice = discountedPrice / percent;
+
+  return Number(originalPrice.toFixed(2));
 }
 
 console.log(discoverOriginalPrice(75, 25)); // 100

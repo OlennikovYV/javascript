@@ -1,11 +1,40 @@
-function discoverOriginalPrice(discountedPrice, salePercentage) {
-  const percent = 1 - salePercentage / 100;
-  const originalPrice = discountedPrice / percent;
+class Block {
+  constructor([width, length, height]) {
+    this.width = width;
+    this.length = length;
+    this.height = height;
+  }
 
-  return Number(originalPrice.toFixed(2));
+  getWidth() {
+    return this.width;
+  }
+
+  getLength() {
+    return this.length;
+  }
+
+  getHeight() {
+    return this.height;
+  }
+
+  getVolume() {
+    return this.width * this.length * this.height;
+  }
+
+  getSurfaceArea() {
+    return (
+      2 *
+      (this.width * this.length +
+        this.length * this.height +
+        this.width * this.height)
+    );
+  }
 }
 
-console.log(discoverOriginalPrice(75, 25)); // 100
-console.log(discoverOriginalPrice(25, 75)); // 100
-console.log(discoverOriginalPrice(75.75, 25)); // 101
-console.log(discoverOriginalPrice(458.2, 17.13)); // 552.91
+let block = new Block([2, 4, 6]);
+
+console.log(block.getWidth()); // 2
+console.log(block.getLength()); // 4
+console.log(block.getHeight()); // 6
+console.log(block.getVolume()); // 48
+console.log(block.getSurfaceArea()); // 88

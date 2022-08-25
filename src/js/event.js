@@ -1,35 +1,10 @@
-class Block {
-  constructor(data) {
-    [this.width, this.length, this.height] = data;
+function multiples(m, n) {
+  const result = [];
+  for (let i = 1; i <= m; i += 1) {
+    result.push(n * i);
   }
 
-  getWidth() {
-    return this.width;
-  }
-
-  getLength() {
-    return this.length;
-  }
-
-  getHeight() {
-    return this.height;
-  }
-
-  getVolume() {
-    const { width, length, height } = this;
-    return width * length * height;
-  }
-
-  getSurfaceArea() {
-    const { width, length, height } = this;
-    return 2 * (width * length + length * height + width * height);
-  }
+  return result;
 }
 
-let block = new Block([2, 4, 6]);
-
-console.log(block.getWidth()); // 2
-console.log(block.getLength()); // 4
-console.log(block.getHeight()); // 6
-console.log(block.getVolume()); // 48
-console.log(block.getSurfaceArea()); // 88
+console.log(multiples(3, 5)); // [5, 10, 15]

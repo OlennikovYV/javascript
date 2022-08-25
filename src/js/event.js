@@ -1,9 +1,6 @@
 function productArray(numbers) {
-  return numbers.map((_, i) =>
-    numbers
-      .slice(0, i)
-      .concat(numbers.slice(i + 1))
-      .reduce((mul, digit) => mul * digit, 1)
+  return numbers.map(
+    num => numbers.reduce((mul, digit) => mul * digit, 1) / num
   );
 }
 

@@ -1,7 +1,6 @@
 function productArray(numbers) {
-  return numbers.map(
-    num => numbers.reduce((mul, digit) => mul * digit, 1) / num
-  );
+  const multipleArray = numbers.reduce((mul, digit) => mul * digit, 1);
+  return numbers.map(num => multipleArray / num);
 }
 
 console.log(productArray([12, 20])); // [20, 12]

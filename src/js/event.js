@@ -1,9 +1,22 @@
-function productArray(numbers) {
-  const multipleArray = numbers.reduce((mul, digit) => mul * digit, 1);
-  return numbers.map(num => multipleArray / num);
+function validate(n) {
+  const arrayDigits = Array.from(String(n), char => Number(char));
+  const evenLengthNumbers = arrayDigits.length % 2;
+  const mulTwo = num => {
+    const result = num * 2;
+
+    return result < 10 ? result : result - 9;
+  };
+
+  return (
+    arrayDigits
+      .map((num, i) => (i % 2 === evenLengthNumbers ? mulTwo(num) : num))
+      .reduce((sum, num) => sum + num) %
+      10 ===
+    0
+  );
 }
 
-console.log(productArray([12, 20])); // [20, 12]
-console.log(productArray([3, 27, 4, 2])); // [216, 24, 162, 324]
-console.log(productArray([13, 10, 5, 2, 9])); // [900, 1170, 2340, 5850, 1300]
-console.log(productArray([16, 17, 4, 3, 5, 2])); // [2040, 1920, 8160, 10880, 6528, 16320]
+console.log(validate(123)); // false
+console.log(validate(1)); // false
+console.log(validate(2121)); // true
+console.log(validate(1230)); //true

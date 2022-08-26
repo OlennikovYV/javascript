@@ -1,11 +1,12 @@
 mocha.setup('bdd');
 
-describe('Kata', () => {
-  it('Testing with sample tests', () => {
-    chai.expect(validate(123)).to.be.false;
-    chai.expect(validate(1)).to.be.false;
-    chai.expect(validate(2121)).to.be.true;
-    chai.expect(validate(1230)).to.be.true;
+describe('Fix Timmys Counter', () => {
+  it('Fixed Tests', () => {
+    chai.expect(createArray(1)).to.eql([1]);
+    chai.expect(createArray(2)).to.eql([1, 2]);
+    chai.expect(createArray(3)).to.eql([1, 2, 3]);
+    chai.expect(createArray(4)).to.eql([1, 2, 3, 4]);
+    chai.expect(createArray(5)).to.eql([1, 2, 3, 4, 5]);
   });
 });
 

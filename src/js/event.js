@@ -1,11 +1,5 @@
 function createArray(number) {
-  var newArray = [];
-
-  for (var counter = 1; counter <= number; counter += 1) {
-    newArray.push(counter);
-  }
-
-  return newArray;
+  return Array.from({ length: number }, (_, i) => i + 1);
 }
 
 console.log(createArray(1)); // [1]

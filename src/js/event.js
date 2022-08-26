@@ -1,4 +1,4 @@
-const correctTail = (body, tail) => body.slice(-1) === tail;
+const correctTail = (body, tail) => body.endsWith(tail);
 
 console.log(correctTail('Fox', 'x')); // true
 console.log(correctTail('Rhino', 'o')); // true

@@ -1,10 +1,5 @@
 function vowel2index(str) {
-  return str
-    .split('')
-    .map((char, i) =>
-      ['a', 'e', 'i', 'o', 'u'].includes(char.toLowerCase()) ? i + 1 : char
-    )
-    .join('');
+  return str.replace(/[aeiou]/gi, (_, i) => i + 1);
 }
 
 console.log(vowel2index('this is my string')); // 'th3s 6s my str15ng'

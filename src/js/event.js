@@ -1,5 +1,5 @@
 function greet(name) {
-  return Boolean(name) == true ? `hello ${name}!` : null;
+  return name ? `hello ${name}!` : null;
 }
 
 console.log(greet('Niks')); // 'hello Niks!', 'try again'

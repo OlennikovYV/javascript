@@ -1,4 +1,6 @@
-const ArrowFunc = arr => String.fromCharCode(...arr);
+function greet(name) {
+  return Boolean(name) == true ? `hello ${name}!` : null;
+}
 
-console.log(ArrowFunc([84, 101, 115, 116])); // 'Test'
-console.log(ArrowFunc([70, 85, 83, 32, 82, 79, 72, 32, 68, 65, 72])); // 'FUS ROH DAH'
+console.log(greet('Niks')); // 'hello Niks!', 'try again'
+console.log(greet(null)); // null, 'try again'

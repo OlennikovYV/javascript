@@ -1,6 +1,22 @@
-function greet(name) {
-  return name ? `hello ${name}!` : null;
+class Animal {
+  constructor(name) {
+    this.name = name;
+  }
 }
 
-console.log(greet('Niks')); // 'hello Niks!', 'try again'
-console.log(greet(null)); // null, 'try again'
+class Cat extends Animal {
+  constructor(name) {
+    super(name);
+  }
+
+  speak() {
+    return `${this.name} meows.`;
+  }
+}
+
+let cat = new Cat('Mr Whiskers');
+console.log(cat.speak()); // 'Mr Whiskers meows.'
+cat = new Cat('Lamp');
+console.log(cat.speak()); // 'Lamp meows.'
+cat = new Cat('$$Money Bags$$');
+console.log(cat.speak()); // '$$Money Bags$$ meows.'

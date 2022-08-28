@@ -2,8 +2,12 @@ mocha.setup('bdd');
 
 describe('Tests', () => {
   it('test', () => {
-    chai.expect(greet('Niks')).to.equal('hello Niks!');
-    chai.expect(greet(null)).to.equal(null);
+    let cat = new Cat('Mr Whiskers');
+    chai.expect(cat.speak()).to.equal('Mr Whiskers meows.');
+    cat = new Cat('Lamp');
+    chai.expect(cat.speak()).to.equal('Lamp meows.');
+    cat = new Cat('$$Money Bags$$');
+    chai.expect(cat.speak()).to.equal('$$Money Bags$$ meows.');
   });
 });
 

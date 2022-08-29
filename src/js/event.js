@@ -1,9 +1,8 @@
 function lastSurvivor(letters, coords) {
-  for (let i = 0; i < coords.length; i += 1) {
-    letters = letters.slice(0, coords[i]) + letters.slice(coords[i] + 1);
-  }
-
-  return letters;
+  return coords.reduce(
+    (letters, coord) => letters.slice(0, coord) + letters.slice(coord + 1),
+    letters
+  );
 }
 
 console.log(lastSurvivor('abc', [1, 1])); // 'a'

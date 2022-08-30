@@ -1,9 +1,17 @@
-const head = arr => arr.slice(0, 1)[0];
-const tail = arr => arr.slice(1);
-const init = arr => arr.slice(0, -1);
-const last = arr => arr.slice(-1)[0];
+function fireFight(s) {
+  return s.replace(/fire/gi, '~~');
+}
 
-console.log(head([5, 1])); // 5
-console.log(tail([1])); // []
-console.log(init([1, 5, 7, 9])); // [1,5,7]
-console.log(last([7, 2])); // 2
+console.log(
+  fireFight(
+    'Boat Rudder Mast Boat Hull Water Fire Boat Deck Hull Fire Propeller Deck Fire Deck Boat Mast'
+  )
+);
+// 'Boat Rudder Mast Boat Hull Water ~~ Boat Deck Hull ~~ Propeller Deck ~~ Deck Boat Mast'
+console.log(fireFight('Mast Deck Engine Water Fire')); //ast Deck Engine Water ~~'
+console.log(
+  fireFight(
+    'Fire Deck Engine Sail Deck Fire Fire Fire Rudder Fire Boat Fire Fire Captain'
+  )
+);
+// '~~ Deck Engine Sail Deck ~~ ~~ ~~ Rudder ~~ Boat ~~ ~~ Captain'

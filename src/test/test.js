@@ -2,10 +2,27 @@ mocha.setup('bdd');
 
 describe('Tests', () => {
   it('test', () => {
-    chai.expect(head([5, 1])).to.equal(5);
-    chai.expect(tail([1])).to.eql([]);
-    chai.expect(init([1, 5, 7, 9])).to.eql([1, 5, 7]);
-    chai.expect(last([7, 2])).to.equal(2);
+    chai
+      .expect(
+        fireFight(
+          'Boat Rudder Mast Boat Hull Water Fire Boat Deck Hull Fire Propeller Deck Fire Deck Boat Mast'
+        )
+      )
+      .to.equal(
+        'Boat Rudder Mast Boat Hull Water ~~ Boat Deck Hull ~~ Propeller Deck ~~ Deck Boat Mast'
+      );
+    chai
+      .expect(fireFight('Mast Deck Engine Water Fire'))
+      .to.equal('Mast Deck Engine Water ~~');
+    chai
+      .expect(
+        fireFight(
+          'Fire Deck Engine Sail Deck Fire Fire Fire Rudder Fire Boat Fire Fire Captain'
+        )
+      )
+      .to.equal(
+        '~~ Deck Engine Sail Deck ~~ ~~ ~~ Rudder ~~ Boat ~~ ~~ Captain'
+      );
   });
 });
 

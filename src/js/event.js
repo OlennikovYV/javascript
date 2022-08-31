@@ -1,9 +1,11 @@
 function amIWilson(p) {
-  const wilson = [
-    5, 13, 563, 5971, 558771, 1964215, 8121909, 12326713, 23025711, 26921605,
-    341569806, 399292158,
-  ];
-  return wilson.includes(p) ? true : false;
+  let primeWilson;
+  const factorial = n => (n ? n * factorial(n - 1n) : 1n);
+
+  p = BigInt(p);
+  primeWilson = factorial(p - 1n) + 1n;
+
+  return !(primeWilson % (p * p));
 }
 
 console.log(amIWilson(5)); // true

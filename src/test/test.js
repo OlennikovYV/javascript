@@ -2,10 +2,13 @@ mocha.setup('bdd');
 
 describe('Tests', () => {
   it('test', () => {
-    chai.expect(calculate('1plus2plus3plus4')).to.equal('10');
-    chai.expect(calculate('1minus2minus3minus4')).to.equal('-8');
-    chai.expect(calculate('1plus2plus3minus4')).to.equal('2');
-    chai.expect(calculate('245minus868minus545')).to.equal('-1168');
+    chai.expect(amIWilson(5)).to.equal(true);
+    chai.expect(amIWilson(9)).to.equal(false);
+    chai.expect(amIWilson(6)).to.equal(false);
+    chai.expect(amIWilson(30)).to.equal(false);
+    chai.expect(amIWilson(697)).to.equal(false);
+    chai.expect(amIWilson(562)).to.equal(false);
+    chai.expect(amIWilson(563)).to.equal(true);
   });
 });
 

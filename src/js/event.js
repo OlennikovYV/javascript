@@ -1,13 +1,5 @@
 function calculate(str) {
-  let result = '';
-
-  result = str
-    .split('plus')
-    .join(' ')
-    .split('minus')
-    .join(' -')
-    .split(' ')
-    .reduce((sum, num) => Number(sum) + Number(num));
+  let result = eval(str.split('plus').join('+').split('minus').join('-'));
 
   return String(result);
 }

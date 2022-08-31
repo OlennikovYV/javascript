@@ -1,20 +1,22 @@
-function balance(left, right) {
-  const getWeight = mark =>
-    [...mark].reduce((sumWeight, weight) => {
-      if (weight === '!') sumWeight += 2;
-      if (weight === '?') sumWeight += 3;
+function calculate(str) {
+  let result;
+  const operations = str.match(/plus|minus/g);
+  const numbers = str.match(/\d+/g);
 
-      return sumWeight;
-    }, 0);
-  const leftWeight = getWeight(left);
-  const rightWeight = getWeight(right);
+  result = numbers.reduce((sum, num, i) => {
+    if (operations[i - 1] === 'plus') {
+      sum = Number(sum) + Number(num);
+    } else {
+      sum = Number(sum) - Number(num);
+    }
 
-  if (leftWeight === rightWeight) return 'Balance';
+    return sum;
+  });
 
-  return leftWeight > rightWeight ? 'Left' : 'Right';
+  return String(result);
 }
 
-console.log(balance('!!', '??')); // 'Right'
-console.log(balance('!??', '?!!')); // 'Left'
-console.log(balance('!?!!', '?!?')); // 'Left'
-console.log(balance('!!???!????', '??!!?!!!!!!!')); // 'Balance'
+console.log(calculate('1plus2plus3plus4')); // '10'
+console.log(calculate('1minus2minus3minus4')); // '-8'
+console.log(calculate('1plus2plus3minus4')); // '2'
+console.log(calculate('245minus868minus545')); // '-1168'

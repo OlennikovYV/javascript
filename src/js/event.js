@@ -1,17 +1,13 @@
 function calculate(str) {
-  let result;
-  const operations = str.match(/plus|minus/g);
-  const numbers = str.match(/\d+/g);
+  let result = '';
 
-  result = numbers.reduce((sum, num, i) => {
-    if (operations[i - 1] === 'plus') {
-      sum = Number(sum) + Number(num);
-    } else {
-      sum = Number(sum) - Number(num);
-    }
-
-    return sum;
-  });
+  result = str
+    .split('plus')
+    .join(' ')
+    .split('minus')
+    .join(' -')
+    .split(' ')
+    .reduce((sum, num) => Number(sum) + Number(num));
 
   return String(result);
 }

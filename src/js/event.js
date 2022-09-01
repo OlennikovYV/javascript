@@ -1,70 +1,10 @@
-function boredom(staff) {
-  let assessmentScore = {
-    accounts: 1,
-    finance: 2,
-    canteen: 10,
-    regulation: 3,
-    trading: 6,
-    change: 6,
-    IS: 8,
-    retail: 5,
-    cleaning: 4,
-    'pissing about': 25,
-  };
-  let scores = Object.keys(staff).reduce(
-    (sum, team) => sum + assessmentScore[staff[team]],
-    0
-  );
-
-  return scores <= 80
-    ? 'kill me now'
-    : scores < 100
-    ? 'i can handle this'
-    : 'party time!!';
+function incrementer(nums) {
+  return nums.map((num, index) => (num + index + 1) % 10);
 }
 
-console.log(
-  boredom({
-    tim: 'change',
-    jim: 'accounts',
-    randy: 'canteen',
-    sandy: 'change',
-    andy: 'change',
-    katie: 'IS',
-    laura: 'change',
-    saajid: 'IS',
-    alex: 'trading',
-    john: 'accounts',
-    mr: 'finance',
-  })
-); // 'kill me now'
-console.log(
-  boredom({
-    tim: 'IS',
-    jim: 'finance',
-    randy: 'pissing about',
-    sandy: 'cleaning',
-    andy: 'cleaning',
-    katie: 'cleaning',
-    laura: 'pissing about',
-    saajid: 'regulation',
-    alex: 'regulation',
-    john: 'accounts',
-    mr: 'canteen',
-  })
-); // 'i can handle this'
-console.log(
-  boredom({
-    tim: 'accounts',
-    jim: 'accounts',
-    randy: 'pissing about',
-    sandy: 'finance',
-    andy: 'change',
-    katie: 'IS',
-    laura: 'IS',
-    saajid: 'canteen',
-    alex: 'pissing about',
-    john: 'retail',
-    mr: 'pissing about',
-  })
-); // 'party time!!'
+console.log(incrementer([])); // []
+console.log(incrementer([1, 2, 3])); // [2, 4, 6]
+console.log(incrementer([4, 6, 7, 1, 3])); // [5, 8, 0, 5, 8]
+console.log(incrementer([3, 6, 9, 8, 9])); // [4, 8, 2, 2, 4]
+console.log(incrementer([1, 2, 3, 4, 5, 6, 7, 8, 9, 9, 9, 9, 9, 8]));
+// [2, 4, 6, 8, 0, 2, 4, 6, 8, 9, 0, 1, 2, 2]

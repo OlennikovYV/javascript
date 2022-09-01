@@ -11,12 +11,10 @@ function boredom(staff) {
     cleaning: 4,
     'pissing about': 25,
   };
-  let scores = 0;
-
-  for (let key in staff) {
-    let keyScore = staff[key];
-    scores += assessmentScore[keyScore];
-  }
+  let scores = Object.keys(staff).reduce(
+    (sum, team) => sum + assessmentScore[staff[team]],
+    0
+  );
 
   return scores <= 80
     ? 'kill me now'

@@ -1,17 +1,72 @@
-function amIWilson(p) {
-  let primeWilson;
-  const factorial = n => (n ? n * factorial(n - 1n) : 1n);
+function boredom(staff) {
+  let assessmentScore = {
+    accounts: 1,
+    finance: 2,
+    canteen: 10,
+    regulation: 3,
+    trading: 6,
+    change: 6,
+    IS: 8,
+    retail: 5,
+    cleaning: 4,
+    'pissing about': 25,
+  };
+  let scores = 0;
 
-  p = BigInt(p);
-  primeWilson = factorial(p - 1n) + 1n;
+  for (let key in staff) {
+    let keyScore = staff[key];
+    scores += assessmentScore[keyScore];
+  }
 
-  return !(primeWilson % (p * p));
+  return scores <= 80
+    ? 'kill me now'
+    : scores < 100
+    ? 'i can handle this'
+    : 'party time!!';
 }
 
-console.log(amIWilson(5)); // true
-console.log(amIWilson(9)); // false
-console.log(amIWilson(6)); // false
-console.log(amIWilson(30)); // false
-console.log(amIWilson(697)); // false
-console.log(amIWilson(562)); // false
-console.log(amIWilson(563)); // true
+console.log(
+  boredom({
+    tim: 'change',
+    jim: 'accounts',
+    randy: 'canteen',
+    sandy: 'change',
+    andy: 'change',
+    katie: 'IS',
+    laura: 'change',
+    saajid: 'IS',
+    alex: 'trading',
+    john: 'accounts',
+    mr: 'finance',
+  })
+); // 'kill me now'
+console.log(
+  boredom({
+    tim: 'IS',
+    jim: 'finance',
+    randy: 'pissing about',
+    sandy: 'cleaning',
+    andy: 'cleaning',
+    katie: 'cleaning',
+    laura: 'pissing about',
+    saajid: 'regulation',
+    alex: 'regulation',
+    john: 'accounts',
+    mr: 'canteen',
+  })
+); // 'i can handle this'
+console.log(
+  boredom({
+    tim: 'accounts',
+    jim: 'accounts',
+    randy: 'pissing about',
+    sandy: 'finance',
+    andy: 'change',
+    katie: 'IS',
+    laura: 'IS',
+    saajid: 'canteen',
+    alex: 'pissing about',
+    john: 'retail',
+    mr: 'pissing about',
+  })
+); // 'party time!!'

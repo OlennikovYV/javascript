@@ -1,10 +1,24 @@
-function incrementer(nums) {
-  return nums.map((num, index) => (num + index + 1) % 10);
+function minimumSteps(numbers, value) {
+  let count = 0;
+  let sum;
+
+  numbers.sort((a, b) => a - b);
+  sum = numbers[0];
+  numbers = numbers.slice(1);
+
+  if (sum >= value) return 0;
+
+  for (let i = 0; i < numbers.length; i += 1) {
+    sum += numbers[i];
+    count += 1;
+    if (sum >= value) break;
+  }
+
+  return count;
 }
 
-console.log(incrementer([])); // []
-console.log(incrementer([1, 2, 3])); // [2, 4, 6]
-console.log(incrementer([4, 6, 7, 1, 3])); // [5, 8, 0, 5, 8]
-console.log(incrementer([3, 6, 9, 8, 9])); // [4, 8, 2, 2, 4]
-console.log(incrementer([1, 2, 3, 4, 5, 6, 7, 8, 9, 9, 9, 9, 9, 8]));
-// [2, 4, 6, 8, 0, 2, 4, 6, 8, 9, 0, 1, 2, 2]
+console.log(minimumSteps([4, 6, 3], 7)); // 1
+console.log(minimumSteps([10, 9, 9, 8], 17)); // 1
+console.log(minimumSteps([8, 9, 10, 4, 2], 23)); // 3
+console.log(minimumSteps([19, 98, 69, 28, 75, 45, 17, 98, 67], 464)); // 8
+console.log(minimumSteps([4, 6, 3], 2)); // 0

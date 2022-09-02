@@ -1,11 +1,7 @@
 function minimumSteps(numbers, value) {
-  let sum = 0;
-  let arrNums = numbers.slice().sort((a, b) => a - b);
-
-  for (let i = 0; i < numbers.length; i += 1) {
-    sum += arrNums[i];
-    if (sum >= value) return i;
-  }
+  return numbers
+    .sort((a, b) => a - b)
+    .filter((num, index) => (value -= num) > 0).length;
 }
 
 console.log(minimumSteps([4, 6, 3], 7)); // 1

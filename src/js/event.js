@@ -1,6 +1,6 @@
 function validateHello(greetings) {
-  res = /hello|ciao|salut|hallo|hola|ahoj|czesc/i.test(greetings);
-  return res;
+  const hello = ['hello', 'ciao', 'salut', 'hallo', 'hola', 'ahoj', 'czesc'];
+  return new RegExp(hello.join('|'), 'i').test(greetings);
 }
 
 console.log(validateHello('ahoj')); // true

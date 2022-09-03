@@ -1,8 +1,5 @@
 function consecutive(arr, a, b) {
-  let indexA = arr.indexOf(a);
-  let indexB = arr.indexOf(b);
-
-  return Math.abs(indexA - indexB) === 1;
+  return new RegExp(`${a},${b}|${b},${a}`).test(arr);
 }
 
 console.log(consecutive([1, 3, 5, 7], 3, 7)); // false

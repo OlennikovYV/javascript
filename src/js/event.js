@@ -1,11 +1,10 @@
-function reverseBits(n) {
-  return parseInt(n.toString(2).split('').reverse().join(''), 2);
+function consecutive(arr, a, b) {
+  let indexA = arr.indexOf(a);
+  let indexB = arr.indexOf(b);
+
+  return indexA < indexB ? indexA + 1 === indexB : indexA === indexB + 1;
 }
 
-console.log(reverseBits(417)); // 267
-console.log(reverseBits(267)); // 417
-console.log(reverseBits(0)); // 0
-console.log(reverseBits(2017)); // 1087
-console.log(reverseBits(1023)); // 1023
-console.log(reverseBits(1024)); // 1
-console.log(reverseBits(Number.MAX_SAFE_INTEGER)); // Number.MAX_SAFE_INTEGER
+console.log(consecutive([1, 3, 5, 7], 3, 7)); // false
+console.log(consecutive([1, 3, 5, 7], 3, 1)); // true
+console.log(consecutive([1, 6, 9, -3, 4, -78, 0], -3, 4)); // true

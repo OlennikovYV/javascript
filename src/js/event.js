@@ -2,7 +2,7 @@ function consecutive(arr, a, b) {
   let indexA = arr.indexOf(a);
   let indexB = arr.indexOf(b);
 
-  return indexA < indexB ? indexA + 1 === indexB : indexA === indexB + 1;
+  return Math.abs(indexA - indexB) === 1;
 }
 
 console.log(consecutive([1, 3, 5, 7], 3, 7)); // false

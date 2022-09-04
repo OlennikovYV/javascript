@@ -1,7 +1,16 @@
-function consecutive(arr, a, b) {
-  return new RegExp(`${a},${b}|${b},${a}`).test(arr);
+function Dog(breed) {
+  this.breed = breed;
 }
 
-console.log(consecutive([1, 3, 5, 7], 3, 7)); // false
-console.log(consecutive([1, 3, 5, 7], 3, 1)); // true
-console.log(consecutive([1, 6, 9, -3, 4, -78, 0], -3, 4)); // true
+const snoopy = new Dog('Beagle');
+
+snoopy.bark = function () {
+  return 'Woof';
+};
+
+const scoobydoo = new Dog('Great Dane');
+
+scoobydoo.bark = () => 'Woof';
+
+console.log(snoopy.bark()); // 'Woof');
+console.log(scoobydoo.bark()); // 'Woof');

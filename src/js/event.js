@@ -1,6 +1,6 @@
 function product(string) {
-  let countExclamation = (string.match(/\!/g) || []).length;
-  let countQuestion = (string.match(/\?/g) || []).length;
+  let countExclamation = string.split('!').length - 1;
+  let countQuestion = string.split('?').length - 1;
 
   return countExclamation * countQuestion;
 }

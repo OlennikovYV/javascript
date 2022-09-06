@@ -1,22 +1,10 @@
 function bingo(ticket, win) {
-  let wins;
+  let wins =
+    ticket.filter(tick =>
+      tick[0].split('').some(char => char.charCodeAt(0) === tick[1])
+    ).length >= win;
 
-  const coincidence = ticket.map(tick => {
-    let tickNoDup = [...new Set(tick[0])];
-    let winningTicket = tickNoDup.map(char => char.charCodeAt(0) === tick[1]);
-
-    return winningTicket;
-  });
-
-  const mini_wins = coincidence.map(
-    tick => tick.filter(el => el === true).length
-  );
-
-  if (mini_wins.filter(countWin => countWin > 1).length > 0) return 'Loser!';
-
-  wins = mini_wins.reduce((sum, win) => sum + win, 0);
-
-  return wins >= win ? 'Winner!' : 'Loser!';
+  return wins ? 'Winner!' : 'Loser!';
 }
 
 console.log(

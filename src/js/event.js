@@ -1,8 +1,8 @@
 function letterCount(s) {
-  return [...s].reduce((sum, char) => {
-    sum[char] = (sum[char] || 0) + 1;
-    return sum;
-  }, {});
+  return [...s].reduce(
+    (sum, char) => ((sum[char] = (sum[char] || 0) + 1), sum),
+    {}
+  );
 }
 
 console.log(letterCount('codewars')); // { a: 1,  c: 1,  d: 1,  e: 1,  o: 1,  r: 1,  s: 1,  w: 1 }

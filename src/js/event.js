@@ -1,15 +1,5 @@
 function sevenAte9(str) {
-  let result = '';
-
-  for (let i = 0; i < str.length; i += 1) {
-    if (str[i - 1] === '7' && str[i + 1] === '7') {
-      if (str[i] !== '9') result += str[i];
-    } else {
-      result += str[i];
-    }
-  }
-
-  return result;
+  return str.replace(/79(?=7)/g, '7');
 }
 
 const tests = [

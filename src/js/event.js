@@ -1,17 +1,12 @@
-function product(string) {
-  let countExclamation = string.split('!').length - 1;
-  let countQuestion = string.split('?').length - 1;
-
-  return countExclamation * countQuestion;
+function letterCount(s) {
+  return [...s].reduce((sum, char) => {
+    sum[char] = (sum[char] || 0) + 1;
+    return sum;
+  }, {});
 }
 
-console.log(product('')); // 0
-console.log(product('!')); // 0
-console.log(product('!!')); // 0
-console.log(product('!??')); // 2
-console.log(product('!???')); // 3
-console.log(product('!!!??')); // 6
-console.log(product('!!!???')); // 9
-console.log(product('!???!!')); // 9
-console.log(product('!ab? ?')); // 2
-console.log(product('!????!!!?')); // 20
+console.log(letterCount('codewars')); // { a: 1,  c: 1,  d: 1,  e: 1,  o: 1,  r: 1,  s: 1,  w: 1 }
+console.log(letterCount('activity')); // { a: 1,  c: 1,  i: 2,  t: 2,  v: 1,  y: 1 }
+console.log(letterCount('arithmetics')); // { a: 1,  c: 1,  e: 1,  h: 1,  i: 2,  m: 1,  r: 1,  s: 1,  t: 2 }
+console.log(letterCount('traveller')); // { a: 1,  e: 2,  l: 2,  r: 2,  t: 1,  v: 1 }
+console.log(letterCount('daydreamer')); // { a: 2,  d: 2,  e: 2,  m: 1,  r: 2,  y: 1 }

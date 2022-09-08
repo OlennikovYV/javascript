@@ -2,15 +2,15 @@ mocha.setup('bdd');
 
 describe('Tests', () => {
   it('Test', () => {
-    const tests = [
-      ['797', '77'],
-      ['7979797', '7777'],
-      ['165561786121789797', '16556178612178977'],
-    ];
-
-    for (const [input, expected] of tests) {
-      chai.expect(sevenAte9(input)).to.equal(expected);
-    }
+    chai
+      .expect(goodVsEvil('1 1 1 1 1 1', '1 1 1 1 1 1 1'))
+      .to.equal('Battle Result: Evil eradicates all trace of Good');
+    chai
+      .expect(goodVsEvil('0 0 0 0 0 10', '0 1 1 1 1 0 0'))
+      .to.equal('Battle Result: Good triumphs over Evil');
+    chai
+      .expect(goodVsEvil('1 0 0 0 0 0', '1 0 0 0 0 0 0'))
+      .to.equal('Battle Result: No victor on this battle field');
   });
 });
 

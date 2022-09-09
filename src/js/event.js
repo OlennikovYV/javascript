@@ -1,6 +1,6 @@
 function bigToSmall(arr) {
-  return arr
-    .reduce((sum, el) => sum.concat(el))
+  return []
+    .concat(...arr)
     .sort((a, b) => b - a)
     .join('>');
 }

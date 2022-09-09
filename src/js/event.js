@@ -1,5 +1,5 @@
 String.prototype.vowel = function () {
-  return /^[aeiou]$/gi.test(this);
+  return /^[aeiou]$/i.test(this);
 };
 
 console.log(''.vowel(chai.expect)); // false

@@ -2,8 +2,12 @@ mocha.setup('bdd');
 
 describe('Tests', () => {
   it('Test', () => {
-    const arr = [4, 0, 4];
-    chai.expect(arr.numberOfOccurrences(4)).to.equal(2);
+    chai.expect(''.vowel()).to.equal(false);
+    chai.expect('a'.vowel()).to.equal(true);
+    chai.expect('E'.vowel()).to.equal(true);
+    chai.expect('ou'.vowel()).to.equal(false);
+    chai.expect('z'.vowel()).to.equal(false);
+    chai.expect('lol'.vowel()).to.equal(false);
   });
 });
 

@@ -1,10 +1,10 @@
-Array.prototype.numberOfOccurrences = function (num) {
-  return this.reduce((sum, number) => {
-    if (number === num) sum += 1;
-
-    return sum;
-  }, 0);
+String.prototype.vowel = function () {
+  return /^[aeiou]$/gi.test(this);
 };
 
-const arr = [4, 0, 4];
-console.log(arr.numberOfOccurrences(4)); // 2
+console.log(''.vowel(chai.expect)); // false
+console.log('a'.vowel(chai.expect)); // true
+console.log('E'.vowel(chai.expect)); // true
+console.log('ou'.vowel(chai.expect)); // false
+console.log('z'.vowel(chai.expect)); // false
+console.log('lol'.vowel(chai.expect)); // false

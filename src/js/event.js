@@ -1,10 +1,21 @@
-String.prototype.vowel = function () {
-  return /^[aeiou]$/i.test(this);
-};
+function bigToSmall(arr) {
+  return arr
+    .reduce((sum, el) => sum.concat(el))
+    .sort((a, b) => b - a)
+    .join('>');
+}
 
-console.log(''.vowel(chai.expect)); // false
-console.log('a'.vowel(chai.expect)); // true
-console.log('E'.vowel(chai.expect)); // true
-console.log('ou'.vowel(chai.expect)); // false
-console.log('z'.vowel(chai.expect)); // false
-console.log('lol'.vowel(chai.expect)); // false
+console.log(
+  bigToSmall([
+    [1, 2],
+    [3, 4],
+    [5, 6],
+  ])
+); // '6>5>4>3>2>1'
+console.log(
+  bigToSmall([
+    [1, 3, 5],
+    [2, 4, 6],
+  ])
+); // '6>5>4>3>2>1'
+console.log(bigToSmall([[1, 1], [1], [1, 1]])); // '1>1>1>1>1'

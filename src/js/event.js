@@ -1,21 +1,25 @@
-function bigToSmall(arr) {
-  return []
-    .concat(...arr)
-    .sort((a, b) => b - a)
-    .join('>');
+function jumpingNumber(n) {
+  let result = true;
+
+  String(n)
+    .split('')
+    .reduce((prev, curr) => {
+      result = result && Math.abs(prev - curr) === 1;
+
+      return curr;
+    });
+
+  return result ? 'Jumping!!' : 'Not!!';
 }
 
-console.log(
-  bigToSmall([
-    [1, 2],
-    [3, 4],
-    [5, 6],
-  ])
-); // '6>5>4>3>2>1'
-console.log(
-  bigToSmall([
-    [1, 3, 5],
-    [2, 4, 6],
-  ])
-); // '6>5>4>3>2>1'
-console.log(bigToSmall([[1, 1], [1], [1, 1]])); // '1>1>1>1>1'
+console.log(jumpingNumber(1)); // 'Jumping!!'
+console.log(jumpingNumber(7)); // 'Jumping!!'
+console.log(jumpingNumber(9)); // 'Jumping!!'
+console.log(jumpingNumber(23)); // 'Jumping!!'
+console.log(jumpingNumber(32)); // 'Jumping!!'
+console.log(jumpingNumber(79)); // 'Not!!'
+console.log(jumpingNumber(98)); // 'Jumping!!'
+console.log(jumpingNumber(8987)); // 'Jumping!!'
+console.log(jumpingNumber(625189)); // 'Not!!'
+console.log(jumpingNumber(4343456)); // 'Jumping!!'
+console.log(jumpingNumber(98789876)); // 'Jumping!!'

@@ -2,24 +2,17 @@ mocha.setup('bdd');
 
 describe('Tests', () => {
   it('Test', () => {
-    chai
-      .expect(
-        bigToSmall([
-          [1, 2],
-          [3, 4],
-          [5, 6],
-        ])
-      )
-      .to.equal('6>5>4>3>2>1');
-    chai
-      .expect(
-        bigToSmall([
-          [1, 3, 5],
-          [2, 4, 6],
-        ])
-      )
-      .to.equal('6>5>4>3>2>1');
-    chai.expect(bigToSmall([[1, 1], [1], [1, 1]])).to.equal('1>1>1>1>1');
+    chai.expect(jumpingNumber(1)).to.equal('Jumping!!');
+    chai.expect(jumpingNumber(7)).to.equal('Jumping!!');
+    chai.expect(jumpingNumber(9)).to.equal('Jumping!!');
+    chai.expect(jumpingNumber(23)).to.equal('Jumping!!');
+    chai.expect(jumpingNumber(32)).to.equal('Jumping!!');
+    chai.expect(jumpingNumber(79)).to.equal('Not!!');
+    chai.expect(jumpingNumber(98)).to.equal('Jumping!!');
+    chai.expect(jumpingNumber(8987)).to.equal('Jumping!!');
+    chai.expect(jumpingNumber(625189)).to.equal('Not!!');
+    chai.expect(jumpingNumber(4343456)).to.equal('Jumping!!');
+    chai.expect(jumpingNumber(98789876)).to.equal('Jumping!!');
   });
 });
 

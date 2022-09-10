@@ -1,15 +1,9 @@
 function jumpingNumber(n) {
-  let result = true;
-
-  String(n)
+  return String(n)
     .split('')
-    .reduce((prev, curr) => {
-      result = result && Math.abs(prev - curr) === 1;
-
-      return curr;
-    });
-
-  return result ? 'Jumping!!' : 'Not!!';
+    .every((el, i, arr) => i === 0 || Math.abs(el - arr[i - 1]) === 1)
+    ? 'Jumping!!'
+    : 'Not!!';
 }
 
 console.log(jumpingNumber(1)); // 'Jumping!!'

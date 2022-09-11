@@ -1,8 +1,5 @@
 function validSpacing(s) {
-  let valid = s.trim();
-  valid = valid.replace(/\s{2,}/g, ' ');
-
-  return s === valid;
+  return !/^ |  | $/.test(s);
 }
 
 console.log(validSpacing('Hello world')); // true

@@ -1,25 +1,13 @@
 Math.round = function (number) {
-  return Number(number.toFixed(0));
+  return parseInt(number) + (number - parseInt(number) >= 0.5) ? 1 : 0;
 };
 
-function trimWholePiece(number) {}
-
 Math.ceil = function (number) {
-  const strNumber = String(number);
-  const index = strNumber.indexOf('.');
-  const whole =
-    index >= 0 ? Number(strNumber.slice(0, index)) : Number(strNumber);
-
-  return number === whole ? whole : whole + 1;
+  return parseInt(number) === number ? number : parseInt(number) + 1;
 };
 
 Math.floor = function (number) {
-  const strNumber = String(number);
-  const index = strNumber.indexOf('.');
-  const whole =
-    index >= 0 ? Number(strNumber.slice(0, index)) : Number(strNumber);
-
-  return whole;
+  return parseInt(number);
 };
 
 console.log(Math.round(0.4)); // 0, 'Math.round(0.4)'

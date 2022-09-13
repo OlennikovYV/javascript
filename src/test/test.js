@@ -2,16 +2,11 @@ mocha.setup('bdd');
 
 describe('Tests', () => {
   it('test', () => {
-    chai.expect(Math.round(0.4)).to.equal(0); // 'Math.round(0.4)');
-    chai.expect(Math.round(0.5)).to.equal(1); // 'Math.round(0.5)');
-
-    chai.expect(Math.ceil(0.4)).to.equal(1); // 'Math.ceil(0.4)');
-    chai.expect(Math.ceil(0.5)).to.equal(1); // 'Math.ceil(0.5)');
-    chai.expect(Math.ceil(5)).to.equal(5); // 'Math.ceil(5)');
-
-    chai.expect(Math.floor(0.4)).to.equal(0); // 'Math.floor(0.4)');
-    chai.expect(Math.floor(0.5)).to.equal(0); // 'Math.floor(0.5)');
-    chai.expect(Math.floor(5)).to.equal(5); // 'Math.floor(5)');
+    chai.expect(barTriang([4, 6], [12, 4], [10, 10])).to.eql([8.6667, 6.6667]);
+    chai.expect(barTriang([4, 2], [12, 2], [6, 10])).to.eql([7.3333, 4.6667]);
+    chai.expect(barTriang([4, 8], [8, 2], [16, 6])).to.eql([9.3333, 5.3333]);
+    chai.expect(barTriang([0, 0], [1, 3], [-1, 6])).to.eql([0, 3]);
+    chai.expect(barTriang([0, 0], [1, 6], [8, -6])).to.eql([3, 0]);
   });
 });
 

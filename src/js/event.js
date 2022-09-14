@@ -1,14 +1,10 @@
 function unluckyDays(year) {
-  let countBlackFriday = 0;
+  return Array.from({ length: 12 }).reduce((count, _, i) => {
+    const day13OfMonth = new Date(year, i, 13);
+    if (day13OfMonth.getDay() === 5) count += 1;
 
-  for (let month = 0; month < 12; month += 1) {
-    const date = new Date(year, month, 13);
-    if (date.getDay() === 5) {
-      countBlackFriday += 1;
-    }
-  }
-
-  return countBlackFriday;
+    return count;
+  }, 0);
 }
 
 console.log(unluckyDays(1586)); // 1

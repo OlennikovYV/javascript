@@ -1,19 +1,32 @@
-function unluckyDays(year) {
-  return Array.from({ length: 12 }).reduce((count, _, i) => {
-    const day13OfMonth = new Date(year, i, 13);
-    if (day13OfMonth.getDay() === 5) count += 1;
+function howManydays(month) {
+  let days;
 
-    return count;
-  }, 0);
+  switch (month) {
+    case 1:
+    case 3:
+    case 5:
+    case 7:
+    case 8:
+    case 10:
+    case 12:
+      days = 31;
+      break;
+    case 4:
+    case 6:
+    case 9:
+    case 11:
+      days = 30;
+      break;
+    case 2:
+      days = 28;
+      break;
+  }
+
+  return days;
 }
 
-console.log(unluckyDays(1586)); // 1
-console.log(unluckyDays(1001)); // 3
-console.log(unluckyDays(2819)); // 2
-console.log(unluckyDays(2792)); // 2
-console.log(unluckyDays(2723)); // 2
-console.log(unluckyDays(1909)); // 1
-console.log(unluckyDays(1812)); // 2
-console.log(unluckyDays(1618)); // 2
-console.log(unluckyDays(2132)); // 1
-console.log(unluckyDays(2065)); // 3
+console.log(howManydays(1)); //31
+console.log(howManydays(2)); //28
+console.log(howManydays(3)); //31
+console.log(howManydays(4)); //30
+console.log(howManydays(12)); //31

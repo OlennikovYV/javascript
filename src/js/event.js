@@ -1,21 +1,26 @@
-function getStrings(city) {
-  let result = [];
-  const countChars = city
-    .toLowerCase()
-    .replace(/ /g, '')
-    .split('')
-    .reduce((counts, char) => {
-      counts[char] = (counts[char] || '') + '*';
-      return counts;
-    }, {});
+function prefill(n, v) {
+  const numberN = parseInt(n);
 
-  for (let char in countChars) {
-    result.push(`${char}:${countChars[char]}`);
-  }
+  if (numberN === 0) return [];
+  if (numberN != n || n <= 0) throw TypeError(`${n} is invalid`);
 
-  return result.join(',');
+  return Array.from({ length: n }, el => (el = v));
 }
 
-console.log(getStrings('Chicago')); // 'c:**,h:*,i:*,a:*,g:*,o:*'
-console.log(getStrings('Bangkok')); // 'b:*,a:*,n:*,g:*,k:**,o:*'
-console.log(getStrings('Las Vegas')); // 'l:*,a:**,s:**,v:*,e:*,g:*'
+console.log(prefill(0, 1)); // []
+console.log(prefill(3, 1)); // [1, 1, 1]
+console.log(prefill(2, 'abc')); // ['abc', 'abc']
+console.log(prefill('1', 1)); // [1]
+console.log(prefill(3, prefill(2, '2d')));
+// [ ['2d', '2d'], ['2d', '2d'], ['2d', '2d'] ]
+
+let errorThrown = false;
+try {
+  prefill('xyz', 1);
+} catch (e) {
+  console.log(e.name); // 'TypeError'
+  console.log(e.message); // 'xyz is invalid'
+  errorThrown = true;
+} finally {
+  console.log(errorThrown); // 'true'
+}

@@ -1,11 +1,21 @@
-function longestWord(stringOfWords) {
-  return stringOfWords
-    .split(' ')
-    .reduce((longWord, word) =>
-      longWord.length > word.length ? longWord : word
-    );
+function getStrings(city) {
+  let result = [];
+  const countChars = city
+    .toLowerCase()
+    .replace(/ /g, '')
+    .split('')
+    .reduce((counts, char) => {
+      counts[char] = (counts[char] || '') + '*';
+      return counts;
+    }, {});
+
+  for (let char in countChars) {
+    result.push(`${char}:${countChars[char]}`);
+  }
+
+  return result.join(',');
 }
 
-console.log(longestWord('a b c d e fgh')); // 'fgh'
-console.log(longestWord('one two three')); // 'three'
-console.log(longestWord('red blue grey')); // 'grey'
+console.log(getStrings('Chicago')); // 'c:**,h:*,i:*,a:*,g:*,o:*'
+console.log(getStrings('Bangkok')); // 'b:*,a:*,n:*,g:*,k:**,o:*'
+console.log(getStrings('Las Vegas')); // 'l:*,a:**,s:**,v:*,e:*,g:*'

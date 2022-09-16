@@ -1,10 +1,10 @@
 mocha.setup('bdd');
 
-describe('Inspiring Strings', () => {
-  it('Test', () => {
-    chai.expect(longestWord('a b c d e fgh')).to.equal('fgh');
-    chai.expect(longestWord('one two three')).to.equal('three');
-    chai.expect(longestWord('red blue grey')).to.equal('grey');
+describe('Interview Question (easy)', () => {
+  it('Tests', function () {
+    chai.expect(getStrings('Chicago')).to.equal('c:**,h:*,i:*,a:*,g:*,o:*');
+    chai.expect(getStrings('Bangkok')).to.equal('b:*,a:*,n:*,g:*,k:**,o:*');
+    chai.expect(getStrings('Las Vegas')).to.equal('l:*,a:**,s:**,v:*,e:*,g:*');
   });
 });
 

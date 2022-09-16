@@ -1,10 +1,9 @@
 function prefill(n, v) {
   const numberN = parseInt(n);
 
-  if (numberN === 0) return [];
-  if (numberN != n || n <= 0) throw TypeError(`${n} is invalid`);
+  if (numberN != Math.abs(n) || n < 0) throw TypeError(`${n} is invalid`);
 
-  return Array.from({ length: n }, el => (el = v));
+  return numberN ? Array(numberN).fill(v) : [];
 }
 
 console.log(prefill(0, 1)); // []

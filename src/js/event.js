@@ -1,8 +1,7 @@
 function slope([x1, y1, x2, y2]) {
-  const deltaX = x2 - x1;
-  const deltaY = y2 - y1;
+  const slope = (y2 - y1) / (x2 - x1);
 
-  return deltaX ? String(deltaY / deltaX) : 'undefined';
+  return Number.isFinite(slope) ? `${slope}` : 'undefined';
 }
 
 console.log(slope([19, 3, 20, 3])); // '0'

@@ -1,13 +1,24 @@
 mocha.setup('bdd');
 
-describe('Find the Slope', () => {
+describe('Flatten', () => {
   it('test', () => {
-    chai.expect(slope([19, 3, 20, 3])).to.equal('0');
-    chai.expect(slope([2, 7, 4, -7])).to.equal('-7');
-    chai.expect(slope([10, 50, 30, 150])).to.equal('5');
-    chai.expect(slope([15, 45, 12, 60])).to.equal('-5');
-    chai.expect(slope([10, 20, 20, 80])).to.equal('6');
-    chai.expect(slope([-10, 6, -10, 3])).to.equal('undefined');
+    chai.expect(flatten([])).to.eql([]);
+    chai.expect(flatten([1, 2, 3])).to.eql([1, 2, 3]);
+    chai
+      .expect(
+        flatten([
+          [1, 2, 3],
+          ['a', 'b', 'c'],
+          [1, 2, 3],
+        ])
+      )
+      .to.eql([1, 2, 3, 'a', 'b', 'c', 1, 2, 3]);
+    chai
+      .expect(flatten([[3, 4, 5], [[9, 9, 9]], ['a,b,c']]))
+      .to.eql([3, 4, 5, [9, 9, 9], 'a,b,c']);
+    chai
+      .expect(flatten([[[3], [4], [5]], [9], [9], [8], [[1, 2, 3]]]))
+      .to.eql([[3], [4], [5], 9, 9, 8, [1, 2, 3]]);
   });
 });
 

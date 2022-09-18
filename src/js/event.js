@@ -1,5 +1,5 @@
 const flatten = function (array) {
-  return array.reduce((arr, el) => arr.concat(el), []);
+  return [].concat(...array);
 };
 
 console.log(flatten([])); // []

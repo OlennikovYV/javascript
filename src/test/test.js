@@ -1,25 +1,21 @@
 mocha.setup('bdd');
 
-describe('Flatten', () => {
-  it('test', () => {
-    chai.expect(flatten([])).to.eql([]);
-    chai.expect(flatten([1, 2, 3])).to.eql([1, 2, 3]);
-    chai
-      .expect(
-        flatten([
-          [1, 2, 3],
-          ['a', 'b', 'c'],
-          [1, 2, 3],
-        ])
-      )
-      .to.eql([1, 2, 3, 'a', 'b', 'c', 1, 2, 3]);
-    chai
-      .expect(flatten([[3, 4, 5], [[9, 9, 9]], ['a,b,c']]))
-      .to.eql([3, 4, 5, [9, 9, 9], 'a,b,c']);
-    chai
-      .expect(flatten([[[3], [4], [5]], [9], [9], [8], [[1, 2, 3]]]))
-      .to.eql([[3], [4], [5], 9, 9, 8, [1, 2, 3]]);
-  });
+describe('makeBackronym', () => {
+  const testCases = [
+    ['dgm', 'disturbing gregarious mustache'],
+    ['lkj', 'literal klingon joke'],
+    [
+      'interesting',
+      'ingestable newtonian turn eager rant eager stylish turn ingestable newtonian gregarious',
+    ],
+    [
+      'codewars',
+      'confident oscillating disturbing eager weird awesome rant stylish',
+    ],
+  ];
+  for (const [input, expected] of testCases)
+    it(`Testing for ${JSON.stringify(input)}`, () =>
+      chai.expect(makeBackronym(input)).to.equal(expected));
 });
 
 mocha.run();

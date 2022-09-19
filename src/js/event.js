@@ -1,17 +1,45 @@
-const flatten = function (array) {
-  return [].concat(...array);
+const dict = {
+  A: 'awesome',
+  C: 'confident',
+  D: 'disturbing',
+  E: 'eager',
+  G: 'gregarious',
+  I: 'ingestable',
+  J: 'joke',
+  K: 'klingon',
+  L: 'literal',
+  M: 'mustache',
+  N: 'newtonian',
+  O: 'oscillating',
+  P: 'perfect',
+  R: 'rant',
+  T: 'turn',
+  S: 'stylish',
+  W: 'weird',
 };
 
-console.log(flatten([])); // []
-console.log(flatten([1, 2, 3])); // [1, 2, 3]
-console.log(
-  flatten([
-    [1, 2, 3],
-    ['a', 'b', 'c'],
-    [1, 2, 3],
-  ])
-); //  [1, 2, 3, 'a', 'b', 'c', 1, 2, 3]
-console.log(flatten([[3, 4, 5], [[9, 9, 9]], ['a,b,c']]));
-// [3,4,5,[9, 9, 9],'a,b,c']
-console.log(flatten([[[3], [4], [5]], [9], [9], [8], [[1, 2, 3]]]));
-// [[3],[4],[5],9,9,8,[1, 2, 3]]
+const makeBackronym = function (string) {
+  return string
+    .split('')
+    .reduce((backronym, char) => {
+      backronym.push(dict[char.toUpperCase()]);
+      return backronym;
+    }, [])
+    .join(' ');
+};
+
+const testCases = [
+  ['dgm', 'disturbing gregarious mustache'],
+  ['lkj', 'literal klingon joke'],
+  [
+    'interesting',
+    'ingestable newtonian turn eager rant eager stylish turn ingestable newtonian gregarious',
+  ],
+  [
+    'codewars',
+    'confident oscillating disturbing eager weird awesome rant stylish',
+  ],
+];
+
+for (const [input, expected] of testCases)
+  console.log(makeBackronym(input) + ` = ${expected}`);

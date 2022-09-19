@@ -21,10 +21,7 @@ const dict = {
 const makeBackronym = function (string) {
   return string
     .split('')
-    .reduce((backronym, char) => {
-      backronym.push(dict[char.toUpperCase()]);
-      return backronym;
-    }, [])
+    .map(char => dict[char.toUpperCase()])
     .join(' ');
 };
 

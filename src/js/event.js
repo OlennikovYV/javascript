@@ -1,42 +1,17 @@
-const dict = {
-  A: 'awesome',
-  C: 'confident',
-  D: 'disturbing',
-  E: 'eager',
-  G: 'gregarious',
-  I: 'ingestable',
-  J: 'joke',
-  K: 'klingon',
-  L: 'literal',
-  M: 'mustache',
-  N: 'newtonian',
-  O: 'oscillating',
-  P: 'perfect',
-  R: 'rant',
-  T: 'turn',
-  S: 'stylish',
-  W: 'weird',
-};
+function insertDash(num) {
+  const number = String(num);
+  let result = '';
+  const isOdd = digit => digit % 2 !== 0;
 
-const makeBackronym = function (string) {
-  return string
-    .split('')
-    .map(char => dict[char.toUpperCase()])
-    .join(' ');
-};
+  for (let i = 0; i < number.length; i += 1) {
+    if (isOdd(number[i]) && number[i - 1] && isOdd(number[i - 1]))
+      result += '-';
+    result += number[i];
+  }
 
-const testCases = [
-  ['dgm', 'disturbing gregarious mustache'],
-  ['lkj', 'literal klingon joke'],
-  [
-    'interesting',
-    'ingestable newtonian turn eager rant eager stylish turn ingestable newtonian gregarious',
-  ],
-  [
-    'codewars',
-    'confident oscillating disturbing eager weird awesome rant stylish',
-  ],
-];
+  return result;
+}
 
-for (const [input, expected] of testCases)
-  console.log(makeBackronym(input) + ` = ${expected}`);
+console.log(insertDash(454793)); // '4547-9-3'
+console.log(insertDash(123456)); // '123456'
+console.log(insertDash(1003567)); // '1003-567'

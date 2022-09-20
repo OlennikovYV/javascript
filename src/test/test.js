@@ -1,21 +1,11 @@
 mocha.setup('bdd');
 
-describe('makeBackronym', () => {
-  const testCases = [
-    ['dgm', 'disturbing gregarious mustache'],
-    ['lkj', 'literal klingon joke'],
-    [
-      'interesting',
-      'ingestable newtonian turn eager rant eager stylish turn ingestable newtonian gregarious',
-    ],
-    [
-      'codewars',
-      'confident oscillating disturbing eager weird awesome rant stylish',
-    ],
-  ];
-  for (const [input, expected] of testCases)
-    it(`Testing for ${JSON.stringify(input)}`, () =>
-      chai.expect(makeBackronym(input)).to.equal(expected));
+describe('Insert dashes', () => {
+  it('Fixed tests', () => {
+    chai.expect(insertDash(454793)).to.equal('4547-9-3');
+    chai.expect(insertDash(123456)).to.equal('123456');
+    chai.expect(insertDash(1003567)).to.equal('1003-567');
+  });
 });
 
 mocha.run();

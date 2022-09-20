@@ -1,15 +1,5 @@
 function insertDash(num) {
-  const number = String(num);
-  let result = '';
-  const isOdd = digit => digit % 2 !== 0;
-
-  for (let i = 0; i < number.length; i += 1) {
-    if (isOdd(number[i]) && number[i - 1] && isOdd(number[i - 1]))
-      result += '-';
-    result += number[i];
-  }
-
-  return result;
+  return String(num).replace(/[13579](?=[13579])/g, '$&-');
 }
 
 console.log(insertDash(454793)); // '4547-9-3'

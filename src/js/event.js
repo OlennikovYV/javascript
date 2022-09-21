@@ -2,7 +2,7 @@ function swap(str) {
   const swapCase = char =>
     char === char.toLowerCase() ? char.toUpperCase() : char.toLowerCase();
 
-  return str.split('').map(swapCase).join('');
+  return str.replace(/[a-zA-Z]/g, swapCase);
 }
 
 console.log(swap('HelloWorld')); // 'hELLOwORLD'

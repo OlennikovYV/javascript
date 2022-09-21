@@ -1,7 +1,9 @@
-function insertDash(num) {
-  return String(num).replace(/[13579](?=[13579])/g, '$&-');
+function swap(str) {
+  return Array.from(str, char =>
+    char === char.toLowerCase() ? char.toUpperCase() : char.toLowerCase()
+  ).join('');
 }
 
-console.log(insertDash(454793)); // '4547-9-3'
-console.log(insertDash(123456)); // '123456'
-console.log(insertDash(1003567)); // '1003-567'
+console.log(swap('HelloWorld')); // 'hELLOwORLD'
+console.log(swap('CodeWars')); // 'cODEwARS'
+console.log(swap('a B1')); // 'A b1'

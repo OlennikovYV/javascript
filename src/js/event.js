@@ -1,7 +1,8 @@
 function swap(str) {
-  return Array.from(str, char =>
-    char === char.toLowerCase() ? char.toUpperCase() : char.toLowerCase()
-  ).join('');
+  const swapCase = char =>
+    char === char.toLowerCase() ? char.toUpperCase() : char.toLowerCase();
+
+  return str.split('').map(swapCase).join('');
 }
 
 console.log(swap('HelloWorld')); // 'hELLOwORLD'

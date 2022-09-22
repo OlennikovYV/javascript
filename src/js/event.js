@@ -1,10 +1,23 @@
-function swap(str) {
-  const swapCase = char =>
-    char === char.toLowerCase() ? char.toUpperCase() : char.toLowerCase();
+function newAvg(arr, newavg) {
+  let sum, avg;
 
-  return str.replace(/[a-zA-Z]/g, swapCase);
+  if (!newavg || arr.length === 0)
+    throw new TypeError('Expected New Average is too low');
+
+  sum = arr.reduce((sum, num) => sum + num, 0);
+  avg = newavg * (arr.length + 1) - sum;
+
+  if (avg <= 0) throw new TypeError('Expected New Average is too low');
+
+  return avg;
 }
 
-console.log(swap('HelloWorld')); // 'hELLOwORLD'
-console.log(swap('CodeWars')); // 'cODEwARS'
-console.log(swap('a B1')); // 'A b1'
+try {
+  newAvg([]); // Throw error 'Expected New Average is too low'
+} catch (e) {
+  if (e.message === 'Expected New Average is too low')
+    console.log('Expected New Average is too low');
+  else console.log('Incorrect error');
+}
+console.log(newAvg([14, 30, 5, 7, 9, 11, 16], 90)); // 628
+console.log(newAvg([14, 30, 5, 7, 9, 11, 15], 92)); // 645

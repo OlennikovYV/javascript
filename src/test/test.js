@@ -1,16 +1,10 @@
 mocha.setup('bdd');
 
-describe('Looking for a benefactor', () => {
-  it('Basic tests', function () {
-    chai
-      .expect(newAvg([1400.25, 30000.76, 5.56, 7, 9, 11, 15.48, 120.98], 4800))
-      .to.equal(11630);
-    chai
-      .expect(newAvg([1400.25, 30000.76, 5.56, 7, 9, 11, 15.48, 120.98], 10000))
-      .to.equal(58430);
-
-    chai.expect(newAvg([14, 30, 5, 7, 9, 11, 16], 90)).to.equal(628);
-    chai.expect(newAvg([14, 30, 5, 7, 9, 11, 15], 92)).to.equal(645);
+describe('Training JS #15: Methods of Number object--toFixed(), toExponential() and toPrecision()', () => {
+  it('test', () => {
+    chai.expect(howManySmaller([1.234, 1.235, 1.228], 1.24)).to.equal(2);
+    chai.expect(howManySmaller([1.1888, 1.1868, 1.1838], 1.19)).to.equal(1);
+    chai.expect(howManySmaller([3.1288, 3.1212, 3.1205], 3.1212)).to.equal(2);
   });
 });
 

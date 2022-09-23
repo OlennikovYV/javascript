@@ -1,16 +1,14 @@
-function newAvg(arr, newavg) {
-  let sum, avg;
+function howManySmaller(arr, n) {
+  let result = 0;
+  const arrString = arr.map(num => num.toFixed(2));
 
-  if (arr.length !== 0) {
-    sum = arr.reduce((sum, num) => sum + num, 0);
-    avg = newavg * (arr.length + 1) - sum;
-  } else avg = newavg;
+  for (let i = 0; i < arrString.length; i += 1) {
+    if (arrString[i] < n) result += 1;
+  }
 
-  return avg <= 0 ? error : Math.ceil(avg);
+  return result;
 }
 
-console.log(newAvg([1400.25, 30000.76, 5.56, 7, 9, 11, 15.48, 120.98], 4800)); //11630
-console.log(newAvg([1400.25, 30000.76, 5.56, 7, 9, 11, 15.48, 120.98], 10000)); //58430
-
-console.log(newAvg([14, 30, 5, 7, 9, 11, 16], 90)); // 628
-console.log(newAvg([14, 30, 5, 7, 9, 11, 15], 92)); // 645
+console.log(howManySmaller([1.234, 1.235, 1.228], 1.24)); // 2
+console.log(howManySmaller([1.1888, 1.1868, 1.1838], 1.19)); // 1
+console.log(howManySmaller([3.1288, 3.1212, 3.1205], 3.1212)); // 2

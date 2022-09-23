@@ -1,12 +1,5 @@
 function howManySmaller(arr, n) {
-  let result = 0;
-  const arrString = arr.map(num => num.toFixed(2));
-
-  for (let i = 0; i < arrString.length; i += 1) {
-    if (arrString[i] < n) result += 1;
-  }
-
-  return result;
+  return arr.filter(num => +num.toFixed(2) < n).length;
 }
 
 console.log(howManySmaller([1.234, 1.235, 1.228], 1.24)); // 2

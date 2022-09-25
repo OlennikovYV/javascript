@@ -1,11 +1,36 @@
-function NameMe(first, last) {
-  this.firstName = first;
-  this.lastName = last;
-  this.name = this.firstName + ' ' + this.lastName;
+class Guesser {
+  constructor(number, lives) {
+    this.number = number;
+    this.lives = lives;
+  }
+
+  guess(n) {
+    if (this.lives === 0) throw new Error('Omae wa mo shindeiru');
+    if (n !== this.number) {
+      this.lives -= 1;
+      return false;
+    }
+    return true;
+  }
 }
 
-const n = new NameMe('John', 'Doe');
+let guesser = new Guesser(10, 2);
+guesser.guess(10);
+guesser.guess(10);
+guesser.guess(10);
+guesser.guess(10);
+console.log(guesser.guess(10)); // true
 
-console.log(typeof n.firstName != undefined && n.firstName == 'John'); // true
-console.log(typeof n.lastName != undefined && n.lastName == 'Doe'); // true
-console.log(typeof n.name != undefined && n.name == 'John Doe'); // true
+guesser = new Guesser(10, 2);
+guesser.guess(1);
+console.log(guesser.guess(1)); // false
+
+guesser = new Guesser(10, 2);
+guesser.guess(1);
+guesser.guess(2);
+
+try {
+  guesser.guess(10);
+} catch {
+  console.log('error'); // error
+}

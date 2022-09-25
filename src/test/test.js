@@ -1,11 +1,27 @@
 mocha.setup('bdd');
 
-describe('"this" is a problem', () => {
-  it('test', () => {
-    const n = new NameMe('John', 'Doe');
-    chai.expect(typeof n.firstName != undefined && n.firstName == 'John');
-    chai.expect(typeof n.lastName != undefined && n.lastName == 'Doe');
-    chai.expect(typeof n.name != undefined && n.name == 'John Doe');
+describe('Guesser', () => {
+  it('Correct guess should return true', () => {
+    let guesser = new Guesser(10, 2);
+    guesser.guess(10);
+    guesser.guess(10);
+    guesser.guess(10);
+    guesser.guess(10);
+    chai.expect(guesser.guess(10)).to.be.true;
+  });
+
+  it('Wrong guess should return false', () => {
+    let guesser = new Guesser(10, 2);
+    guesser.guess(1);
+    chai.expect(guesser.guess(1)).to.be.false;
+  });
+
+  it('Lives ran out should throw', () => {
+    let guesser = new Guesser(10, 2);
+    guesser.guess(1);
+    guesser.guess(2);
+
+    chai.expect(() => guesser.guess(10)).to.throw();
   });
 });
 

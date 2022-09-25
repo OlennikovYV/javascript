@@ -5,12 +5,9 @@ class Guesser {
   }
 
   guess(n) {
-    if (this.lives === 0) throw new Error('Omae wa mo shindeiru');
-    if (n !== this.number) {
-      this.lives -= 1;
-      return false;
-    }
-    return true;
+    if (!this.lives) throw new Error('Omae wa mo shindeiru');
+    if (n !== this.number) this.lives -= 1;
+    return n === this.number;
   }
 }
 

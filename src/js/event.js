@@ -1,33 +1,18 @@
-class Guesser {
-  constructor(number, lives) {
-    this.number = number;
-    this.lives = lives;
-  }
+const rooms = {
+  first: {
+    description: 'This is the first room',
+    items: {
+      chair: 'The old chair looks comfortable',
+      lamp: 'This lamp looks ancient',
+    },
+  },
+  second: {
+    description: 'This is the second room',
+    items: {
+      couch: 'This couch looks like it would hurt your back',
+      table: 'On the table there is an unopened bottle of water',
+    },
+  },
+};
 
-  guess(n) {
-    if (!this.lives) throw new Error('Omae wa mo shindeiru');
-    if (n !== this.number) this.lives -= 1;
-    return n === this.number;
-  }
-}
-
-let guesser = new Guesser(10, 2);
-guesser.guess(10);
-guesser.guess(10);
-guesser.guess(10);
-guesser.guess(10);
-console.log(guesser.guess(10)); // true
-
-guesser = new Guesser(10, 2);
-guesser.guess(1);
-console.log(guesser.guess(1)); // false
-
-guesser = new Guesser(10, 2);
-guesser.guess(1);
-guesser.guess(2);
-
-try {
-  guesser.guess(10);
-} catch {
-  console.log('error'); // error
-}
+console.log(typeof rooms); // object

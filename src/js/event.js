@@ -1,20 +1,8 @@
 function formatWords(words) {
-  function convertString(array) {
-    let result;
-    let arrayWord = array.filter(word => word !== '');
-
-    if (arrayWord.length > 1) {
-      let index;
-
-      result = arrayWord.join(', ');
-      index = result.lastIndexOf(',');
-      result = result.replace(/,/g, (ch, i) => (i === index ? ' and' : ch));
-    } else result = arrayWord.join('');
-
-    return result;
-  }
-
-  return words && words.length !== 0 ? convertString(words) : '';
+  return (words || [])
+    .filter(word => word)
+    .join(', ')
+    .replace(/(, )+(\S+)$/g, ' and $2');
 }
 
 console.log(formatWords(['one', 'two', 'three', 'four'])); // 'one, two, three and four'

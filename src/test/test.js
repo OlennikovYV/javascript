@@ -1,6 +1,6 @@
 mocha.setup('bdd');
 
-describe('Grasshopper - Object syntax debug', () => {
+describe('Format words into a sentence', () => {
   it('Fixed tests', () => {
     chai
       .expect(formatWords(['one', 'two', 'three', 'four']))

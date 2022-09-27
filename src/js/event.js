@@ -1,26 +1,15 @@
 function parse(data) {
-  let result = {
-    number: 0,
-    array: [],
-  };
+  let result = [];
 
-  for (let i = 0; i < data.length; i += 1) {
-    switch (data[i]) {
-      case 'i':
-        result.number += 1;
-        break;
-      case 'd':
-        result.number -= 1;
-        break;
-      case 's':
-        result.number *= result.number;
-        break;
-      case 'o':
-        result.array.push(result.number);
-    }
-  }
+  [...data].reduce((num, char) => {
+    if (char === 'i') num += 1;
+    if (char === 'd') num -= 1;
+    if (char === 's') num *= num;
+    if (char === 'o') result.push(num);
+    return num;
+  }, 0);
 
-  return result.array;
+  return result;
 }
 
 console.log(parse('iiisdoso')); // [8, 64]

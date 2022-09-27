@@ -1,15 +1,27 @@
-function formatWords(words) {
-  return (words || [])
-    .filter(word => word)
-    .join(', ')
-    .replace(/(, )+(\S+)$/g, ' and $2');
+function parse(data) {
+  let result = {
+    number: 0,
+    array: [],
+  };
+
+  for (let i = 0; i < data.length; i += 1) {
+    switch (data[i]) {
+      case 'i':
+        result.number += 1;
+        break;
+      case 'd':
+        result.number -= 1;
+        break;
+      case 's':
+        result.number *= result.number;
+        break;
+      case 'o':
+        result.array.push(result.number);
+    }
+  }
+
+  return result.array;
 }
 
-console.log(formatWords(['one', 'two', 'three', 'four'])); // 'one, two, three and four'
-console.log(formatWords(['one'])); // 'one'
-console.log(formatWords(['one', '', 'three'])); // 'one and three'
-console.log(formatWords(['', '', 'three'])); // 'three'
-console.log(formatWords(['one', 'two', ''])); // 'one and two'
-console.log(formatWords([])); // ''
-console.log(formatWords(null)); // ''
-console.log(formatWords([''])); // ''
+console.log(parse('iiisdoso')); // [8, 64]
+console.log(parse('iiisxxxdoso')); // [8, 64]

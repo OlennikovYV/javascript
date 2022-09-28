@@ -19,25 +19,13 @@ function buildOneTwoThree() {
 }
 
 function length(head) {
-  let lengthList = 0;
-
-  while (head) {
-    lengthList += 1;
-    head = head.next;
-  }
-
-  return lengthList;
+  return head ? 1 + length(head.next) : 0;
 }
 
 function count(head, data) {
-  let countData = 0;
+  if (!head) return 0;
 
-  while (head) {
-    if (head.data === data) countData += 1;
-    head = head.next;
-  }
-
-  return countData;
+  return (head.data === data ? 1 : 0) + count(head.next, data);
 }
 
 console.log(length(null), 0, 'Length of null list should be zero.');

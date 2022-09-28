@@ -1,10 +1,11 @@
 mocha.setup('bdd');
 
-describe('Make the Deadfish Swim', () => {
-  it('test', () => {
-    chai.expect(parse('iiisdoso')).to.eql([8, 64]);
-    chai.expect(parse('iiisxxxdoso')).to.eql([8, 64]);
-  });
+describe('Add property to every object in array', () => {
+  for (let key in questions) {
+    it(`Test questions[${key}]`, () => {
+      chai.expect(questions[key].usersAnswer).to.equal(null);
+    });
+  }
 });
 
 mocha.run();

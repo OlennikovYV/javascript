@@ -1,16 +1,26 @@
-function parse(data) {
-  let result = [];
+const questions = [
+  {
+    question: 'Question',
+    options: ['Choice1', 'Choice2', 'Choice3', 'Choice4'],
+    rightAns: 0,
+    numAttempts: 2,
+  },
+  {
+    question: 'Question',
+    options: ['Choice1', 'Choice2', 'Choice3', 'Choice4'],
+    rightAns: 1,
+    numAttempts: 3,
+  },
+  {
+    question: 'Question',
+    options: ['Choice1', 'Choice2', 'Choice3', 'Choice4'],
+    rightAns: 0,
+    numAttempts: 1,
+  },
+];
 
-  [...data].reduce((num, char) => {
-    if (char === 'i') num += 1;
-    if (char === 'd') num -= 1;
-    if (char === 's') num *= num;
-    if (char === 'o') result.push(num);
-    return num;
-  }, 0);
-
-  return result;
+for (let key in questions) {
+  questions[key].usersAnswer = null;
 }
 
-console.log(parse('iiisdoso')); // [8, 64]
-console.log(parse('iiisxxxdoso')); // [8, 64]
+console.log(questions);

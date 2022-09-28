@@ -19,8 +19,6 @@ const questions = [
   },
 ];
 
-for (let key in questions) {
-  questions[key].usersAnswer = null;
-}
+questions.forEach(question => (question.usersAnswer = null));
 
 console.log(questions);

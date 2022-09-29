@@ -1,10 +1,5 @@
 function initializeNames(name) {
-  return name
-    .split(' ')
-    .map((name, i, arr) =>
-      i === 0 || i === arr.length - 1 ? name : name[0] + '.'
-    )
-    .join(' ');
+  return name.replace(/ (\w)\w*(?= )/g, ' $1.');
 }
 
 console.log(initializeNames('Jack Ryan')); // 'Jack Ryan'

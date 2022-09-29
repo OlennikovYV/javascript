@@ -1,10 +1,9 @@
 function initializeNames(name) {
   return name
     .split(' ')
-    .reduce((result, name, i, arr) => {
-      result.push(i === 0 || i === arr.length - 1 ? name : name[0] + '.');
-      return result;
-    }, [])
+    .map((name, i, arr) =>
+      i === 0 || i === arr.length - 1 ? name : name[0] + '.'
+    )
     .join(' ');
 }
 

@@ -1,9 +1,14 @@
-const splitInParts = function (s, partLength) {
-  let regex = new RegExp(`.{1,${partLength}}`, 'g');
-  return s.match(regex).join(' ');
-};
+function initializeNames(name) {
+  return name
+    .split(' ')
+    .reduce((result, name, i, arr) => {
+      result.push(i === 0 || i === arr.length - 1 ? name : name[0] + '.');
+      return result;
+    }, [])
+    .join(' ');
+}
 
-console.log(splitInParts('supercalifragilisticexpialidocious', 3));
-// 'sup erc ali fra gil ist ice xpi ali doc iou s'
-console.log(splitInParts('HelloKata', 1)); // 'H e l l o K a t a'
-console.log(splitInParts('HelloKata', 9)); // 'HelloKata'
+console.log(initializeNames('Jack Ryan')); // 'Jack Ryan'
+console.log(initializeNames('Lois Mary Lane')); // 'Lois M. Lane'
+console.log(initializeNames('Dimitri')); // 'Dimitri'
+console.log(initializeNames('Alice Betty Catherine Davis')); // 'Alice B. C. Davis'

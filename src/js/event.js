@@ -1,15 +1,23 @@
-function cutIt(arr) {
-  const minString = arr.reduce(
-    (length, str) => (str.length < length ? str.length : length),
-    Number.MAX_VALUE
-  );
+function dbSort(a) {
+  const number = [];
+  const string = [];
 
-  return arr.map(str => str.slice(0, minString));
+  a.map(el => (typeof el === 'string' ? string.push(el) : number.push(el)));
+
+  number.sort((a, b) => a - b);
+  string.sort();
+
+  return number.concat(string);
 }
 
-console.log(cutIt(['ab', 'cde', 'fgh']));
-// ['ab', 'cd', 'fg']
-console.log(cutIt(['abc', 'defgh', 'ijklmn']));
-// ['abc', 'def', 'ijk']
-console.log(cutIt(['codewars', 'javascript', 'java']));
-// ['code', 'java', 'java']
+console.log(dbSort([6, 2, 3, 4, 5])); // [2, 3, 4, 5, 6]
+console.log(dbSort([14, 32, 3, 5, 5])); // [3, 5, 5, 14, 32]
+console.log(dbSort([1, 2, 3, 4, 5])); // [1, 2, 3, 4, 5]
+console.log(dbSort(['Banana', 'Orange', 'Apple', 'Mango', 0, 2, 2]));
+// [0, 2, 2, 'Apple', 'Banana', 'Mango', 'Orange']
+console.log(dbSort(['C', 'W', 'W', 'W', 1, 2, 0]));
+// [ 0, 1, 2, 'C', 'W', 'W', 'W']
+console.log(
+  dbSort(['Apple', 46, '287', 574, 'Peach', '3', '69', 78, 'Grape', '423'])
+);
+// [46, 78, 574, '287', '3', '423', '69', 'Apple', 'Grape', 'Peach']

@@ -1,13 +1,10 @@
 mocha.setup('bdd');
 
-describe('Initialize my name', () => {
-  it('Initialize Names', function () {
-    chai.expect(initializeNames('Jack Ryan')).to.equal('Jack Ryan', '');
-    chai.expect(initializeNames('Lois Mary Lane')).to.equal('Lois M. Lane', '');
-    chai.expect(initializeNames('Dimitri')).to.equal('Dimitri', '');
-    chai
-      .expect(initializeNames('Alice Betty Catherine Davis'))
-      .to.equal('Alice B. C. Davis', '');
+describe('Find min and max', () => {
+  it('Basic tests', function () {
+    chai.expect(getMinMax([1])).to.eql([1, 1]);
+    chai.expect(getMinMax([1, 2])).to.eql([1, 2]);
+    chai.expect(getMinMax([2, 1])).to.eql([1, 2]);
   });
 });
 

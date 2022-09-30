@@ -1,8 +1,7 @@
-function initializeNames(name) {
-  return name.replace(/ (\w)\w*(?= )/g, ' $1.');
+function getMinMax(arr) {
+  return [Math.min(...arr), Math.max(...arr)];
 }
 
-console.log(initializeNames('Jack Ryan')); // 'Jack Ryan'
-console.log(initializeNames('Lois Mary Lane')); // 'Lois M. Lane'
-console.log(initializeNames('Dimitri')); // 'Dimitri'
-console.log(initializeNames('Alice Betty Catherine Davis')); // 'Alice B. C. Davis'
+console.log(getMinMax([1])); // [1, 1]
+console.log(getMinMax([1, 2])); // [1, 2]
+console.log(getMinMax([2, 1])); // [1, 2]

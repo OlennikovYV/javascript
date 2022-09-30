@@ -1,7 +1,15 @@
-function getMinMax(arr) {
-  return [Math.min(...arr), Math.max(...arr)];
+function cutIt(arr) {
+  const minString = arr.reduce(
+    (length, str) => (str.length < length ? str.length : length),
+    Number.MAX_VALUE
+  );
+
+  return arr.map(str => str.slice(0, minString));
 }
 
-console.log(getMinMax([1])); // [1, 1]
-console.log(getMinMax([1, 2])); // [1, 2]
-console.log(getMinMax([2, 1])); // [1, 2]
+console.log(cutIt(['ab', 'cde', 'fgh']));
+// ['ab', 'cd', 'fg']
+console.log(cutIt(['abc', 'defgh', 'ijklmn']));
+// ['abc', 'def', 'ijk']
+console.log(cutIt(['codewars', 'javascript', 'java']));
+// ['code', 'java', 'java']

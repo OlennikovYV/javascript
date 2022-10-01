@@ -1,8 +1,5 @@
 function isLucky(n) {
-  const arr = Array.from(String(n), Number);
-  const sum = arr.reduce((sums, num) => sums + num, 0);
-
-  return sum === 0 || sum % 9 === 0 ? true : false;
+  return n % 9 === 0;
 }
 
 console.log(isLucky(1892376)); // true

@@ -1,9 +1,11 @@
-function isLucky(n) {
-  return n % 9 === 0;
+function fiveLine(s) {
+  let string = s.trim();
+
+  return Array.from({ length: 5 })
+    .map((_, index) => string.repeat(index + 1))
+    .join('\n');
 }
 
-console.log(isLucky(1892376)); // true
-console.log(isLucky(189237)); // false
-console.log(isLucky(1098)); // true
-console.log(isLucky(22869)); // true
-console.log(isLucky(0)); // true
+console.log(fiveLine('  a')); // 'a\naa\naaa\naaaa\naaaaa');
+console.log(fiveLine('\txy \n')); // 'xy\nxyxy\nxyxyxy\nxyxyxyxy\nxyxyxyxyxy'
+console.log(fiveLine('           Ok               ')); // 'Ok\nOkOk\nOkOkOk\nOkOkOkOk\nOkOkOkOkOk'

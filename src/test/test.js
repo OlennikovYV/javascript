@@ -1,12 +1,14 @@
 mocha.setup('bdd');
 
-describe('lucky number', () => {
-  it('Basic testing', function () {
-    chai.expect(isLucky(1892376)).to.equal(true);
-    chai.expect(isLucky(189237)).to.equal(false);
-    chai.expect(isLucky(1098)).to.equal(true);
-    chai.expect(isLucky(22869)).to.equal(true);
-    chai.expect(isLucky(0)).to.equal(true);
+describe('Training JS #21: Methods of String object--trim() and the string template', () => {
+  it('test', () => {
+    chai.expect(fiveLine('  a')).to.equal('a\naa\naaa\naaaa\naaaaa');
+    chai
+      .expect(fiveLine('\txy \n'))
+      .to.equal('xy\nxyxy\nxyxyxy\nxyxyxyxy\nxyxyxyxyxy');
+    chai
+      .expect(fiveLine('           Ok               '))
+      .to.equal('Ok\nOkOk\nOkOkOk\nOkOkOkOk\nOkOkOkOkOk');
   });
 });
 

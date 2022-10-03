@@ -1,11 +1,17 @@
-function fiveLine(s) {
-  let string = s.trim();
-
-  return Array.from({ length: 5 })
-    .map((_, index) => string.repeat(index + 1))
-    .join('\n');
+function isVow(a) {
+  return a.map(el =>
+    ['a', 'e', 'i', 'o', 'u'].includes(String.fromCharCode(el))
+      ? String.fromCharCode(el)
+      : el
+  );
 }
 
-console.log(fiveLine('  a')); // 'a\naa\naaa\naaaa\naaaaa');
-console.log(fiveLine('\txy \n')); // 'xy\nxyxy\nxyxyxy\nxyxyxyxy\nxyxyxyxyxy'
-console.log(fiveLine('           Ok               ')); // 'Ok\nOkOk\nOkOkOk\nOkOkOkOk\nOkOkOkOkOk'
+console.log(
+  isVow([
+    118, 117, 120, 121, 117, 98, 122, 97, 120, 106, 104, 116, 113, 114, 113,
+    120, 106,
+  ])
+);
+// [118, 'u', 120, 121, 'u', 98, 122, 'a', 120, 106, 104, 116, 113, 114, 113, 120, 106]
+console.log(isVow([101, 121, 110, 113, 113, 103, 121, 121, 101, 107, 103]));
+// ['e', 121, 110, 113, 113, 103, 121, 121, 'e', 107, 103]

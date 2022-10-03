@@ -1,7 +1,7 @@
 function isVow(a) {
   return a.map(el =>
-    ['a', 'e', 'i', 'o', 'u'].includes(String.fromCharCode(el))
-      ? String.fromCharCode(el)
+    ['a', 'e', 'i', 'o', 'u'].includes((char = String.fromCharCode(el)))
+      ? char
       : el
   );
 }

@@ -1,36 +1,70 @@
 mocha.setup('bdd');
 
-describe('Is there a vowel in there?', () => {
-  it('Basic tests', () => {
-    chai
-      .expect(
-        isVow([
-          118, 117, 120, 121, 117, 98, 122, 97, 120, 106, 104, 116, 113, 114,
-          113, 120, 106,
-        ])
-      )
-      .to.eql([
-        118,
-        'u',
-        120,
-        121,
-        'u',
-        98,
-        122,
-        'a',
-        120,
-        106,
-        104,
-        116,
-        113,
-        114,
-        113,
-        120,
-        106,
-      ]);
-    chai
-      .expect(isVow([101, 121, 110, 113, 113, 103, 121, 121, 101, 107, 103]))
-      .to.eql(['e', 121, 110, 113, 113, 103, 121, 121, 'e', 107, 103]);
+describe('Coding Meetup #12 - Higher-Order Functions Series - Find GitHub admins', () => {
+  it('test', () => {
+    const list1 = [
+      {
+        firstName: 'Harry',
+        lastName: 'K.',
+        country: 'Brazil',
+        continent: 'Americas',
+        age: 22,
+        language: 'JavaScript',
+        githubAdmin: 'yes',
+      },
+      {
+        firstName: 'Kseniya',
+        lastName: 'T.',
+        country: 'Belarus',
+        continent: 'Europe',
+        age: 49,
+        language: 'Ruby',
+        githubAdmin: 'no',
+      },
+      {
+        firstName: 'Jing',
+        lastName: 'X.',
+        country: 'China',
+        continent: 'Asia',
+        age: 34,
+        language: 'JavaScript',
+        githubAdmin: 'yes',
+      },
+      {
+        firstName: 'Piotr',
+        lastName: 'B.',
+        country: 'Poland',
+        continent: 'Europe',
+        age: 128,
+        language: 'JavaScript',
+        githubAdmin: 'no',
+      },
+    ];
+
+    const answer1 = [
+      {
+        firstName: 'Harry',
+        lastName: 'K.',
+        country: 'Brazil',
+        continent: 'Americas',
+        age: 22,
+        language: 'JavaScript',
+        githubAdmin: 'yes',
+      },
+      {
+        firstName: 'Jing',
+        lastName: 'X.',
+        country: 'China',
+        continent: 'Asia',
+        age: 34,
+        language: 'JavaScript',
+        githubAdmin: 'yes',
+      },
+    ];
+
+    chai.expect(findAdmin(list1, 'JavaScript')).to.eql(answer1);
+    chai.expect(findAdmin(list1, 'Ruby')).to.eql([]);
+    chai.expect(findAdmin(list1, 'Python')).to.eql([]);
   });
 });
 

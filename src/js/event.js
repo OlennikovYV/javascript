@@ -1,10 +1,7 @@
 function findAdmin(list, lang) {
-  return list.reduce((admins, persona) => {
-    if (persona.language === lang && persona.githubAdmin === 'yes') {
-      admins.push(persona);
-    }
-    return admins;
-  }, []);
+  return list.filter(
+    persona => persona.language === lang && persona.githubAdmin === 'yes'
+  );
 }
 
 const list1 = [

@@ -1,12 +1,5 @@
 function autocomplete(input, dictionary) {
-  let regex;
-
-  input = input
-    .split('')
-    .filter(char => !'-~! @#$%^&*()_+1234567890'.includes(char))
-    .join('');
-
-  regex = new RegExp(`^(${input})`, 'i');
+  regex = new RegExp(`^(${input.replace(/[^a-z]/gi, '')})`, 'i');
 
   return dictionary.filter(word => regex.test(word)).slice(0, 5);
 }

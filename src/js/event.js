@@ -1,7 +1,5 @@
 function divisibleByThree(str) {
-  const sumDigit = str.split('').reduce((sum, digit) => sum + Number(digit), 0);
-
-  return sumDigit % 3 === 0;
+  return str.split('').reduce((sum, digit) => sum + Number(digit), 0) % 3 === 0;
 }
 
 console.log(divisibleByThree('123')); // true,

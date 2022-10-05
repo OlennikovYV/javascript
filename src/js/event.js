@@ -1,11 +1,5 @@
 function extraPerfect(n) {
-  const result = [];
-
-  for (let i = 1; i <= n; i += 2) {
-    result.push(i);
-  }
-
-  return result;
+  return Array.from({ length: n + 1 }, (_, i) => i).filter(num => num % 2);
 }
 
 console.log(extraPerfect(3)); // [1, 3]

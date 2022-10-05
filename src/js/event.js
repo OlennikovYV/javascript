@@ -1,13 +1,8 @@
 function extraPerfect(n) {
   const result = [];
 
-  function perfect(num) {
-    const bin = Number(num).toString(2).split('');
-    return bin[0] === '1' && bin[bin.length - 1] === '1' ? true : false;
-  }
-
-  for (let i = 1; i <= n; i += 1) {
-    if (perfect(i)) result.push(i);
+  for (let i = 1; i <= n; i += 2) {
+    result.push(i);
   }
 
   return result;

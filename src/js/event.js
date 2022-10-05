@@ -1,11 +1,10 @@
-function helloWorld() {
-  const str = 'Hello World!';
+function divisibleByThree(str) {
+  const sumDigit = str.split('').reduce((sum, digit) => sum + Number(digit), 0);
 
-  console.log(str);
+  return sumDigit % 3 === 0;
 }
 
-try {
-  helloWorld();
-} catch (e) {
-  console.log(e);
-}
+console.log(divisibleByThree('123')); // true,
+console.log(divisibleByThree('19254')); // true,
+console.log(divisibleByThree('88')); // false,
+console.log(divisibleByThree('1')); // false,

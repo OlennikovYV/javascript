@@ -1,8 +1,6 @@
 function getMissingElement(superImportantArray) {
-  superImportantArray.sort();
-
   for (let i = 0; i <= superImportantArray.length; i += 1) {
-    if (i != superImportantArray[i]) return i;
+    if (superImportantArray.indexOf(i) === -1) return i;
   }
 }
 

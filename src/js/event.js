@@ -1,12 +1,9 @@
 function getMissingElement(superImportantArray) {
-  let result;
-
   superImportantArray.sort();
+
   for (let i = 0; i <= superImportantArray.length; i += 1) {
     if (i != superImportantArray[i]) return i;
   }
-
-  return result;
 }
 
 console.log(getMissingElement([0, 5, 1, 3, 2, 9, 7, 6, 4])); // 8

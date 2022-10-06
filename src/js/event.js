@@ -1,9 +1,9 @@
-function getMissingElement(superImportantArray) {
-  for (let i = 0; i <= superImportantArray.length; i += 1) {
-    if (superImportantArray.indexOf(i) === -1) return i;
-  }
+function playerRankUp(points) {
+  return points < 100
+    ? false
+    : 'Well done! You have advanced to the qualifying stage. Win 2 out of your next 3 games to rank up.';
 }
 
-console.log(getMissingElement([0, 5, 1, 3, 2, 9, 7, 6, 4])); // 8
-console.log(getMissingElement([9, 2, 4, 5, 7, 0, 8, 6, 1])); // 3
-console.log(getMissingElement([0, 1, 2, 3, 4, 5, 6, 7, 8])); // 9
+console.log(playerRankUp(64)); // false
+console.log(playerRankUp(101));
+// 'Well done! You have advanced to the qualifying stage. Win 2 out of your next 3 games to rank up.'

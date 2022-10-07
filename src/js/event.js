@@ -1,10 +1,7 @@
 function isPythagoreanTriple(integers) {
-  integers.sort((a, b) => a - b);
+  const array = integers.sort((a, b) => a - b);
 
-  const sqrtAB = Math.pow(integers[0], 2) + Math.pow(integers[1], 2);
-  const sqrtC = Math.pow(integers[2], 2);
-
-  return sqrtAB === sqrtC;
+  return array[0] ** 2 + array[1] ** 2 === array[2] ** 2;
 }
 
 console.log(isPythagoreanTriple([3, 4, 5])); // true

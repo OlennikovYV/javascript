@@ -1,6 +1,9 @@
-function typeValidation(variable, type) {
-  return typeof variable === type;
+function anyArrows(arrows) {
+  return arrows.some(arrow => arrow.damaged != true);
 }
 
-console.log(typeValidation(42, 'number')); // true
-console.log(typeValidation('42', 'number')); // false
+console.log(anyArrows([])); // false
+console.log(
+  anyArrows([{ range: 5 }, { range: 10, damaged: true }, { damaged: true }])
+); // true
+console.log(anyArrows([{ range: 10, damaged: true }, { damaged: true }])); // false

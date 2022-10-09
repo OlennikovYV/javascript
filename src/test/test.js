@@ -1,9 +1,20 @@
 mocha.setup('bdd');
 
-describe('For Twins: 1. Types', () => {
-  it('Basic Tests', function () {
-    chai.expect(typeValidation(42, 'number')).to.equal(true);
-    chai.expect(typeValidation('42', 'number')).to.equal(false);
+describe('Are there any arrows left?', () => {
+  it('test', () => {
+    chai.expect(anyArrows([])).to.equal(false);
+    chai
+      .expect(
+        anyArrows([
+          { range: 5 },
+          { range: 10, damaged: true },
+          { damaged: true },
+        ])
+      )
+      .to.equal(true);
+    chai
+      .expect(anyArrows([{ range: 10, damaged: true }, { damaged: true }]))
+      .to.equal(false);
   });
 });
 

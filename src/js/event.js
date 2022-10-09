@@ -1,5 +1,5 @@
 function anyArrows(arrows) {
-  return arrows.some(arrow => arrow.damaged != true);
+  return arrows.some(arrow => !arrow.damaged);
 }
 
 console.log(anyArrows([])); // false

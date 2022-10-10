@@ -1,5 +1,5 @@
 function countLettersAndDigits(input) {
-  return input.replace(/[^a-zA-Z0-9]/g, '').length;
+  return input.replace(/[^a-z\d]/gi, '').length;
 }
 
 console.log(countLettersAndDigits('hel2!lo')); // 6

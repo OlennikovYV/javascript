@@ -1,9 +1,14 @@
-function anyArrows(arrows) {
-  return arrows.some(arrow => !arrow.damaged);
+function any(arr, fun) {
+  return arr.some(fun);
 }
 
-console.log(anyArrows([])); // false
 console.log(
-  anyArrows([{ range: 5 }, { range: 10, damaged: true }, { damaged: true }])
+  any([1, 2, 3, 4], function (v, i) {
+    return v > 3;
+  })
 ); // true
-console.log(anyArrows([{ range: 10, damaged: true }, { damaged: true }])); // false
+console.log(
+  any([1, 2, 3, 4], function (v, i) {
+    return v > 4;
+  })
+); // false

@@ -1,19 +1,20 @@
 mocha.setup('bdd');
 
-describe('Are there any arrows left?', () => {
+describe('Enumerable Magic #2 - True for Any?', () => {
   it('test', () => {
-    chai.expect(anyArrows([])).to.equal(false);
     chai
       .expect(
-        anyArrows([
-          { range: 5 },
-          { range: 10, damaged: true },
-          { damaged: true },
-        ])
+        any([1, 2, 3, 4], function (v, i) {
+          return v > 3;
+        })
       )
       .to.equal(true);
     chai
-      .expect(anyArrows([{ range: 10, damaged: true }, { damaged: true }]))
+      .expect(
+        any([1, 2, 3, 4], function (v, i) {
+          return v > 4;
+        })
+      )
       .to.equal(false);
   });
 });

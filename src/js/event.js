@@ -1,11 +1,19 @@
-function countLettersAndDigits(input) {
-  return input.replace(/[\W_]/g, '').length;
+function evenOrOdd(str) {
+  let odd = 0;
+  let even = 0;
+
+  str.split('').forEach(strDigit => {
+    const digit = Number(strDigit);
+    digit % 2 ? (odd += digit) : (even += digit);
+  });
+
+  return odd > even
+    ? 'Odd is greater than Even'
+    : odd < even
+    ? 'Even is greater than Odd'
+    : 'Even and Odd are the same';
 }
 
-console.log(countLettersAndDigits('hel2!lo')); // 6
-console.log(countLettersAndDigits('n!!_ice!!123')); // 7
-console.log(countLettersAndDigits('1')); // 1
-console.log(countLettersAndDigits('?')); // 0
-console.log(countLettersAndDigits('12345f%%%t5t&/6')); // 10
-console.log(countLettersAndDigits('aBcDeFg090')); // 10
-console.log(countLettersAndDigits('u_n_d_e_r__S_C_O_R_E')); // 10
+console.log(evenOrOdd('12')); // 'Even is greater than Odd'
+console.log(evenOrOdd('123')); // 'Odd is greater than Even'
+console.log(evenOrOdd('112')); // 'Even and Odd are the same'

@@ -1,26 +1,13 @@
 function balancedNum(number) {
+  let result = 0;
   const strNumber = String(number);
-  const odd = strNumber.length % 2;
-  const halfString = strNumber.length >> 1;
-  let left, right;
+  const length = strNumber.length;
 
-  function sum(str) {
-    return str.split('').reduce((sum, digit) => sum + Number(digit), 0);
+  for (let i = 0; i < length / 2 - 1; i += 1) {
+    result += Number(strNumber[i]) - Number(strNumber[length - i - 1]);
   }
 
-  if (strNumber.length < 3) return 'Balanced';
-
-  if (odd) {
-    left = strNumber.slice(0, halfString);
-    right = strNumber.slice(halfString + 1);
-  }
-
-  if (!odd) {
-    left = strNumber.slice(0, halfString - 1);
-    right = strNumber.slice(halfString + 1);
-  }
-
-  return sum(left) === sum(right) ? 'Balanced' : 'Not Balanced';
+  return result === 0 ? 'Balanced' : 'Not Balanced';
 }
 
 console.log(balancedNum(7)); // 'Balanced'

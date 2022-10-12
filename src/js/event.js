@@ -1,10 +1,5 @@
 function int32ToIp(int32) {
-  let octet1 = int32 & 255;
-  let octet2 = (int32 >> 8) & 255;
-  let octet3 = (int32 >> 16) & 255;
-  let octet4 = (int32 >> 24) & 255;
-
-  return octet4 + '.' + octet3 + '.' + octet2 + '.' + octet1;
+  return [24, 16, 8, 0].map(octet => (int32 >> octet) & 255).join`.`;
 }
 
 console.log(int32ToIp(2154959208)); // '128.114.17.104'

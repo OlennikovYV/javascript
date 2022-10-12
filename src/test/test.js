@@ -1,12 +1,11 @@
 mocha.setup('bdd');
 
-describe('Sum of all arguments', () => {
-  it('Small tests', () => {
-    chai.expect(sum(1)).to.equal(1);
-    chai.expect(sum(1, 2)).to.equal(3);
-    chai.expect(sum(5, 7, 9)).to.equal(21);
-    chai.expect(sum(12, 1, 1, 1, 1)).to.equal(16);
-    chai.expect(sum(12, 1, 1, 1, 1, 1, 1)).to.equal(18);
+describe('int32 to IPv4', () => {
+  it('sample tests', () => {
+    chai.expect(int32ToIp(2154959208)).to.equal('128.114.17.104');
+    chai.expect(int32ToIp(0)).to.equal('0.0.0.0');
+    chai.expect(int32ToIp(2149583361)).to.equal('128.32.10.1');
+    chai.expect(int32ToIp(2 ** 32 - 1)).to.equal('255.255.255.255');
   });
 });
 

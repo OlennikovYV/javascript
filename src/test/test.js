@@ -1,19 +1,12 @@
 mocha.setup('bdd');
 
-describe('Balanced Number (Special Numbers Series #1 )', () => {
-  it('Check balanced number', function () {
-    chai.expect(balancedNum(7)).to.equal('Balanced');
-    chai.expect(balancedNum(959)).to.equal('Balanced');
-    chai.expect(balancedNum(13)).to.equal('Balanced');
-    chai.expect(balancedNum(432)).to.equal('Not Balanced');
-    chai.expect(balancedNum(424)).to.equal('Balanced');
-  });
-  it('Check Larger number', function () {
-    chai.expect(balancedNum(1024)).to.equal('Not Balanced');
-    chai.expect(balancedNum(66545)).to.equal('Not Balanced');
-    chai.expect(balancedNum(295591)).to.equal('Not Balanced');
-    chai.expect(balancedNum(1230987)).to.equal('Not Balanced');
-    chai.expect(balancedNum(56239814)).to.equal('Balanced');
+describe('Sum of all arguments', () => {
+  it('Small tests', () => {
+    chai.expect(sum(1)).to.equal(1);
+    chai.expect(sum(1, 2)).to.equal(3);
+    chai.expect(sum(5, 7, 9)).to.equal(21);
+    chai.expect(sum(12, 1, 1, 1, 1)).to.equal(16);
+    chai.expect(sum(12, 1, 1, 1, 1, 1, 1)).to.equal(18);
   });
 });
 

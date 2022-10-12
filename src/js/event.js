@@ -1,22 +1,15 @@
-function balancedNum(number) {
-  let result = 0;
-  const strNumber = String(number);
-  const length = strNumber.length;
+function sum() {
+  let sum = 0;
 
-  for (let i = 0; i < length / 2 - 1; i += 1) {
-    result += Number(strNumber[i]) - Number(strNumber[length - i - 1]);
+  for (let i = 0; i < arguments.length; i += 1) {
+    sum += arguments[i];
   }
 
-  return result === 0 ? 'Balanced' : 'Not Balanced';
+  return sum;
 }
 
-console.log(balancedNum(7)); // 'Balanced'
-console.log(balancedNum(959)); // 'Balanced'
-console.log(balancedNum(13)); // 'Balanced'
-console.log(balancedNum(432)); // 'Not Balanced'
-console.log(balancedNum(424)); // 'Balanced'
-console.log(balancedNum(1024)); // 'Not Balanced'
-console.log(balancedNum(66545)); // 'Not Balanced'
-console.log(balancedNum(295591)); // 'Not Balanced'
-console.log(balancedNum(1230987)); // 'Not Balanced'
-console.log(balancedNum(56239814)); // 'Balanced'
+console.log(sum(1)); // 1
+console.log(sum(1, 2)); // 3
+console.log(sum(5, 7, 9)); // 21
+console.log(sum(12, 1, 1, 1, 1)); // 16
+console.log(sum(12, 1, 1, 1, 1, 1, 1)); // 18

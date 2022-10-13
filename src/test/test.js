@@ -1,11 +1,13 @@
 mocha.setup('bdd');
 
-describe('int32 to IPv4', () => {
-  it('sample tests', () => {
-    chai.expect(int32ToIp(2154959208)).to.equal('128.114.17.104');
-    chai.expect(int32ToIp(0)).to.equal('0.0.0.0');
-    chai.expect(int32ToIp(2149583361)).to.equal('128.32.10.1');
-    chai.expect(int32ToIp(2 ** 32 - 1)).to.equal('255.255.255.255');
+describe('Weight for weight', () => {
+  it('Basic tests', function () {
+    chai
+      .expect(orderWeight('103 123 4444 99 2000'))
+      .to.equal('2000 103 123 4444 99');
+    chai
+      .expect(orderWeight('2000 10003 1234000 44444444 9999 11 11 22 123'))
+      .to.equal('11 11 2000 10003 22 123 1234000 44444444 9999');
   });
 });
 

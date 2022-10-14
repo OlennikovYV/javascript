@@ -1,6 +1,6 @@
 class Cube {
   constructor(side = 0) {
-    this.side = Math.abs(side);
+    this.setSide(side);
   }
   getSide() {
     return this.side;

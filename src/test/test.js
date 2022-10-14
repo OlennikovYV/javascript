@@ -1,14 +1,11 @@
 mocha.setup('bdd');
 
-describe('Sort arrays - 1', () => {
+describe('Playing with cubes II', () => {
   it('test', () => {
-    chai.expect(''.isLetter()).to.equal(false);
-    chai.expect('a'.isLetter()).to.equal(true);
-    chai.expect('X'.isLetter()).to.equal(true);
-    chai.expect('7'.isLetter()).to.equal(false);
-    chai.expect('*'.isLetter()).to.equal(false);
-    chai.expect('ab'.isLetter()).to.equal(false);
-    chai.expect('a\n'.isLetter()).to.equal(false);
+    let cube = new Cube(12);
+    chai.expect(cube.getSide()).to.equal(12);
+    cube.setSide(42);
+    chai.expect(cube.getSide()).to.equal(42);
   });
 });
 

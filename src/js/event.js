@@ -1,11 +1,16 @@
-String.prototype.isLetter = function () {
-  return /^[a-z]$/i.test(this);
-};
+class Cube {
+  constructor(side = 0) {
+    this.side = Math.abs(side);
+  }
+  getSide() {
+    return this.side;
+  }
+  setSide(n) {
+    this.side = Math.abs(n);
+  }
+}
 
-console.log(''.isLetter()); // false
-console.log('a'.isLetter()); // true
-console.log('X'.isLetter()); // true
-console.log('7'.isLetter()); // false
-console.log('*'.isLetter()); // false
-console.log('ab'.isLetter()); // false
-console.log('a\n'.isLetter()); // false
+let cube = new Cube(12);
+console.log(cube.getSide()); // 12
+cube.setSide(42);
+console.log(cube.getSide()); // 42

@@ -1,6 +1,11 @@
-sortme = function (names) {
-  return names.sort();
+String.prototype.isLetter = function () {
+  return /^[a-z]{1}$/i.test(this);
 };
 
-console.log(sortme(['one', 'two', 'three'])); // ['one', 'three', 'two']
-console.log(sortme(['Pphm', 'lahFixsLnm', 'tLTWlBGmj'])); // ['Pphm', 'lahFixsLnm', 'tLTWlBGmj']
+console.log(''.isLetter()); // false
+console.log('a'.isLetter()); // true
+console.log('X'.isLetter()); // true
+console.log('7'.isLetter()); // false
+console.log('*'.isLetter()); // false
+console.log('ab'.isLetter()); // false
+console.log('a\n'.isLetter()); // false

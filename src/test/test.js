@@ -1,13 +1,14 @@
 mocha.setup('bdd');
 
 describe('Sort arrays - 1', () => {
-  it('Testing for fixed tests', () => {
-    chai
-      .expect(sortme(['one', 'two', 'three']))
-      .to.eql(['one', 'three', 'two']);
-    chai
-      .expect(sortme(['Pphm', 'lahFixsLnm', 'tLTWlBGmj']))
-      .eql(['Pphm', 'lahFixsLnm', 'tLTWlBGmj']);
+  it('test', () => {
+    chai.expect(''.isLetter()).to.equal(false);
+    chai.expect('a'.isLetter()).to.equal(true);
+    chai.expect('X'.isLetter()).to.equal(true);
+    chai.expect('7'.isLetter()).to.equal(false);
+    chai.expect('*'.isLetter()).to.equal(false);
+    chai.expect('ab'.isLetter()).to.equal(false);
+    chai.expect('a\n'.isLetter()).to.equal(false);
   });
 });
 

@@ -1,5 +1,5 @@
 function countRedBeads(n) {
-  return n > 1 ? (n - 1) * 2 : 0;
+  return ((n || 1) - 1) * 2;
 }
 
 console.log(countRedBeads(0)); // 0

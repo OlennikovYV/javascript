@@ -1,10 +1,8 @@
 const findAll = (array, n) => {
-  const result = [];
-
-  return array.reduce((res, digit, index) => {
-    if (digit === n) res.push(index);
-    return res;
-  }, result);
+  return array.reduce(
+    (res, digit, index) => (digit === n ? [...res, index] : res),
+    []
+  );
 };
 
 console.log(findAll([6, 9, 3, 4, 3, 82, 11], 3)); // [2, 4]);

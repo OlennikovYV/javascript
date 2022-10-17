@@ -1,22 +1,15 @@
 mocha.setup('bdd');
 
 describe('Find all occurrences of an element in an array', () => {
-  it('should pass some fixed tests', function () {
-    chai.expect(findAll([6, 9, 3, 4, 3, 82, 11], 3)).to.eql([2, 4]);
+  it('Basic tests', () => {
+    chai.expect(arithmeticSequenceElements(1, 2, 5)).to.equal('1, 3, 5, 7, 9');
+    chai.expect(arithmeticSequenceElements(1, 0, 5)).to.equal('1, 1, 1, 1, 1');
     chai
-      .expect(findAll([10, 16, 20, 6, 14, 11, 20, 2, 17, 16, 14], 16))
-      .to.eql([1, 9]);
+      .expect(arithmeticSequenceElements(1, -3, 10))
+      .to.equal('1, -2, -5, -8, -11, -14, -17, -20, -23, -26');
     chai
-      .expect(
-        findAll(
-          [
-            20, 20, 10, 13, 15, 2, 7, 2, 20, 3, 18, 2, 3, 2, 16, 10, 9, 9, 7, 5,
-            15, 5,
-          ],
-          20
-        )
-      )
-      .to.eql([0, 1, 8]);
+      .expect(arithmeticSequenceElements(100, -10, 10))
+      .to.equal('100, 90, 80, 70, 60, 50, 40, 30, 20, 10');
   });
 });
 

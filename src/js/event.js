@@ -1,12 +1,31 @@
-function arithmeticSequenceElements(a, d, n) {
-  const progression = [a];
+function splitTheBill(x) {
+  let sum = 0;
+  let count = 0;
+  let aver = 0;
 
-  while (n--) progression.push((a += d));
+  for (const cost in x) {
+    count += 1;
+    sum += x[cost];
+  }
 
-  return progression.join(', ');
+  aver = sum / count;
+
+  for (const cost in x) {
+    let diff = x[cost] - aver;
+
+    if (diff < 0) {
+      x[cost] = (x[cost] - aver).toFixed(2);
+    } else {
+      x[cost] = diff.toFixed(2);
+    }
+
+    x[cost] = Number(x[cost]);
+  }
+
+  return x;
 }
 
-console.log(arithmeticSequenceElements(1, 2, 5)); // '1, 3, 5, 7, 9');
-console.log(arithmeticSequenceElements(1, 0, 5)); // '1, 1, 1, 1, 1');
-console.log(arithmeticSequenceElements(1, -3, 10)); // '1, -2, -5, -8, -11, -14, -17, -20, -23, -26'
-console.log(arithmeticSequenceElements(100, -10, 10)); // '100, 90, 80, 70, 60, 50, 40, 30, 20, 10'
+console.log(splitTheBill({ A: 21, B: 15, C: 10 }));
+// { A: 5, B: 0, C: -5 }
+console.log(splitTheBill({ A: 40, B: 25, X: 10 }));
+// { A: 15, B: 0, X: -15 }

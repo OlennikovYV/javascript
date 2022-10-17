@@ -1,11 +1,7 @@
 function arithmeticSequenceElements(a, d, n) {
-  let next = a;
-  const progression = [next];
+  const progression = [a];
 
-  for (let i = 1; i < n; i += 1) {
-    next = next + d;
-    progression.push(next);
-  }
+  while (n--) progression.push((a += d));
 
   return progression.join(', ');
 }

@@ -1,17 +1,19 @@
 mocha.setup('bdd');
 
-describe('Split The Bill', () => {
-  it('test', () => {
-    chai.expect(splitTheBill({ A: 20, B: 15, C: 10 })).to.eql({
-      A: 5,
-      B: 0,
-      C: -5,
-    });
-    chai.expect(splitTheBill({ A: 40, B: 25, X: 10 })).to.eql({
-      A: 15,
-      B: 0,
-      X: -15,
-    });
+describe('Safen User Input Part I - htmlspecialchars', () => {
+  it('Simple tests', () => {
+    chai
+      .expect(htmlspecialchars('<h2>Hello World</h2>'))
+      .to.equal('&lt;h2&gt;Hello World&lt;/h2&gt;');
+    chai
+      .expect(htmlspecialchars('Hello, how would you & I fare?'))
+      .to.equal('Hello, how would you &amp; I fare?');
+    chai
+      .expect(htmlspecialchars('How was "The Matrix"?  Did you like it?'))
+      .to.equal('How was &quot;The Matrix&quot;?  Did you like it?');
+    chai
+      .expect(htmlspecialchars("<script>alert('Website Hacked!');</script>"))
+      .to.equal("&lt;script&gt;alert('Website Hacked!');&lt;/script&gt;");
   });
 });
 

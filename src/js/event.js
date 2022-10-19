@@ -1,7 +1,5 @@
-function first(arr, n) {
-  const count = n == undefined ? 1 : n;
-
-  return arr.slice(0, count);
+function first(arr, n = 1) {
+  return arr.slice(0, n);
 }
 
 const arr = ['a', 'b', 'c', 'd', 'e'];

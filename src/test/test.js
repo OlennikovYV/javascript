@@ -1,10 +1,12 @@
 mocha.setup('bdd');
 
-describe('pick a set of first elements', () => {
-  it('test', () => {
-    const arr = ['a', 'b', 'c', 'd', 'e'];
-    chai.expect(first(arr)).to.eql(['a']);
-    chai.expect(first(arr, 2)).to.eql(['a', 'b']);
+describe('Drone Fly-By', () => {
+  it('Testing for fixed tests', () => {
+    chai.expect(flyBy('xxxxxx', '====T')).to.equal('ooooox');
+    chai.expect(flyBy('xxxxxxxxx', '==T')).to.equal('oooxxxxxx');
+    chai
+      .expect(flyBy('xxxxxxxxxxxxxxx', '=========T'))
+      .to.equal('ooooooooooxxxxx');
   });
 });
 

@@ -1,7 +1,12 @@
-function first(arr, n = 1) {
-  return arr.slice(0, n);
+function flyBy(lamps, drone) {
+  let count = drone.length;
+  let countLamp = lamps.length;
+
+  if (count > countLamp) count = countLamp;
+
+  return 'o'.repeat(count) + 'x'.repeat(countLamp - count);
 }
 
-const arr = ['a', 'b', 'c', 'd', 'e'];
-console.log(first(arr)); // ['a']);
-console.log(first(arr, 2)); // ['a', 'b']);
+console.log(flyBy('xxxxxx', '====T')); // 'ooooox');
+console.log(flyBy('xxxxxxxxx', '==T')); // 'oooxxxxxx');
+console.log(flyBy('xxxxxxxxxxxxxxx', '=========T')); // 'ooooooooooxxxxx');

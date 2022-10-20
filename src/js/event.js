@@ -1,10 +1,5 @@
 function flyBy(lamps, drone) {
-  let count = drone.length;
-  let countLamp = lamps.length;
-
-  if (count > countLamp) count = countLamp;
-
-  return 'o'.repeat(count) + 'x'.repeat(countLamp - count);
+  return [...lamps].fill('o', 0, drone.length).join('');
 }
 
 console.log(flyBy('xxxxxx', '====T')); // 'ooooox');

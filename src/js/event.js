@@ -1,7 +1,16 @@
-function flyBy(lamps, drone) {
-  return [...lamps].fill('o', 0, drone.length).join('');
+function stringTransformer(str) {
+  return str
+    .split(' ')
+    .reverse()
+    .map(word =>
+      word
+        .split('')
+        .map(char =>
+          char.toLowerCase() === char ? char.toUpperCase() : char.toLowerCase()
+        )
+        .join('')
+    )
+    .join(' ');
 }
 
-console.log(flyBy('xxxxxx', '====T')); // 'ooooox');
-console.log(flyBy('xxxxxxxxx', '==T')); // 'oooxxxxxx');
-console.log(flyBy('xxxxxxxxxxxxxxx', '=========T')); // 'ooooooooooxxxxx');
+console.log(stringTransformer('Example string')); // 'STRING eXAMPLE');

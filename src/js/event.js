@@ -1,8 +1,8 @@
 function stringMerge(string1, string2, letter) {
-  const index1 = string1.indexOf(letter);
-  const index2 = string2.indexOf(letter);
-
-  return string1.slice(0, index1) + letter + string2.slice(index2 + 1);
+  return (
+    string1.slice(0, string1.indexOf(letter)) +
+    string2.slice(string2.indexOf(letter))
+  );
 }
 
 console.log(stringMerge('person', 'here', 'e')); // 'pere');

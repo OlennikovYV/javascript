@@ -1,16 +1,15 @@
-function stringMerge(string1, string2, letter) {
-  return (
-    string1.slice(0, string1.indexOf(letter)) +
-    string2.slice(string2.indexOf(letter))
-  );
+function createPhoneNumber(numbers) {
+  const phone = numbers.join('');
+  const phone1 = phone.slice(0, 3);
+  const phone2 = phone.slice(3, 6);
+  const phone3 = phone.slice(6);
+
+  return `(${phone1}) ${phone2}-${phone3}`;
 }
 
-console.log(stringMerge('person', 'here', 'e')); // 'pere');
-console.log(stringMerge('apowiejfoiajsf', 'iwahfeijouh', 'j'));
-// 'apowiejouh'
-console.log(stringMerge('abcdefxxxyzz', 'abcxxxyyyxyzz', 'x'));
-// 'abcdefxxxyyyxyzz'
-console.log(stringMerge('12345654321', '123456789', '6')); // '123456789');
-console.log(stringMerge('JiOdIdA4', 'oopopopoodddasdfdfsd', 'd'));
-// 'JiOdddasdfdfsd'
-console.log(stringMerge('incredible', 'people', 'e')); // 'increople');
+console.log(createPhoneNumber([1, 2, 3, 4, 5, 6, 7, 8, 9, 0]));
+// '(123) 456-7890'
+console.log(createPhoneNumber([1, 1, 1, 1, 1, 1, 1, 1, 1, 1]));
+// '(111) 111-1111'
+console.log(createPhoneNumber([1, 2, 3, 4, 5, 6, 7, 8, 9, 0]));
+// '(123) 456-7890'

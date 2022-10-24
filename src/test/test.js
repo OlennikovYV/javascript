@@ -1,21 +1,16 @@
 mocha.setup('bdd');
 
-describe('String Merge!', () => {
-  it('test', () => {
-    chai.expect(stringMerge('person', 'here', 'e')).to.equal('pere');
+describe('Create Phone Number', () => {
+  it('Fixed tests', () => {
     chai
-      .expect(stringMerge('apowiejfoiajsf', 'iwahfeijouh', 'j'))
-      .to.equal('apowiejouh');
+      .expect(createPhoneNumber([1, 2, 3, 4, 5, 6, 7, 8, 9, 0]))
+      .to.equal('(123) 456-7890');
     chai
-      .expect(stringMerge('abcdefxxxyzz', 'abcxxxyyyxyzz', 'x'))
-      .to.equal('abcdefxxxyyyxyzz');
+      .expect(createPhoneNumber([1, 1, 1, 1, 1, 1, 1, 1, 1, 1]))
+      .to.equal('(111) 111-1111');
     chai
-      .expect(stringMerge('12345654321', '123456789', '6'))
-      .to.equal('123456789');
-    chai
-      .expect(stringMerge('JiOdIdA4', 'oopopopoodddasdfdfsd', 'd'))
-      .to.equal('JiOdddasdfdfsd');
-    chai.expect(stringMerge('incredible', 'people', 'e')).to.equal('increople');
+      .expect(createPhoneNumber([1, 2, 3, 4, 5, 6, 7, 8, 9, 0]))
+      .to.equal('(123) 456-7890');
   });
 });
 

@@ -1,16 +1,28 @@
 mocha.setup('bdd');
 
-describe('Create Phone Number', () => {
-  it('Fixed tests', () => {
+describe('Enumerable Magic #5- True for Just One?', () => {
+  it('test', () => {
     chai
-      .expect(createPhoneNumber([1, 2, 3, 4, 5, 6, 7, 8, 9, 0]))
-      .to.equal('(123) 456-7890');
+      .expect(
+        one([1, 2, 3, 4, 5], function (item) {
+          return item < 2;
+        })
+      )
+      .to.equal(true);
     chai
-      .expect(createPhoneNumber([1, 1, 1, 1, 1, 1, 1, 1, 1, 1]))
-      .to.equal('(111) 111-1111');
+      .expect(
+        one([1, 2, 3, 4, 5], function (item) {
+          return item % 2;
+        })
+      )
+      .to.equal(false, 'more than 1 item are odd');
     chai
-      .expect(createPhoneNumber([1, 2, 3, 4, 5, 6, 7, 8, 9, 0]))
-      .to.equal('(123) 456-7890');
+      .expect(
+        one([1, 2, 3, 4, 5], function (item) {
+          return item > 5;
+        })
+      )
+      .to.equal(false, 'none item is greater than 5');
   });
 });
 

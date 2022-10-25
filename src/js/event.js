@@ -1,19 +1,11 @@
-function one(arr, fun) {
-  return arr.filter(fun).length === 1;
+function solution(string, limit) {
+  let length = string.length;
+
+  if (length <= limit) return string;
+
+  return string.slice(0, limit) + '...';
 }
 
-console.log(
-  one([1, 2, 3, 4, 5], function (item) {
-    return item < 2;
-  })
-); // true
-console.log(
-  one([1, 2, 3, 4, 5], function (item) {
-    return item % 2;
-  })
-); // false,
-console.log(
-  one([1, 2, 3, 4, 5], function (item) {
-    return item > 5;
-  })
-); // false,
+console.log(solution('Testing String', 3)); // 'Tes...'
+console.log(solution('Testing String', 8)); // 'Testing ...'
+console.log(solution('Test', 8)); // 'Test'

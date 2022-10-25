@@ -1,9 +1,5 @@
 function solution(string, limit) {
-  let length = string.length;
-
-  if (length <= limit) return string;
-
-  return string.slice(0, limit) + '...';
+  return string.length <= limit ? string : string.slice(0, limit) + '...';
 }
 
 console.log(solution('Testing String', 3)); // 'Tes...'

@@ -1,7 +1,11 @@
-function solution(string, limit) {
-  return string.length <= limit ? string : string.slice(0, limit) + '...';
+function makeString(s) {
+  return s
+    .split(' ')
+    .map(word => word[0])
+    .join('');
 }
 
-console.log(solution('Testing String', 3)); // 'Tes...'
-console.log(solution('Testing String', 8)); // 'Testing ...'
-console.log(solution('Test', 8)); // 'Test'
+console.log(makeString('sees eyes xray yoat')); // 'sexy',
+console.log(makeString('brown eyes are nice')); // 'bean',
+console.log(makeString('cars are very nice')); // 'cavn',
+console.log(makeString('kaks de gan has a big head')); // 'kdghabh',

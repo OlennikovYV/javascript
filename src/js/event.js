@@ -1,8 +1,5 @@
 function makeString(s) {
-  return s
-    .split(' ')
-    .map(word => word[0])
-    .join('');
+  return s.match(/\b\w/g).join('');
 }
 
 console.log(makeString('sees eyes xray yoat')); // 'sexy',

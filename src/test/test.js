@@ -1,11 +1,13 @@
 mocha.setup('bdd');
 
-describe('Return String of First Characters', () => {
+describe('Add new item (collections are passed by reference)', () => {
   it('test', () => {
-    chai.expect(makeString('sees eyes xray yoat')).to.equal('sexy');
-    chai.expect(makeString('brown eyes are nice')).to.equal('bean');
-    chai.expect(makeString('cars are very nice')).to.equal('cavn');
-    chai.expect(makeString('kaks de gan has a big head')).to.equal('kdghabh');
+    chai.expect(addExtra([1, 2, 3]).length).to.equal(4);
+    chai.expect(addExtra([1, 2]).length).to.equal(3);
+    chai.expect(addExtra([]).length).to.equal(1);
+
+    var arr = [1, 2, 3];
+    chai.expect(addExtra(arr)).to.not.equal(arr);
   });
 });
 

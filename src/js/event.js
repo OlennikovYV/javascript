@@ -1,5 +1,5 @@
 function addExtra(listOfNumbers) {
-  return listOfNumbers.concat(13);
+  return [...listOfNumbers, 13];
 }
 
 console.log(addExtra([1, 2, 3]).length); // 4

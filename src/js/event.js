@@ -4,11 +4,9 @@ function checkThreeAndTwo(array) {
     return count;
   }, {});
 
-  const arrayCountChar = Array.from(Object.entries(countChar));
-
   return (
-    arrayCountChar.length === 2 &&
-    (arrayCountChar[0][1] === 2 || arrayCountChar[0][1] === 3)
+    Object.values(countChar).some(x => x === 2) &&
+    Object.values(countChar).some(x => x === 3)
   );
 }
 

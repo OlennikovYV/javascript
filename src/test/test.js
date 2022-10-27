@@ -1,13 +1,10 @@
 mocha.setup('bdd');
 
-describe('Add new item (collections are passed by reference)', () => {
-  it('test', () => {
-    chai.expect(addExtra([1, 2, 3]).length).to.equal(4);
-    chai.expect(addExtra([1, 2]).length).to.equal(3);
-    chai.expect(addExtra([]).length).to.equal(1);
-
-    var arr = [1, 2, 3];
-    chai.expect(addExtra(arr)).to.not.equal(arr);
+describe('Check three and two', () => {
+  it('Basic tests', function () {
+    chai.expect(checkThreeAndTwo(['a', 'a', 'a', 'b', 'b'])).to.equal(true);
+    chai.expect(checkThreeAndTwo(['a', 'c', 'a', 'c', 'b'])).to.equal(false);
+    chai.expect(checkThreeAndTwo(['a', 'a', 'a', 'a', 'a'])).to.equal(false);
   });
 });
 

@@ -1,10 +1,17 @@
-function addExtra(listOfNumbers) {
-  return [...listOfNumbers, 13];
+function checkThreeAndTwo(array) {
+  const countChar = array.reduce((count, char) => {
+    count[char] = count[char] ? count[char] + 1 : 1;
+    return count;
+  }, {});
+
+  const arrayCountChar = Array.from(Object.entries(countChar));
+
+  return (
+    arrayCountChar.length === 2 &&
+    (arrayCountChar[0][1] === 2 || arrayCountChar[0][1] === 3)
+  );
 }
 
-console.log(addExtra([1, 2, 3]).length); // 4
-console.log(addExtra([1, 2]).length); // 3
-console.log(addExtra([]).length); // 1
-
-var arr = [1, 2, 3];
-console.log(addExtra(arr), arr); // add!==
+console.log(checkThreeAndTwo(['a', 'a', 'a', 'b', 'b'])); // true
+console.log(checkThreeAndTwo(['a', 'c', 'a', 'c', 'b'])); // false
+console.log(checkThreeAndTwo(['a', 'a', 'a', 'a', 'a'])); // false

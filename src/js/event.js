@@ -1,10 +1,9 @@
 function nextItem(xs, item) {
-  let iterator = xs[Symbol.iterator]();
+  let found;
 
-  while (true) {
-    let res = iterator.next();
-    if (res.done) break;
-    if (res.value === item) return iterator.next().value;
+  for (let el of xs) {
+    if (found) return el;
+    if (el === item) found = true;
   }
 
   return undefined;

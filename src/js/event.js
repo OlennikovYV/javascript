@@ -1,15 +1,22 @@
-function checkThreeAndTwo(array) {
-  const countChar = array.reduce((count, char) => {
-    count[char] = count[char] ? count[char] + 1 : 1;
-    return count;
-  }, {});
+function nextItem(xs, item) {
+  let iterator = xs[Symbol.iterator]();
 
-  return (
-    Object.values(countChar).some(x => x === 2) &&
-    Object.values(countChar).some(x => x === 3)
-  );
+  while (true) {
+    let res = iterator.next();
+    if (res.done) break;
+    if (res.value === item) return iterator.next().value;
+  }
+
+  return undefined;
 }
 
-console.log(checkThreeAndTwo(['a', 'a', 'a', 'b', 'b'])); // true
-console.log(checkThreeAndTwo(['a', 'c', 'a', 'c', 'b'])); // false
-console.log(checkThreeAndTwo(['a', 'a', 'a', 'a', 'a'])); // false
+console.log(nextItem([1, 2, 3, 4, 5, 6, 7, 8], 5)); // 6
+console.log(nextItem(['a', 'b', 'c'], 'd')); // undefined
+console.log(nextItem(['a', 'b', 'c'], 'c')); // undefined
+console.log(nextItem('testing', 't')); // 'e'
+
+function* countFrom(n) {
+  for (let i = n; ; ++i) yield i;
+}
+
+console.log(nextItem(countFrom(1), 12)); // 13

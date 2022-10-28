@@ -1,12 +1,7 @@
 function nextItem(xs, item) {
-  let found;
+  const iterations = xs[Symbol.iterator]();
 
-  for (let el of xs) {
-    if (found) return el;
-    if (el === item) found = true;
-  }
-
-  return undefined;
+  for (let el of iterations) if (el === item) return iterations.next().value;
 }
 
 console.log(nextItem([1, 2, 3, 4, 5, 6, 7, 8], 5)); // 6

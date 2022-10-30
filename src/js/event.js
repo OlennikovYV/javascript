@@ -1,6 +1,6 @@
 let MrFreeze = {};
 
-MrFreeze = Object.freeze(MrFreeze);
+Object.freeze(MrFreeze);
 
 MrFreeze.speak = function () {
   return 1;

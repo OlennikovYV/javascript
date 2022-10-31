@@ -1,18 +1,29 @@
 mocha.setup('bdd');
 
-describe('Mr. Freeze', () => {
-  it('should test for something', function () {
-    MrFreeze.speak = function () {
-      return 1;
-    };
+describe('Enumerable Magic #20 - Cascading Subsets', () => {
+  const lst = [3, 5, 8, 13];
 
-    chai
-      .expect(function () {
-        MrFreeze.speak();
-      })
-      .to.throw();
+  it('Should return cascading lists of 1 element', function () {
+    chai.expect(eachCons(lst, 1)).to.eql([[3], [5], [8], [13]]);
+  });
 
-    chai.expect(Object.isFrozen(MrFreeze)).to.equal(true);
+  it('Should return cascading lists of 2 element', function () {
+    chai.expect(eachCons(lst, 2)).to.eql([
+      [3, 5],
+      [5, 8],
+      [8, 13],
+    ]);
+  });
+
+  it('Should return cascading lists of 3 element', function () {
+    chai.expect(eachCons(lst, 3)).to.eql([
+      [3, 5, 8],
+      [5, 8, 13],
+    ]);
+  });
+
+  it('Empty list should return an empty list', function () {
+    chai.expect(eachCons([], 3)).to.eql([]);
   });
 });
 

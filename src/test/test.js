@@ -1,9 +1,10 @@
 mocha.setup('bdd');
 
-describe('Is integer safe to use?', () => {
+describe('Last', () => {
   it('test', () => {
-    chai.expect(SafeInteger(9007199254740992)).to.equal(false);
-    chai.expect(SafeInteger(9007199254740990)).to.equal(true);
+    chai.expect(last([1, 2, 3, 4, 5])).to.equal(5); //-- array
+    chai.expect(last('abcde')).to.equal('e'); //-- string
+    chai.expect(last(1, 'b', 3, 'd', 5)).to.equal(5); //-- arguments
   });
 });
 

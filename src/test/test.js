@@ -1,10 +1,24 @@
 mocha.setup('bdd');
 
-describe('Last', () => {
+describe('Find the Capitals', () => {
   it('test', () => {
-    chai.expect(last([1, 2, 3, 4, 5])).to.equal(5); //-- array
-    chai.expect(last('abcde')).to.equal('e'); //-- string
-    chai.expect(last(1, 'b', 3, 'd', 5)).to.equal(5); //-- arguments
+    const state_capitals = [{ state: 'Maine', capital: 'Augusta' }];
+    chai
+      .expect(capital(state_capitals)[0])
+      .to.equal('The capital of Maine is Augusta');
+
+    const country_capitals = [{ country: 'Spain', capital: 'Madrid' }];
+    chai
+      .expect(capital(country_capitals)[0])
+      .to.equal('The capital of Spain is Madrid');
+
+    const mixed_capitals = [
+      { state: 'Maine', capital: 'Augusta' },
+      { country: 'Spain', capital: 'Madrid' },
+    ];
+    chai
+      .expect(capital(mixed_capitals)[1])
+      .to.equal('The capital of Spain is Madrid');
   });
 });
 

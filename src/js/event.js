@@ -1,14 +1,21 @@
-function last(...list) {
-  let arg = Array.from(list);
-
-  if (typeof arg[0] === 'string' && arg.length < 2) arg = Array.from(arg[0]);
-  if (typeof arg[0] === 'object') arg = Object.values(arg[0]);
-
-  return arg[arg.length - 1];
+function capital(capitals) {
+  return capitals.map(
+    el => `The capital of ${el.country || el.state} is ${el.capital}`
+  );
 }
 
-console.log(last([1, 2, 3, 4, 5])); // 5
-console.log(last('abcde')); // 'e'
-console.log(last(1, 'b', 3, 'd', 5)); // 5
-console.log(last({ 0: 5, 1: 4 })); // 4
-console.log(last('a', 'b', 'c', 'z')); // 4
+const state_capitals = [{ state: 'Maine', capital: 'Augusta' }];
+
+console.log(capital(state_capitals)[0]);
+// 'The capital of Maine is Augusta'
+
+const country_capitals = [{ country: 'Spain', capital: 'Madrid' }];
+console.log(capital(country_capitals)[0]);
+// 'The capital of Spain is Madrid'
+
+const mixed_capitals = [
+  { state: 'Maine', capital: 'Augusta' },
+  { country: 'Spain', capital: 'Madrid' },
+];
+console.log(capital(mixed_capitals)[1]);
+// 'The capital of Spain is Madrid'

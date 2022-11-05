@@ -1,21 +1,28 @@
-function capital(capitals) {
-  return capitals.map(
-    el => `The capital of ${el.country || el.state} is ${el.capital}`
-  );
+class Person {
+  constructor(firstName = 'John', lastName = 'Doe', age = 0, gender = 'Male') {
+    this.firstName = firstName;
+    this.lastName = lastName;
+    this.age = age;
+    this.gender = gender;
+  }
+
+  sayFullName() {
+    return this.firstName + ' ' + this.lastName;
+  }
+
+  static greetExtraTerrestrials(raceName) {
+    return `Welcome to Planet Earth ${raceName}`;
+  }
 }
 
-const state_capitals = [{ state: 'Maine', capital: 'Augusta' }];
-
-console.log(capital(state_capitals)[0]);
-// 'The capital of Maine is Augusta'
-
-const country_capitals = [{ country: 'Spain', capital: 'Madrid' }];
-console.log(capital(country_capitals)[0]);
-// 'The capital of Spain is Madrid'
-
-const mixed_capitals = [
-  { state: 'Maine', capital: 'Augusta' },
-  { country: 'Spain', capital: 'Madrid' },
-];
-console.log(capital(mixed_capitals)[1]);
-// 'The capital of Spain is Madrid'
+console.log(new Person().firstName); // 'John'
+console.log(new Person().lastName); // 'Doe'
+console.log(new Person().age); // 0
+console.log(new Person().gender); // 'Male'
+console.log(new Person().sayFullName()); // 'John Doe'
+// Example Custom Test
+console.log(new Person('Jane', 'Doe', 25, 'Female').firstName); // 'Jane'
+console.log(new Person('Jane', 'Doe', 25, 'Female').lastName); // 'Doe'
+console.log(new Person('Jane', 'Doe', 25, 'Female').age); // 25
+console.log(new Person('Jane', 'Doe', 25, 'Female').gender); // 'Female'
+console.log(new Person('Jane', 'Doe', 25, 'Female').sayFullName()); // 'Jane Doe'

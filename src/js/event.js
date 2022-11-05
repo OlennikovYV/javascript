@@ -1,13 +1,10 @@
 class Person {
   constructor(firstName = 'John', lastName = 'Doe', age = 0, gender = 'Male') {
-    this.firstName = firstName;
-    this.lastName = lastName;
-    this.age = age;
-    this.gender = gender;
+    Object.assign(this, { firstName, lastName, age, gender });
   }
 
   sayFullName() {
-    return this.firstName + ' ' + this.lastName;
+    return `${this.firstName} ${this.lastName}`;
   }
 
   static greetExtraTerrestrials(raceName) {

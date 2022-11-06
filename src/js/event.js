@@ -1,7 +1,7 @@
 function broken(x) {
   return x
     .split('')
-    .map(bin => (Number(bin) ? '0' : '1'))
+    .map(bin => (bin === '1' ? '0' : '1'))
     .join('');
 }
 

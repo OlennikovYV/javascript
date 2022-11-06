@@ -1,8 +1,5 @@
 function broken(x) {
-  return x
-    .split('')
-    .map(bin => (bin === '1' ? '0' : '1'))
-    .join('');
+  return x.replace(/\d/g, bin => bin ^ 1);
 }
 
 console.log(broken('1')); // '0'

@@ -1,5 +1,5 @@
 function broken(x) {
-  return x.replace(/\d/g, bin => bin ^ 1);
+  return x.replace(/[01]/g, bin => '10'[bin]);
 }
 
 console.log(broken('1')); // '0'

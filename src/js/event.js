@@ -1,10 +1,7 @@
 function shorter_reverse_longer(a, b) {
-  const lengthA = a.length;
-  const lengthB = b.length;
-  const reverseLong = (lengthA >= lengthB ? a : b).split('').reverse().join('');
-  const shorter = lengthA >= lengthB ? b : a;
-
-  return shorter + reverseLong + shorter;
+  return a.length >= b.length
+    ? b + a.split('').reverse().join('') + b
+    : a + b.split('').reverse().join('') + a;
 }
 
 console.log(shorter_reverse_longer('first', 'abcde'));

@@ -1,6 +1,8 @@
+const reverseString = str => str.split('').reverse().join('');
+
 function shorter_reverse_longer(a, b) {
   if (a.length >= b.length) [a, b] = [b, a];
-  return a + b.split('').reverse().join('') + a;
+  return a + reverseString(b) + a;
 }
 
 console.log(shorter_reverse_longer('first', 'abcde'));

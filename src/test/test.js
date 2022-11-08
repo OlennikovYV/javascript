@@ -1,14 +1,14 @@
 mocha.setup('bdd');
 
-describe('shorter concat [reverse longer]', () => {
-  it('test', () => {
-    chai
-      .expect(shorter_reverse_longer('first', 'abcde'))
-      .to.equal('abcdetsrifabcde');
-    chai.expect(shorter_reverse_longer('hello', 'bau')).to.equal('bauollehbau');
-    chai
-      .expect(shorter_reverse_longer('fghi', 'abcde'))
-      .to.equal('fghiedcbafghi');
+describe('Palindrome chain length', () => {
+  it('Palindromes', () => {
+    chai.expect(palindromeChainLength(1)).to.equal(0);
+    chai.expect(palindromeChainLength(88)).to.equal(0);
+  });
+  it('Not palindromes', () => {
+    chai.expect(palindromeChainLength(87)).to.equal(4);
+    chai.expect(palindromeChainLength(89)).to.equal(24);
+    chai.expect(palindromeChainLength(10)).to.equal(1);
   });
 });
 

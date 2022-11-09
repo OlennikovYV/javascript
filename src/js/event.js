@@ -1,5 +1,7 @@
 Array.prototype.remove_ = function (integer_list, values_list) {
-  return integer_list.filter(el => !values_list.includes(el));
+  const set = new Set(values_list);
+
+  return integer_list.filter(el => !set.has(el));
 };
 
 let l = new Array();

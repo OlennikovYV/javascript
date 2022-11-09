@@ -1,21 +1,11 @@
-const palindromeChainLength = function (n) {
-  const reverseNum = num => +String(num).split('').reverse().join('');
-  const isPalindrome = num => num === reverseNum(num);
+const max = { name: 'Max Headroom' };
 
-  let count = 0;
-  let num = n;
+function getMax1() {
+  return max;
+}
 
-  while (!isPalindrome(num)) {
-    num = num + reverseNum(num);
-    count += 1;
-  }
+function getMax2() {
+  return max;
+}
 
-  return count;
-};
-
-console.log(palindromeChainLength(1)); // 0
-console.log(palindromeChainLength(88)); // 0
-
-console.log(palindromeChainLength(87)); // 4
-console.log(palindromeChainLength(89)); // 24
-console.log(palindromeChainLength(10)); // 1
+console.log(getMax2() == getMax1()); // true

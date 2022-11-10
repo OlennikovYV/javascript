@@ -1,10 +1,13 @@
-function twoDecimalPlaces(number) {
-  return ((number * 100) | 0) / 100;
+function createDict(keys, values) {
+  return keys.reduce((dict, key, index) => {
+    dict[key] = values[index] == undefined ? null : values[index];
+    return dict;
+  }, {});
 }
 
-console.log(twoDecimalPlaces(10.1289767789));
-// 10.12
-console.log(twoDecimalPlaces(-7488.83485834983));
-// -7488.83
-console.log(twoDecimalPlaces(4.653725356));
-// 4.65
+console.log(createDict(['a', 'b', 'c'], [1, 2, 3]));
+// {a: 1, b: 2, c: 3}
+console.log(createDict(['a', 'b', 'c'], [1, 2, 3, 4]));
+// {a: 1, b: 2, c: 3}
+console.log(createDict(['a', 'b', 'c', 'd'], [1, 2, 3]));
+// {a: 1, b: 2, c: 3, d: null}

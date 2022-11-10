@@ -1,6 +1,6 @@
 function createDict(keys, values) {
   return keys.reduce((dict, key, index) => {
-    dict[key] = values[index] == undefined ? null : values[index];
+    dict[key] = index in values ? values[index] : null;
     return dict;
   }, {});
 }

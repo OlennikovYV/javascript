@@ -1,5 +1,5 @@
 function twoDecimalPlaces(number) {
-  return Math.trunc(number * 100) / 100;
+  return ((number * 100) | 0) / 100;
 }
 
 console.log(twoDecimalPlaces(10.1289767789));

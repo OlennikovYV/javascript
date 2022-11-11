@@ -1,8 +1,5 @@
-function swapValues() {
-  let args = Array.prototype.slice.call(arguments)[0];
-  let temp = args[0];
-  args[0] = args[1];
-  args[1] = temp;
+function swapValues(arr) {
+  [arr[0], arr[1]] = [arr[1], arr[0]];
 }
 
 const arr = [1, 2];

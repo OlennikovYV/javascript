@@ -1,7 +1,5 @@
-function swapValues(arr) {
-  let temp = arr[0];
-  arr[0] = arr[1];
-  arr[1] = temp;
+function swapValues() {
+  arguments[0].reverse();
 }
 
 const arr = [1, 2];

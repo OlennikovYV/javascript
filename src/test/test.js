@@ -1,23 +1,13 @@
 mocha.setup('bdd');
 
-describe('Dictionary from two lists', () => {
+describe('Swap Values', () => {
   it('test', () => {
-    chai.expect(createDict(['a', 'b', 'c'], [1, 2, 3])).to.eql({
-      a: 1,
-      b: 2,
-      c: 3,
-    });
-    chai.expect(createDict(['a', 'b', 'c'], [1, 2, 3, 4])).to.eql({
-      a: 1,
-      b: 2,
-      c: 3,
-    });
-    chai.expect(createDict(['a', 'b', 'c', 'd'], [1, 2, 3])).to.eql({
-      a: 1,
-      b: 2,
-      c: 3,
-      d: null,
-    });
+    var arr = [1, 2];
+
+    swapValues(arr);
+
+    chai.expect(arr[0]).to.equal(2);
+    chai.expect(arr[1]).to.equal(1);
   });
 });
 

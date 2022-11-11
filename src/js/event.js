@@ -1,13 +1,12 @@
-function createDict(keys, values) {
-  return keys.reduce((dict, key, index) => {
-    dict[key] = index in values ? values[index] : null;
-    return dict;
-  }, {});
+function swapValues() {
+  let temp = arguments[0][0];
+  arguments[0][0] = arguments[0][1];
+  arguments[0][1] = temp;
 }
 
-console.log(createDict(['a', 'b', 'c'], [1, 2, 3]));
-// {a: 1, b: 2, c: 3}
-console.log(createDict(['a', 'b', 'c'], [1, 2, 3, 4]));
-// {a: 1, b: 2, c: 3}
-console.log(createDict(['a', 'b', 'c', 'd'], [1, 2, 3]));
-// {a: 1, b: 2, c: 3, d: null}
+const arr = [1, 2];
+
+swapValues(arr);
+
+console.log(arr[0]); // 2
+console.log(arr[1]); // 1

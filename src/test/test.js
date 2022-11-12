@@ -1,13 +1,9 @@
 mocha.setup('bdd');
 
-describe('Swap Values', () => {
-  it('test', () => {
-    var arr = [1, 2];
-
-    swapValues(arr);
-
-    chai.expect(arr[0]).to.equal(2);
-    chai.expect(arr[1]).to.equal(1);
+describe('Filter unused digits', () => {
+  it('example tests', () => {
+    chai.expect(unusedDigits(12, 34, 56, 78)).to.equal('09');
+    chai.expect(unusedDigits(2015, 8, 26)).to.equal('3479');
   });
 });
 

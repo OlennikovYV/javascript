@@ -1,9 +1,5 @@
 function swap(string) {
-  return [...string]
-    .map(char =>
-      ['a', 'o', 'i', 'e', 'u'].includes(char) ? char.toUpperCase() : char
-    )
-    .join('');
+  return string.replace(/[aoieu]/g, vowel => vowel.toUpperCase());
 }
 
 console.log(swap('')); // ''

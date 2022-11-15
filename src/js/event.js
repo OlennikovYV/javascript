@@ -1,12 +1,11 @@
 function scrollingText(text) {
-  let result = [];
+  const resultArray = [];
+  const originalText = text.toUpperCase();
 
-  for (let i = 0; i < text.length; i += 1) {
-    pushingText = text.slice(i) + text.slice(0, i);
-    result.push(pushingText.toUpperCase());
-  }
+  for (let i = 0; i < text.length; i += 1)
+    resultArray.push(originalText.slice(i) + originalText.slice(0, i));
 
-  return result;
+  return resultArray;
 }
 
 console.log(scrollingText('abc')); // ['ABC', 'BCA', 'CAB']

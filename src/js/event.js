@@ -2,9 +2,9 @@ function hydrate(s) {
   let sumGlass = s
     .match(/[\d+]/g)
     .reduce((sum, drink) => sum + Number(drink), 0);
-  return sumGlass > 1
-    ? `${sumGlass} glasses of water`
-    : `${sumGlass} glass of water`;
+  let formatGlass = sumGlass > 1 ? `glasses` : `glass`;
+
+  return `${sumGlass} ${formatGlass} of water`;
 }
 
 console.log(hydrate('1 beer')); // '1 glass of water');

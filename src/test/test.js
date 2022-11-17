@@ -1,14 +1,13 @@
 mocha.setup('bdd');
 
-describe('Responsible Drinking', () => {
-  it('Basic tests', () => {
-    chai.expect(hydrate('1 beer')).to.equal('1 glass of water');
+describe('Find Count of Most Frequent Item in an Array', () => {
+  it('test', () => {
+    chai.expect(mostFrequentItemCount([3, -1, -1])).to.equal(2);
     chai
-      .expect(hydrate('2 glasses of wine and 1 shot'))
-      .to.equal('3 glasses of water');
-    chai
-      .expect(hydrate('1 shot, 5 beers, 2 shots, 1 glass of wine, 1 beer'))
-      .to.equal('10 glasses of water');
+      .expect(
+        mostFrequentItemCount([3, -1, -1, -1, 2, 3, -1, 3, -1, 2, 4, 9, 3])
+      )
+      .to.equal(5);
   });
 });
 

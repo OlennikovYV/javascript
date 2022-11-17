@@ -5,11 +5,7 @@ function mostFrequentItemCount(collection) {
     return count;
   }, {});
 
-  for (let key in countNumbers) {
-    if (countNumbers[key] > maxCount) maxCount = countNumbers[key];
-  }
-
-  return maxCount;
+  return Math.max(...Object.values(countNumbers));
 }
 
 console.log(mostFrequentItemCount([3, -1, -1])); // 2

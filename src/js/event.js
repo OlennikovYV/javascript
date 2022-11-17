@@ -1,11 +1,11 @@
 function mostFrequentItemCount(collection) {
-  let maxCount = 0;
-  const countNumbers = collection.reduce((count, number) => {
-    count[number] = (count[number] || 0) + 1;
-    return count;
-  }, {});
-
-  return Math.max(...Object.values(countNumbers));
+  return collection.length
+    ? Math.max(
+        ...collection.map(
+          number => collection.filter(num => number === num).length
+        )
+      )
+    : 0;
 }
 
 console.log(mostFrequentItemCount([3, -1, -1])); // 2

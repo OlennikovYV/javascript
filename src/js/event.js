@@ -1,6 +1,4 @@
 function isDivisible(num, ...arg) {
-  if (!arg) return true;
-
   return [...arg].every(el => num % el === 0);
 }
 

@@ -1,15 +1,10 @@
-function mostFrequentItemCount(collection) {
-  return collection.length
-    ? Math.max(
-        ...collection.map(
-          number => collection.filter(num => number === num).length
-        )
-      )
-    : 0;
+function isDivisible(num, ...arg) {
+  if (!arg) return true;
+
+  return [...arg].every(el => num % el === 0);
 }
 
-console.log(mostFrequentItemCount([3, -1, -1])); // 2
-console.log(
-  mostFrequentItemCount([3, -1, -1, -1, 2, 3, -1, 3, -1, 2, 4, 9, 3])
-);
-// 5
+console.log(isDivisible(3)); // true
+console.log(isDivisible(3, 3, 4)); // false
+console.log(isDivisible(12, 3, 4)); // true
+console.log(isDivisible(8, 3, 4, 2, 5)); // false

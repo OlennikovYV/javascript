@@ -29,8 +29,8 @@ function convertNumberToString(num) {
 function wallpaper(l, w, h) {
   if (!l || !w || !h) return convertNumberToString(0);
 
-  const rolls = 0.52 * 10;
-  const wall = 2 * (l * h + w * h);
+  const rolls = 5.2;
+  const wall = 2 * h * (l + w);
   const volumeWithNeeds = wall * 1.15;
   const countRolls = Math.ceil(volumeWithNeeds / rolls);
 

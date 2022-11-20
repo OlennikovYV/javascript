@@ -1,9 +1,7 @@
 function tripleX(str) {
   const indexX = str.indexOf('x');
 
-  if (indexX === -1) return false;
-
-  return str[indexX + 1] + str[indexX + 2] === 'xx';
+  return indexX > -1 && indexX === str.indexOf('xxx');
 }
 
 console.log(tripleX('abraxxxas')); // true

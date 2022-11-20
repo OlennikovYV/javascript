@@ -1,5 +1,5 @@
 function tripleX(str) {
-  return str.substr(str.indexOf('x') + 1, 2) === 'xx';
+  return /^[^x]*xxx/.test(str);
 }
 
 console.log(tripleX('abraxxxas')); // true

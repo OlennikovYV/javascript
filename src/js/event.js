@@ -1,7 +1,5 @@
 function largest(n, xs) {
-  xs.sort((a, b) => b - a);
-
-  return n ? xs.slice(0, n).sort((a, b) => a - b) : [];
+  return n ? xs.sort((a, b) => a - b).slice(-n) : [];
 }
 
 console.log(largest(2, [10, 9, 8, 7, 6, 5, 4, 3, 2, 1])); // [9, 10]

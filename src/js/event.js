@@ -1,8 +1,29 @@
-function largest(n, xs) {
-  return n ? xs.sort((a, b) => a - b).slice(-n) : [];
+function binaryToString(binary) {
+  let resultString = '';
+
+  for (let i = 0; i < binary.length; i += 8) {
+    const binaryChar = binary.slice(i, i + 8);
+    const asciiChar = parseInt(binaryChar, 2);
+    resultString += String.fromCharCode(asciiChar);
+  }
+
+  return resultString;
 }
 
-console.log(largest(2, [10, 9, 8, 7, 6, 5, 4, 3, 2, 1])); // [9, 10]
-console.log(largest(3, [5, 1, 5, 2, 3, 1, 2, 3, 5])); // [5, 5, 5]
-console.log(largest(7, [9, 1, 50, 22, 3, 13, 2, 63, 5])); // [3, 5, 9, 13, 22, 50, 63]
-console.log(largest(0, [1, 2, 3, 4, 8, 7, 6, 5])); // []
+console.log(binaryToString('')); // ''
+
+//Test apha chars
+console.log(binaryToString('01100001'));
+// 'a'
+console.log(
+  binaryToString('01001011010101000100100001011000010000100101100101000101')
+);
+// 'KTHXBYE'
+
+//Test numeric
+console.log(binaryToString('00110001001100000011000100110001'));
+// '1011'
+
+//Test special chars
+console.log(binaryToString('001111000011101000101001'));
+// '<:)'

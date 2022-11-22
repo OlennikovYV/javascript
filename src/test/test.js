@@ -1,13 +1,26 @@
 mocha.setup('bdd');
 
-describe('Largest Elements', () => {
+describe('Binary to Text (ASCII) Conversion', () => {
   it('test', () => {
-    chai.expect(largest(2, [10, 9, 8, 7, 6, 5, 4, 3, 2, 1])).to.eql([9, 10]);
-    chai.expect(largest(3, [5, 1, 5, 2, 3, 1, 2, 3, 5])).to.eql([5, 5, 5]);
+    // Empty
+    chai.expect(binaryToString(''), '');
+    //Test apha chars
+    chai.expect(binaryToString('01100001'), 'a');
     chai
-      .expect(largest(7, [9, 1, 50, 22, 3, 13, 2, 63, 5]))
-      .to.eql([3, 5, 9, 13, 22, 50, 63]);
-    chai.expect(largest(0, [1, 2, 3, 4, 8, 7, 6, 5])).to.eql([]);
+      .expect(
+        binaryToString(
+          '01001011010101000100100001011000010000100101100101000101'
+        )
+      )
+      .to.equal('KTHXBYE');
+
+    //Test numeric
+    chai
+      .expect(binaryToString('00110001001100000011000100110001'))
+      .to.equal('1011');
+
+    //Test special chars
+    chai.expect(binaryToString('001111000011101000101001')).to.equal('<:)');
   });
 });
 

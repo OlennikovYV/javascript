@@ -1,13 +1,5 @@
 function binaryToString(binary) {
-  let resultString = '';
-
-  for (let i = 0; i < binary.length; i += 8) {
-    const binaryChar = binary.slice(i, i + 8);
-    const asciiChar = parseInt(binaryChar, 2);
-    resultString += String.fromCharCode(asciiChar);
-  }
-
-  return resultString;
+  return binary.replace(/[01]{8}/g, el => String.fromCharCode(parseInt(el, 2)));
 }
 
 console.log(binaryToString('')); // ''

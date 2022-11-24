@@ -7,14 +7,6 @@ class Animal {
   toString() {
     return `${this.name} is a ${this.type}`;
   }
-
-  get name() {
-    return this._name;
-  }
-
-  set name(value) {
-    this._name = value;
-  }
 }
 
 var dog = new Animal('Max', 'dog');

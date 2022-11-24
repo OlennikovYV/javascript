@@ -1,26 +1,15 @@
 mocha.setup('bdd');
 
-describe('Binary to Text (ASCII) Conversion', () => {
+describe('JavaScript class-like objects', () => {
   it('test', () => {
-    // Empty
-    chai.expect(binaryToString(''), '');
-    //Test apha chars
-    chai.expect(binaryToString('01100001'), 'a');
-    chai
-      .expect(
-        binaryToString(
-          '01001011010101000100100001011000010000100101100101000101'
-        )
-      )
-      .to.equal('KTHXBYE');
+    var dog = new Animal('Max', 'dog');
 
-    //Test numeric
-    chai
-      .expect(binaryToString('00110001001100000011000100110001'))
-      .to.equal('1011');
+    chai.expect(dog.toString()).to.equal('Max is a dog');
+    chai.expect(dog.type).to.equal('dog');
+    chai.expect(dog.name).to.equal('Max');
 
-    //Test special chars
-    chai.expect(binaryToString('001111000011101000101001')).to.equal('<:)');
+    dog.name = 'Lassie';
+    chai.expect(dog.name).to.equal('Lassie');
   });
 });
 

@@ -1,21 +1,27 @@
-function binaryToString(binary) {
-  return binary.replace(/[01]{8}/g, el => String.fromCharCode(parseInt(el, 2)));
+class Animal {
+  constructor(name, type) {
+    this.name = name;
+    this.type = type;
+  }
+
+  toString() {
+    return `${this.name} is a ${this.type}`;
+  }
+
+  get name() {
+    return this._name;
+  }
+
+  set name(value) {
+    this._name = value;
+  }
 }
 
-console.log(binaryToString('')); // ''
+var dog = new Animal('Max', 'dog');
 
-//Test apha chars
-console.log(binaryToString('01100001'));
-// 'a'
-console.log(
-  binaryToString('01001011010101000100100001011000010000100101100101000101')
-);
-// 'KTHXBYE'
+console.log(dog.toString()); // should return 'Max is a dog'
+console.log(dog.type); // should == 'dog'
+console.log(dog.name); // should == 'Max'
 
-//Test numeric
-console.log(binaryToString('00110001001100000011000100110001'));
-// '1011'
-
-//Test special chars
-console.log(binaryToString('001111000011101000101001'));
-// '<:)'
+dog.name = 'Lassie';
+console.log(dog.name); // 'Lassie'

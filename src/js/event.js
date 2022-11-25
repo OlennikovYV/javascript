@@ -25,5 +25,10 @@ function check() {
   else return false;
 }
 
+let funcText = blackBox + '';
+console.log(funcText);
+
 JSopenSesame();
+// theBoxHasBeenOpened = true
+
 console.log(check()); // true

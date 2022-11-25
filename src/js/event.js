@@ -1,19 +1,29 @@
-class Animal {
-  constructor(name, type) {
-    this.name = name;
-    this.type = type;
-  }
+let theBoxHasBeenOpened = false;
 
-  toString() {
-    return `${this.name} is a ${this.type}`;
-  }
+function blackBox(args) {
+  //a secret message is hidden within me
+  //if you cannot see it, fear not!
+  //just think of another way to read me.
+
+  if ('you have got this far, well done!');
+  if ('you did NOT use toString(), let me know!');
+  if ('you see this, you have my terrible secret...');
+  if ("you call JSopenSesame(), you'll pass!");
+
+  if (!args) return 'Empty?';
+  if (typeof args == 'string') return 'Hmm...Interesting reading.';
+  else return 'Ugh';
 }
 
-var dog = new Animal('Max', 'dog');
+function JSopenSesame() {
+  theBoxHasBeenOpened = true;
+  theBoxHasBeenOpenedTheProperWay = true;
+}
 
-console.log(dog.toString()); // should return 'Max is a dog'
-console.log(dog.type); // should == 'dog'
-console.log(dog.name); // should == 'Max'
+function check() {
+  if (theBoxHasBeenOpened) return true;
+  else return false;
+}
 
-dog.name = 'Lassie';
-console.log(dog.name); // 'Lassie'
+JSopenSesame();
+console.log(check()); // true

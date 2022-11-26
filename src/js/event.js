@@ -1,5 +1,5 @@
 function isIntArray(arr) {
-  return Array.isArray(arr) && arr.every(num => Number.isInteger(num));
+  return Array.isArray(arr) && arr.every(num => ~~num === num);
 }
 
 console.log(isIntArray([])); // true

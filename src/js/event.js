@@ -1,10 +1,5 @@
 function isIntArray(arr) {
-  if (!arr) return false;
-  if (arr.length === 0) return true;
-
-  return arr.every(num => {
-    return Number.isInteger(num) || num === Math.trunc(num);
-  });
+  return Array.isArray(arr) && arr.every(num => Number.isInteger(num));
 }
 
 console.log(isIntArray([])); // true

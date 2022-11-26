@@ -1,34 +1,15 @@
-let theBoxHasBeenOpened = false;
+function isIntArray(arr) {
+  if (!arr) return false;
+  if (arr.length === 0) return true;
 
-function blackBox(args) {
-  //a secret message is hidden within me
-  //if you cannot see it, fear not!
-  //just think of another way to read me.
-
-  if ('you have got this far, well done!');
-  if ('you did NOT use toString(), let me know!');
-  if ('you see this, you have my terrible secret...');
-  if ("you call JSopenSesame(), you'll pass!");
-
-  if (!args) return 'Empty?';
-  if (typeof args == 'string') return 'Hmm...Interesting reading.';
-  else return 'Ugh';
+  return arr.every(num => {
+    return Number.isInteger(num) || num === Math.trunc(num);
+  });
 }
 
-function JSopenSesame() {
-  theBoxHasBeenOpened = true;
-  theBoxHasBeenOpenedTheProperWay = true;
-}
-
-function check() {
-  if (theBoxHasBeenOpened) return true;
-  else return false;
-}
-
-let funcText = blackBox + '';
-console.log(funcText);
-
-JSopenSesame();
-// theBoxHasBeenOpened = true
-
-console.log(check()); // true
+console.log(isIntArray([])); // true
+console.log(isIntArray(null)); // false
+console.log(isIntArray([1, 2, 3, 4])); // true
+console.log(isIntArray([1, 2, 3, 4.0])); // true
+console.log(isIntArray([1, 2, 3, 4.1])); // true
+console.log(isIntArray([1, 2, 3, NaN])); // false

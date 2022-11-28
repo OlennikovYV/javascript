@@ -1,20 +1,7 @@
 function removeParentheses(s) {
-  let result = '';
-  let openParenthes = 0;
+  while (s.match(/\([\w ]+\)/g)) s = s.replace(/\([\w ]+\)/g, '');
 
-  for (let i = 0; i < s.length; i += 1) {
-    if (s[i] === '(') {
-      openParenthes += 1;
-      continue;
-    }
-    if (s[i] === ')') {
-      openParenthes -= 1;
-      continue;
-    }
-    if (openParenthes < 1) result += s[i];
-  }
-
-  return result;
+  return s;
 }
 
 console.log(removeParentheses('example(unwanted thing)example'));

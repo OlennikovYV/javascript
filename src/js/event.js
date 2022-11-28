@@ -1,10 +1,31 @@
-function freqSeq(str, sep) {
-  return str
-    .split('')
-    .map((char, _, arr) => arr.filter(charDup => charDup === char).length)
-    .join(sep);
+function removeParentheses(s) {
+  let result = '';
+  let openParenthes = 0;
+
+  for (let i = 0; i < s.length; i += 1) {
+    if (s[i] === '(') {
+      openParenthes += 1;
+      continue;
+    }
+    if (s[i] === ')') {
+      openParenthes -= 1;
+      continue;
+    }
+    if (openParenthes < 1) result += s[i];
+  }
+
+  return result;
 }
 
-console.log(freqSeq('hello world', '-')); // '1-1-3-3-2-1-1-2-1-3-1'
-console.log(freqSeq('19999999', ':')); // '1:7:7:7:7:7:7:7'
-console.log(freqSeq('^^^**$', 'x')); // '3x3x3x2x2x1'
+console.log(removeParentheses('example(unwanted thing)example'));
+// 'exampleexample'
+console.log(removeParentheses('example (unwanted thing) example'));
+// 'example  example'
+console.log(removeParentheses('a (bc d)e')); // 'a e'
+console.log(removeParentheses('a(b(c))')); // 'a'
+console.log(
+  removeParentheses('hello example (words(more words) here) something')
+);
+// 'hello example  something'
+console.log(removeParentheses('(first group) (second group) (third group)'));
+// '  '

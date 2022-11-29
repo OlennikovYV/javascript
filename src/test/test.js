@@ -1,23 +1,11 @@
 mocha.setup('bdd');
 
-describe('Remove the parentheses', () => {
-  it('Basic Tests', function () {
-    chai
-      .expect(removeParentheses('example(unwanted thing)example'))
-      .to.equal('exampleexample');
-    chai
-      .expect(removeParentheses('example (unwanted thing) example'))
-      .to.equal('example  example');
-    chai.expect(removeParentheses('a (bc d)e')).to.equal('a e');
-    chai.expect(removeParentheses('a(b(c))')).to.equal('a');
-    chai
-      .expect(
-        removeParentheses('hello example (words(more words) here) something')
-      )
-      .to.equal('hello example  something');
-    chai
-      .expect(removeParentheses('(first group) (second group) (third group)'))
-      .to.equal('  ');
+describe('How many consecutive numbers are needed?', () => {
+  it('test', () => {
+    chai.expect(consecutive([4, 8, 6])).to.equal(2);
+    chai.expect(consecutive([1, 2, 3, 4])).to.equal(0);
+    chai.expect(consecutive([])).to.equal(0);
+    chai.expect(consecutive([1])).to.equal(0);
   });
 });
 

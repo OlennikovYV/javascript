@@ -1,18 +1,16 @@
-function removeParentheses(s) {
-  while (s.match(/\([\w ]+\)/g)) s = s.replace(/\([\w ]+\)/g, '');
+function consecutive(arr) {
+  if (arr.length < 2) return 0;
 
-  return s;
+  const max = Math.max(...arr);
+  const min = Math.min(...arr);
+  let result = 0;
+
+  for (let i = min; i <= max; i += 1) if (!arr.includes(i)) result += 1;
+
+  return result;
 }
 
-console.log(removeParentheses('example(unwanted thing)example'));
-// 'exampleexample'
-console.log(removeParentheses('example (unwanted thing) example'));
-// 'example  example'
-console.log(removeParentheses('a (bc d)e')); // 'a e'
-console.log(removeParentheses('a(b(c))')); // 'a'
-console.log(
-  removeParentheses('hello example (words(more words) here) something')
-);
-// 'hello example  something'
-console.log(removeParentheses('(first group) (second group) (third group)'));
-// '  '
+console.log(consecutive([4, 8, 6])); // 2
+console.log(consecutive([1, 2, 3, 4])); // 0
+console.log(consecutive([])); // 0
+console.log(consecutive([1])); // 0

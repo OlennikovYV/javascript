@@ -1,17 +1,14 @@
 function mean(lst) {
-  let countNumers = 0;
-  let result = [0, ''];
+  let number = 0;
+  let string = '';
 
   lst.map(el => {
-    const convertToNumber = Number(el);
-
-    if (Number.isInteger(convertToNumber)) {
-      countNumers += 1;
-      result[0] += convertToNumber;
-    } else result[1] += el;
+    if (!isNaN(el)) {
+      number += Number(el);
+    } else string += el;
   });
 
-  return [result[0] / countNumers, result[1]];
+  return [number / 10, string];
 }
 
 let lst = [

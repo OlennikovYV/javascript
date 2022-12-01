@@ -1,174 +1,24 @@
-function mean(lst) {
-  let number = 0;
-  let string = '';
+function findNextPower(val, pow_) {
+  const epsilon = 0.0000000000001;
+  let nextNumber = val ** (1 / pow_);
 
-  lst.map(el => {
-    if (!isNaN(el)) {
-      number += Number(el);
-    } else string += el;
-  });
+  if (nextNumber === Math.trunc(nextNumber)) {
+    nextNumber = nextNumber + 1;
+  } else {
+    if (Number((nextNumber + epsilon).toFixed(5)) === Math.ceil(nextNumber)) {
+      nextNumber = Math.floor(nextNumber + epsilon) + 1;
+    } else {
+      nextNumber = Math.ceil(nextNumber);
+    }
+  }
 
-  return [number / 10, string];
+  return nextNumber ** pow_;
 }
 
-let lst = [
-  'u',
-  '6',
-  'd',
-  '1',
-  'i',
-  'w',
-  '6',
-  's',
-  't',
-  '4',
-  'a',
-  '6',
-  'g',
-  '1',
-  '2',
-  'w',
-  '8',
-  'o',
-  '2',
-  '0',
-];
-console.log(mean(lst)); // [3.6, 'udiwstagwo']
-lst = [
-  '0',
-  'c',
-  '7',
-  'x',
-  '6',
-  '2',
-  '3',
-  '5',
-  'w',
-  '7',
-  '0',
-  'y',
-  'v',
-  'u',
-  'h',
-  'i',
-  'n',
-  'u',
-  '0',
-  '0',
-];
-console.log(mean(lst)); // [3.0, 'cxwyvuhinu']
-lst = [
-  '0',
-  'u',
-  'a',
-  'y',
-  '0',
-  'a',
-  '9',
-  'q',
-  '3',
-  'v',
-  'g',
-  '7',
-  '6',
-  '4',
-  'y',
-  'd',
-  '8',
-  '6',
-  '0',
-  'd',
-];
-console.log(mean(lst)); // [4.3, 'uayaqvgydd']
-lst = [
-  's',
-  'n',
-  '9',
-  'l',
-  '0',
-  'm',
-  'i',
-  'z',
-  '9',
-  '7',
-  'y',
-  '4',
-  'z',
-  '3',
-  '3',
-  'k',
-  '4',
-  '1',
-  '0',
-  'k',
-];
-console.log(mean(lst)); // [4.0, 'snlmizyzkk']
-lst = [
-  '5',
-  'v',
-  'u',
-  'k',
-  '8',
-  '4',
-  '9',
-  'b',
-  '9',
-  'g',
-  '5',
-  'z',
-  '3',
-  'f',
-  '6',
-  'u',
-  'i',
-  '6',
-  '6',
-  't',
-];
-console.log(mean(lst)); // [6.1, 'vukbgzfuit']
-lst = [
-  '1',
-  '1',
-  '1',
-  '1',
-  '1',
-  '1',
-  '1',
-  '1',
-  '1',
-  '0',
-  'a',
-  'a',
-  'd',
-  'd',
-  'g',
-  'q',
-  'u',
-  'v',
-  'y',
-  'y',
-];
-console.log(mean(lst)); // [0.9, 'aaddgquvyy']
-lst = [
-  '1',
-  '1',
-  '1',
-  '1',
-  '1',
-  '1',
-  '1',
-  '1',
-  '1',
-  '1',
-  'a',
-  'a',
-  'd',
-  'd',
-  'g',
-  'q',
-  'u',
-  'v',
-  'y',
-  'y',
-];
-console.log(mean(lst)); // [1.0, 'aaddgquvyy']
+console.log(findNextPower(8, 3)); // 27
+console.log(findNextPower(12385, 3)); // 13824
+console.log(findNextPower(1245678, 5)); // 1419857
+console.log(findNextPower(1245678, 6)); // 1771561
+console.log(findNextPower(4782969, 7)); // 10000000
+
+console.log(findNextPower(64000000, 6)); // 85766121

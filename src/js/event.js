@@ -1,24 +1,20 @@
-function findNextPower(val, pow_) {
-  const epsilon = 0.0000000000001;
-  let nextNumber = val ** (1 / pow_);
+function pyramid(n) {
+  let result = [];
 
-  if (nextNumber === Math.trunc(nextNumber)) {
-    nextNumber = nextNumber + 1;
-  } else {
-    if (Number((nextNumber + epsilon).toFixed(5)) === Math.ceil(nextNumber)) {
-      nextNumber = Math.floor(nextNumber + epsilon) + 1;
-    } else {
-      nextNumber = Math.ceil(nextNumber);
+  for (let i = 1; i <= n; i += 1) {
+    const subArray = [];
+
+    for (let j = 1; j <= i; j += 1) {
+      subArray.push(1);
     }
+
+    result.push(subArray);
   }
 
-  return nextNumber ** pow_;
+  return result;
 }
 
-console.log(findNextPower(8, 3)); // 27
-console.log(findNextPower(12385, 3)); // 13824
-console.log(findNextPower(1245678, 5)); // 1419857
-console.log(findNextPower(1245678, 6)); // 1771561
-console.log(findNextPower(4782969, 7)); // 10000000
-
-console.log(findNextPower(64000000, 6)); // 85766121
+console.log(pyramid(0)); // []
+console.log(pyramid(1)); // [[1]]
+console.log(pyramid(2)); // [[1], [1, 1]]
+console.log(pyramid(3)); // [[1], [1, 1], [1, 1, 1]]

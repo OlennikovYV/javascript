@@ -1,5 +1,5 @@
 function unscrambleEggs(word) {
-  return word.replace(/egg/g, '');
+  return word.split`egg`.join``;
 }
 
 console.log(unscrambleEggs('ceggodegge heggeregge')); // 'code here'

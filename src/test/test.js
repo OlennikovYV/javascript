@@ -1,10 +1,11 @@
 mocha.setup('bdd');
 
-describe('Unscrambled eggs', () => {
-  it('test', () => {
-    chai.expect(unscrambleEggs('ceggodegge heggeregge')).to.equal('code here');
-    chai.expect(unscrambleEggs('FeggUNegg KeggATeggA')).to.equal('FUN KATA');
-  });
+describe('ISBN-10 Validation', () => {
+  sampleTests.forEach(([input, expected]) =>
+    it('Testing: ' + input, () =>
+      chai.expect(validISBN10(input)).to.equal(expected)
+    )
+  );
 });
 
 mocha.run();

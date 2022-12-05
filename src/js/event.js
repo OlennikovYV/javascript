@@ -1,5 +1,5 @@
 function sumSquares(array) {
-  return array.reduce((acc, num) => acc + num ** 2, 0);
+  return array.reduce((acc, num) => acc + Math.pow(num, 2), 0);
 }
 
 console.log(sumSquares([1, 2, 3, 4, 5])); // 55

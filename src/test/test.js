@@ -1,27 +1,10 @@
 mocha.setup('bdd');
 
-describe('Fizz Buzz', () => {
-  it('Should fizzify 10 numbers correctly', function () {
-    var expected = [
-      1,
-      2,
-      'Fizz',
-      4,
-      'Buzz',
-      'Fizz',
-      7,
-      8,
-      'Fizz',
-      'Buzz',
-      11,
-      'Fizz',
-      13,
-      14,
-      'FizzBuzz',
-    ];
-    chai
-      .expect(JSON.stringify(fizzbuzz(15)))
-      .to.equal(JSON.stringify(expected));
+describe('Generate range of integers', () => {
+  it('Range', function () {
+    chai.expect(generateRange(2, 10, 2)).to.eql([2, 4, 6, 8, 10]);
+    chai.expect(generateRange(1, 10, 4)).to.eql([1, 5, 9]);
+    chai.expect(generateRange(1, 10, 5)).to.eql([1, 6]);
   });
 });
 

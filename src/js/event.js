@@ -1,9 +1,9 @@
 function arrayMadness(a, b) {
-  function sumsElements(arr, func) {
-    return arr.reduce((sum, num) => sum + func(num), 0);
+  function sumsElements(arr, pow) {
+    return arr.reduce((sum, num) => sum + num ** pow, 0);
   }
 
-  return sumsElements(a, el => el ** 2) > sumsElements(b, el => el ** 3);
+  return sumsElements(a, 2) > sumsElements(b, 3);
 }
 
 console.log(arrayMadness([4, 5, 6], [1, 2, 3])); // true

@@ -1,7 +1,5 @@
 function tripleTrouble(one, two, three) {
-  return one
-    .split('')
-    .reduce((sumString, char, i) => sumString + char + two[i] + three[i], '');
+  return one.replace(/./g, (char, i) => char + two[i] + three[i]);
 }
 
 console.log(tripleTrouble('aaa', 'bbb', 'ccc')); // 'abcabcabc'

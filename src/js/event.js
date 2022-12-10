@@ -1,18 +1,6 @@
-const flatenArray = arr => {
-  let resultArray = [];
-
-  arr.map(el =>
-    Array.isArray(el)
-      ? (resultArray = [...resultArray, ...flatenArray(el)])
-      : (resultArray = [...resultArray, el])
-  );
-
-  return resultArray;
-};
-
 function well(x) {
-  const flatArray = flatenArray(x);
-  const countGood = flatArray.filter(el => /good/gi.test(el)).length;
+  const ArrayGood = ('' + x).match(/good/gi) || [];
+  const countGood = ArrayGood.length;
 
   if (countGood < 1) return 'Fail!';
   if (countGood < 3) return 'Publish!';

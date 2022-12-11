@@ -1,7 +1,5 @@
 function bingo(a) {
-  const bingo = [2, 9, 14, 7, 15];
-
-  return bingo.every(num => a.includes(num)) ? 'WIN' : 'LOSE';
+  return [2, 9, 14, 7, 15].every(num => a.includes(num)) ? 'WIN' : 'LOSE';
 }
 
 console.log(bingo([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])); // 'LOSE'

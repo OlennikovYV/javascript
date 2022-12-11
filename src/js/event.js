@@ -1,34 +1,8 @@
-function well(x) {
-  const ArrayGood = ('' + x).match(/good/gi) || [];
-  const countGood = ArrayGood.length;
+function bingo(a) {
+  const bingo = [2, 9, 14, 7, 15];
 
-  if (countGood < 1) return 'Fail!';
-  if (countGood < 3) return 'Publish!';
-
-  return 'I smell a series!';
+  return bingo.every(num => a.includes(num)) ? 'WIN' : 'LOSE';
 }
 
-console.log(
-  well([
-    ['bad', 'bAd', 'bad'],
-    ['bad', 'bAd', 'bad'],
-    ['bad', 'bAd', 'bad'],
-  ])
-); // 'Fail!'
-console.log(
-  well([
-    ['gOOd', 'bad', 'BAD', 'bad', 'bad'],
-    ['bad', 'bAd', 'bad'],
-    ['GOOD', 'bad', 'bad', 'bAd'],
-  ])
-); // 'Publish!'
-console.log(
-  well([['gOOd', 'bAd', 'BAD', 'bad', 'bad', 'GOOD'], ['bad'], ['gOOd', 'BAD']])
-); // 'I smell a series!'
-console.log(
-  well([
-    ['TEST', 'bAd', 'good', 'bAd', 'BAD'],
-    ['bad', 'bAd', 'bAd', 6],
-    ['bAd', 'bAd', 'CAPS', '8', 'six', 'BAD'],
-  ])
-); // Publish!
+console.log(bingo([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])); // 'LOSE'
+console.log(bingo([21, 13, 2, 7, 5, 14, 7, 15, 9, 10])); // 'WIN'

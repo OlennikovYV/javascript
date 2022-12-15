@@ -1,14 +1,9 @@
-function change(string) {
-  let result = Array(26).fill(0);
-
-  return result
-    .map((_, index) =>
-      string.includes(String.fromCodePoint(65 + index)) ||
-      string.includes(String.fromCodePoint(97 + index))
-        ? '1'
-        : '0'
-    )
-    .join('');
+function isLeapYear(year) {
+  return year % 400 === 0 || (year % 4 === 0 && year % 100 !== 0);
 }
 
-console.log(change('a **&  bZ')); // '11000000000000000000000001'
+console.log(isLeapYear(1234)); // false
+console.log(isLeapYear(1984)); // true
+console.log(isLeapYear(2000)); // true
+console.log(isLeapYear(2010)); // false
+console.log(isLeapYear(2013)); // false

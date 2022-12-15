@@ -1,8 +1,12 @@
 mocha.setup('bdd');
 
-describe('Search for letters', () => {
-  it('example tests', () => {
-    chai.expect(change('a **&  bZ')).to.equal('11000000000000000000000001');
+describe('Leap Years', () => {
+  it('should detect leap years', function () {
+    chai.expect(isLeapYear(1234)).to.equal(false);
+    chai.expect(isLeapYear(1984)).to.equal(true);
+    chai.expect(isLeapYear(2000)).to.equal(true);
+    chai.expect(isLeapYear(2010)).to.equal(false);
+    chai.expect(isLeapYear(2013)).to.equal(false);
   });
 });
 

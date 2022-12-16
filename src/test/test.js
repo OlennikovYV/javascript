@@ -1,12 +1,15 @@
 mocha.setup('bdd');
 
-describe('Leap Years', () => {
-  it('should detect leap years', function () {
-    chai.expect(isLeapYear(1234)).to.equal(false);
-    chai.expect(isLeapYear(1984)).to.equal(true);
-    chai.expect(isLeapYear(2000)).to.equal(true);
-    chai.expect(isLeapYear(2010)).to.equal(false);
-    chai.expect(isLeapYear(2013)).to.equal(false);
+describe('Broken sequence', () => {
+  it('test', () => {
+    chai.expect(findMissingNumber('1 2 3 5')).to.equal(4);
+    chai.expect(findMissingNumber('1 3')).to.equal(2);
+    chai.expect(findMissingNumber('1 5')).to.equal(2);
+    chai.expect(findMissingNumber('')).to.equal(0);
+    chai.expect(findMissingNumber('1 2 3 4 5')).to.equal(0);
+    chai.expect(findMissingNumber('2 3 4 5')).to.equal(1);
+    chai.expect(findMissingNumber('2 6 4 5 3')).to.equal(1);
+    chai.expect(findMissingNumber('2 1 4 3 a')).to.equal(1);
   });
 });
 

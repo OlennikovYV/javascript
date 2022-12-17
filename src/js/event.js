@@ -1,33 +1,22 @@
-function findMissingNumber(sequence) {
-  let result = 0;
-  const arraySequence = sequence.split(' ');
+Math.roundTo = function (number, precision) {
+  let integer = number * Math.pow(10, precision);
 
-  if (sequence === '') return 0;
+  return Math.round(integer) / Math.pow(10, precision);
+};
 
-  for (let i = 0; i < arraySequence.length; i += 1) {
-    const currentElement = Number(arraySequence[i]);
+console.log(Math.roundTo(4, 5)); // 4
+console.log(Math.roundTo(4.1235343424, 6)); // 4.123534
+console.log(Math.roundTo(5.3035802, 3)); // 5.304
+console.log(Math.roundTo(0.9384930193848595, 15)); // 0.938493019384860
+console.log(Math.roundTo(9.9999, 3)); // 10
 
-    if (isNaN(currentElement)) return 1;
-    if (i > 0) {
-      const prevElement = Number(arraySequence[i - 1]);
-      if (currentElement < prevElement) return 1;
-    }
-    if (currentElement !== i + 1) return i + 1;
-  }
-
-  return result;
-}
-
-console.log(findMissingNumber('1 2 3 5')); // 4
-console.log(findMissingNumber('1 3')); // 2
-console.log(findMissingNumber('1 5')); // 2
-console.log(findMissingNumber('')); // 0
-console.log(findMissingNumber('1 2 3 4 5')); // 0
-console.log(findMissingNumber('2 3 4 5')); // 1
-console.log(findMissingNumber('2 6 4 5 3')); // 1
-console.log(findMissingNumber('2 1 4 3 a')); // 1
-console.log(
-  findMissingNumber(
-    '1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 81 82 83 84 85 86 87 88 89 91 92 93 94 95 96 97 98 99 100 101 102'
-  )
-); // 90
+console.log(Math.roundTo(3.141592653589793, 10)); // 3.1415926536
+console.log(Math.roundTo(3.141592653589793, 9)); // 3.141592654
+console.log(Math.roundTo(3.141592653589793, 8)); // 3.14159265
+console.log(Math.roundTo(3.141592653589793, 7)); // 3.1415927
+console.log(Math.roundTo(3.141592653589793, 6)); // 3.141593
+console.log(Math.roundTo(3.141592653589793, 5)); // 3.14159
+console.log(Math.roundTo(3.141592653589793, 4)); // 3.1416
+console.log(Math.roundTo(3.141592653589793, 3)); // 3.142
+console.log(Math.roundTo(3.141592653589793, 2)); // 3.14
+console.log(Math.roundTo(3.141592653589793, 1)); // 3.1

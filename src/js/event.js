@@ -1,7 +1,5 @@
 Math.roundTo = function (number, precision) {
-  let integer = number * Math.pow(10, precision);
-
-  return Math.round(integer) / Math.pow(10, precision);
+  return Number(number.toFixed(precision));
 };
 
 console.log(Math.roundTo(4, 5)); // 4

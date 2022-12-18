@@ -6,16 +6,14 @@ class Point {
 }
 
 class Circle {
-  constructor(point, radius) {
-    this.point = point;
+  constructor(center, radius) {
+    this.center = center;
     this.radius = radius;
   }
 }
 
 function circleCircumference(circle) {
-  const pi = 3.141592653589793;
-
-  return 2 * pi * circle.radius;
+  return 2 * Math.PI * circle.radius;
 }
 
 console.log(+circleCircumference(new Circle(new Point(10, 10), 30)).toFixed(6));

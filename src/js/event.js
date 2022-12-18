@@ -1,20 +1,32 @@
-Math.roundTo = function (number, precision) {
-  return Number(number.toFixed(precision));
-};
+class Point {
+  constructor(x, y) {
+    this.x = x;
+    this.y = y;
+  }
+}
 
-console.log(Math.roundTo(4, 5)); // 4
-console.log(Math.roundTo(4.1235343424, 6)); // 4.123534
-console.log(Math.roundTo(5.3035802, 3)); // 5.304
-console.log(Math.roundTo(0.9384930193848595, 15)); // 0.938493019384860
-console.log(Math.roundTo(9.9999, 3)); // 10
+class Circle {
+  constructor(point, radius) {
+    this.point = point;
+    this.radius = radius;
+  }
+}
 
-console.log(Math.roundTo(3.141592653589793, 10)); // 3.1415926536
-console.log(Math.roundTo(3.141592653589793, 9)); // 3.141592654
-console.log(Math.roundTo(3.141592653589793, 8)); // 3.14159265
-console.log(Math.roundTo(3.141592653589793, 7)); // 3.1415927
-console.log(Math.roundTo(3.141592653589793, 6)); // 3.141593
-console.log(Math.roundTo(3.141592653589793, 5)); // 3.14159
-console.log(Math.roundTo(3.141592653589793, 4)); // 3.1416
-console.log(Math.roundTo(3.141592653589793, 3)); // 3.142
-console.log(Math.roundTo(3.141592653589793, 2)); // 3.14
-console.log(Math.roundTo(3.141592653589793, 1)); // 3.1
+function circleCircumference(circle) {
+  const pi = 3.141592653589793;
+
+  return 2 * pi * circle.radius;
+}
+
+console.log(+circleCircumference(new Circle(new Point(10, 10), 30)).toFixed(6));
+// 188.495559
+console.log(
+  +circleCircumference(new Circle(new Point(25, -70), 30)).toFixed(6)
+);
+// 188.495559
+console.log(+circleCircumference(new Circle(new Point(-15, 5), 0)).toFixed(6));
+// 0
+console.log(
+  +circleCircumference(new Circle(new Point(-15, 5), 12.5)).toFixed(6)
+);
+// 78.539816

@@ -1,5 +1,5 @@
 function findStrangeValue() {
-  return NaN;
+  return +'fart';
 }
 
 let x = findStrangeValue();

@@ -1,8 +1,5 @@
 function firstToLast(str, c) {
-  let first = str.indexOf(c);
-  let last = str.lastIndexOf(c);
-
-  return first === -1 ? -1 : last - first;
+  return str.indexOf(c) === -1 ? -1 : str.lastIndexOf(c) - str.indexOf(c);
 }
 
 console.log(firstToLast('ababc', 'a')); // 2

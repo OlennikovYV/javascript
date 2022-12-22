@@ -1,9 +1,5 @@
 function shuffleIt(arr, ...index) {
-  const indexesShuffle = index;
-
-  for (let i = 0; i < indexesShuffle.length; i += 1) {
-    const ind1 = indexesShuffle[i][0];
-    const ind2 = indexesShuffle[i][1];
+  for ([ind1, ind2] of index) {
     [arr[ind1], arr[ind2]] = [arr[ind2], arr[ind1]];
   }
 

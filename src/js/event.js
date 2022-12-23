@@ -1,11 +1,18 @@
-function shuffleIt(arr, ...index) {
-  for ([ind1, ind2] of index) {
-    [arr[ind1], arr[ind2]] = [arr[ind2], arr[ind1]];
-  }
+const sumDigit = number =>
+  [...number.toFixed(0)].reduce((sum, num) => sum + Number(num), 0);
+const reverseDigit = number =>
+  Number([...number.toFixed(0)].reverse().join(''));
 
-  return arr;
+function numberJoy(n) {
+  const sum = sumDigit(n);
+
+  return reverseDigit(sum) * sum === n;
 }
 
-console.log(shuffleIt([1, 2, 3, 4, 5], [1, 2])); // [1,3,2,4,5]);
-console.log(shuffleIt([1, 2, 3, 4, 5], [1, 2], [3, 4])); // [1,3,2,5,4]);
-console.log(shuffleIt([1, 2, 3, 4, 5], [1, 2], [3, 4], [2, 3])); // [1,3,5,2,4]);
+console.log(numberJoy(1997)); // false
+console.log(numberJoy(1998)); // false
+console.log(numberJoy(1729)); // true
+console.log(numberJoy(18)); // false
+console.log(numberJoy(1)); // true
+console.log(numberJoy(81)); // true
+console.log(numberJoy(1458)); // true

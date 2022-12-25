@@ -1,8 +1,5 @@
 function remove(string) {
-  return string
-    .split(' ')
-    .map(el => el.replace(/\!*$/, ''))
-    .join(' ');
+  return string.replace(/\b!+/g, '');
 }
 
 console.log(remove('Hi!')); // 'Hi'

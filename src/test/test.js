@@ -1,14 +1,13 @@
 mocha.setup('bdd');
 
-describe('Especially Joyful Numbers', () => {
-  it('numberJoy', function () {
-    chai.expect(numberJoy(1997)).to.equal(false);
-    chai.expect(numberJoy(1998)).to.equal(false);
-    chai.expect(numberJoy(1729)).to.equal(true);
-    chai.expect(numberJoy(18)).to.equal(false);
-    chai.expect(numberJoy(1)).to.equal(true);
-    chai.expect(numberJoy(81)).to.equal(true);
-    chai.expect(numberJoy(1458)).to.equal(true);
+describe('Exclamation marks series #5: Remove all exclamation marks from the end of words', () => {
+  it('It should works for basic tests', function () {
+    chai.expect(remove('Hi!')).to.equal('Hi');
+    chai.expect(remove('Hi!!!')).to.equal('Hi');
+    chai.expect(remove('!Hi')).to.equal('!Hi');
+    chai.expect(remove('!Hi!')).to.equal('!Hi');
+    chai.expect(remove('Hi! Hi!')).to.equal('Hi Hi');
+    chai.expect(remove('!!!Hi !!hi!!! !hi')).to.equal('!!!Hi !!hi !hi');
   });
 });
 

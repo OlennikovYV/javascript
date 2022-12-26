@@ -1,10 +1,7 @@
-function remove(string) {
-  return string.replace(/\b!+/g, '');
-}
+const arrCheck = value => value.every(el => Array.isArray(el));
 
-console.log(remove('Hi!')); // 'Hi'
-console.log(remove('Hi!!!')); // 'Hi'
-console.log(remove('!Hi')); // '!Hi'
-console.log(remove('!Hi!')); // '!Hi'
-console.log(remove('Hi! Hi!')); // 'Hi Hi'
-console.log(remove('!!!Hi !!hi!!! !hi')); // '!!!Hi !!hi !hi'
+console.log(arrCheck([])); // true
+console.log(arrCheck([['string']])); // true
+console.log(arrCheck([[], {}])); // false
+console.log(arrCheck([[1], [2], [3]])); // true
+console.log(arrCheck(['A', 'R', 'R', 'A', 'Y'])); // false

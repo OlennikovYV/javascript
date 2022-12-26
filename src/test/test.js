@@ -1,13 +1,12 @@
 mocha.setup('bdd');
 
-describe('Exclamation marks series #5: Remove all exclamation marks from the end of words', () => {
-  it('It should works for basic tests', function () {
-    chai.expect(remove('Hi!')).to.equal('Hi');
-    chai.expect(remove('Hi!!!')).to.equal('Hi');
-    chai.expect(remove('!Hi')).to.equal('!Hi');
-    chai.expect(remove('!Hi!')).to.equal('!Hi');
-    chai.expect(remove('Hi! Hi!')).to.equal('Hi Hi');
-    chai.expect(remove('!!!Hi !!hi!!! !hi')).to.equal('!!!Hi !!hi !hi');
+describe('Is every value in the array an array?', () => {
+  it('Tests to see if your function returns the correct values.', () => {
+    chai.expect(arrCheck([])).to.equal(true);
+    chai.expect(arrCheck([['string']])).to.equal(true);
+    chai.expect(arrCheck([[], {}])).to.equal(false);
+    chai.expect(arrCheck([[1], [2], [3]])).to.equal(true);
+    chai.expect(arrCheck(['A', 'R', 'R', 'A', 'Y'])).to.equal(false);
   });
 });
 

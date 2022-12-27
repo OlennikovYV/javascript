@@ -1,14 +1,11 @@
 function caffeineBuzz(n) {
   let result = '';
 
-  if (n % 3 !== 0) return 'mocha_missing!';
+  if (n % 12 === 0) return 'CoffeeScript';
+  if (n % 6 === 0) return 'JavaScript';
+  if (n % 3 === 0) return 'Java';
 
-  if (n % 3 === 0 && n % 4 !== 0)
-    result += 'Java' + (n % 2 === 0 ? 'Script' : '');
-  if (n % 3 === 0 && n % 4 === 0)
-    result += 'Coffee' + (n % 2 === 0 ? 'Script' : '');
-
-  return result;
+  return 'mocha_missing!';
 }
 
 console.log(caffeineBuzz(1)); // 'mocha_missing!'

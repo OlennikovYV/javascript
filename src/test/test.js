@@ -1,8 +1,10 @@
 mocha.setup('bdd');
 
-describe('Chain me', () => {
-  it('Tests to see if your function returns the correct values.', () => {
-    chai.expect(chain(2, [add, mult])).to.equal(360);
+describe('Move 10', () => {
+  it('Testing for fixed tests', () => {
+    chai.expect(moveTen('testcase')).to.equal('docdmkco');
+    chai.expect(moveTen('codewars')).to.equal('mynogkbc');
+    chai.expect(moveTen('exampletesthere')).to.equal('ohkwzvodocdrobo');
   });
 });
 

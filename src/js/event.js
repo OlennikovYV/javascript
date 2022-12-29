@@ -1,13 +1,15 @@
-function add(x) {
-  return x + 10;
+function moveTen(s) {
+  return s
+    .split('')
+    .map(char => {
+      const codePlus10 = char.charCodeAt(0) + 10;
+      let checkOver = codePlus10 % 122;
+      checkOver = checkOver < 96 && checkOver > 0 ? checkOver + 96 : codePlus10;
+      return String.fromCodePoint(checkOver);
+    })
+    .join('');
 }
 
-function mult(x) {
-  return x * 30;
-}
-
-function chain(input, fs) {
-  return fs.reduce((result, fn) => fn(result), input);
-}
-
-console.log(chain(2, [add, mult])); // 360
+console.log(moveTen('testcase')); // 'docdmkco'
+console.log(moveTen('codewars')); // 'mynogkbc'
+console.log(moveTen('exampletesthere')); // 'ohkwzvodocdrobo'

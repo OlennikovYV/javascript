@@ -1,8 +1,5 @@
 var filterLucky = x => {
-  const checkSevenDigit = num =>
-    String(num)
-      .split('')
-      .some(digit => Number(digit) === 7);
+  const checkSevenDigit = num => String(num).includes('7');
 
   return x.filter(checkSevenDigit);
 };

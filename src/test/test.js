@@ -1,10 +1,11 @@
 mocha.setup('bdd');
 
-describe('Move 10', () => {
-  it('Testing for fixed tests', () => {
-    chai.expect(moveTen('testcase')).to.equal('docdmkco');
-    chai.expect(moveTen('codewars')).to.equal('mynogkbc');
-    chai.expect(moveTen('exampletesthere')).to.equal('ohkwzvodocdrobo');
+describe('Find the lucky numbers', () => {
+  it('test', () => {
+    chai
+      .expect(filterLucky([1, 2, 3, 4, 5, 6, 7, 68, 69, 70, 15, 17]))
+      .to.eql([7, 70, 17]);
+    chai.expect(filterLucky([71, 9907, 69])).to.eql([71, 9907]);
   });
 });
 

@@ -1,6 +1,26 @@
-var filterLucky = x => {
-  return x.filter(number => /7/.test(number));
-};
+function scale(strng, k, n) {
+  let result = strng.split('\n');
 
-console.log(filterLucky([1, 2, 3, 4, 5, 6, 7, 68, 69, 70, 15, 17])); // [7, 70, 17]
-console.log(filterLucky([71, 9907, 69])); // [71, 9907]);
+  return strng === ''
+    ? ''
+    : result
+        .map(str => {
+          const horzRepeat = str
+            .split('')
+            .map(char => char.repeat(k))
+            .join('');
+          const vertRepeat = (horzRepeat + '\n').repeat(n);
+
+          return vertRepeat;
+        })
+        .join('')
+        .slice(0, -1);
+}
+
+const a = 'abcd\nefgh\nijkl\nmnop';
+const r =
+  'aabbccdd\naabbccdd\naabbccdd\neeffgghh\neeffgghh\neeffgghh\niijjkkll\niijjkkll\niijjkkll\nmmnnoopp\nmmnnoopp\nmmnnoopp';
+
+console.log(scale(a, 2, 3)); // r
+console.log(scale('', 5, 5)); // ''
+console.log(scale('Kj\nSH', 1, 2)); // 'Kj\nKj\nSH\nSH'

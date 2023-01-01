@@ -1,11 +1,14 @@
 mocha.setup('bdd');
 
-describe('Find the lucky numbers', () => {
+describe('Scaling Squared Strings', () => {
   it('test', () => {
-    chai
-      .expect(filterLucky([1, 2, 3, 4, 5, 6, 7, 68, 69, 70, 15, 17]))
-      .to.eql([7, 70, 17]);
-    chai.expect(filterLucky([71, 9907, 69])).to.eql([71, 9907]);
+    const a = 'abcd\nefgh\nijkl\nmnop';
+    const r =
+      'aabbccdd\naabbccdd\naabbccdd\neeffgghh\neeffgghh\neeffgghh\niijjkkll\niijjkkll\niijjkkll\nmmnnoopp\nmmnnoopp\nmmnnoopp';
+
+    chai.expect(scale(a, 2, 3)).to.equal(r);
+    chai.expect(scale('', 5, 5)).to.equal('');
+    chai.expect(scale('Kj\nSH', 1, 2)).to.equal('Kj\nKj\nSH\nSH');
   });
 });
 

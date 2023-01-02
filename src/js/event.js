@@ -1,26 +1,9 @@
-function scale(strng, k, n) {
-  let result = strng.split('\n');
+function heron(a, b, c) {
+  const s = (a + b + c) / 2;
+  let result = Math.sqrt(s * (s - a) * (s - b) * (s - c));
 
-  return strng === ''
-    ? ''
-    : result
-        .map(str => {
-          const horzRepeat = str
-            .split('')
-            .map(char => char.repeat(k))
-            .join('');
-          const vertRepeat = (horzRepeat + '\n').repeat(n);
-
-          return vertRepeat;
-        })
-        .join('')
-        .slice(0, -1);
+  return Number(result.toFixed(2));
 }
 
-const a = 'abcd\nefgh\nijkl\nmnop';
-const r =
-  'aabbccdd\naabbccdd\naabbccdd\neeffgghh\neeffgghh\neeffgghh\niijjkkll\niijjkkll\niijjkkll\nmmnnoopp\nmmnnoopp\nmmnnoopp';
-
-console.log(scale(a, 2, 3)); // r
-console.log(scale('', 5, 5)); // ''
-console.log(scale('Kj\nSH', 1, 2)); // 'Kj\nKj\nSH\nSH'
+console.log(heron(3, 4, 5)); // 6
+console.log(heron(6, 8, 10)); // 24

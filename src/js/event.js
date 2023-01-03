@@ -1,9 +1,31 @@
-function heron(a, b, c) {
-  const s = (a + b + c) / 2;
-  let result = Math.sqrt(s * (s - a) * (s - b) * (s - c));
-
-  return Number(result.toFixed(2));
+function Node(data) {
+  this.data = data;
+  this.next = null;
 }
 
-console.log(heron(3, 4, 5)); // 6
-console.log(heron(6, 8, 10)); // 24
+function push(head, data) {
+  const firstNode = new Node(data);
+  firstNode.next = head;
+
+  return firstNode;
+}
+
+function buildOneTwoThree() {
+  var chained = null;
+
+  chained = push(chained, 3);
+  chained = push(chained, 2);
+  chained = push(chained, 1);
+
+  return chained;
+}
+
+console.log(push(null, 1).data); // 1
+console.log(push(null, 1).next); // null
+console.log(push(new Node(1), 2).data); // 2
+console.log(push(new Node(1), 2).next.data); // 1
+
+console.log(buildOneTwoThree().data); // 1
+console.log(buildOneTwoThree().next.data); // 2
+console.log(buildOneTwoThree().next.next.data); // 3
+console.log(buildOneTwoThree().next.next.next); // null

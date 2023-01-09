@@ -1,5 +1,5 @@
 function searchNames(logins) {
-  return logins.filter(el => /_$/.test(el[0]));
+  return logins.filter(el => el[0].endsWith('_'));
 }
 
 const a = [

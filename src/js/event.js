@@ -1,11 +1,17 @@
-function searchNames(logins) {
-  return logins.filter(el => el[0].endsWith('_'));
+function wordSearch(query, seq) {
+  const searchString = query.toLowerCase();
+  const filterArray = seq.filter(string =>
+    string.toLowerCase().includes(searchString)
+  );
+
+  return filterArray.length ? filterArray : ['Empty'];
 }
 
-const a = [
-    ['foo', 'foo@foo.com'],
-    ['bar_', 'bar@bar.com'],
-  ],
-  b = [['bar_', 'bar@bar.com']];
-
-console.log(searchNames(a).join(':'), b.join(':'));
+console.log(wordSearch('ab', ['za', 'ab', 'abc', 'zab', 'zbc']));
+// ['ab', 'abc', 'zab']
+console.log(wordSearch('aB', ['za', 'ab', 'abc', 'zab', 'zbc']));
+// ['ab', 'abc', 'zab']
+console.log(wordSearch('ab', ['za', 'aB', 'Abc', 'zAB', 'zbc']));
+// ['aB', 'Abc', 'zAB']
+console.log(wordSearch('abcd', ['za', 'aB', 'Abc', 'zAB', 'zbc']));
+// ['Empty']

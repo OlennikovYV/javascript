@@ -1,8 +1,6 @@
 function wordSearch(query, seq) {
-  const searchString = query.toLowerCase();
-  const filterArray = seq.filter(string =>
-    string.toLowerCase().includes(searchString)
-  );
+  const searchString = new RegExp(query, 'i');
+  const filterArray = seq.filter(string => searchString.test(string));
 
   return filterArray.length ? filterArray : ['Empty'];
 }

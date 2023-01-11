@@ -1,5 +1,5 @@
 function nthChar(words) {
-  return words.reduce((string, word, index) => string + word[index], '');
+  return words.map((word, index) => word.charAt(index)).join('');
 }
 
 console.log(nthChar([])); // ''

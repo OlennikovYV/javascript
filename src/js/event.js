@@ -1,15 +1,6 @@
-function wordSearch(query, seq) {
-  const searchString = new RegExp(query, 'i');
-  const filterArray = seq.filter(string => searchString.test(string));
-
-  return filterArray.length ? filterArray : ['Empty'];
+function nthChar(words) {
+  return words.reduce((string, word, index) => string + word[index], '');
 }
 
-console.log(wordSearch('ab', ['za', 'ab', 'abc', 'zab', 'zbc']));
-// ['ab', 'abc', 'zab']
-console.log(wordSearch('aB', ['za', 'ab', 'abc', 'zab', 'zbc']));
-// ['ab', 'abc', 'zab']
-console.log(wordSearch('ab', ['za', 'aB', 'Abc', 'zAB', 'zbc']));
-// ['aB', 'Abc', 'zAB']
-console.log(wordSearch('abcd', ['za', 'aB', 'Abc', 'zAB', 'zbc']));
-// ['Empty']
+console.log(nthChar([])); // ''
+console.log(nthChar(['yoda', 'best', 'has'])); // 'yes'

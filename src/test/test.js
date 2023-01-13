@@ -1,12 +1,24 @@
 mocha.setup('bdd');
 
-describe('Area of a Circle', function () {
-  it('Testing for fixed tests', () => {
-    chai.expect(circleArea(-1485.86)).to.equal(false);
-    chai.expect(circleArea(0)).to.equal(false);
-    chai.expect(circleArea(43.2673)).to.equal(5881.25);
-    chai.expect(circleArea(68)).to.equal(14526.72);
-    chai.expect(circleArea('number')).to.equal(false);
+describe('Grasshopper - Terminal Game Turn Function', function () {
+  doTurn();
+  it('should roll dice first', function () {
+    chai.expect(log[0]).to.equal('rollDice');
+  });
+  it('should move second', function () {
+    chai.expect(log[1]).to.equal('move');
+  });
+  it('should combat third', function () {
+    chai.expect(log[2]).to.equal('combat');
+  });
+  it('should get coins fourth', function () {
+    chai.expect(log[3]).to.equal('getCoins');
+  });
+  it('should buy health fifth', function () {
+    chai.expect(log[4]).to.equal('buyHealth');
+  });
+  it('should print status sixth', function () {
+    chai.expect(log[5]).to.equal('printStatus');
   });
 });
 

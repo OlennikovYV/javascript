@@ -1,23 +1,7 @@
-let log;
-
-function doTurn() {
-  const step = [
-    'rollDice',
-    'move',
-    'combat',
-    'getCoins',
-    'buyHealth',
-    'printStatus',
-  ];
-
-  log = step;
+function solution(fullText, searchText) {
+  return fullText.split(searchText).length - 1;
 }
 
-doTurn();
-
-console.log(log[0]); // 'rollDice'
-console.log(log[1]); // 'move'
-console.log(log[2]); // 'combat'
-console.log(log[3]); // 'getCoins'
-console.log(log[4]); // 'buyHealth'
-console.log(log[5]); // 'printStatus'
+console.log(solution('abcdeb', 'b')); // 2
+console.log(solution('abc', 'b')); // 1
+console.log(solution('abbc', 'bb')); // 1

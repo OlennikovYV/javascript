@@ -1,10 +1,21 @@
 mocha.setup('bdd');
 
-describe('Return substring instance count', function () {
-  it('test', () => {
-    chai.expect(solution('abcdeb', 'b')).to.equal(2);
-    chai.expect(solution('abc', 'b')).to.equal(1);
-    chai.expect(solution('abbc', 'bb')).to.equal(1);
+describe('Compare Strings by Sum of Chars', function () {
+  it('sample tests', () => {
+    chai.expect(compare('AD', 'BC')).to.equal(true);
+    chai.expect(compare('AD', 'DD')).to.equal(false);
+    chai.expect(compare('gf', 'FG')).to.equal(true);
+    chai.expect(compare('Ad', 'DD')).to.equal(false);
+    chai.expect(compare('zz1', '')).to.equal(true);
+    chai.expect(compare('ZzZz', 'ffPFF')).to.equal(true);
+    chai.expect(compare('kl', 'lz')).to.equal(false);
+    chai.expect(compare('!!', '7476')).to.equal(true);
+    chai.expect(compare('##', '1176')).to.equal(true);
+
+    chai.expect(compare(null, 'BC')).to.equal(false);
+    chai.expect(compare(null, null)).to.equal(true);
+    chai.expect(compare(null, '')).to.equal(true);
+    chai.expect(compare('', '')).to.equal(true);
   });
 });
 

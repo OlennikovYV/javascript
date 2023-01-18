@@ -1,34 +1,47 @@
-function compare(s1, s2) {
-  const sumASCII = string => {
-    let sum = 0;
-
-    if (!string) return 0;
-
-    for (let i = 0; i < string.length; i += 1) {
-      const checkChar = /[a-z]/i.test(string[i]);
-
-      if (!checkChar) return 0;
-
-      sum += string[i].toUpperCase().charCodeAt(0);
-    }
-
-    return sum;
-  };
-
-  return sumASCII(s1) === sumASCII(s2);
+function orderFood(list) {
+  return list.reduce((listFood, developer) => {
+    listFood[developer.meal] = (listFood[developer.meal] || 0) + 1;
+    return listFood;
+  }, {});
 }
 
-console.log(compare('AD', 'BC')); // true
-console.log(compare('AD', 'DD')); // false
-console.log(compare('gf', 'FG')); // true
-console.log(compare('Ad', 'DD')); // false
-console.log(compare('zz1', '')); // true
-console.log(compare('ZzZz', 'ffPFF')); // true
-console.log(compare('kl', 'lz')); // false
-console.log(compare('!!', '7476')); // true
-console.log(compare('##', '1176')); // true
+const list1 = [
+  {
+    firstName: 'Noah',
+    lastName: 'M.',
+    country: 'Switzerland',
+    continent: 'Europe',
+    age: 19,
+    language: 'C',
+    meal: 'vegetarian',
+  },
+  {
+    firstName: 'Anna',
+    lastName: 'R.',
+    country: 'Liechtenstein',
+    continent: 'Europe',
+    age: 52,
+    language: 'JavaScript',
+    meal: 'standard',
+  },
+  {
+    firstName: 'Ramona',
+    lastName: 'R.',
+    country: 'Paraguay',
+    continent: 'Americas',
+    age: 29,
+    language: 'Ruby',
+    meal: 'vegan',
+  },
+  {
+    firstName: 'George',
+    lastName: 'B.',
+    country: 'England',
+    continent: 'Europe',
+    age: 81,
+    language: 'C',
+    meal: 'vegetarian',
+  },
+];
 
-console.log(compare(null, 'BC')); // false
-console.log(compare(null, null)); // true
-console.log(compare(null, '')); // true
-console.log(compare('', '')); // true
+console.log(orderFood(list1)); // { vegetarian: 2, standard: 1, vegan: 1 }

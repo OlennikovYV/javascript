@@ -1,21 +1,49 @@
 mocha.setup('bdd');
 
-describe('Compare Strings by Sum of Chars', function () {
-  it('sample tests', () => {
-    chai.expect(compare('AD', 'BC')).to.equal(true);
-    chai.expect(compare('AD', 'DD')).to.equal(false);
-    chai.expect(compare('gf', 'FG')).to.equal(true);
-    chai.expect(compare('Ad', 'DD')).to.equal(false);
-    chai.expect(compare('zz1', '')).to.equal(true);
-    chai.expect(compare('ZzZz', 'ffPFF')).to.equal(true);
-    chai.expect(compare('kl', 'lz')).to.equal(false);
-    chai.expect(compare('!!', '7476')).to.equal(true);
-    chai.expect(compare('##', '1176')).to.equal(true);
+describe('Coding Meetup #14 - Higher-Order Functions Series - Order the food', function () {
+  it('test', () => {
+    const list1 = [
+      {
+        firstName: 'Noah',
+        lastName: 'M.',
+        country: 'Switzerland',
+        continent: 'Europe',
+        age: 19,
+        language: 'C',
+        meal: 'vegetarian',
+      },
+      {
+        firstName: 'Anna',
+        lastName: 'R.',
+        country: 'Liechtenstein',
+        continent: 'Europe',
+        age: 52,
+        language: 'JavaScript',
+        meal: 'standard',
+      },
+      {
+        firstName: 'Ramona',
+        lastName: 'R.',
+        country: 'Paraguay',
+        continent: 'Americas',
+        age: 29,
+        language: 'Ruby',
+        meal: 'vegan',
+      },
+      {
+        firstName: 'George',
+        lastName: 'B.',
+        country: 'England',
+        continent: 'Europe',
+        age: 81,
+        language: 'C',
+        meal: 'vegetarian',
+      },
+    ];
 
-    chai.expect(compare(null, 'BC')).to.equal(false);
-    chai.expect(compare(null, null)).to.equal(true);
-    chai.expect(compare(null, '')).to.equal(true);
-    chai.expect(compare('', '')).to.equal(true);
+    const answer = { vegetarian: 2, standard: 1, vegan: 1 };
+
+    chai.expect(orderFood(list1)).to.eql(answer);
   });
 });
 

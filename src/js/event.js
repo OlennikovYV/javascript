@@ -1,8 +1,10 @@
 function orderFood(list) {
-  return list.reduce((listFood, developer) => {
-    listFood[developer.meal] = (listFood[developer.meal] || 0) + 1;
-    return listFood;
-  }, {});
+  return list.reduce(
+    (listFood, developer) => (
+      (listFood[developer.meal] = (listFood[developer.meal] || 0) + 1), listFood
+    ),
+    {}
+  );
 }
 
 const list1 = [

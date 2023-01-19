@@ -1,5 +1,7 @@
 sortme = function (names) {
-  return names.sort((a, b) => a.toLowerCase().localeCompare(b.toLowerCase()));
+  return names
+    .slice()
+    .sort((a, b) => a.toLowerCase().localeCompare(b.toLowerCase()));
 };
 
 console.log(sortme(['Hello', 'there', "I'm", 'fine']));

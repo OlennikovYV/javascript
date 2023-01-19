@@ -1,49 +1,28 @@
-function orderFood(list) {
-  return list.reduce(
-    (listFood, developer) => (
-      (listFood[developer.meal] = (listFood[developer.meal] || 0) + 1), listFood
-    ),
-    {}
-  );
-}
+sortme = function (names) {
+  return names.sort((a, b) => a.toLowerCase().localeCompare(b.toLowerCase()));
+};
 
-const list1 = [
-  {
-    firstName: 'Noah',
-    lastName: 'M.',
-    country: 'Switzerland',
-    continent: 'Europe',
-    age: 19,
-    language: 'C',
-    meal: 'vegetarian',
-  },
-  {
-    firstName: 'Anna',
-    lastName: 'R.',
-    country: 'Liechtenstein',
-    continent: 'Europe',
-    age: 52,
-    language: 'JavaScript',
-    meal: 'standard',
-  },
-  {
-    firstName: 'Ramona',
-    lastName: 'R.',
-    country: 'Paraguay',
-    continent: 'Americas',
-    age: 29,
-    language: 'Ruby',
-    meal: 'vegan',
-  },
-  {
-    firstName: 'George',
-    lastName: 'B.',
-    country: 'England',
-    continent: 'Europe',
-    age: 81,
-    language: 'C',
-    meal: 'vegetarian',
-  },
-];
-
-console.log(orderFood(list1)); // { vegetarian: 2, standard: 1, vegan: 1 }
+console.log(sortme(['Hello', 'there', "I'm", 'fine']));
+// ['fine', 'Hello', "I'm", 'there']
+console.log(sortme(['C', 'd', 'a', 'B']));
+// ['a', 'B', 'C', 'd']
+console.log(sortme(['CodeWars']));
+// ['CodeWars']
+console.log(sortme([]));
+// []
+console.log(
+  sortme([
+    'Their',
+    'into',
+    'Public',
+    'small',
+    'large',
+    'Eye',
+    'one',
+    'seem',
+    'with',
+    'Of',
+    'To',
+  ])
+);
+// ["Eye","into","large","Of","one","Public","seem","small","Their","To","with"]

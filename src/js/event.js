@@ -1,27 +1,19 @@
-function duplicates(arr) {
-  const result = [];
+function dominator(arr) {
+  let dominates = null;
 
-  arr.reduce((dupArray, digit) => {
-    if (Number.isInteger(digit) || /[^\d]/.test(digit))
-      dupArray[digit] = (dupArray[digit] || 0) + 1;
-    if (dupArray[digit] === 2) result.push(digit);
-
-    return dupArray;
+  const counts = arr.reduce((count, el) => {
+    count[el] = (count[el] || 0) + 1;
+    return count;
   }, {});
 
-  return result;
+  for (let key in counts) {
+    if (counts[key] > (counts[dominates] || 0)) dominates = Number(key);
+  }
+
+  return counts[dominates] > Math.floor(arr.length / 2) ? dominates : -1;
 }
 
-console.log(duplicates([1, 2, 4, 4, 3, 3, 1, 5, 3, '5']));
-// [4, 3, 1]
-console.log(duplicates([0, 1, 2, 3, 4, 5]));
-// []
-
-console.log(duplicates([1, 2, 4, 4, 3, 3, 1, 5, 3]));
-// [4, 3, 1]
-console.log(duplicates(['1', 2, 4, '4', 3, '3', 1, 5, 3, 3, 3, 3]));
-// [3]
-console.log(duplicates([1, 1, 2, 3, 4, 5, 4]));
-// [1, 4]
-console.log(duplicates(['zut', 'alors', 1, 2, 4, 4, 3, 3, '1', 5, 3, 'zut']));
-// [4, 3, 'zut']
+console.log(dominator([3, 4, 3, 2, 3, 1, 3, 3])); // 3
+console.log(dominator([1, 2, 3, 4, 5])); // -1
+console.log(dominator([1, 1, 1, 2, 2, 2])); // -1
+console.log(dominator([1, 1, 1, 2, 2, 2, 2])); // 2

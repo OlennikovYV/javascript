@@ -1,5 +1,5 @@
 function toNumberArray(stringarray) {
-  return stringarray.map(str => Number(str));
+  return stringarray.map(Number);
 }
 
 console.log(toNumberArray(['1.1', '2.2', '3.3']));

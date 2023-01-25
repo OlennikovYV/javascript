@@ -1,8 +1,8 @@
 function evenChars(string) {
   const length = string.length;
-  if (length < 2 || length > 100) return 'invalid string';
-
-  return string.split('').filter((_, index) => index % 2 !== 0);
+  return length < 2 || length > 100
+    ? 'invalid string'
+    : string.split('').filter((_, index) => index % 2 !== 0);
 }
 
 console.log(evenChars('1234')); // ['2', '4']

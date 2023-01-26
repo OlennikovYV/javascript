@@ -1,17 +1,6 @@
-function evenChars(string) {
-  const length = string.length;
-  return length < 2 || length > 100
-    ? 'invalid string'
-    : string.split('').filter((_, index) => index % 2 !== 0);
+function liftoff(instructions) {
+  return `${instructions.sort((a, b) => b - a).join(' ')} liftoff!`;
 }
 
-console.log(evenChars('1234')); // ['2', '4']
-console.log(evenChars(';;;--')); // [';', '-']
-console.log(evenChars('abcdefghijklm')); // ['b', 'd', 'f', 'h', 'j', 'l']
-console.log(
-  evenChars(
-    'aiqbuwbjqwbckjdwbwkqbefhglqhfjbwqejbcadn.bcaw.jbhwefjbwqkvbweevkj.bwvwbhvjk.dsvbajdv.hwuvghwuvfhgw.vjhwncv.wecnaw.ecnvw.kejvhnw.evjkhweqv.kjhwqeev.kjbhdjk.vbaewkjva'
-  )
-); // 'invalid string'
-console.log(evenChars('a')); // 'invalid string'
-console.log(evenChars('')); // 'invalid string'
+console.log(liftoff([2, 8, 10, 9, 1, 3, 4, 7, 6, 5]));
+// '10 9 8 7 6 5 4 3 2 1 liftoff!'

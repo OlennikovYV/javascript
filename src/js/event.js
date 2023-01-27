@@ -1,8 +1,7 @@
 function pattern(n) {
-  return Array.from(Array(n), (el, i) => {
-    const number = i + 1;
-    return `1${'*'.repeat(i)}${i === 0 ? '' : i + 1}`;
-  }).join('\n');
+  return [...Array(n)]
+    .map((_, index) => `${`*`.repeat(index)}${++index}`)
+    .join(`\n1`);
 }
 
 console.log(pattern(3)); // '1\n1*2\n1**3'

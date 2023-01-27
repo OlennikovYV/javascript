@@ -1,10 +1,16 @@
 mocha.setup('bdd');
 
-describe('We Have Liftoff', function () {
+describe('Number-Star ladder', function () {
   it('test', () => {
+    chai.expect(pattern(3)).to.equal('1\n1*2\n1**3');
     chai
-      .expect(liftoff([2, 8, 10, 9, 1, 3, 4, 7, 6, 5]))
-      .to.equal('10 9 8 7 6 5 4 3 2 1 liftoff!');
+      .expect(pattern(7))
+      .to.equal('1\n1*2\n1**3\n1***4\n1****5\n1*****6\n1******7');
+    chai
+      .expect(pattern(20))
+      .to.equal(
+        '1\n1*2\n1**3\n1***4\n1****5\n1*****6\n1******7\n1*******8\n1********9\n1*********10\n1**********11\n1***********12\n1************13\n1*************14\n1**************15\n1***************16\n1****************17\n1*****************18\n1******************19\n1*******************20'
+      );
   });
 });
 

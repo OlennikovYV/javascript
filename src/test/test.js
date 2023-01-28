@@ -1,16 +1,11 @@
 mocha.setup('bdd');
 
-describe('Number-Star ladder', function () {
-  it('test', () => {
-    chai.expect(pattern(3)).to.equal('1\n1*2\n1**3');
-    chai
-      .expect(pattern(7))
-      .to.equal('1\n1*2\n1**3\n1***4\n1****5\n1*****6\n1******7');
-    chai
-      .expect(pattern(20))
-      .to.equal(
-        '1\n1*2\n1**3\n1***4\n1****5\n1*****6\n1******7\n1*******8\n1********9\n1*********10\n1**********11\n1***********12\n1************13\n1*************14\n1**************15\n1***************16\n1****************17\n1*****************18\n1******************19\n1*******************20'
-      );
+describe('Are the numbers in order?', function () {
+  it('Should pass description examples', () => {
+    chai.expect(inAscOrder([1, 2, 4, 7, 19])).to.equal(true);
+    chai.expect(inAscOrder([1, 2, 3, 4, 5])).to.equal(true);
+    chai.expect(inAscOrder([1, 6, 10, 18, 2, 4, 20])).to.equal(false);
+    chai.expect(inAscOrder([9, 8, 7, 6, 5, 4, 3, 2, 1])).to.equal(false);
   });
 });
 

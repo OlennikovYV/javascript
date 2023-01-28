@@ -1,9 +1,5 @@
 function inAscOrder(arr) {
-  const sortArray = Array.from(arr);
-
-  sortArray.sort((a, b) => a - b);
-
-  return String(arr) === String(sortArray);
+  return arr.every((_, i) => i === 0 || arr[i] > arr[i - 1]);
 }
 
 console.log(inAscOrder([1, 2, 4, 7, 19])); // true

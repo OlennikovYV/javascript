@@ -1,11 +1,12 @@
 mocha.setup('bdd');
 
-describe('Are the numbers in order?', function () {
+describe('Sum of array singles', function () {
   it('Should pass description examples', () => {
-    chai.expect(inAscOrder([1, 2, 4, 7, 19])).to.equal(true);
-    chai.expect(inAscOrder([1, 2, 3, 4, 5])).to.equal(true);
-    chai.expect(inAscOrder([1, 6, 10, 18, 2, 4, 20])).to.equal(false);
-    chai.expect(inAscOrder([9, 8, 7, 6, 5, 4, 3, 2, 1])).to.equal(false);
+    chai.expect(repeats([4, 5, 7, 5, 4, 8])).to.equal(15);
+    chai.expect(repeats([9, 10, 19, 13, 19, 13])).to.equal(19);
+    chai.expect(repeats([16, 0, 11, 4, 8, 16, 0, 11])).to.equal(12);
+    chai.expect(repeats([5, 17, 18, 11, 13, 18, 11, 13])).to.equal(22);
+    chai.expect(repeats([5, 10, 19, 13, 10, 13])).to.equal(24);
   });
 });
 

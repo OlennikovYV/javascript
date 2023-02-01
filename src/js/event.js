@@ -1,13 +1,18 @@
-function evenLast(numbers) {
-  const lastNumber = numbers[numbers.length - 1] || 0;
+function solve(a, b) {
+  let result = '';
+  const uniqueChar = (a, b) =>
+    a
+      .split('')
+      .filter(el => b.indexOf(el) === -1)
+      .join('');
 
-  return (
-    lastNumber *
-    numbers.reduce((sum, num, index) => {
-      if (index % 2 === 0) sum += num;
-      return sum;
-    }, 0)
-  );
+  result += uniqueChar(a, b);
+  result += uniqueChar(b, a);
+
+  return result;
 }
 
-console.log(evenLast([2, 3, 4, 5])); // 30
+console.log(solve('xyab', 'xzca')); // 'ybzc'
+console.log(solve('xyabb', 'xzca')); // 'ybbzc'
+console.log(solve('abcd', 'xyz')); // 'abcdxyz'
+console.log(solve('xxx', 'xzca')); // 'zca'

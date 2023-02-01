@@ -1,8 +1,11 @@
 mocha.setup('bdd');
 
-describe('filterEvenLengthWords', function () {
+describe('Unique string characters', function () {
   it('test', () => {
-    chai.assert.equal(evenLast([2, 3, 4, 5]), 30);
+    chai.expect(solve('xyab', 'xzca')).to.equal('ybzc');
+    chai.expect(solve('xyabb', 'xzca')).to.equal('ybbzc');
+    chai.expect(solve('abcd', 'xyz')).to.equal('abcdxyz');
+    chai.expect(solve('xxx', 'xzca')).to.equal('zca');
   });
 });
 

@@ -1,12 +1,12 @@
 const prevMultOfThree = n => {
-  let stringNumber = String(n);
+  let num = n;
 
-  for (let i = stringNumber.length; i > 0; i -= 1) {
-    const minusLastDigit = stringNumber.slice(0, i);
-    if (minusLastDigit % 3 === 0) return Number(minusLastDigit);
+  while (num % 3 !== 0) {
+    num = Math.floor(num / 10);
+    if (num < 1) return null;
   }
 
-  return null;
+  return num;
 };
 
 const answer = [null, null, 36, 12, 9];

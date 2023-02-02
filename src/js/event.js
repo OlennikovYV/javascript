@@ -1,18 +1,15 @@
-function solve(a, b) {
-  let result = '';
-  const uniqueChar = (a, b) =>
-    a
-      .split('')
-      .filter(el => b.indexOf(el) === -1)
-      .join('');
+const prevMultOfThree = n => {
+  let stringNumber = String(n);
 
-  result += uniqueChar(a, b);
-  result += uniqueChar(b, a);
+  for (let i = stringNumber.length; i > 0; i -= 1) {
+    const minusLastDigit = stringNumber.slice(0, i);
+    if (minusLastDigit % 3 === 0) return Number(minusLastDigit);
+  }
 
-  return result;
-}
+  return null;
+};
 
-console.log(solve('xyab', 'xzca')); // 'ybzc'
-console.log(solve('xyabb', 'xzca')); // 'ybbzc'
-console.log(solve('abcd', 'xyz')); // 'abcdxyz'
-console.log(solve('xxx', 'xzca')); // 'zca'
+const answer = [null, null, 36, 12, 9];
+[1, 25, 36, 1244, 952406].forEach((q, i) =>
+  console.log(prevMultOfThree(q) + ' = ' + answer[i])
+);

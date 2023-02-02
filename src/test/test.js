@@ -1,12 +1,12 @@
 mocha.setup('bdd');
 
-describe('Unique string characters', function () {
-  it('test', () => {
-    chai.expect(solve('xyab', 'xzca')).to.equal('ybzc');
-    chai.expect(solve('xyabb', 'xzca')).to.equal('ybbzc');
-    chai.expect(solve('abcd', 'xyz')).to.equal('abcdxyz');
-    chai.expect(solve('xxx', 'xzca')).to.equal('zca');
-  });
+describe('Previous multiple of three', function () {
+  const answer = [null, null, 36, 12, 9];
+  [1, 25, 36, 1244, 952406].forEach((q, i) =>
+    it(`n = ${q}`, function () {
+      chai.expect(prevMultOfThree(q)).to.equal(answer[i]);
+    })
+  );
 });
 
 mocha.run();

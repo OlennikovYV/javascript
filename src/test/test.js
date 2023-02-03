@@ -1,12 +1,16 @@
 mocha.setup('bdd');
 
-describe('Previous multiple of three', function () {
-  const answer = [null, null, 36, 12, 9];
-  [1, 25, 36, 1244, 952406].forEach((q, i) =>
-    it(`n = ${q}`, function () {
-      chai.expect(prevMultOfThree(q)).to.equal(answer[i]);
-    })
-  );
+describe('Count consonants', function () {
+  it('test', () => {
+    chai.expect(consonantCount('')).to.equal(0);
+    chai.expect(consonantCount('aaaaa')).to.equal(0);
+    chai.expect(consonantCount('XaeiouX')).to.equal(2);
+    chai.expect(consonantCount('Bbbbb')).to.equal(5);
+    chai.expect(consonantCount('helLo world'), 7);
+    chai.expect(consonantCount('h^$&^#$&^elLo world')).to.equal(7);
+    chai.expect(consonantCount('0123456789')).to.equal(0);
+    chai.expect(consonantCount('012345_Cb')).to.equal(2);
+  });
 });
 
 mocha.run();

@@ -1,12 +1,5 @@
 function consonantCount(str) {
-  return Array(...str).reduce((sum, char) => {
-    if (
-      !['a', 'e', 'i', 'o', 'u'].includes(char.toLowerCase()) &&
-      /[a-z]/i.test(char)
-    )
-      sum += 1;
-    return sum;
-  }, 0);
+  return str.replace(/[\W\daeiou_]+/gi, '').length;
 }
 
 console.log(consonantCount('')); // 0

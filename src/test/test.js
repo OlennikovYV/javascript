@@ -1,16 +1,33 @@
 mocha.setup('bdd');
 
-describe('Count consonants', function () {
-  it('test', () => {
-    chai.expect(consonantCount('')).to.equal(0);
-    chai.expect(consonantCount('aaaaa')).to.equal(0);
-    chai.expect(consonantCount('XaeiouX')).to.equal(2);
-    chai.expect(consonantCount('Bbbbb')).to.equal(5);
-    chai.expect(consonantCount('helLo world'), 7);
-    chai.expect(consonantCount('h^$&^#$&^elLo world')).to.equal(7);
-    chai.expect(consonantCount('0123456789')).to.equal(0);
-    chai.expect(consonantCount('012345_Cb')).to.equal(2);
-  });
+describe('Very Even" Numbers.', function () {
+  const inputs = [0, 4, 12, 222, 5, 45, 4554, 1234, 88, 24, 400000220];
+  const expecteds = [
+    true,
+    true,
+    false,
+    true,
+    false,
+    false,
+    false,
+    false,
+    false,
+    true,
+    true,
+  ];
+
+  for (let i = 0; i < inputs.length; i++) {
+    const n = inputs[i];
+    const expected = expecteds[i];
+    it(`Testing for n = ${n}`, () => {
+      let actual = isVeryEvenNumber(n);
+      chai.assert.strictEqual(
+        actual,
+        expected,
+        `${n} is ${expected ? '' : 'not '}'Very Even'`
+      );
+    });
+  }
 });
 
 mocha.run();

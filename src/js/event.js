@@ -1,12 +1,5 @@
 function keysAndValues(data) {
-  let result = [[], []];
-
-  for (let key in data) {
-    result[0].push(key);
-    result[1].push(data[key]);
-  }
-
-  return result;
+  return [Object.keys(data), Object.values(data)];
 }
 
 console.log(keysAndValues({ a: 1, b: 2, c: 3 }));

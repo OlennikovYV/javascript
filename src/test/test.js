@@ -1,16 +1,10 @@
 mocha.setup('bdd');
 
-describe('Get key/value pairs as arrays', function () {
-  it('tests', () => {
-    chai.expect(keysAndValues({ a: 1, b: 2, c: 3 })).to.eql([
-      ['a', 'b', 'c'],
-      [1, 2, 3],
-    ]);
-    chai.expect(keysAndValues({})).to.eql([[], []]);
-    chai.expect(keysAndValues({ 1: 'a', 2: 'b', 3: 'c' })).to.eql([
-      ['1', '2', '3'],
-      ['a', 'b', 'c'],
-    ]);
+describe('Boiled Eggs', function () {
+  it('should calculate the cooking time', function () {
+    chai.expect(cookingTime(0)).to.equal(0);
+    chai.expect(cookingTime(5)).to.equal(5);
+    chai.expect(cookingTime(10)).to.equal(10);
   });
 });
 

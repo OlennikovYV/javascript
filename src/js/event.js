@@ -1,9 +1,7 @@
-function keysAndValues(data) {
-  return [Object.keys(data), Object.values(data)];
+function cookingTime(eggs) {
+  return Math.ceil(eggs / 8) * 5;
 }
 
-console.log(keysAndValues({ a: 1, b: 2, c: 3 }));
-// [ ['a', 'b', 'c'], [1, 2, 3] ]
-console.log(keysAndValues({})); // [[], []]
-console.log(keysAndValues({ 1: 'a', 2: 'b', 3: 'c' }));
-// [ ['1', '2', '3'], ['a', 'b', 'c'], ]
+console.log(cookingTime(0)); // 0
+console.log(cookingTime(5)); // 5
+console.log(cookingTime(10)); // 10

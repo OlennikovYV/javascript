@@ -1,11 +1,5 @@
 function rakeGarden(garden) {
-  return garden
-    .split(' ')
-    .map(el => {
-      if (el !== 'rock' && el !== 'gravel') el = 'gravel';
-      return el;
-    })
-    .join(' ');
+  return garden.replace(/slug|spider|snail|ant|moss/g, 'gravel');
 }
 
 const garden1 =

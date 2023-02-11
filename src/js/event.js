@@ -1,7 +1,19 @@
-function twoHighest(arr) {
-  return [...new Set(arr.sort((a, b) => b - a))].slice(0, 2);
-}
+var isMonotone = function (arr) {
+  return arr.every((el, i) => i == 0 || el >= arr[i - 1]);
+};
 
-console.log(twoHighest([])); // []
-console.log(twoHighest([15])); // [15]
-console.log(twoHighest([15, 20, 20, 17])); // [20, 17]
+const range = function (a, b) {
+  const r = [],
+    step = b - a > 0 ? 1 : -1;
+  do {
+    r.push(a);
+  } while (step * (b - (a += step)) >= 0);
+  return r;
+};
+
+console.log(isMonotone(range(1, 10))); // true
+console.log(isMonotone(range(4, 12))); // true
+console.log(isMonotone([5, 5, 5, 5, 5])); // true
+console.log(isMonotone([])); // true
+console.log(isMonotone(range(5, 1))); // false
+console.log(isMonotone([1, 2, 3, 3, 4, 5])); // false

@@ -1,5 +1,5 @@
 function spread(func, args) {
-  return func.call(null, ...args);
+  return func.apply(null, args);
 }
 
 console.log(

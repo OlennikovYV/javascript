@@ -1,9 +1,5 @@
 function diagonalSum(matrix) {
-  let sum = 0;
-
-  for (let i = 0; i < matrix.length; i += 1) sum += matrix[i][i];
-
-  return sum;
+  return matrix.reduce((sum, el, index) => sum + el[index], 0);
 }
 
 console.log(diagonalSum([[12]])); // 12

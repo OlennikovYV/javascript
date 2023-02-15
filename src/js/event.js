@@ -1,14 +1,30 @@
-function spread(func, args) {
-  return func.apply(null, args);
+function diagonalSum(matrix) {
+  let sum = 0;
+
+  for (let i = 0; i < matrix.length; i += 1) sum += matrix[i][i];
+
+  return sum;
 }
 
+console.log(diagonalSum([[12]])); // 12
 console.log(
-  spread(
-    function (x, y) {
-      return x + y;
-    },
-    [1, 2]
-  )
-);
-//  3
-// Equivalent: (function(x,y){return x+y})(1,2)
+  diagonalSum([
+    [1, 2],
+    [3, 4],
+  ])
+); // 5
+console.log(
+  diagonalSum([
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9],
+  ])
+); // 15
+console.log(
+  diagonalSum([
+    [1, 2, 3, 4],
+    [5, 6, 7, 8],
+    [9, 10, 11, 12],
+    [13, 14, 15, 16],
+  ])
+); // 34

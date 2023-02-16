@@ -1,35 +1,33 @@
 mocha.setup('bdd');
 
-describe('Unpacking Arguments', function () {
-  it('test', () => {
-    chai.expect(diagonalSum([[12]])).to.equal(12);
+describe('Linked Lists - Get Nth Node', function () {
+  var list = buildOneTwoThree();
+
+  it('', function () {
     chai
-      .expect(
-        diagonalSum([
-          [1, 2],
-          [3, 4],
-        ])
-      )
-      .to.equal(5);
+      .expect(getNth(list, 0).data)
+      .to.equal(1, 'First node should be located at index 0.');
     chai
-      .expect(
-        diagonalSum([
-          [1, 2, 3],
-          [4, 5, 6],
-          [7, 8, 9],
-        ])
-      )
-      .to.equal(15);
+      .expect(getNth(list, 1).data)
+      .to.equal(2, 'Second node should be located at index 1.');
     chai
-      .expect(
-        diagonalSum([
-          [1, 2, 3, 4],
-          [5, 6, 7, 8],
-          [9, 10, 11, 12],
-          [13, 14, 15, 16],
-        ])
-      )
-      .to.equal(34);
+      .expect(getNth(list, 2).data)
+      .to.equal(3, 'Third node should be located at index 2.');
+
+    let fn = function () {
+      getNth(list, 3);
+    };
+    chai.expect(fn).to.throw();
+
+    fn = function () {
+      getNth(list, 100);
+    };
+    chai.expect(fn).to.throw();
+
+    fn = function () {
+      getNth(nult, 0);
+    };
+    chai.expect(fn).to.throw();
   });
 });
 

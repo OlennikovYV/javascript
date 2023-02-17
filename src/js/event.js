@@ -1,7 +1,4 @@
-function mystery() {
-  var results = { sanity: 'Hello' };
-  return results;
-}
+const mystery = () => ({ sanity: 'Hello' });
 
 console.log(mystery());
 // { sanity: 'Hello' }

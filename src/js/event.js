@@ -1,9 +1,5 @@
 function numObj(s) {
-  return s.map(digit => {
-    const object = {};
-    object[digit] = String.fromCharCode(digit);
-    return object;
-  });
+  return s.map(digit => ({ [digit]: String.fromCharCode(digit) }));
 }
 
 console.log(numObj([118, 117, 120]));

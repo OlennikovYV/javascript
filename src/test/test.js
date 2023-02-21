@@ -1,24 +1,20 @@
 mocha.setup('bdd');
 
-describe('Training JS #13: Number object and its properties', function () {
-  it('test', () => {
+describe('Numbers to Objects', function () {
+  it('Testing for fixed tests', () => {
     chai
-      .expect(whatNumberIsIt(1 / 0))
-      .to.equal('Input number is Number.POSITIVE_INFINITY');
-    chai.expect(whatNumberIsIt(100)).to.equal('Input number is 100');
+      .expect(numObj([118, 117, 120]))
+      .to.eql([{ 118: 'v' }, { 117: 'u' }, { 120: 'x' }]);
     chai
-      .expect(whatNumberIsIt(1.7976931348623157e308))
-      .to.equal('Input number is Number.MAX_VALUE');
-    chai
-      .expect(whatNumberIsIt(5e-324))
-      .to.equal('Input number is Number.MIN_VALUE');
-    chai
-      .expect(whatNumberIsIt(-Number.MAX_VALUE * 2))
-      .to.equal('Input number is Number.NEGATIVE_INFINITY');
-    chai.expect(whatNumberIsIt(NaN)).to.equal('Input number is Number.NaN');
-    chai
-      .expect(whatNumberIsIt(Infinity + 1))
-      .to.equal('Input number is Number.POSITIVE_INFINITY');
+      .expect(numObj([101, 121, 110, 113, 113, 103]))
+      .to.eql([
+        { 101: 'e' },
+        { 121: 'y' },
+        { 110: 'n' },
+        { 113: 'q' },
+        { 113: 'q' },
+        { 103: 'g' },
+      ]);
   });
 });
 

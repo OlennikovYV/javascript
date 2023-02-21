@@ -1,21 +1,21 @@
-function whatNumberIsIt(n) {
-  if (n == Number.MAX_VALUE) return 'Input number is Number.MAX_VALUE';
-  if (n == Number.MIN_VALUE) return 'Input number is Number.MIN_VALUE';
-  if (n == Number.NEGATIVE_INFINITY)
-    return 'Input number is Number.NEGATIVE_INFINITY';
-  if (n == Number.POSITIVE_INFINITY)
-    return 'Input number is Number.POSITIVE_INFINITY';
-  return isNaN(n) ? 'Input number is Number.NaN' : `Input number is ${n}`;
+function numObj(s) {
+  return s.map(digit => {
+    const object = {};
+    object[digit] = String.fromCharCode(digit);
+    return object;
+  });
 }
 
-console.log(whatNumberIsIt(-1 / 0));
-// 'Input number is Number.POSITIVE_INFINITY'
-console.log(whatNumberIsIt(100)); // 'Input number is 100'
-console.log(whatNumberIsIt(1.7976931348623157e308));
-// 'Input number is Number.MAX_VALUE'
-console.log(whatNumberIsIt(5e-324)); // 'Input number is Number.MIN_VALUE'
-console.log(whatNumberIsIt(-Number.MAX_VALUE * 2));
-// 'Input number is Number.NEGATIVE_INFINITY'
-console.log(whatNumberIsIt(NaN)); // 'Input number is Number.NaN'
-console.log(whatNumberIsIt(Infinity + 1));
-// 'Input number is Number.POSITIVE_INFINITY'
+console.log(numObj([118, 117, 120]));
+// [ { 118: 'v' },
+// { 117: 'u' },
+// { 120: 'x' },
+// ]);
+console.log(numObj([101, 121, 110, 113, 113, 103]));
+// [ { 101: 'e' },
+// { 121: 'y' },
+// { 110: 'n' },
+// { 113: 'q' },
+// { 113: 'q' },
+// { 103: 'g' },
+// ]);

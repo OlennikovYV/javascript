@@ -1,17 +1,10 @@
-function numObj(s) {
-  return s.map(digit => ({ [digit]: String.fromCharCode(digit) }));
+function search(budget, prices) {
+  return prices
+    .filter(price => price <= budget)
+    .sort((a, b) => a - b)
+    .join(',');
 }
 
-console.log(numObj([118, 117, 120]));
-// [ { 118: 'v' },
-// { 117: 'u' },
-// { 120: 'x' },
-// ]);
-console.log(numObj([101, 121, 110, 113, 113, 103]));
-// [ { 101: 'e' },
-// { 121: 'y' },
-// { 110: 'n' },
-// { 113: 'q' },
-// { 113: 'q' },
-// { 103: 'g' },
-// ]);
+console.log(search(3, [6, 1, 2, 9, 2])); // '1,2,2'
+console.log(search(14, [7, 3, 23, 9, 14, 20, 7])); // '3,7,7,9,14'
+console.log(search(0, [6, 1, 2, 9, 2])); // ''

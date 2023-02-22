@@ -1,20 +1,10 @@
 mocha.setup('bdd');
 
-describe('Numbers to Objects', function () {
-  it('Testing for fixed tests', () => {
-    chai
-      .expect(numObj([118, 117, 120]))
-      .to.eql([{ 118: 'v' }, { 117: 'u' }, { 120: 'x' }]);
-    chai
-      .expect(numObj([101, 121, 110, 113, 113, 103]))
-      .to.eql([
-        { 101: 'e' },
-        { 121: 'y' },
-        { 110: 'n' },
-        { 113: 'q' },
-        { 113: 'q' },
-        { 103: 'g' },
-      ]);
+describe('Filter Coffee', function () {
+  it('test', () => {
+    chai.expect(search(3, [6, 1, 2, 9, 2])).to.eql('1,2,2');
+    chai.expect(search(14, [7, 3, 23, 9, 14, 20, 7])).to.eql('3,7,7,9,14');
+    chai.expect(search(0, [6, 1, 2, 9, 2])).to.eql('');
   });
 });
 

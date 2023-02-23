@@ -1,12 +1,9 @@
 function binRota(arr) {
-  return arr.reduce((rota, row, index) => {
-    if (index % 2 === 0) {
-      for (let i = 0; i < row.length; i += 1) rota.push(row[i]);
-    } else {
-      for (let i = row.length - 1; i >= 0; i -= 1) rota.push(row[i]);
-    }
-    return rota;
-  }, []);
+  return arr.reduce(
+    (rota, row, index) =>
+      index % 2 === 0 ? rota.concat(row) : rota.concat(row.reverse()),
+    []
+  );
 }
 
 console.log(

@@ -1,17 +1,16 @@
-function remove(string) {
-  let exclamationMarks = '';
-  let stringWithoutMarks = '';
+function nicknameGenerator(name) {
+  const vowels = ['a', 'e', 'i', 'o', 'u'];
 
-  for (let i = 0; i < string.length; i++)
-    string[i] === '!'
-      ? (exclamationMarks += '!')
-      : (stringWithoutMarks += string[i]);
+  if (name.length < 4) return `Error: Name too short`;
 
-  return stringWithoutMarks + exclamationMarks;
+  if (!vowels.includes(name[2])) return name.slice(0, 3);
+
+  return name.slice(0, 4);
 }
 
-console.log(remove('Hi!')); // 'Hi!'
-console.log(remove('Hi! Hi!')); // 'Hi Hi!!'
-console.log(remove('Hi! Hi! Hi!')); // 'Hi Hi Hi!!!'
-console.log(remove('Hi! !Hi Hi!')); // 'Hi Hi Hi!!!'
-console.log(remove('Hi! Hi!! Hi!')); // 'Hi Hi Hi!!!!'
+console.log(nicknameGenerator('Jimmy')); // 'Jim'
+console.log(nicknameGenerator('Samantha')); // 'Sam'
+console.log(nicknameGenerator('Sam')); // 'Error: Name too short'
+console.log(nicknameGenerator('Kayne')); // 'Kay', "'y' is not a vowel"
+console.log(nicknameGenerator('Melissa')); // 'Mel'
+console.log(nicknameGenerator('James')); // 'Jam'

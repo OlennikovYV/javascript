@@ -5,11 +5,14 @@ describe(
     'marks to the end of the sentence',
   function () {
     it('sample tests', function () {
-      chai.expect(remove('Hi!')).to.equal('Hi!');
-      chai.expect(remove('Hi! Hi!')).to.equal('Hi Hi!!');
-      chai.expect(remove('Hi! Hi! Hi!')).to.equal('Hi Hi Hi!!!');
-      chai.expect(remove('Hi! !Hi Hi!')).to.equal('Hi Hi Hi!!!');
-      chai.expect(remove('Hi! Hi!! Hi!')).to.equal('Hi Hi Hi!!!!');
+      chai.expect(nicknameGenerator('Jimmy')).to.equal('Jim');
+      chai.expect(nicknameGenerator('Samantha')).to.equal('Sam');
+      chai.expect(nicknameGenerator('Sam')).to.equal('Error: Name too short');
+      chai
+        .expect(nicknameGenerator('Kayne'))
+        .to.equal('Kay', "'y' is not a vowel");
+      chai.expect(nicknameGenerator('Melissa')).to.equal('Mel');
+      chai.expect(nicknameGenerator('James')).to.equal('Jam');
     });
   }
 );

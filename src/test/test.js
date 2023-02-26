@@ -1,20 +1,12 @@
 mocha.setup('bdd');
 
-describe(
-  'Exclamation marks series #8: Move all exclamation' +
-    'marks to the end of the sentence',
-  function () {
-    it('sample tests', function () {
-      chai.expect(nicknameGenerator('Jimmy')).to.equal('Jim');
-      chai.expect(nicknameGenerator('Samantha')).to.equal('Sam');
-      chai.expect(nicknameGenerator('Sam')).to.equal('Error: Name too short');
-      chai
-        .expect(nicknameGenerator('Kayne'))
-        .to.equal('Kay', "'y' is not a vowel");
-      chai.expect(nicknameGenerator('Melissa')).to.equal('Mel');
-      chai.expect(nicknameGenerator('James')).to.equal('Jam');
-    });
-  }
-);
+describe('Are they square?', function () {
+  it('Basic tests', function () {
+    chai.expect(isSquare([1, 4, 9, 16, 25, 36])).to.equal(true);
+    chai.expect(isSquare([1, 2, 3, 4, 5, 6])).to.equal(false);
+    chai.expect(isSquare([])).to.equal(undefined);
+    chai.expect(isSquare([1, 2, 4, 15])).to.equal(false);
+  });
+});
 
 mocha.run();

@@ -1,10 +1,11 @@
-const isSquare = function (arr) {
-  return arr.length
-    ? arr.every(digit => Number.isInteger(Math.sqrt(digit)))
-    : undefined;
-};
+function min(a, b) {
+  if (isNaN(a) || isNaN(b)) return NaN;
 
-console.log(isSquare([1, 4, 9, 16, 25, 36])); // true
-console.log(isSquare([1, 2, 3, 4, 5, 6])); // false
-console.log(isSquare([])); // undefined
-console.log(isSquare([1, 2, 4, 15])); // false
+  return a < b ? Number(a) : Number(b);
+}
+
+console.log(min(1, -2.5) === -2.5); // -2.5
+console.log(min(1.5, NaN)); // NaN
+console.log(min(1.5, undefined)); // NaN
+console.log(min(-Infinity, Infinity) === -Infinity); // -Infinity
+console.log(min(null, 2.5) === 0); // 'treat null as if it were 0'

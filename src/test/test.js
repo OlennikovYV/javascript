@@ -1,22 +1,18 @@
 mocha.setup('bdd');
 
-describe('True Min', function () {
-  it('test', () => {
-    chai.assert.isTrue(
-      min(1, -2.5) === -2.5,
-      'Return the minimum of the two arguments'
-    );
-    chai.assert.isNaN(min(1.5, NaN), 'Any NaN value should return NaN');
-    chai.assert.isNaN(
-      min(1.5, undefined),
-      'Any undefined value should return NaN'
-    );
-    chai.assert.isTrue(
-      min(-Infinity, Infinity) === -Infinity,
-      'Infinity should be handled like normal numbers'
-    );
-    chai.assert.isTrue(min(null, 2.5) === 0, 'treat null as if it were 0');
-  });
-});
+describe(
+  'Training JS #19: Methods of String object--toUpperCase() ' +
+    'toLowerCase() and replace()',
+  function () {
+    it('test', () => {
+      chai.expect(alienLanguage('My name is John')).to.equal('My NAMe Is JOHn');
+      chai
+        .expect(alienLanguage('this is an example'))
+        .to.equal('THIs Is An EXAMPLe');
+      chai.expect(alienLanguage('Hello World')).to.equal('HELLo WORLd');
+      chai.expect(alienLanguage('HELLO WORLD')).to.equal('HELLo WORLd');
+    });
+  }
+);
 
 mocha.run();

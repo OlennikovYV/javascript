@@ -1,14 +1,11 @@
-function min(a, b) {
-  a === null && (a = 0);
-  b === null && (b = 0);
-
-  if (isNaN(a) || isNaN(b)) return NaN;
-
-  return a < b ? a : b;
+function alienLanguage(str) {
+  return str
+    .split(' ')
+    .map(word => word.slice(0, -1).toUpperCase() + word.slice(-1).toLowerCase())
+    .join(' ');
 }
 
-console.log(min(1, -2.5) === -2.5); // -2.5
-console.log(min(1.5, NaN)); // NaN
-console.log(min(1.5, undefined)); // NaN
-console.log(min(-Infinity, Infinity) === -Infinity); // -Infinity
-console.log(min(null, 2.5) === 0); // 0
+console.log(alienLanguage('My name is John')); // 'My NAMe Is JOHn'
+console.log(alienLanguage('this is an example')); // 'THIs Is An EXAMPLe'
+console.log(alienLanguage('Hello World')); // 'HELLo WORLd'
+console.log(alienLanguage('HELLO WORLD')); // 'HELLo WORLd'

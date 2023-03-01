@@ -1,18 +1,11 @@
 mocha.setup('bdd');
 
-describe(
-  'Training JS #19: Methods of String object--toUpperCase() ' +
-    'toLowerCase() and replace()',
-  function () {
-    it('test', () => {
-      chai.expect(alienLanguage('My name is John')).to.equal('My NAMe Is JOHn');
-      chai
-        .expect(alienLanguage('this is an example'))
-        .to.equal('THIs Is An EXAMPLe');
-      chai.expect(alienLanguage('Hello World')).to.equal('HELLo WORLd');
-      chai.expect(alienLanguage('HELLO WORLD')).to.equal('HELLo WORLd');
-    });
-  }
-);
+describe('How many times should I go?', function () {
+  it('test', () => {
+    chai.expect(howManyTimes(40, 15)).to.equal(3);
+    chai.expect(howManyTimes(30, 10)).to.equal(3);
+    chai.expect(howManyTimes(80, 15)).to.equal(6);
+  });
+});
 
 mocha.run();

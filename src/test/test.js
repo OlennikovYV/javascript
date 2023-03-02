@@ -1,10 +1,9 @@
 mocha.setup('bdd');
 
-describe('How many times should I go?', function () {
+describe('Character Concatenation', function () {
   it('test', () => {
-    chai.expect(howManyTimes(40, 15)).to.equal(3);
-    chai.expect(howManyTimes(30, 10)).to.equal(3);
-    chai.expect(howManyTimes(80, 15)).to.equal(6);
+    chai.expect(charConcat('abc def')).to.equal('af1be2cd3');
+    chai.expect(charConcat('CodeWars')).to.equal('Cs1or2da3eW4');
   });
 });
 

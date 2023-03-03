@@ -1,16 +1,15 @@
-function charConcat(string) {
-  const step = Math.floor(string.length / 2);
-  const length = string.length;
-  let result = '';
+function makePassword(phrase) {
+  const num = { i: 1, o: 0, s: 5 };
 
-  for (let i = 0; i < step; i += 1) {
-    const left = string[i];
-    const right = string[Math.abs(i - length) - 1];
-    result += left + right + (i + 1);
-  }
-
-  return result;
+  return phrase
+    .split(' ')
+    .map(word => {
+      const char = word.charAt(0);
+      const numChar = num[char.toLowerCase()];
+      return numChar != undefined ? numChar : char;
+    })
+    .join('');
 }
 
-console.log(charConcat('abc def')); // 'af1be2cd3'
-console.log(charConcat('CodeWars')); // 'Cs1or2da3eW4'
+console.log(makePassword('Give me liberty or give me death')); // 'Gml0gmd'
+console.log(makePassword('Keep Calm and Carry On')); // 'KCaC0'

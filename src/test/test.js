@@ -1,9 +1,11 @@
 mocha.setup('bdd');
 
-describe('Character Concatenation', function () {
-  it('test', () => {
-    chai.expect(charConcat('abc def')).to.equal('af1be2cd3');
-    chai.expect(charConcat('CodeWars')).to.equal('Cs1or2da3eW4');
+describe('Password maker', function () {
+  it('should work for some examples', function () {
+    chai
+      .expect(makePassword('Give me liberty or give me death'))
+      .to.equal('Gml0gmd');
+    chai.expect(makePassword('Keep Calm and Carry On')).to.equal('KCaC0');
   });
 });
 

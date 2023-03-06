@@ -1,7 +1,6 @@
 function reverseNumber(n) {
   return (
-    Math.sign(n) *
-    Number(String(n).replace(/-/g, '').split('').reverse().join(''))
+    Math.sign(n) * Number(String(Math.abs(n)).split('').reverse().join(''))
   );
 }
 

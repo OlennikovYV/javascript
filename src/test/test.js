@@ -1,14 +1,16 @@
 mocha.setup('bdd');
 
-describe('Reverse a Number', function () {
-  it('test', () => {
-    chai.expect(reverseNumber(123)).to.equal(321);
-    chai.expect(reverseNumber(-123)).to.equal(-321);
-    chai.expect(reverseNumber(1000)).to.equal(1);
-    chai.expect(reverseNumber(4321234)).to.equal(4321234);
-    chai.expect(reverseNumber(5)).to.equal(5);
-    chai.expect(reverseNumber(0)).to.equal(0);
-    chai.expect(reverseNumber(98989898)).to.equal(89898989);
+describe('Area of a Square', function () {
+  it('squareArea(2)', function () {
+    chai.expect(squareArea(2)).to.equal(1.62);
+  });
+
+  it('squareArea(0)', function () {
+    chai.expect(squareArea(0)).to.equal(0);
+  });
+
+  it('squareArea(14.05)', function () {
+    chai.expect(squareArea(14.05)).to.equal(80);
   });
 });
 

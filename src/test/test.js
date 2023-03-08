@@ -1,16 +1,55 @@
 mocha.setup('bdd');
 
-describe('Area of a Square', function () {
-  it('squareArea(2)', function () {
-    chai.expect(squareArea(2)).to.equal(1.62);
-  });
+describe('Coding Meetup #3 - Higher-Order Functions Series - Is Ruby coming?', function () {
+  it('test', () => {
+    var list1 = [
+      {
+        firstName: 'Sofia',
+        lastName: 'I.',
+        country: 'Argentina',
+        continent: 'Americas',
+        age: 35,
+        language: 'Java',
+      },
+      {
+        firstName: 'Lukas',
+        lastName: 'X.',
+        country: 'Croatia',
+        continent: 'Europe',
+        age: 35,
+        language: 'Python',
+      },
+      {
+        firstName: 'Madison',
+        lastName: 'U.',
+        country: 'United States',
+        continent: 'Americas',
+        age: 32,
+        language: 'Ruby',
+      },
+    ];
 
-  it('squareArea(0)', function () {
-    chai.expect(squareArea(0)).to.equal(0);
-  });
+    var list2 = [
+      {
+        firstName: 'Sofia',
+        lastName: 'I.',
+        country: 'Argentina',
+        continent: 'Americas',
+        age: 35,
+        language: 'Java',
+      },
+      {
+        firstName: 'Lukas',
+        lastName: 'X.',
+        country: 'Croatia',
+        continent: 'Europe',
+        age: 35,
+        language: 'Python',
+      },
+    ];
 
-  it('squareArea(14.05)', function () {
-    chai.expect(squareArea(14.05)).to.equal(80);
+    chai.expect(isRubyComing(list1)).to.equal(true);
+    chai.expect(isRubyComing(list2)).to.equal(false);
   });
 });
 

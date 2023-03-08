@@ -1,9 +1,55 @@
-function squareArea(A) {
-  let r = (2 * A) / Math.PI;
+function isRubyComing(list) {
+  for (let i = 0; i < list.length; i += 1)
+    if (list[i].language === 'Ruby') return true;
 
-  return Number(Math.pow(r, 2).toFixed(2));
+  return false;
 }
 
-console.log(squareArea(2)); // 1.62
-console.log(squareArea(0)); // 0
-console.log(squareArea(14.05)); // 80
+var list1 = [
+  {
+    firstName: 'Sofia',
+    lastName: 'I.',
+    country: 'Argentina',
+    continent: 'Americas',
+    age: 35,
+    language: 'Java',
+  },
+  {
+    firstName: 'Lukas',
+    lastName: 'X.',
+    country: 'Croatia',
+    continent: 'Europe',
+    age: 35,
+    language: 'Python',
+  },
+  {
+    firstName: 'Madison',
+    lastName: 'U.',
+    country: 'United States',
+    continent: 'Americas',
+    age: 32,
+    language: 'Ruby',
+  },
+];
+
+var list2 = [
+  {
+    firstName: 'Sofia',
+    lastName: 'I.',
+    country: 'Argentina',
+    continent: 'Americas',
+    age: 35,
+    language: 'Java',
+  },
+  {
+    firstName: 'Lukas',
+    lastName: 'X.',
+    country: 'Croatia',
+    continent: 'Europe',
+    age: 35,
+    language: 'Python',
+  },
+];
+
+console.log(isRubyComing(list1)); // true
+console.log(isRubyComing(list2)); // false

@@ -1,7 +1,8 @@
 function borrow(s) {
   return s
+    .toLowerCase()
     .split(' ')
-    .map(word => word.replace(/[!|?|.|:|,|;]/g, '').toLowerCase())
+    .map(word => word.replace(/\W/g, ''))
     .join('');
 }
 

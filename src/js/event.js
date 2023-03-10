@@ -1,16 +1,10 @@
-Array.prototype.filter = function (func) {
-  let filterArray = [];
+function borrow(s) {
+  return s
+    .split(' ')
+    .map(word => word.replace(/[!|?|.|:|,|;]/g, '').toLowerCase())
+    .join('');
+}
 
-  if (!func) return filterArray;
-
-  for (let i = 0; i < this.length; i += 1)
-    if (func(this[i]) === true) filterArray.push(this[i]);
-
-  return filterArray;
-};
-
-console.log(
-  [1, 2, 3, 4].filter(num => {
-    return num > 3;
-  })
-); // [4]
+console.log(borrow('WhAt! FiCK! DaMn CAke?')); // 'whatfickdamncake'
+console.log(borrow('THE big PeOpLE Here!!')); // 'thebigpeoplehere'
+console.log(borrow('i AM a TINY BoY!!')); // 'iamatinyboy'

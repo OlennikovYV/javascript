@@ -1,14 +1,10 @@
 mocha.setup('bdd');
 
-describe('Implement Array.prototype.filter()', function () {
-  it('test', () => {
-    chai
-      .expect(
-        [1, 2, 3, 4].filter(num => {
-          return num > 3;
-        })
-      )
-      .to.eql([4]);
+describe('Borrower Speak', function () {
+  it('Testing for fixed tests', () => {
+    chai.expect(borrow('WhAt! FiCK! DaMn CAke?')).to.equal('whatfickdamncake');
+    chai.expect(borrow('THE big PeOpLE Here!!')).to.equal('thebigpeoplehere');
+    chai.expect(borrow('i AM a TINY BoY!!')).to.equal('iamatinyboy');
   });
 });
 

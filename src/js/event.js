@@ -1,11 +1,14 @@
-function borrow(s) {
-  return s
-    .toLowerCase()
-    .split(' ')
-    .map(word => word.replace(/\W/g, ''))
-    .join('');
+function reverse(n) {
+  let reverseNumber = 0;
+
+  while (n) {
+    reverseNumber = reverseNumber * 10 + (n % 10);
+    n = Math.floor(n / 10);
+  }
+
+  return reverseNumber;
 }
 
-console.log(borrow('WhAt! FiCK! DaMn CAke?')); // 'whatfickdamncake'
-console.log(borrow('THE big PeOpLE Here!!')); // 'thebigpeoplehere'
-console.log(borrow('i AM a TINY BoY!!')); // 'iamatinyboy'
+console.log(reverse(1234)); // 4321
+console.log(reverse(10987)); // 78901
+console.log(reverse(1020)); // 201

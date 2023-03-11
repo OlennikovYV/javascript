@@ -1,10 +1,10 @@
 mocha.setup('bdd');
 
-describe('Borrower Speak', function () {
+describe('Reverser', function () {
   it('Testing for fixed tests', () => {
-    chai.expect(borrow('WhAt! FiCK! DaMn CAke?')).to.equal('whatfickdamncake');
-    chai.expect(borrow('THE big PeOpLE Here!!')).to.equal('thebigpeoplehere');
-    chai.expect(borrow('i AM a TINY BoY!!')).to.equal('iamatinyboy');
+    chai.expect(reverse(1234)).to.equal(4321);
+    chai.expect(reverse(10987)).to.equal(78901);
+    chai.expect(reverse(1020)).to.equal(201);
   });
 });
 

@@ -1,10 +1,11 @@
 mocha.setup('bdd');
 
-describe('Reverser', function () {
-  it('Testing for fixed tests', () => {
-    chai.expect(reverse(1234)).to.equal(4321);
-    chai.expect(reverse(10987)).to.equal(78901);
-    chai.expect(reverse(1020)).to.equal(201);
+describe('Band name generator', function () {
+  it('test', () => {
+    chai.expect(bandNameGenerator('knife')).to.equal('The Knife');
+    chai.expect(bandNameGenerator('tart')).to.equal('Tartart');
+    chai.expect(bandNameGenerator('sandles')).to.equal('Sandlesandles');
+    chai.expect(bandNameGenerator('bed')).to.equal('The Bed');
   });
 });
 

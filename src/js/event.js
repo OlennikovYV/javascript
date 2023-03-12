@@ -1,14 +1,10 @@
-function reverse(n) {
-  let reverseNumber = 0;
-
-  while (n) {
-    reverseNumber = reverseNumber * 10 + (n % 10);
-    n = Math.floor(n / 10);
-  }
-
-  return reverseNumber;
+function bandNameGenerator(str) {
+  return str[0] === str[str.length - 1]
+    ? `${str[0].toUpperCase()}${str.slice(1).repeat(2)}`
+    : `The ${str[0].toUpperCase()}${str.slice(1)}`;
 }
 
-console.log(reverse(1234)); // 4321
-console.log(reverse(10987)); // 78901
-console.log(reverse(1020)); // 201
+console.log(bandNameGenerator('knife')); // 'The Knife'
+console.log(bandNameGenerator('tart')); // 'Tartart'
+console.log(bandNameGenerator('sandles')); // 'Sandlesandles'
+console.log(bandNameGenerator('bed')); // 'The Bed'

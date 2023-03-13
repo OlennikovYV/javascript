@@ -1,6 +1,5 @@
 function nextHappyYear(year) {
-  const checkYear = year =>
-    Number(Array.from(new Set(String(year).split(''))).join(''));
+  const checkYear = year => Number(Array.from(new Set(String(year))).join(''));
 
   year += 1;
 

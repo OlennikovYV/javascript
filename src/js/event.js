@@ -1,22 +1,35 @@
-function nextHappyYear(year) {
-  const checkYear = year => Number(Array.from(new Set(String(year))).join(''));
+function solve(a) {
+  return a.reduce((diff, element) => {
+    if (/\d/.test(element)) element % 2 === 0 ? (diff += 1) : (diff -= 1);
 
-  year += 1;
-
-  while (year !== (happyYear = checkYear(year))) {
-    year += 1;
-  }
-
-  return happyYear;
+    return diff;
+  }, 0);
 }
 
-console.log(nextHappyYear(1001)); // 1023
-console.log(nextHappyYear(1123)); // 1203
-console.log(nextHappyYear(2001)); // 2013
-console.log(nextHappyYear(2334)); // 2340
-console.log(nextHappyYear(3331)); // 3401
-console.log(nextHappyYear(1987)); // 2013
-console.log(nextHappyYear(5555)); // 5601
-console.log(nextHappyYear(7712)); // 7801
-console.log(nextHappyYear(8088)); // 8091
-console.log(nextHappyYear(8999)); // 9012
+console.log(solve([0, 1, 2, 3])); // 0
+console.log(solve([0, 1, 2, 3, 'a', 'b'])); // 0
+console.log(solve([0, 15, 'z', 16, 'm', 13, 14, 'c', 9, 10, 13, 'u', 4, 3])); // 0
+console.log(solve([13, 6, 8, 15, 4, 8, 13])); // 1
+console.log(solve([1, 'a', 17, 8, 'e', 3, 'i', 12, 1])); // -2
+console.log(
+  solve([
+    5,
+    15,
+    16,
+    10,
+    6,
+    4,
+    16,
+    't',
+    13,
+    'n',
+    14,
+    'k',
+    'n',
+    0,
+    'q',
+    'd',
+    7,
+    9,
+  ])
+); // 2

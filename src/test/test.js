@@ -2,16 +2,37 @@ mocha.setup('bdd');
 
 describe('See You Next Happy Year', function () {
   it('test', () => {
-    chai.expect(nextHappyYear(1001)).to.equal(1023);
-    chai.expect(nextHappyYear(1123)).to.equal(1203);
-    chai.expect(nextHappyYear(2001)).to.equal(2013);
-    chai.expect(nextHappyYear(2334)).to.equal(2340);
-    chai.expect(nextHappyYear(3331)).to.equal(3401);
-    chai.expect(nextHappyYear(1987)).to.equal(2013);
-    chai.expect(nextHappyYear(5555)).to.equal(5601);
-    chai.expect(nextHappyYear(7712)).to.equal(7801);
-    chai.expect(nextHappyYear(8088)).to.equal(8091);
-    chai.expect(nextHappyYear(8999)).to.equal(9012);
+    chai.expect(solve([0, 1, 2, 3])).to.equal(0);
+    chai.expect(solve([0, 1, 2, 3, 'a', 'b'])).to.equal(0);
+    chai
+      .expect(solve([0, 15, 'z', 16, 'm', 13, 14, 'c', 9, 10, 13, 'u', 4, 3]))
+      .to.equal(0);
+    chai.expect(solve([13, 6, 8, 15, 4, 8, 13])).to.equal(1);
+    chai.expect(solve([1, 'a', 17, 8, 'e', 3, 'i', 12, 1])).to.equal(-2);
+    chai
+      .expect(
+        solve([
+          5,
+          15,
+          16,
+          10,
+          6,
+          4,
+          16,
+          't',
+          13,
+          'n',
+          14,
+          'k',
+          'n',
+          0,
+          'q',
+          'd',
+          7,
+          9,
+        ])
+      )
+      .to.equal(2);
   });
 });
 

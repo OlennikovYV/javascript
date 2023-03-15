@@ -1,14 +1,5 @@
 function solve(arr) {
-  const dominant = [];
-
-  for (let i = 0; i < arr.length; i += 1) {
-    const element = arr[i];
-    const sum = arr.slice(i + 1).every(el => el < element);
-
-    if (sum) dominant.push(element);
-  }
-
-  return dominant;
+  return arr.filter((el, i) => arr.slice(i + 1).every(elRight => elRight < el));
 }
 
 console.log(solve([16, 17, 14, 3, 14, 5, 2])); // [17, 14, 5, 2]

@@ -1,5 +1,11 @@
-function doubleEveryOther(a) {
-  return a.map((el, i) => el * (1 + (i % 2)));
+function tailSwap(arr) {
+  const tailFirst = arr[0].split(':');
+  const tailEnd = arr[1].split(':');
+
+  return [tailFirst[0] + ':' + tailEnd[1], tailEnd[0] + ':' + tailFirst[1]];
 }
 
-console.log(doubleEveryOther([1, 2, 3, 4])); // [1, 4, 3, 8]
+console.log(tailSwap(['abc:123', 'cde:456']));
+// ['abc:456', 'cde:123']
+console.log(tailSwap(['a:12345', '777:xyz']));
+// ['a:xyz', '777:12345']

@@ -1,8 +1,13 @@
 mocha.setup('bdd');
 
-describe('Double Every Other', function () {
-  it('example tests', () => {
-    chai.expect(doubleEveryOther([1, 2, 3, 4])).to.eql([1, 4, 3, 8]);
+describe('Tail Swap', function () {
+  it('Basic Tests', function () {
+    chai
+      .expect(tailSwap(['abc:123', 'cde:456']))
+      .to.eql(['abc:456', 'cde:123']);
+    chai
+      .expect(tailSwap(['a:12345', '777:xyz']))
+      .to.eql(['a:xyz', '777:12345']);
   });
 });
 

@@ -1,11 +1,12 @@
-function tailSwap(arr) {
-  const tailFirst = arr[0].split(':');
-  const tailEnd = arr[1].split(':');
-
-  return [tailFirst[0] + ':' + tailEnd[1], tailEnd[0] + ':' + tailFirst[1]];
+function counterEffect(hitCount) {
+  return hitCount
+    .split('')
+    .map(digit => Array.from({ length: Number(digit) + 1 }, (_, i) => i));
 }
 
-console.log(tailSwap(['abc:123', 'cde:456']));
-// ['abc:456', 'cde:123']
-console.log(tailSwap(['a:12345', '777:xyz']));
-// ['a:xyz', '777:12345']
+console.log(counterEffect('1250'));
+// [[0, 1], [0, 1, 2], [0, 1, 2, 3, 4, 5], [0]]
+console.log(counterEffect('0050'));
+// [[0], [0], [0, 1, 2, 3, 4, 5], [0]]
+console.log(counterEffect('0000'));
+// [[0], [0], [0], [0]]

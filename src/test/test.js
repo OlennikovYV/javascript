@@ -1,13 +1,14 @@
 mocha.setup('bdd');
 
-describe('Tail Swap', function () {
-  it('Basic Tests', function () {
+describe('Hit Count', function () {
+  it('test', () => {
     chai
-      .expect(tailSwap(['abc:123', 'cde:456']))
-      .to.eql(['abc:456', 'cde:123']);
+      .expect(counterEffect('1250'))
+      .to.eql([[0, 1], [0, 1, 2], [0, 1, 2, 3, 4, 5], [0]]);
     chai
-      .expect(tailSwap(['a:12345', '777:xyz']))
-      .to.eql(['a:xyz', '777:12345']);
+      .expect(counterEffect('0050'))
+      .to.eql([[0], [0], [0, 1, 2, 3, 4, 5], [0]]);
+    chai.expect(counterEffect('0000')).to.eql([[0], [0], [0], [0]]);
   });
 });
 

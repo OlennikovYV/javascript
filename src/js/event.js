@@ -1,5 +1,5 @@
 function copyList(l) {
-  return l.slice();
+  return Array.isArray(l) ? l.slice() : new Error('Error: not Array');
 }
 
 const t = [1, 2, 3, 4];

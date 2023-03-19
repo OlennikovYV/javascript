@@ -1,5 +1,5 @@
 function copyList(l) {
-  return [].concat(l);
+  return [...l];
 }
 
 const t = [1, 2, 3, 4];

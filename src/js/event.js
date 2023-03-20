@@ -1,11 +1,12 @@
-function copyList(l) {
-  return Array.isArray(l) ? l.slice() : new Error('Error: not Array');
+function multiple(x) {
+  let answer = '' + (x % 3 == 0 ? 'Bang' : '') + (x % 5 == 0 ? 'Boom' : '');
+
+  return answer ? answer : 'Miss';
 }
 
-const t = [1, 2, 3, 4];
-tCopy = copyList(t);
-
-console.log(t); // [1, 2, 3, 4]
-t[1] += 5;
-console.log(t); // [1, 7, 3, 4]
-console.log(tCopy); // [1, 2, 3, 4]
+console.log(multiple(30)); // 'BangBoom'
+console.log(multiple(3)); // 'Bang'
+console.log(multiple(98)); // 'Miss'
+console.log(multiple(65)); // 'Boom'
+console.log(multiple(23)); // 'Miss'
+console.log(multiple(15)); // 'BangBoom'

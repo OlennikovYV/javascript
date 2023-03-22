@@ -1,7 +1,7 @@
 function vowelOne(s) {
   return s
     .split('')
-    .map(char => (/[aeoiu]/i.test(char) ? 1 : 0))
+    .map(char => ('aeoiu'.includes(char.toLowerCase()) ? 1 : 0))
     .join('');
 }
 

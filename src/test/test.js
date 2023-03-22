@@ -1,9 +1,9 @@
 mocha.setup('bdd');
 
-describe('Reverse list', function () {
-  it('test', () => {
-    chai.expect(reverseList([])).to.eql([]);
-    chai.expect(reverseList([1, 2, 3])).to.eql([3, 2, 1]);
+describe('Vowel one', function () {
+  it('Sample tests', () => {
+    chai.expect(vowelOne('vowelOne')).to.equal('01010101');
+    chai.expect(vowelOne('123, arou')).to.equal('000001011');
   });
 });
 

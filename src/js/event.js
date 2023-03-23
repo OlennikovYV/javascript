@@ -1,18 +1,8 @@
 function gordon(a) {
   return a
-    .split(' ')
-    .map(
-      word =>
-        word
-          .split('')
-          .map(char => {
-            if (/a/i.test(char)) return '@';
-            if (/[eoui]/i.test(char)) return '*';
-            return char.toUpperCase();
-          })
-          .join('') + '!!!!'
-    )
-    .join(' ');
+    .toUpperCase()
+    .replace(/\w+/g, '$&!!!!')
+    .replace(/[AEOUI]/g, char => (char === 'A' ? '@' : '*'));
 }
 
 console.log(gordon('What feck damn cake'));

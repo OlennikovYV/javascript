@@ -1,9 +1,14 @@
 mocha.setup('bdd');
 
-describe('Vowel one', function () {
-  it('Sample tests', () => {
-    chai.expect(vowelOne('vowelOne')).to.equal('01010101');
-    chai.expect(vowelOne('123, arou')).to.equal('000001011');
+describe('Hells Kitchen', function () {
+  it('Testing for fixed tests', () => {
+    chai
+      .expect(gordon('What feck damn cake'))
+      .to.equal('WH@T!!!! F*CK!!!! D@MN!!!! C@K*!!!!');
+    chai
+      .expect(gordon('are you stu pid'))
+      .to.equal('@R*!!!! Y**!!!! ST*!!!! P*D!!!!');
+    chai.expect(gordon('i am a chef')).to.equal('*!!!! @M!!!! @!!!! CH*F!!!!');
   });
 });
 

@@ -1,6 +1,6 @@
 class Dictionary {
   constructor() {
-    this.list = new Object();
+    this.list = {};
   }
 
   newEntry(key, value) {
@@ -8,9 +8,7 @@ class Dictionary {
   }
 
   look(key) {
-    return this.list[key] == undefined
-      ? `Can't find entry for ${key}`
-      : this.list[`${key}`];
+    return this.list[key] || `Can't find entry for ${key}`;
   }
 }
 

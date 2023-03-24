@@ -2,13 +2,18 @@ mocha.setup('bdd');
 
 describe('Hells Kitchen', function () {
   it('Testing for fixed tests', () => {
-    chai
-      .expect(gordon('What feck damn cake'))
-      .to.equal('WH@T!!!! F*CK!!!! D@MN!!!! C@K*!!!!');
-    chai
-      .expect(gordon('are you stu pid'))
-      .to.equal('@R*!!!! Y**!!!! ST*!!!! P*D!!!!');
-    chai.expect(gordon('i am a chef')).to.equal('*!!!! @M!!!! @!!!! CH*F!!!!');
+    const d = new Dictionary();
+
+    d.newEntry('Apple', 'A fruit');
+    chai.expect(d.look('Apple')).to.equal('A fruit');
+
+    d.newEntry('Soccer', 'A sport');
+    chai.expect(d.look('Soccer')).to.equal('A sport');
+    chai.expect(d.look('Hi')).to.equal("Can't find entry for Hi");
+    chai.expect(d.look('Ball')).to.equal("Can't find entry for Ball");
+
+    d.newEntry('soccer', 'a sport');
+    chai.expect(d.look('soccer')).to.equal('a sport');
   });
 });
 

@@ -1,10 +1,11 @@
 function multiples(s1, s2, s3) {
-  const maxDivide = s1 > s2 ? s1 : s2;
+  const maxDivide = Math.max(s1, s2);
+  const minDivide = Math.min(s1, s2);
   const numbers = [];
   let nextNumber = maxDivide;
 
   while (nextNumber < s3) {
-    if (nextNumber % s1 == 0 && nextNumber % s2 == 0) numbers.push(nextNumber);
+    if (nextNumber % minDivide == 0) numbers.push(nextNumber);
     nextNumber += maxDivide;
   }
 

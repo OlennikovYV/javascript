@@ -1,26 +1,42 @@
-class Dictionary {
-  constructor() {
-    this.list = {};
+function multiples(s1, s2, s3) {
+  const maxDivide = s1 > s2 ? s1 : s2;
+  const numbers = [];
+  let nextNumber = maxDivide;
+
+  while (nextNumber < s3) {
+    if (nextNumber % s1 == 0 && nextNumber % s2 == 0) numbers.push(nextNumber);
+    nextNumber += maxDivide;
   }
 
-  newEntry(key, value) {
-    this.list[key] = value;
-  }
-
-  look(key) {
-    return this.list[key] || `Can't find entry for ${key}`;
-  }
+  return numbers;
 }
 
-const d = new Dictionary();
+let s1 = 2;
+let s2 = 4;
+let s3 = 40;
+console.log(multiples(s1, s2, s3));
+// [4, 8, 12, 16, 20, 24, 28, 32, 36]
 
-d.newEntry('Apple', 'A fruit');
-console.log(d.look('Apple')); // 'A fruit'
+s1 = 13;
+s2 = 5;
+s3 = 800;
+console.log(multiples(s1, s2, s3));
+// [65, 130, 195, 260, 325, 390, 455, 520, 585, 650, 715, 780]
 
-d.newEntry('Soccer', 'A sport');
-console.log(d.look('Soccer')); // 'A sport'
-console.log(d.look('Hi')); // "Can't find entry for Hi"
-console.log(d.look('Ball')); // "Can't find entry for Ball"
+s1 = 13;
+s2 = 15;
+s3 = 800;
+console.log(multiples(s1, s2, s3));
+// [195, 390, 585, 780]
 
-d.newEntry('soccer', 'a sport');
-console.log(d.look('soccer')); // 'a sport'
+s1 = 17;
+s2 = 15;
+s3 = 800;
+console.log(multiples(s1, s2, s3));
+// [255, 510, 765]
+
+s1 = 27;
+s2 = 29;
+s3 = 2000;
+console.log(multiples(s1, s2, s3));
+// [783, 1566]

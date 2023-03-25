@@ -1,19 +1,43 @@
 mocha.setup('bdd');
 
-describe('Hells Kitchen', function () {
-  it('Testing for fixed tests', () => {
-    const d = new Dictionary();
+describe('Show multiples of 2 numbers within a range', function () {
+  it('should test for s1=2 s2=4 s3=40', function () {
+    s1 = 2;
+    s2 = 4;
+    s3 = 40;
+    chai
+      .expect(multiples(s1, s2, s3))
+      .to.eql([4, 8, 12, 16, 20, 24, 28, 32, 36]);
+  });
 
-    d.newEntry('Apple', 'A fruit');
-    chai.expect(d.look('Apple')).to.equal('A fruit');
+  it('should test for s1=13 s2=5 s3=800', function () {
+    s1 = 13;
+    s2 = 5;
+    s3 = 800;
+    chai
+      .expect(multiples(s1, s2, s3))
+      .to.eql([65, 130, 195, 260, 325, 390, 455, 520, 585, 650, 715, 780]);
+  });
 
-    d.newEntry('Soccer', 'A sport');
-    chai.expect(d.look('Soccer')).to.equal('A sport');
-    chai.expect(d.look('Hi')).to.equal("Can't find entry for Hi");
-    chai.expect(d.look('Ball')).to.equal("Can't find entry for Ball");
+  it('should test for s1=13 s2=15 s3=800', function () {
+    s1 = 13;
+    s2 = 15;
+    s3 = 800;
+    chai.expect(multiples(s1, s2, s3)).to.eql([195, 390, 585, 780]);
+  });
 
-    d.newEntry('soccer', 'a sport');
-    chai.expect(d.look('soccer')).to.equal('a sport');
+  it('should test for s1=17 s2=15 s3=800', function () {
+    s1 = 17;
+    s2 = 15;
+    s3 = 800;
+    chai.expect(multiples(s1, s2, s3)).to.eql([255, 510, 765]);
+  });
+
+  it('should test for s1=27 s2=29 s3=2000', function () {
+    s1 = 27;
+    s2 = 29;
+    s3 = 2000;
+    chai.expect(multiples(s1, s2, s3)).to.eql([783, 1566]);
   });
 });
 

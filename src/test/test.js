@@ -1,15 +1,19 @@
 mocha.setup('bdd');
 
-describe('Trimming a string', function () {
-  it('Should pass sample tests', () => {
-    chai.expect(trim('Creating kata is fun', 14)).to.equal('Creating ka...');
-    chai.expect(trim('He', 1)).to.equal('H...');
+describe('The Office VI - Sabbatical', function () {
+  it('Testing for fixed tests', () => {
     chai
-      .expect(trim('Code Wars is pretty rad', 50))
-      .to.equal('Code Wars is pretty rad');
-    chai.expect(trim('aWtI prI kp', 2)).to.equal('aW...');
-    chai.expect(trim('Hey', 3)).to.equal('Hey');
-    chai.expect(trim('Code Wars is pretty rad', 3)).to.equal('Cod...');
+      .expect(sabb('Can I have a sabbatical?', 5, 5))
+      .to.equal('Sabbatical! Boom!');
+    chai
+      .expect(sabb('Why are you shouting?', 7, 2))
+      .to.equal('Back to your desk, boy.');
+    chai
+      .expect(sabb('What do you mean I cant learn to code??', 8, 9))
+      .to.equal('Sabbatical! Boom!');
+    chai
+      .expect(sabb('Please calm down', 9, 1))
+      .to.equal('Back to your desk, boy.');
   });
 });
 

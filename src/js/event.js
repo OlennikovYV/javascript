@@ -1,18 +1,14 @@
-function trim(str, size) {
-  if (str.length <= size) return str;
-  if (size <= 3) return str.slice(0, size) + '...';
-  return str.slice(0, size - 3) + '...';
+function sabb(s, val, happiness) {
+  return 22 >= happiness + val + s.replace(/[^sabticl]/g, '').length
+    ? 'Back to your desk, boy.'
+    : 'Sabbatical! Boom!';
 }
 
-console.log(trim('Creating kata is fun', 14));
-// 'Creating ka...');
-console.log(trim('He', 1));
-// 'H...');
-console.log(trim('Code Wars is pretty rad', 50));
-// 'Code Wars is pretty rad');
-console.log(trim('aWtI prI kp', 2));
-// 'aW...');
-console.log(trim('Hey', 3));
-// 'Hey');
-console.log(trim('Code Wars is pretty rad', 3));
-// 'Cod...');
+console.log(sabb('Can I have a sabbatical?', 5, 5));
+// 'Sabbatical! Boom!'
+console.log(sabb('Why are you shouting?', 7, 2));
+// 'Back to your desk, boy.'
+console.log(sabb('What do you mean I cant learn to code??', 8, 9));
+// 'Sabbatical! Boom!'
+console.log(sabb('Please calm down', 9, 1));
+// 'Back to your desk, boy.');

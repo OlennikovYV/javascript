@@ -1,19 +1,11 @@
 mocha.setup('bdd');
 
-describe('The Office VI - Sabbatical', function () {
-  it('Testing for fixed tests', () => {
-    chai
-      .expect(sabb('Can I have a sabbatical?', 5, 5))
-      .to.equal('Sabbatical! Boom!');
-    chai
-      .expect(sabb('Why are you shouting?', 7, 2))
-      .to.equal('Back to your desk, boy.');
-    chai
-      .expect(sabb('What do you mean I cant learn to code??', 8, 9))
-      .to.equal('Sabbatical! Boom!');
-    chai
-      .expect(sabb('Please calm down', 9, 1))
-      .to.equal('Back to your desk, boy.');
+describe('Number to digit tiers', function () {
+  it('should return the correct array for 420', function () {
+    chai.expect(createArrayOfTiers(420)).to.eql(['4', '42', '420']);
+  });
+  it('should return the correct array for 2017', function () {
+    chai.expect(createArrayOfTiers(2017)).to.eql(['2', '20', '201', '2017']);
   });
 });
 

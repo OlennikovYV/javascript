@@ -1,11 +1,24 @@
 mocha.setup('bdd');
 
-describe('Number to digit tiers', function () {
-  it('should return the correct array for 420', function () {
-    chai.expect(createArrayOfTiers(420)).to.eql(['4', '42', '420']);
+describe('Scrabble Score', function () {
+  it("returns 0 for ''", function () {
+    chai.expect(scrabbleScore('')).to.equal(0);
   });
-  it('should return the correct array for 2017', function () {
-    chai.expect(createArrayOfTiers(2017)).to.eql(['2', '20', '201', '2017']);
+  it('returns 1 for a', function () {
+    chai.expect(scrabbleScore('a')).to.equal(1);
+  });
+  it('returns 6 for street', function () {
+    chai.expect(scrabbleScore('street')).to.equal(6);
+  });
+
+  it('returns score of " a" (with space)', function () {
+    chai.expect(scrabbleScore(' a')).to.equal(1);
+  });
+  it('returns 6 for street with whitespaces', function () {
+    chai.expect(scrabbleScore('st re et')).to.equal(6);
+  });
+  it('returns 22 for street with whitespaces', function () {
+    chai.expect(scrabbleScore('quirky')).to.equal(22);
   });
 });
 

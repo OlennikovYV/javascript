@@ -1,45 +1,36 @@
-const scrabbleWeight = char => {
-  switch (char.toUpperCase()) {
-    case 'A':
-    case 'E':
-    case 'I':
-    case 'O':
-    case 'U':
-    case 'L':
-    case 'N':
-    case 'R':
-    case 'S':
-    case 'T':
-      return 1;
-    case 'D':
-    case 'G':
-      return 2;
-    case 'B':
-    case 'C':
-    case 'M':
-    case 'P':
-      return 3;
-    case 'F':
-    case 'H':
-    case 'V':
-    case 'W':
-    case 'Y':
-      return 4;
-    case 'K':
-      return 5;
-    case 'J':
-    case 'X':
-      return 8;
-    case 'Q':
-    case 'Z':
-      return 10;
-    default:
-      return 0;
-  }
+const $dict = {
+  E: 1,
+  A: 1,
+  I: 1,
+  O: 1,
+  N: 1,
+  R: 1,
+  T: 1,
+  L: 1,
+  S: 1,
+  U: 1,
+  D: 2,
+  G: 2,
+  B: 3,
+  C: 3,
+  M: 3,
+  P: 3,
+  F: 4,
+  H: 4,
+  V: 4,
+  W: 4,
+  Y: 4,
+  K: 5,
+  J: 8,
+  X: 8,
+  Q: 10,
+  Z: 10,
 };
 
 function scrabbleScore(str) {
-  return str.split('').reduce((sum, char) => sum + scrabbleWeight(char), 0);
+  return str
+    .split('')
+    .reduce((sum, char) => sum + ($dict[char.toUpperCase()] || 0), 0);
 }
 
 console.log(scrabbleScore('')); // 0

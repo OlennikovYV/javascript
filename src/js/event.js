@@ -1,18 +1,18 @@
-function smaller(nums) {
-  const smallerToRight = (arr, num) => arr.filter(digit => digit < num).length;
+function keepOrder(ary, val) {
+  for (let i = 0; i < ary.length; i += 1) {
+    if (ary[i] >= val) return i;
+  }
 
-  return nums.map((num, i) => smallerToRight(nums.slice(i + 1), num));
+  return ary.length;
 }
 
-console.log(smaller([5, 4, 3, 2, 1]));
-// [4, 3, 2, 1, 0]
-console.log(smaller([1, 2, 3]));
-// [0, 0, 0]
-console.log(smaller([1, 2, 0]));
-// [1, 1, 0]
-console.log(smaller([1, 2, 1]));
-// [0, 1, 0]
-console.log(smaller([1, 1, -1, 0, 0]));
-// [3, 3, 0, 0, 0]
-console.log(smaller([5, 4, 7, 9, 2, 4, 4, 5, 6]));
-// [4, 1, 5, 5, 0, 0, 0, 0, 0]
+console.log(keepOrder([1, 2, 3, 4, 7], 5)); // 4
+console.log(keepOrder([1, 2, 3, 4, 7], 0)); // 0
+console.log(keepOrder([1, 1, 2, 2, 2], 2)); // 2
+console.log(keepOrder([1, 2, 3, 4], 5)); // 4
+console.log(keepOrder([1, 2, 3, 4], -1)); // 0
+console.log(keepOrder([1, 2, 3, 4], 2)); // 1
+console.log(keepOrder([1, 2, 3, 4], 0)); // 0
+console.log(keepOrder([1, 2, 3, 4], 1)); // 0
+console.log(keepOrder([1, 2, 3, 4], 2)); // 1
+console.log(keepOrder([1, 2, 3, 4], 3)); // 2

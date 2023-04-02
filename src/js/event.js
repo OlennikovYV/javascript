@@ -1,9 +1,5 @@
 function keepOrder(ary, val) {
-  for (let i = 0; i < ary.length; i += 1) {
-    if (ary[i] >= val) return i;
-  }
-
-  return ary.length;
+  return ary.filter(digit => digit < val).length;
 }
 
 console.log(keepOrder([1, 2, 3, 4, 7], 5)); // 4

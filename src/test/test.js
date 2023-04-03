@@ -1,17 +1,26 @@
 mocha.setup('bdd');
 
-describe('Keep the Order', function () {
-  it('Fixed cases', function () {
-    chai.expect(keepOrder([1, 2, 3, 4, 7], 5)).to.equal(4);
-    chai.expect(keepOrder([1, 2, 3, 4, 7], 0)).to.equal(0);
-    chai.expect(keepOrder([1, 1, 2, 2, 2], 2)).to.equal(2);
-    chai.expect(keepOrder([1, 2, 3, 4], 5)).to.equal(4);
-    chai.expect(keepOrder([1, 2, 3, 4], -1)).to.equal(0);
-    chai.expect(keepOrder([1, 2, 3, 4], 2)).to.equal(1);
-    chai.expect(keepOrder([1, 2, 3, 4], 0)).to.equal(0);
-    chai.expect(keepOrder([1, 2, 3, 4], 1)).to.equal(0);
-    chai.expect(keepOrder([1, 2, 3, 4], 2)).to.equal(1);
-    chai.expect(keepOrder([1, 2, 3, 4], 3)).to.equal(2);
+describe('Naughty or Nice?', function () {
+  it('test', () => {
+    function justNames(array) {
+      return array.map(function (e) {
+        return e.name;
+      });
+    }
+
+    let naughty = [{ name: 'xDranik', wasNice: false }];
+    let nice = [
+      { name: 'Santa', wasNice: true },
+      { name: 'Warrior reading this kata', wasNice: true },
+    ];
+
+    chai.expect(getNiceNames(naughty)).to.eql([]);
+    chai.expect(getNaughtyNames(nice)).to.eql([]);
+
+    chai.expect(getNiceNames(nice.concat(naughty))).to.eql(justNames(nice));
+    chai
+      .expect(getNaughtyNames(nice.concat(naughty)))
+      .to.eql(justNames(naughty));
   });
 });
 

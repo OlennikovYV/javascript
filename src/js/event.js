@@ -1,14 +1,34 @@
-function keepOrder(ary, val) {
-  return ary.filter(digit => digit < val).length;
+function getNiceNames(people) {
+  const result = [];
+
+  for (const p of people) {
+    if (p.wasNice) result.push(p.name);
+  }
+
+  return result;
 }
 
-console.log(keepOrder([1, 2, 3, 4, 7], 5)); // 4
-console.log(keepOrder([1, 2, 3, 4, 7], 0)); // 0
-console.log(keepOrder([1, 1, 2, 2, 2], 2)); // 2
-console.log(keepOrder([1, 2, 3, 4], 5)); // 4
-console.log(keepOrder([1, 2, 3, 4], -1)); // 0
-console.log(keepOrder([1, 2, 3, 4], 2)); // 1
-console.log(keepOrder([1, 2, 3, 4], 0)); // 0
-console.log(keepOrder([1, 2, 3, 4], 1)); // 0
-console.log(keepOrder([1, 2, 3, 4], 2)); // 1
-console.log(keepOrder([1, 2, 3, 4], 3)); // 2
+function getNaughtyNames(people) {
+  const result = [];
+
+  for (const p of people) {
+    if (!p.wasNice) result.push(p.name);
+  }
+
+  return result;
+}
+
+let naughty = [{ name: 'xDranik', wasNice: false }];
+let nice = [
+  { name: 'Santa', wasNice: true },
+  { name: 'Warrior reading this kata', wasNice: true },
+];
+
+console.log(getNiceNames(naughty)); // []
+console.log(getNaughtyNames(nice)); // []
+
+console.log(getNiceNames(nice.concat(naughty)));
+// [ { name: 'Santa', wasNice: true },
+//   { name: 'Warrior reading this kata', wasNice: true } ]
+console.log(getNaughtyNames(nice.concat(naughty)));
+// [{ name: 'xDranik', wasNice: false }]

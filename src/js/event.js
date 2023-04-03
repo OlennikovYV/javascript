@@ -1,21 +1,9 @@
 function getNiceNames(people) {
-  const result = [];
-
-  for (const p of people) {
-    if (p.wasNice) result.push(p.name);
-  }
-
-  return result;
+  return people.filter(p => p.wasNice).map(p => p.name);
 }
 
 function getNaughtyNames(people) {
-  const result = [];
-
-  for (const p of people) {
-    if (!p.wasNice) result.push(p.name);
-  }
-
-  return result;
+  return people.filter(p => !p.wasNice).map(p => p.name);
 }
 
 let naughty = [{ name: 'xDranik', wasNice: false }];

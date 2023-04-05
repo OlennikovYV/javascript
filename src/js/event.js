@@ -1,9 +1,7 @@
 function nextId(ids) {
-  const sortArray = [...new Set(ids)].sort((a, b) => a - b);
-  let minID = sortArray[sortArray.length - 1] + 1;
+  let minID = 0;
 
-  for (let i = 0; i < sortArray.length; i += 1)
-    if (sortArray[i] !== i) return i;
+  while (ids.includes(minID)) minID++;
 
   return minID;
 }

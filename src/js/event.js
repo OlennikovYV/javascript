@@ -1,13 +1,16 @@
-function converter(mpg) {
-  const lKm = mpg * 0.35400605;
+function nextId(ids) {
+  const sortArray = [...new Set(ids)].sort((a, b) => a - b);
+  let minID = sortArray[sortArray.length - 1] + 1;
 
-  return Math.round((lKm + 0) * 100) / 100;
+  for (let i = 0; i < sortArray.length; i += 1)
+    if (sortArray[i] !== i) return i;
+
+  return minID;
 }
 
-console.log(converter(10)); // 3.54
-console.log(converter(20)); // 7.08
-console.log(converter(24)); // 8.5
-console.log(converter(30)); // 10.62
-console.log(converter(94)); // 33.28
-console.log(converter(31526)); // 11160.39
-console.log(converter(48960)); // 17332.14
+console.log(nextId([0, 1, 2, 3, 5])); // 4
+console.log(nextId([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10])); // 11
+console.log(nextId([1, 2, 0, 2, 3, 5])); // 4
+
+console.log(nextId([1, 1, 3, 3, 4, 4, 6, 9])); // 0
+console.log(nextId([2, 4, 6, 9, 9, 9, 9, 9])); // 0

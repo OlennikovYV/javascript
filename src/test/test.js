@@ -1,14 +1,18 @@
 mocha.setup('bdd');
 
-describe('Miles per gallon to kilometers per liter', function () {
-  it('test', () => {
-    chai.expect(converter(10)).to.equal(3.54);
-    chai.expect(converter(20)).to.equal(7.08);
-    chai.expect(converter(24)).to.equal(8.5);
-    chai.expect(converter(30)).to.equal(10.62);
-    chai.expect(converter(94)).to.equal(33.28);
-    chai.expect(converter(31526)).to.equal(11160.39);
-    chai.expect(converter(48960)).to.equal(17332.14);
+describe('Smallest unused ID', function () {
+  it('returns the lowestNextId', function () {
+    chai.expect(nextId([0, 1, 2, 3, 5])).to.equal(4);
+  });
+  it('returns the lowestNextId', function () {
+    chai.expect(nextId([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10])).to.equal(11);
+  });
+  it('returns the lowestNextId - unsorted input with duplicates', function () {
+    chai.expect(nextId([1, 2, 0, 2, 3, 5])).to.equal(4);
+  });
+  it('returns the zero - unsorted input with duplicates', function () {
+    chai.expect(nextId([1, 1, 3, 3, 4, 4, 6, 9])).to.equal(0);
+    chai.expect(nextId([2, 4, 6, 9, 9, 9, 9, 9])).to.equal(0);
   });
 });
 

@@ -1,5 +1,5 @@
 function countWords(str) {
-  return (str.match(/[^\s]+/g) || []).length;
+  return str.split(/\S+/).length - 1;
 }
 
 console.log(countWords('Hello'), 1);

@@ -1,19 +1,5 @@
 function countWords(str) {
-  let countWord = 0;
-  let seeWord = false;
-
-  for (let i = 0; i < str.length; i += 1) {
-    if (/[0-9a-zA-Z\'\-]/.test(str[i])) {
-      if (!seeWord) seeWord = true;
-    } else {
-      if (seeWord) {
-        seeWord = false;
-        countWord += 1;
-      }
-    }
-  }
-
-  return (countWord += seeWord ? 1 : 0);
+  return (str.match(/[^\s]+/g) || []).length;
 }
 
 console.log(countWords('Hello'), 1);

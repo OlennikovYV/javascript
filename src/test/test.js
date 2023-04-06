@@ -1,18 +1,35 @@
 mocha.setup('bdd');
 
-describe('Smallest unused ID', function () {
-  it('returns the lowestNextId', function () {
-    chai.expect(nextId([0, 1, 2, 3, 5])).to.equal(4);
+describe('Count words', function () {
+  it('should work in basic form of problem', function () {
+    chai.expect(countWords('Hello')).to.equal(1);
+    chai.expect(countWords('Hello, World!')).to.equal(2);
+    chai.expect(
+      countWords(
+        'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
+      ),
+      19
+    );
+    chai.expect(countWords('')).to.equal(0);
+    chai
+      .expect(countWords('With! Symbol@ #Around! (Every) %Word$'))
+      .to.equal(5);
+    chai
+      .expect(countWords('Dear   Victoria, I love  to press   space button.'))
+      .to.equal(8);
   });
-  it('returns the lowestNextId', function () {
-    chai.expect(nextId([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10])).to.equal(11);
+
+  it('should work with spaces around string', function () {
+    chai.expect(countWords(' Arthur ')).to.equal(1);
+    chai.expect(countWords(' David')).to.equal(1);
+    chai.expect(countWords('Nelson ')).to.equal(1);
+    chai.expect(countWords('  Hello Gomer  ')).to.equal(2);
+    chai.expect(countWords('  Hello     Bart  ')).to.equal(2);
   });
-  it('returns the lowestNextId - unsorted input with duplicates', function () {
-    chai.expect(nextId([1, 2, 0, 2, 3, 5])).to.equal(4);
-  });
-  it('returns the zero - unsorted input with duplicates', function () {
-    chai.expect(nextId([1, 1, 3, 3, 4, 4, 6, 9])).to.equal(0);
-    chai.expect(nextId([2, 4, 6, 9, 9, 9, 9, 9])).to.equal(0);
+
+  it('should work with non-whitespace (ex. breakspace) chars', function () {
+    chai.expect(countWords('﻿Hello﻿World ')).to.equal(2);
+    chai.expect(countWords('Hello﻿World')).to.equal(2);
   });
 });
 

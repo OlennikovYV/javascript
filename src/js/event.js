@@ -1,14 +1,36 @@
-function nextId(ids) {
-  let minID = 0;
+function countWords(str) {
+  let countWord = 0;
+  let seeWord = false;
 
-  while (ids.includes(minID)) minID++;
+  for (let i = 0; i < str.length; i += 1) {
+    if (/[0-9a-zA-Z\'\-]/.test(str[i])) {
+      if (!seeWord) seeWord = true;
+    } else {
+      if (seeWord) {
+        seeWord = false;
+        countWord += 1;
+      }
+    }
+  }
 
-  return minID;
+  return (countWord += seeWord ? 1 : 0);
 }
 
-console.log(nextId([0, 1, 2, 3, 5])); // 4
-console.log(nextId([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10])); // 11
-console.log(nextId([1, 2, 0, 2, 3, 5])); // 4
-
-console.log(nextId([1, 1, 3, 3, 4, 4, 6, 9])); // 0
-console.log(nextId([2, 4, 6, 9, 9, 9, 9, 9])); // 0
+console.log(countWords('Hello'), 1);
+console.log(countWords('Hello, World!'), 2);
+console.log(
+  countWords(
+    'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
+  ),
+  19
+);
+console.log(countWords(''), 0);
+console.log(countWords('With! Symbol@ #Around! (Every) %Word$'), 5);
+console.log(countWords('Dear   Victoria, I love  to press   space button.'), 8);
+console.log(countWords(' Arthur '), 1);
+console.log(countWords(' David'), 1);
+console.log(countWords('Nelson '), 1);
+console.log(countWords('  Hello Gomer  '), 2);
+console.log(countWords('  Hello     Bart  '), 2);
+console.log(countWords('﻿Hello﻿World '), 2);
+console.log(countWords('Hello﻿World'), 2);

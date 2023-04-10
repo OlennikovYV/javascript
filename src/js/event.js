@@ -1,12 +1,7 @@
 function remove(string) {
-  const countExclamationMark = word => {
-    let count = (word.match(/\!/g) || []).length;
-    return count != 1;
-  };
-
   return string
     .split(' ')
-    .filter(word => countExclamationMark(word))
+    .filter(word => word.split('!').length != 2)
     .join(' ');
 }
 

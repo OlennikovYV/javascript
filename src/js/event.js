@@ -1,8 +1,5 @@
 function sumOfIntegersInString(s) {
-  return s
-    .split(/[^\d]/g)
-    .filter(el => el !== '')
-    .reduce((sum, digit) => sum + Number(digit), 0);
+  return (s.match(/\d+/g) || []).reduce((sum, digit) => sum + Number(digit), 0);
 }
 
 let = exampleTests = [

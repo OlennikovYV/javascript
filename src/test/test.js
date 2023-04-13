@@ -1,8 +1,15 @@
 mocha.setup('bdd');
 
-describe('Unexpected parsing', function () {
+describe('Simple Change Machine', function () {
   it('test', () => {
-    chai.expect(getStatus(true).status).to.equal('busy');
+    let actual = changeMe('£1');
+
+    chai.assert.isDefined(
+      actual,
+      'Your function did not return a value. Did you log it to console instead?'
+    );
+    chai.assert.strictEqual(actual, '20p 20p 20p 20p 20p');
+    chai.assert.strictEqual(changeMe('Money'), 'Money');
   });
 });
 

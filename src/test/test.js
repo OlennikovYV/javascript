@@ -1,9 +1,9 @@
 mocha.setup('bdd');
 
-describe('Fruit string calculator', function () {
-  it('test', () => {
-    chai.expect(calculate('Panda has 48 apples and loses 4')).to.equal(44);
-    chai.expect(calculate('Jerry has 34 apples and gains 6')).to.equal(40);
+describe('Chuck Norris VII - True or False? (Beginner)', function () {
+  it('Only one test', () => {
+    const assert = chai.assert;
+    assert.strictEqual(ifChuckSaysSo(), false);
   });
 });
 

@@ -1,5 +1,5 @@
 function ifChuckSaysSo() {
-  return 0 == 1;
+  return !true;
 }
 
 console.log(ifChuckSaysSo()); // false

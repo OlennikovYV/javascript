@@ -1,9 +1,10 @@
 mocha.setup('bdd');
 
-describe('Chuck Norris VII - True or False? (Beginner)', function () {
-  it('Only one test', () => {
-    const assert = chai.assert;
-    assert.strictEqual(ifChuckSaysSo(), false);
+describe('C.Wars', function () {
+  it('sample tests', () => {
+    chai.expect(initials('code wars')).to.equal('C.Wars');
+    chai.expect(initials('Barack hussain obama')).to.equal('B.H.Obama');
+    chai.expect(initials('barack hussain Obama')).to.equal('B.H.Obama');
   });
 });
 

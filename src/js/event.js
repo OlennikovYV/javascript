@@ -25,17 +25,9 @@ function listFromArray(arr) {
 }
 
 function length(head) {
-  let lengthLink = 1;
-  let currentLink = head;
+  if (!head && !head?.hasOwnProperty(currentLink.data)) return 0;
 
-  if (!currentLink && !currentLink?.hasOwnProperty(currentLink.data)) return 0;
-
-  while (currentLink.next) {
-    lengthLink += 1;
-    currentLink = currentLink.next;
-  }
-
-  return lengthLink;
+  return 1 + length(head.next);
 }
 
 console.log(length(null)); // 0

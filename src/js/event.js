@@ -1,11 +1,5 @@
 function convertHashToArray(hash) {
-  const result = [];
-
-  for (let key in hash) {
-    result.unshift([key, hash[key]]);
-  }
-
-  return result.sort((a, b) => a[0].localeCompare(b[0]));
+  return Object.entries(hash).sort();
 }
 
 console.log(convertHashToArray({ name: 'Jeremy' }));

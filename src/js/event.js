@@ -1,32 +1,22 @@
-function Node(data, next = null) {
-  this.data = data;
-  this.next = next;
-}
+function convertHashToArray(hash) {
+  const result = [];
 
-function push(head, data) {
-  let firstNode;
-
-  firstNode = new Node(data);
-  firstNode.next = head;
-
-  return firstNode;
-}
-
-function listFromArray(arr) {
-  var chained = null;
-
-  if (!arr && Array.isArray(arr)) return null;
-
-  for (let i = 0; i < arr.length; i += 1) {
-    chained = push(chained, arr[i]);
+  for (let key in hash) {
+    result.unshift([key, hash[key]]);
   }
 
-  return chained;
+  return result.sort((a, b) => a[0].localeCompare(b[0]));
 }
 
-function length(head) {
-  return !head ? 0 : 1 + length(head.next);
-}
-
-console.log(length(null)); // 0
-console.log(length(listFromArray([1, 2, 3, 4]))); // 4
+console.log(convertHashToArray({ name: 'Jeremy' }));
+// [ ['name', 'Jeremy'] ]
+console.log(convertHashToArray({ name: 'Jeremy', age: 24 }));
+// [ ['age', 24],  ['name', 'Jeremy'] ]);
+console.log(
+  convertHashToArray({ name: 'Jeremy', age: 24, role: 'Software Engineer' })
+);
+// [ ['age', 24], ['name', 'Jeremy'], ['role', 'Software Engineer'] ]
+console.log(convertHashToArray({ product: 'CodeWars', powerLevelOver: 9000 }));
+// [ ['powerLevelOver', 9000], ['product', 'CodeWars'] ]
+console.log(convertHashToArray({}));
+// []

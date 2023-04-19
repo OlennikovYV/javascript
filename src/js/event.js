@@ -1,16 +1,16 @@
-function convertHashToArray(hash) {
-  return Object.entries(hash).sort();
+function Dog(name, breed, sex, age) {
+  this.name = name;
+  this.breed = breed;
+  this.sex = sex;
+  this.age = age;
 }
 
-console.log(convertHashToArray({ name: 'Jeremy' }));
-// [ ['name', 'Jeremy'] ]
-console.log(convertHashToArray({ name: 'Jeremy', age: 24 }));
-// [ ['age', 24],  ['name', 'Jeremy'] ]);
-console.log(
-  convertHashToArray({ name: 'Jeremy', age: 24, role: 'Software Engineer' })
-);
-// [ ['age', 24], ['name', 'Jeremy'], ['role', 'Software Engineer'] ]
-console.log(convertHashToArray({ product: 'CodeWars', powerLevelOver: 9000 }));
-// [ ['powerLevelOver', 9000], ['product', 'CodeWars'] ]
-console.log(convertHashToArray({}));
-// []
+Dog.prototype.bark = () => 'Woof!';
+
+console.log('Can you make newly created dogs bark?');
+
+const apollo = new Dog('Apollo', 'Dobermann', 'male', '4');
+const zeus = new Dog('Zeus', 'Dobermann', 'male', '4');
+
+console.log(apollo.bark()); // 'Woof!'
+console.log(zeus.bark()); // 'Woof!'

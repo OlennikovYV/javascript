@@ -1,11 +1,7 @@
 function completeSeries(arr) {
-  const duplicateArray = [].concat(arr);
-
-  if (arr.length != Array.from(new Set(arr)).length) return [0];
-
-  duplicateArray.sort();
-
-  return Array.from(Array(Math.max(...duplicateArray) + 1), (_, i) => i);
+  return new Set(arr).size != arr.length
+    ? [0]
+    : [...Array(Math.max(...arr) + 1).keys()];
 }
 
 console.log(completeSeries([0, 1])); // [0, 1]

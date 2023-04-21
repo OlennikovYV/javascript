@@ -1,13 +1,7 @@
 function noRepeat(str) {
-  let countAlpha = str.split('').reduce((count, alpha) => {
-    count[alpha] = (count[alpha] || 0) + 1;
-
-    return count;
-  }, {});
-
-  for (const alpha in countAlpha) {
-    if (countAlpha[alpha] == 1) return alpha;
-  }
+  return Array.from(str).find(
+    (alpha, _, arr) => arr.indexOf(alpha) == arr.lastIndexOf(alpha)
+  );
 }
 
 console.log(noRepeat('aabbccdde')); // 'e'

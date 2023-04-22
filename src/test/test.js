@@ -1,12 +1,14 @@
 mocha.setup('bdd');
 
-describe('All Star Code Challenge #16', function () {
+describe('Stanton measure', function () {
   const assert = chai.assert;
 
   it('test', () => {
-    assert.equal(noRepeat('aabbccdde'), 'e');
-    assert.equal(noRepeat('wxyz'), 'w');
-    assert.equal(noRepeat('testing'), 'e');
+    assert.equal(stantonMeasure([1, 4, 3, 2, 1, 2, 3, 2]), 3);
+    assert.equal(
+      stantonMeasure([-11, 1, -12, 1, -1, 1, -4, 1, -7, 1, 1, 1]),
+      0
+    );
   });
 });
 

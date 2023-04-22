@@ -1,10 +1,7 @@
 function stantonMeasure(arr) {
-  const countsDuplicate = arr.reduce((duplicates, digit) => {
-    duplicates[digit] = (duplicates[digit] || 0) + 1;
-    return duplicates;
-  }, {});
+  const count = n => arr.filter(digit => digit === n).length;
 
-  return countsDuplicate[countsDuplicate[1]] || 0;
+  return count(count(1));
 }
 
 console.log(stantonMeasure([1, 4, 3, 2, 1, 2, 3, 2])); // 3

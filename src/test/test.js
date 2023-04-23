@@ -1,14 +1,13 @@
 mocha.setup('bdd');
 
-describe('Stanton measure', function () {
+describe(`Training JS #31: methods of arrayObject---
+  isArray() indexOf() and toString()`, function () {
   const assert = chai.assert;
 
   it('test', () => {
-    assert.equal(stantonMeasure([1, 4, 3, 2, 1, 2, 3, 2]), 3);
-    assert.equal(
-      stantonMeasure([-11, 1, -12, 1, -1, 1, -4, 1, -7, 1, 1, 1]),
-      0
-    );
+    assert.equal(blackAndWhite(5, 13), "It's a fake array");
+    assert.equal(blackAndWhite([5, 13]), "It's a black array");
+    assert.equal(blackAndWhite([5, 12]), "It's a white array");
   });
 });
 

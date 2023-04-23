@@ -1,8 +1,12 @@
-function stantonMeasure(arr) {
-  const count = n => arr.filter(digit => digit === n).length;
+function blackAndWhite(arr) {
+  if (!Array.isArray(arr)) return "It's a fake array";
 
-  return count(count(1));
+  if (arr.some(el => el == 5) && arr.some(el => el == 13))
+    return "It's a black array";
+
+  return "It's a white array";
 }
 
-console.log(stantonMeasure([1, 4, 3, 2, 1, 2, 3, 2])); // 3
-console.log(stantonMeasure([-11, 1, -12, 1, -1, 1, -4, 1, -7, 1, 1, 1])); // 0
+console.log(blackAndWhite(5, 13)); // "It's a fake array"
+console.log(blackAndWhite([5, 13])); // "It's a black array"
+console.log(blackAndWhite([5, 12])); // "It's a white array"

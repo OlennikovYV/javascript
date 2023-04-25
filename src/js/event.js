@@ -1,13 +1,9 @@
 function cake(x, y) {
   const weightCandles = str =>
-    [...str].reduce((sum, alpha, i) => {
-      if (i % 2 !== 0) {
-        sum += alpha.codePointAt(0) - 96;
-      } else {
-        sum += alpha.codePointAt(0);
-      }
-      return sum;
-    }, 0);
+    [...str].reduce(
+      (sum, alpha, i) => (sum += alpha.codePointAt(0) + (i % 2 ? -96 : 0)),
+      0
+    );
 
   return weightCandles(y) / (x / 100) > 70 ? 'Fire!' : 'That was close!';
 }

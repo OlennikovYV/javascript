@@ -1,14 +1,15 @@
-function cake(x, y) {
-  const weightCandles = str =>
-    [...str].reduce(
-      (sum, alpha, i) => (sum += alpha.codePointAt(0) + (i % 2 ? -96 : 0)),
-      0
-    );
+function isItANum(str) {
+  let phone = str.replace(/[^\d]/g, '');
 
-  return weightCandles(y) / (x / 100) > 70 ? 'Fire!' : 'That was close!';
+  return /^0/.test(phone) && phone.length == 11 ? phone : 'Not a phone number';
 }
 
-console.log(cake(900, 'abcdef')); // 'That was close!'
-console.log(cake(56, 'ifkhchlhfd')); // 'Fire!'
-console.log(cake(256, 'aaaaaddddr')); // 'Fire!'
-console.log(cake(591, 'mufb')); // 'That was close!'
+console.log(isItANum('S:)0207ERGQREG88349F82!efRF)'));
+// '02078834982'
+console.log(isItANum('sjfniebienvr12312312312ehfWh'));
+// 'Not a phone number'
+console.log(isItANum('0192387415456')); // 'Not a phone number'
+console.log(isItANum('v   uf  f 0tt2eg qe0b 8rtyq4eyq564()(((((165'));
+// '02084564165'
+console.log(isItANum('stop calling me no I have never been in an accident'));
+// 'Not a phone number'

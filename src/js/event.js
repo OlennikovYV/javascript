@@ -1,7 +1,7 @@
 function isItANum(str) {
   let phone = str.replace(/[^\d]/g, '');
 
-  return /^0/.test(phone) && phone.length == 11 ? phone : 'Not a phone number';
+  return /^0\d{10}$/.test(phone) ? phone : 'Not a phone number';
 }
 
 console.log(isItANum('S:)0207ERGQREG88349F82!efRF)'));

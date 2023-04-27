@@ -1,41 +1,14 @@
 function testResult(array) {
-  const hash = {
-    h: 0,
-    a: 0,
-    l: 0,
-  };
-  let sumMarks = 0;
-  let averageMarks;
-  let resultList = [];
+  const averageMarks = Number(
+    array.reduce((sum, mark) => sum + mark) / array.length
+  ).toFixed(3);
+  const h = array.filter(mark => mark > 8).length;
+  const a = array.filter(mark => mark > 6 && mark < 9).length;
+  const l = array.filter(mark => mark < 7).length;
 
-  const isOnlyHighMarks = hash => {
-    return hash['a'] == 0 && hash['l'] == 0;
-  };
+  const resultList = [Number(averageMarks), { h: h, a: a, l: l }];
 
-  array.map(el => {
-    switch (true) {
-      case el < 7:
-        hash['l'] += 1;
-        break;
-      case el < 9:
-        hash['a'] += 1;
-        break;
-      default:
-        hash['h'] += 1;
-        break;
-    }
-
-    sumMarks += el;
-  });
-
-  averageMarks = Math.round((sumMarks / array.length) * 1000) / 1000;
-  resultList.push(averageMarks);
-
-  resultList.push(hash);
-
-  if (isOnlyHighMarks(hash)) resultList.push('They did well');
-
-  return resultList;
+  return l == 0 && a == 0 ? resultList.concat('They did well') : resultList;
 }
 
 console.log(testResult([10, 9, 9, 10, 9, 10, 9]));

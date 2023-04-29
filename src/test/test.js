@@ -1,22 +1,11 @@
 mocha.setup('bdd');
 
-describe(`Test's results`, function () {
+describe(`Sum Factorial`, function () {
   const assert = chai.assert;
 
-  it('test', () => {
-    assert.deepEqual(spacey(['kevin', 'has', 'no', 'space']), [
-      'kevin',
-      'kevinhas',
-      'kevinhasno',
-      'kevinhasnospace',
-    ]);
-    assert.deepEqual(spacey(['this', 'cheese', 'has', 'no', 'holes']), [
-      'this',
-      'thischeese',
-      'thischeesehas',
-      'thischeesehasno',
-      'thischeesehasnoholes',
-    ]);
+  it('Small tests', function () {
+    assert.equal(sumFactorial([4, 6]), 744);
+    assert.equal(sumFactorial([5, 4, 1]), 145);
   });
 });
 

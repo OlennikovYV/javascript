@@ -1,11 +1,11 @@
 mocha.setup('bdd');
 
-describe(`Sum Factorial`, function () {
-  const assert = chai.assert;
+describe(`Find the Difference in Age between Oldest and Youngest Family Members`, function () {
+  const assert = chai.assert.deepEqual;
 
-  it('Small tests', function () {
-    assert.equal(sumFactorial([4, 6]), 744);
-    assert.equal(sumFactorial([5, 4, 1]), 145);
+  it('test', () => {
+    assert(differenceInAges([82, 15, 6, 38, 35]), [6, 82, 76]);
+    assert(differenceInAges([57, 99, 14, 32]), [14, 99, 85]);
   });
 });
 

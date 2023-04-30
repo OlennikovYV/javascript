@@ -1,17 +1,9 @@
-function sumFactorial(arr) {
-  function factorial(num) {
-    let result = 1;
+function differenceInAges(ages) {
+  const minAge = Math.min(...ages);
+  const maxAge = Math.max(...ages);
 
-    while (num > 0) {
-      result *= num;
-      num -= 1;
-    }
-
-    return result;
-  }
-
-  return arr.reduce((sum, num) => sum + factorial(num), 0);
+  return [minAge, maxAge, maxAge - minAge];
 }
 
-console.log(sumFactorial([4, 6])); // 744
-console.log(sumFactorial([5, 4, 1])); // 145
+console.log(differenceInAges([82, 15, 6, 38, 35])); // [6, 82, 76]
+console.log(differenceInAges([57, 99, 14, 32])); // [14, 99, 85]

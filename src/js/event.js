@@ -1,14 +1,10 @@
 function well(x) {
-  const goodCount = x.reduce((sumGood, idea) => {
-    if (idea === 'good') sumGood += 1;
+  const goodCount = x.filter(idea => idea === 'good').length;
 
-    return sumGood;
-  }, 0);
+  if (goodCount < 1) return 'Fail!';
+  if (goodCount < 3) return 'Publish!';
 
-  if (goodCount === 1 || goodCount == 2) return 'Publish!';
-  if (goodCount > 2) return 'I smell a series!';
-
-  return 'Fail!';
+  return 'I smell a series!';
 }
 
 console.log(well(['bad', 'bad', 'bad'])); // 'Fail!'

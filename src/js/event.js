@@ -1,9 +1,19 @@
-function differenceInAges(ages) {
-  const minAge = Math.min(...ages);
-  const maxAge = Math.max(...ages);
+function well(x) {
+  const goodCount = x.reduce((sumGood, idea) => {
+    if (idea === 'good') sumGood += 1;
 
-  return [minAge, maxAge, maxAge - minAge];
+    return sumGood;
+  }, 0);
+
+  if (goodCount === 1 || goodCount == 2) return 'Publish!';
+  if (goodCount > 2) return 'I smell a series!';
+
+  return 'Fail!';
 }
 
-console.log(differenceInAges([82, 15, 6, 38, 35])); // [6, 82, 76]
-console.log(differenceInAges([57, 99, 14, 32])); // [14, 99, 85]
+console.log(well(['bad', 'bad', 'bad'])); // 'Fail!'
+console.log(well(['good', 'bad', 'bad', 'bad', 'bad'])); // 'Publish!'
+console.log(
+  well(['good', 'bad', 'bad', 'bad', 'bad', 'good', 'bad', 'bad', 'good'])
+);
+// 'I smell a series!'

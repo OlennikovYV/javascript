@@ -1,11 +1,15 @@
 mocha.setup('bdd');
 
-describe(`Find the Difference in Age between Oldest and Youngest Family Members`, function () {
-  const assert = chai.assert.deepEqual;
+describe(`Well of Ideas - Easy Version`, function () {
+  const assert = chai.assert.equal;
 
-  it('test', () => {
-    assert(differenceInAges([82, 15, 6, 38, 35]), [6, 82, 76]);
-    assert(differenceInAges([57, 99, 14, 32]), [14, 99, 85]);
+  it('Testing for fixed tests', () => {
+    assert(well(['bad', 'bad', 'bad']), 'Fail!');
+    assert(well(['good', 'bad', 'bad', 'bad', 'bad']), 'Publish!');
+    assert(
+      well(['good', 'bad', 'bad', 'bad', 'bad', 'good', 'bad', 'bad', 'good']),
+      'I smell a series!'
+    );
   });
 });
 

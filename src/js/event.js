@@ -1,12 +1,5 @@
 function hasUniqueChars(str) {
-  const countChars = [...str].reduce((counts, char) => {
-    counts[char] = (counts[char] || 0) + 1;
-    return counts;
-  }, {});
-
-  return Object.keys(countChars)
-    .map(key => countChars[key])
-    .every(count => count == 1);
+  return new Set(str).size === str.length;
 }
 
 console.log(hasUniqueChars('  nAa')); // false

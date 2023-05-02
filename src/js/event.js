@@ -1,15 +1,15 @@
-function well(x) {
-  const goodCount = x.filter(idea => idea === 'good').length;
+function hasUniqueChars(str) {
+  const countChars = [...str].reduce((counts, char) => {
+    counts[char] = (counts[char] || 0) + 1;
+    return counts;
+  }, {});
 
-  if (goodCount < 1) return 'Fail!';
-  if (goodCount < 3) return 'Publish!';
-
-  return 'I smell a series!';
+  return Object.keys(countChars)
+    .map(key => countChars[key])
+    .every(count => count == 1);
 }
 
-console.log(well(['bad', 'bad', 'bad'])); // 'Fail!'
-console.log(well(['good', 'bad', 'bad', 'bad', 'bad'])); // 'Publish!'
-console.log(
-  well(['good', 'bad', 'bad', 'bad', 'bad', 'good', 'bad', 'bad', 'good'])
-);
-// 'I smell a series!'
+console.log(hasUniqueChars('  nAa')); // false
+console.log(hasUniqueChars('abcdef')); // true
+console.log(hasUniqueChars('aA')); // true
+console.log(hasUniqueChars('++-')); // false

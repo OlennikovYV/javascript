@@ -1,15 +1,13 @@
 mocha.setup('bdd');
 
-describe(`Well of Ideas - Easy Version`, function () {
+describe(`All unique`, function () {
   const assert = chai.assert.equal;
 
-  it('Testing for fixed tests', () => {
-    assert(well(['bad', 'bad', 'bad']), 'Fail!');
-    assert(well(['good', 'bad', 'bad', 'bad', 'bad']), 'Publish!');
-    assert(
-      well(['good', 'bad', 'bad', 'bad', 'bad', 'good', 'bad', 'bad', 'good']),
-      'I smell a series!'
-    );
+  it('test', () => {
+    assert(hasUniqueChars('  nAa'), false); // because there are two spaces ' '
+    assert(hasUniqueChars('abcdef'), true);
+    assert(hasUniqueChars('aA'), true); // case - sensitivity
+    assert(hasUniqueChars('++-'), false); // because there are two '+'
   });
 });
 

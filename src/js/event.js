@@ -1,5 +1,5 @@
 function wordsToSentence(words) {
-  return words.reduce((string, word) => string + ' ' + word);
+  return words.join` `;
 }
 
 console.log(wordsToSentence(['hello', 'world'])); // 'hello world'

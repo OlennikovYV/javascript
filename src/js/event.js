@@ -1,5 +1,5 @@
 function archersReady(archers) {
-  return archers.every(archer => archer >= 5) && archers.length !== 0;
+  return !!archers.length && archers.every(archer => archer >= 5);
 }
 
 console.log(archersReady([])); // false

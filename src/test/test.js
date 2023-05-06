@@ -1,21 +1,27 @@
 mocha.setup('bdd');
 
-describe(`Every archer has its arrows`, function () {
+describe(`Function Composition`, function () {
   const assert = chai.assert.equal;
 
-  it('test', () => {
-    assert(archersReady([]), false, 'Should handle no archers');
-    assert(
-      archersReady([1, 2, 3, 4]),
-      false,
-      'Should handle unprepared archers'
-    );
-    assert(archersReady([5, 6, 7, 8]), true, 'Should handle prepared archers');
-    assert(
-      archersReady([1, 2, 3, 4, 5, 6, 7, 8]),
-      false,
-      'Should handle mixed archers'
-    );
+  it('Should work with a single argument', () => {
+    const add1 = function (a) {
+      return a + 1;
+    };
+    const id = function (a) {
+      return a;
+    };
+
+    assert(compose(add1, id)(0), 1);
+  });
+  it('Should work with a single argument', () => {
+    const add1 = function (a) {
+      return a + 1;
+    };
+    const addAll3 = function (a, b, c) {
+      return a + b + c;
+    };
+
+    assert(compose(add1, addAll3)(1, 2, 3), 7);
   });
 });
 

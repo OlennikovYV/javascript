@@ -1,8 +1,18 @@
-function archersReady(archers) {
-  return !!archers.length && archers.every(archer => archer >= 5);
+function compose(f, g) {
+  return function (...arg) {
+    return f(g(...arg));
+  };
 }
 
-console.log(archersReady([])); // false
-console.log(archersReady([1, 2, 3, 4])); // false
-console.log(archersReady([5, 6, 7, 8])); // true
-console.log(archersReady([1, 2, 3, 4, 5, 6, 7, 8])); // false
+const add1 = function (a) {
+  return a + 1;
+};
+const id = function (a) {
+  return a;
+};
+const addAll3 = function (a, b, c) {
+  return a + b + c;
+};
+
+console.log(compose(add1, id)(0)); // 1
+console.log(compose(add1, addAll3)(1, 2, 3)); // 7

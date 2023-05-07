@@ -1,22 +1,11 @@
 function roundIt(n) {
-  const locationPoint = num => {
-    const [left, right] = String(num).split('.');
+  const [left, right] = String(n)
+    .split('.')
+    .map(side => side.length);
 
-    return left.length > right.length
-      ? 'left'
-      : left.length < right.length
-      ? 'right'
-      : 'equal';
-  };
-
-  switch (locationPoint(n)) {
-    case 'left':
-      return Math.floor(n);
-    case 'right':
-      return Math.ceil(n);
-    case 'equal':
-      return Math.round(n);
-  }
+  if (left > right) return Math.floor(n);
+  if (left < right) return Math.ceil(n);
+  return Math.round(n);
 }
 
 console.log(roundIt(3.45)); // 4

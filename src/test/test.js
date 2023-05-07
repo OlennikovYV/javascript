@@ -1,27 +1,12 @@
 mocha.setup('bdd');
 
-describe(`Function Composition`, function () {
+describe(`Training JS #32: methods of Math---round() ceil() and floor()`, function () {
   const assert = chai.assert.equal;
 
-  it('Should work with a single argument', () => {
-    const add1 = function (a) {
-      return a + 1;
-    };
-    const id = function (a) {
-      return a;
-    };
-
-    assert(compose(add1, id)(0), 1);
-  });
-  it('Should work with a single argument', () => {
-    const add1 = function (a) {
-      return a + 1;
-    };
-    const addAll3 = function (a, b, c) {
-      return a + b + c;
-    };
-
-    assert(compose(add1, addAll3)(1, 2, 3), 7);
+  it('test', () => {
+    assert(roundIt(3.45), 4);
+    assert(roundIt(34.5), 34);
+    assert(roundIt(34.56), 35);
   });
 });
 

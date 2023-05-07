@@ -1,18 +1,24 @@
-function compose(f, g) {
-  return function (...arg) {
-    return f(g(...arg));
+function roundIt(n) {
+  const locationPoint = num => {
+    const [left, right] = String(num).split('.');
+
+    return left.length > right.length
+      ? 'left'
+      : left.length < right.length
+      ? 'right'
+      : 'equal';
   };
+
+  switch (locationPoint(n)) {
+    case 'left':
+      return Math.floor(n);
+    case 'right':
+      return Math.ceil(n);
+    case 'equal':
+      return Math.round(n);
+  }
 }
 
-const add1 = function (a) {
-  return a + 1;
-};
-const id = function (a) {
-  return a;
-};
-const addAll3 = function (a, b, c) {
-  return a + b + c;
-};
-
-console.log(compose(add1, id)(0)); // 1
-console.log(compose(add1, addAll3)(1, 2, 3)); // 7
+console.log(roundIt(3.45)); // 4
+console.log(roundIt(34.5)); // 34
+console.log(roundIt(34.56)); // 35

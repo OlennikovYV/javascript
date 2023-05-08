@@ -1,13 +1,55 @@
-function roundIt(n) {
-  const [left, right] = String(n)
-    .split('.')
-    .map(side => side.length);
+function findOddNames(list) {
+  const isOdd = str => {
+    const sumNumberChar = Array(...str).reduce(
+      (sum, char) => sum + char.charCodeAt(0),
+      0
+    );
 
-  if (left > right) return Math.floor(n);
-  if (left < right) return Math.ceil(n);
-  return Math.round(n);
+    return sumNumberChar % 2 !== 0;
+  };
+
+  return list.filter(item => isOdd(item.firstName));
 }
 
-console.log(roundIt(3.45)); // 4
-console.log(roundIt(34.5)); // 34
-console.log(roundIt(34.56)); // 35
+var list1 = [
+  {
+    firstName: 'Aba',
+    lastName: 'N.',
+    country: 'Ghana',
+    continent: 'Africa',
+    age: 21,
+    language: 'Python',
+  },
+  {
+    firstName: 'Abb',
+    lastName: 'O.',
+    country: 'Israel',
+    continent: 'Asia',
+    age: 39,
+    language: 'Java',
+  },
+];
+
+console.log(findOddNames(list1));
+// [{
+//   firstName: 'Abb',
+//   lastName: 'O.',
+//   country: 'Israel',
+//   continent: 'Asia',
+//   age: 39,
+//   language: 'Java',
+// }]
+
+var list2 = [
+  {
+    firstName: 'Aba',
+    lastName: 'N.',
+    country: 'Ghana',
+    continent: 'Africa',
+    age: 21,
+    language: 'Python',
+  },
+];
+
+console.log(findOddNames(list2));
+// []

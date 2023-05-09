@@ -1,55 +1,19 @@
-function findOddNames(list) {
-  const isOdd = str => {
-    const sumNumberChar = Array(...str).reduce(
-      (sum, char) => sum + char.charCodeAt(0),
-      0
-    );
+function grabscrab(anagram, dictionary) {
+  const sort = word => word.split('').sort().join('');
+  const sortAnagram = sort(anagram);
 
-    return sumNumberChar % 2 !== 0;
-  };
-
-  return list.filter(item => isOdd(item.firstName));
+  return dictionary.filter(word => sort(word) === sortAnagram);
 }
 
-var list1 = [
-  {
-    firstName: 'Aba',
-    lastName: 'N.',
-    country: 'Ghana',
-    continent: 'Africa',
-    age: 21,
-    language: 'Python',
-  },
-  {
-    firstName: 'Abb',
-    lastName: 'O.',
-    country: 'Israel',
-    continent: 'Asia',
-    age: 39,
-    language: 'Java',
-  },
-];
-
-console.log(findOddNames(list1));
-// [{
-//   firstName: 'Abb',
-//   lastName: 'O.',
-//   country: 'Israel',
-//   continent: 'Asia',
-//   age: 39,
-//   language: 'Java',
-// }]
-
-var list2 = [
-  {
-    firstName: 'Aba',
-    lastName: 'N.',
-    country: 'Ghana',
-    continent: 'Africa',
-    age: 21,
-    language: 'Python',
-  },
-];
-
-console.log(findOddNames(list2));
+console.log(grabscrab('trisf', ['first']));
+// ['first']
+console.log(grabscrab('oob', ['bob', 'baobab']));
+// []
+console.log(grabscrab('ainstuomn', ['mountains', 'hills', 'mesa']));
+// ['mountains']
+console.log(grabscrab('oolp', ['donkey', 'pool', 'horse', 'loop']));
+// ['pool', 'loop']
+console.log(grabscrab('ortsp', ['sport', 'parrot', 'ports', 'matey']));
+// ['sport', 'ports']
+console.log(grabscrab('ourf', ['one', 'two', 'three']));
 // []

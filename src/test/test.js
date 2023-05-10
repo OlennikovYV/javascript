@@ -1,38 +1,22 @@
 mocha.setup('bdd');
 
-describe(`Arrh, grabscrab!`, function () {
+describe(`Number Pairs`, function () {
   const assert = chai.assert.deepEqual;
 
-  it('should pass sample test cases', function () {
+  it('should work for some examples', function () {
+    let a = [13, 64, 15, 17, 88];
+    let b = [23, 14, 53, 17, 80];
     assert(
-      grabscrab('trisf', ['first']),
-      ['first'],
-      "Should have found 'first'"
+      getLargerNumbers(a, b),
+      [23, 64, 53, 17, 88],
+      `Wrong result for a = ${a}, b = ${b}`
     );
+    a = [34, -64, 15, 17, 88];
+    b = [23, 14, 53, 17, 80];
     assert(
-      grabscrab('oob', ['bob', 'baobab']),
-      [],
-      'Should not have found anything'
-    );
-    assert(
-      grabscrab('ainstuomn', ['mountains', 'hills', 'mesa']),
-      ['mountains'],
-      "Should have found 'mountains'"
-    );
-    assert(
-      grabscrab('oolp', ['donkey', 'pool', 'horse', 'loop']),
-      ['pool', 'loop'],
-      "Should have found 'pool' and 'loop'"
-    );
-    assert(
-      grabscrab('ortsp', ['sport', 'parrot', 'ports', 'matey']),
-      ['sport', 'ports'],
-      "Should have found 'sport' and 'ports'"
-    );
-    assert(
-      grabscrab('ourf', ['one', 'two', 'three']),
-      [],
-      'Should not have found anything'
+      getLargerNumbers(a, b),
+      [34, 14, 53, 17, 88],
+      `Wrong result for a = ${a}, b = ${b}`
     );
   });
 });

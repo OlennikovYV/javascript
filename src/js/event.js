@@ -1,9 +1,5 @@
 function getLargerNumbers(a, b) {
-  return a.map((el, i) => {
-    if (el < b[i]) return b[i];
-
-    return el;
-  });
+  return a.map((el, i) => Math.max(el, b[i]));
 }
 
 let a = [13, 64, 15, 17, 88];

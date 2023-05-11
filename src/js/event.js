@@ -1,9 +1,7 @@
 function ghostBusters(building) {
-  const arrBuilding = building.split` `;
-
-  return arrBuilding.length === 1
-    ? "You just wanted my autograph didn't you?"
-    : arrBuilding.join``;
+  return / /.test(building)
+    ? building.replace(/ /g, '')
+    : "You just wanted my autograph didn't you?";
 }
 
 console.log(ghostBusters('Factor y'));

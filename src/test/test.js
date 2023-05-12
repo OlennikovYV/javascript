@@ -1,14 +1,17 @@
 mocha.setup('bdd');
 
-describe(`Ghostbusters (whitespace removal)`, function () {
-  const assert = chai.expect;
+describe(`Make acronym`, function () {
+  const assert = chai.assert.equal;
 
-  it('test', () => {
-    assert(ghostBusters('Factor y')).to.equal('Factory');
-    assert(ghostBusters('O  f fi ce')).to.equal('Office');
-    assert(ghostBusters('BusStation')).to.equal(
-      "You just wanted my autograph didn't you?"
-    );
+  it('Sample Tests', () => {
+    let tests = [
+      ['Code Wars', 'CW'],
+      ['Water Closet', 'WC'],
+      ['Portable Network Graphics', 'PNG'],
+      ['PHP: Hypertext Preprocessor', 'PHP'],
+      ['hyper text markup language', 'HTML'],
+    ];
+    tests.forEach(([inp, exp]) => assert(toAcronym(inp), exp));
   });
 });
 

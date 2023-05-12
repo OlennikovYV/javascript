@@ -1,12 +1,17 @@
-function ghostBusters(building) {
-  return / /.test(building)
-    ? building.replace(/ /g, '')
-    : "You just wanted my autograph didn't you?";
+function toAcronym(inp) {
+  return inp
+    .split(' ')
+    .map(word => word[0])
+    .join('')
+    .toUpperCase();
 }
 
-console.log(ghostBusters('Factor y'));
-// 'Factory',
-console.log(ghostBusters('O  f fi ce'));
-// 'Office',
-console.log(ghostBusters('BusStation'));
-// "You just wanted my autograph didn't you?",
+const tests = [
+  ['Code Wars', 'CW'],
+  ['Water Closet', 'WC'],
+  ['Portable Network Graphics', 'PNG'],
+  ['PHP: Hypertext Preprocessor', 'PHP'],
+  ['hyper text markup language', 'HTML'],
+];
+
+tests.forEach(([inp, exp]) => console.log(toAcronym(inp), exp));

@@ -1,17 +1,15 @@
 mocha.setup('bdd');
 
-describe(`Make acronym`, function () {
+describe(`Semi-Optional`, function () {
   const assert = chai.assert.equal;
 
-  it('Sample Tests', () => {
-    let tests = [
-      ['Code Wars', 'CW'],
-      ['Water Closet', 'WC'],
-      ['Portable Network Graphics', 'PNG'],
-      ['PHP: Hypertext Preprocessor', 'PHP'],
-      ['hyper text markup language', 'HTML'],
-    ];
-    tests.forEach(([inp, exp]) => assert(toAcronym(inp), exp));
+  it('should pass sample test cases', function () {
+    const res = wrap('MyTest');
+    assert(typeof res, 'object', "Doesn't return an object");
+    assert(res.value, 'MyTest');
+    assert(wrap(343).value, 343);
+    var obj = { test: 'testy' };
+    assert(wrap(obj).value, obj);
   });
 });
 

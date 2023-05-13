@@ -1,7 +1,5 @@
 function wrap(value) {
-  return {
-    value: value,
-  };
+  return { value };
 }
 
 const res = wrap('MyTest');

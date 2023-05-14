@@ -1,10 +1,7 @@
 function spongeMeme(sentence) {
-  return sentence
-    .split('')
-    .map((alpha, i) =>
-      i % 2 === 0 ? alpha.toUpperCase() : alpha.toLowerCase()
-    )
-    .join('');
+  return sentence.replace(/./g, (alpha, i) =>
+    i % 2 ? alpha.toLowerCase() : alpha.toUpperCase()
+  );
 }
 
 console.log(spongeMeme('stop Making spongebob Memes!'));

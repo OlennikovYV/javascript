@@ -1,18 +1,11 @@
-function wrap(value) {
-  return { value };
+function spongeMeme(sentence) {
+  return sentence
+    .split('')
+    .map((alpha, i) =>
+      i % 2 === 0 ? alpha.toUpperCase() : alpha.toLowerCase()
+    )
+    .join('');
 }
 
-const res = wrap('MyTest');
-
-console.log(typeof res);
-// 'object', "Doesn't return an object"
-console.log(res.value);
-// 'MyTest'
-
-console.log(wrap(343).value);
-// 343
-
-var obj = { test: 'testy' };
-
-console.log(wrap(obj).value);
-// obj
+console.log(spongeMeme('stop Making spongebob Memes!'));
+// 'StOp mAkInG SpOnGeBoB MeMeS!'

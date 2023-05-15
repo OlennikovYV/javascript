@@ -1,13 +1,7 @@
 function sumNoDuplicates(numList) {
-  const listCounts = numList.reduce((list, el) => {
-    list[el] = (list[el] || 0) + 1;
-    return list;
-  }, {});
-
-  return Object.keys(listCounts).reduce(
-    (sum, num) => (sum += listCounts[num] > 1 ? 0 : Number(num)),
-    0
-  );
+  return numList
+    .filter(num => numList.indexOf(num) == numList.lastIndexOf(num))
+    .reduce((sum, num) => sum + num, 0);
 }
 
 const fixedCases = [

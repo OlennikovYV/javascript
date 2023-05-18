@@ -1,9 +1,6 @@
 function golfScoreCalculator(parList, scoreList) {
-  const parsArray = parList.split('');
-  const scoreArray = scoreList.split('');
-
-  return parsArray.reduce(
-    (score, par, i) => score + Number(scoreArray[i] - par),
+  return [...scoreList].reduce(
+    (result, score, index) => (result += score - parList[index]),
     0
   );
 }

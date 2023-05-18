@@ -1,21 +1,14 @@
-function timeConvert(num) {
-  let hours, min;
+function golfScoreCalculator(parList, scoreList) {
+  const parsArray = parList.split('');
+  const scoreArray = scoreList.split('');
 
-  if (num <= 0) return `00:00`;
-
-  hours = String(Math.trunc(num / 60));
-  min = String(num - hours * 60);
-
-  return `${hours.padStart(2, '0')}:${min.padStart(2, '0')}`;
+  return parsArray.reduce(
+    (score, par, i) => score + Number(scoreArray[i] - par),
+    0
+  );
 }
 
-console.log(timeConvert(0)); // '00:00'
-console.log(timeConvert(-6)); // '00:00'
-console.log(timeConvert(8)); // '0' + 0 + ':' + '0' + 8
-console.log(timeConvert(32)); // '0' + 0 + ':' + 32
-console.log(timeConvert(75)); // '0' + 1 + ':' + 15
-console.log(timeConvert(63)); // '0' + 1 + ':' + '0' + 3
-console.log(timeConvert(134)); // '0' + 2 + ':' + 14
-console.log(timeConvert(180)); // '0' + 3 + ':' + '0' + 0
-console.log(timeConvert(970)); // 16 + ':' + 10
-console.log(timeConvert(565757)); // 9429 + ':' + 17
+console.log(golfScoreCalculator('443454444344544443', '353445334534445344'));
+// -1
+console.log(golfScoreCalculator('123456123456123456', '123456123456123456'));
+// 0

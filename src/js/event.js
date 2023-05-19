@@ -1,9 +1,6 @@
 function sortDict(dict) {
-  return Array.from(Object.entries(dict))
-    .map(el => {
-      el[0] = isNaN(el[0]) ? el[0] : Number(el[0]);
-      return el;
-    })
+  return Object.keys(dict)
+    .map(el => [+el || el, dict[el]])
     .sort((a, b) => b[1] - a[1]);
 }
 

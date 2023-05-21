@@ -1,21 +1,52 @@
 mocha.setup('bdd');
 
-describe(`Find the calculation type`, function () {
+describe(`Coding Meetup #10 - Higher-Order Functions Series - Create usernames`, function () {
   const equal = chai.assert.equal;
   const deepEqual = chai.assert.deepEqual;
   const isDefined = chai.assert.isDefined;
 
+  const source = [
+    {
+      firstName: 'Emily',
+      lastName: 'N.',
+      country: 'Ireland',
+      continent: 'Europe',
+      age: 30,
+      language: 'Ruby',
+    },
+    {
+      firstName: 'Nor',
+      lastName: 'E.',
+      country: 'Malaysia',
+      continent: 'Asia',
+      age: 20,
+      language: 'Clojure',
+    },
+  ];
+
+  const result = [
+    {
+      firstName: 'Emily',
+      lastName: 'N.',
+      country: 'Ireland',
+      continent: 'Europe',
+      age: 30,
+      language: 'Ruby',
+      username: 'emilyn1990',
+    },
+    {
+      firstName: 'Nor',
+      lastName: 'E.',
+      country: 'Malaysia',
+      continent: 'Asia',
+      age: 20,
+      language: 'Clojure',
+      username: 'nore2000',
+    },
+  ];
+
   it('addition', function () {
-    equal(calcType(1, 2, 3), 'addition');
-  });
-  it('multiplication', function () {
-    equal(calcType(10, 4, 40), 'multiplication');
-  });
-  it('subtraction', function () {
-    equal(calcType(10, 5, 5), 'subtraction');
-  });
-  it('division', function () {
-    equal(calcType(9, 5, 1.8), 'division');
+    deepEqual(addUsername(source), result, 'Not equal');
   });
 });
 

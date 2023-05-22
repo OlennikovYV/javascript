@@ -1,8 +1,5 @@
 function firstNonRepeated(s) {
-  for (let i = 0; i < s.length; i += 1)
-    if (s.indexOf(s[i]) == s.lastIndexOf(s[i])) return s[i];
-
-  return null;
+  return [...s].find(char => s.indexOf(char) === s.lastIndexOf(char)) || null;
 }
 
 console.log(firstNonRepeated('test')); // 'e'

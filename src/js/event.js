@@ -1,49 +1,14 @@
-function addUsername(list) {
-  const currentYear = new Date().getFullYear();
+function firstNonRepeated(s) {
+  if (new Set(s).size == s.length) return s[0];
 
-  return list.map(el => {
-    el.username =
-      (el.firstName + el.lastName[0]).toLowerCase() + (currentYear - el.age);
-    return el;
-  });
+  for (let i = 0; i < s.length; i += 1)
+    if (s.indexOf(s[i]) == s.lastIndexOf(s[i])) return s[i];
+
+  return null;
 }
 
-const source = [
-  {
-    firstName: 'Emily',
-    lastName: 'N.',
-    country: 'Ireland',
-    continent: 'Europe',
-    age: 30,
-    language: 'Ruby',
-  },
-  {
-    firstName: 'Nor',
-    lastName: 'E.',
-    country: 'Malaysia',
-    continent: 'Asia',
-    age: 20,
-    language: 'Clojure',
-  },
-];
-
-console.log(addUsername(source));
-// [ {
-//     firstName: 'Emily',
-//     lastName: 'N.',
-//     country: 'Ireland',
-//     continent: 'Europe',
-//     age: 30,
-//     language: 'Ruby',
-//     username: 'emilyn1990',
-//   },
-//   {
-//     firstName: 'Nor',
-//     lastName: 'E.',
-//     country: 'Malaysia',
-//     continent: 'Asia',
-//     age: 20,
-//     language: 'Clojure',
-//     username: 'nore2000',
-//   },
-// ];
+console.log(firstNonRepeated('test')); // 'e'
+console.log(firstNonRepeated('teeter')); // 'r'
+console.log(firstNonRepeated('1122321235121222')); // '5'
+console.log(firstNonRepeated('rend')); // 'r'
+console.log(firstNonRepeated('aabbcc')); // null

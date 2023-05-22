@@ -1,53 +1,17 @@
 mocha.setup('bdd');
 
-describe(`Coding Meetup #10 - Higher-Order Functions Series - Create usernames`, function () {
+describe(`The First Non Repeated Character In A String`, function () {
   const equal = chai.assert.equal;
   const deepEqual = chai.assert.deepEqual;
   const isDefined = chai.assert.isDefined;
+  const isNull = chai.assert.isNull;
 
-  const source = [
-    {
-      firstName: 'Emily',
-      lastName: 'N.',
-      country: 'Ireland',
-      continent: 'Europe',
-      age: 30,
-      language: 'Ruby',
-    },
-    {
-      firstName: 'Nor',
-      lastName: 'E.',
-      country: 'Malaysia',
-      continent: 'Asia',
-      age: 20,
-      language: 'Clojure',
-    },
-  ];
-
-  const result = [
-    {
-      firstName: 'Emily',
-      lastName: 'N.',
-      country: 'Ireland',
-      continent: 'Europe',
-      age: 30,
-      language: 'Ruby',
-      username: 'emilyn1990',
-    },
-    {
-      firstName: 'Nor',
-      lastName: 'E.',
-      country: 'Malaysia',
-      continent: 'Asia',
-      age: 20,
-      language: 'Clojure',
-      username: 'nore2000',
-    },
-  ];
-
-  it('addition', function () {
-    deepEqual(addUsername(source), result, 'Not equal');
-  });
+  it('Testing for test', () => equal(firstNonRepeated('test'), 'e'));
+  it('Testing for teeter', () => equal(firstNonRepeated('teeter'), 'r'));
+  it('Testing for 1122321235121222', () =>
+    equal(firstNonRepeated('1122321235121222'), '5'));
+  it('Testing for rend', () => equal(firstNonRepeated('rend'), 'r'));
+  it('Testing for aabbcc', () => isNull(firstNonRepeated('aabbcc'), null));
 });
 
 mocha.run();

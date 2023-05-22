@@ -1,6 +1,4 @@
 function firstNonRepeated(s) {
-  if (new Set(s).size == s.length) return s[0];
-
   for (let i = 0; i < s.length; i += 1)
     if (s.indexOf(s[i]) == s.lastIndexOf(s[i])) return s[i];
 

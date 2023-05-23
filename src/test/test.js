@@ -1,17 +1,17 @@
 mocha.setup('bdd');
 
-describe(`The First Non Repeated Character In A String`, function () {
+describe(`Odder Than the Rest`, function () {
   const equal = chai.assert.equal;
   const deepEqual = chai.assert.deepEqual;
   const isDefined = chai.assert.isDefined;
   const isNull = chai.assert.isNull;
 
-  it('Testing for test', () => equal(firstNonRepeated('test'), 'e'));
-  it('Testing for teeter', () => equal(firstNonRepeated('teeter'), 'r'));
-  it('Testing for 1122321235121222', () =>
-    equal(firstNonRepeated('1122321235121222'), '5'));
-  it('Testing for rend', () => equal(firstNonRepeated('rend'), 'r'));
-  it('Testing for aabbcc', () => isNull(firstNonRepeated('aabbcc'), null));
+  it('should pass basic tests', function () {
+    equal(oddOne([2, 4, 6, 7, 10]), 3);
+    equal(oddOne([2, 16, 98, 10, 13, 78]), 4);
+    equal(oddOne([4, -8, 98, -12, -7, 90, 100]), 4);
+    equal(oddOne([2, 4, 6, 8]), -1);
+  });
 });
 
 mocha.run();

@@ -1,5 +1,5 @@
 function oddOne(arr) {
-  return arr.findIndex(num => num % 2 !== 0);
+  return arr.findIndex(num => num & 1);
 }
 
 console.log(oddOne([2, 4, 6, 7, 10])); // 3

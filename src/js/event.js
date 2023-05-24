@@ -1,7 +1,5 @@
 function ArithmeticSequenceSum(a, r, n) {
-  return Array.from({ length: n }, (_, i) => a + i * r).reduce(
-    (sum, num) => sum + num
-  );
+  return a * n + (r * n * (n - 1)) / 2;
 }
 
 console.log(ArithmeticSequenceSum(3, 2, 20)); // 440

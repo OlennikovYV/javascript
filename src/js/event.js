@@ -1,9 +1,20 @@
-function double(array) {
-  return array.map(num => num * 2);
+function allNonConsecutive(arr) {
+  let current;
+
+  return arr.reduce((listConsecutive, next, index) => {
+    if (index == 0) {
+      current = next;
+      return listConsecutive;
+    }
+
+    if (next - current !== 1) listConsecutive.push({ i: index, n: next });
+    current = next;
+
+    return listConsecutive;
+  }, []);
 }
 
-const test1 = [1, 2, 3, 4, 5];
-const test2 = [71, -548, 12.3, 31415];
+const results = allNonConsecutive([1, 2, 3, 4, 6, 7, 8, 10]);
 
-console.log(double(test1)); // [2, 4, 6, 8, 10]
-console.log(double(test2)); // [142, -1096, 24.6, 62830]
+console.log(allNonConsecutive(results));
+// [ { i: 4, n: 6 }, { i: 7, n: 10 } ]

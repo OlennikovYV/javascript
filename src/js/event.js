@@ -1,17 +1,11 @@
 function allNonConsecutive(arr) {
-  let current;
+  let listConsecutive = [];
 
-  return arr.reduce((listConsecutive, next, index) => {
-    if (index == 0) {
-      current = next;
-      return listConsecutive;
-    }
+  for (let i = 1; i < arr.length; i += 1) {
+    if (arr[i] - arr[i - 1] !== 1) listConsecutive.push({ i: i, n: arr[i] });
+  }
 
-    if (next - current !== 1) listConsecutive.push({ i: index, n: next });
-    current = next;
-
-    return listConsecutive;
-  }, []);
+  return listConsecutive;
 }
 
 const results = allNonConsecutive([1, 2, 3, 4, 6, 7, 8, 10]);

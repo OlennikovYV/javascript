@@ -1,8 +1,16 @@
-function aspectRatio(x, y) {
-  return [Math.ceil((y * 16) / 9), y];
+function reverseByCenter(s) {
+  const length = s.length;
+  const oddLength = length % 2;
+  const lengthPart = oddLength ? Math.floor(length / 2) : length / 2;
+  let leftPart = s.slice(0, lengthPart);
+  let rigthPart = s.slice(-lengthPart);
+
+  [leftPart, rigthPart] = [rigthPart, leftPart];
+
+  return leftPart + (oddLength ? s[lengthPart] : '') + rigthPart;
 }
 
-console.log(aspectRatio(640, 480)); // [854, 480]
-console.log(aspectRatio(960, 720)); // [1280, 720]
-console.log(aspectRatio(1440, 1080)); // [1920, 1080]
-console.log(aspectRatio(1920, 1440)); // [2560, 1440]
+console.log(reverseByCenter('secret')); // 'retsec'
+console.log(reverseByCenter('agent')); // 'nteag'
+console.log(reverseByCenter('raw')); // 'war'
+console.log(reverseByCenter('onion')); // 'onion'

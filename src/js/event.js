@@ -1,9 +1,5 @@
 function isTriangular(t) {
-  for (let i = 0; i <= 65536; i += 1) {
-    if (t == (i * (i + 1)) / 2) return true;
-  }
-
-  return false;
+  return Math.sqrt(8 * t + 1) % 1 == 0;
 }
 
 // returns true when t is a triangular number

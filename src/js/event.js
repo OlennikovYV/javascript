@@ -1,10 +1,7 @@
 function password(str) {
-  const checkUpper = /[A-Z]/.test(str);
-  const checkLower = /[a-z]/.test(str);
-  const checkDigit = /[0-9]/.test(str);
-  const checkLength = str.length >= 8;
-
-  return checkUpper && checkLower && checkDigit && checkLength;
+  return ['[A-Z]', '[a-z]', '[\\d]', '.{8,}'].every(regExp =>
+    new RegExp(regExp).test(str)
+  );
 }
 
 console.log(password('Abcd1234')); // true

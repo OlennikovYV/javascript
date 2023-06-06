@@ -1,7 +1,5 @@
 function password(str) {
-  return ['[A-Z]', '[a-z]', '[\\d]', '.{8,}'].every(regExp =>
-    new RegExp(regExp).test(str)
-  );
+  return /^(?=.*[0-9])(?=.*[A-Z])(?=.*[a-z]).{8,}$/.test(str);
 }
 
 console.log(password('Abcd1234')); // true

@@ -1,4 +1,4 @@
-const a = '0';
+const a = new Boolean();
 
 console.log(a == false); // true
 console.log(!a == false); // true

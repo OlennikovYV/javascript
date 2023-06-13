@@ -1,6 +1,5 @@
-const a = {};
-a.valueOf = function () {
-  return false;
+const a = {
+  [Symbol.toPrimitive]: () => false,
 };
 
 console.log(a == false); // true

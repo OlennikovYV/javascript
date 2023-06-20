@@ -1,12 +1,6 @@
 function filterHomogenous(arrays) {
-  let checkHomogenous = (arr, callback) =>
-    arr.every(item => item === callback(item));
-
   return arrays.filter(arr => {
-    return (
-      arr.length &&
-      (checkHomogenous(arr, Number) || checkHomogenous(arr, String))
-    );
+    return arr.length && arr.every(item => typeof item === typeof arr[0]);
   });
 }
 

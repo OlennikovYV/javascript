@@ -1,6 +1,6 @@
 mocha.setup('bdd');
 
-describe(`Regexp Basics - is it IPv4 address?`, function () {
+describe(`Homogenous arrays`, function () {
   const equal = chai.assert.equal;
   const deepEqual = chai.assert.deepEqual;
   const isDefined = chai.assert.isDefined;
@@ -8,27 +8,22 @@ describe(`Regexp Basics - is it IPv4 address?`, function () {
   const isTrue = chai.assert.isTrue;
   const isFalse = chai.assert.isFalse;
 
-  it('Should return true', () => {
-    isTrue('127.0.0.1'.ipv4Address());
-    isTrue('0.0.0.0'.ipv4Address());
-    isTrue('255.255.255.255'.ipv4Address());
-    isTrue('10.20.30.40'.ipv4Address());
-  });
-  it('Should return false', () => {
-    isFalse(''.ipv4Address());
-    isFalse('10.256.30.40'.ipv4Address());
-    isFalse('10.20.030.40'.ipv4Address());
-    isFalse('127.0.1'.ipv4Address());
-    isFalse('127.0.0.0.1'.ipv4Address());
-    isFalse('..255.255'.ipv4Address());
-    isFalse('127.0.0.1\n'.ipv4Address());
-    isFalse('\n127.0.0.1'.ipv4Address());
-    isFalse(' 127.0.0.1'.ipv4Address());
-    isFalse('127.0.0.1 '.ipv4Address());
-    isFalse(' 127.0.0.1 '.ipv4Address());
-    isFalse('127.0.0.1.'.ipv4Address());
-    isFalse('.127.0.0.1'.ipv4Address());
-    isFalse('127..0.1'.ipv4Address());
+  it('test', () => {
+    deepEqual(
+      filterHomogenous([[1, 5, 4], ['a', 3, 5], ['b'], [], ['1', 2, 3]]),
+      [[1, 5, 4], ['b']]
+    );
+    deepEqual(
+      filterHomogenous([
+        [123, 234, 432],
+        ['', 'abc'],
+        [''],
+        ['', 1],
+        ['', '1'],
+        [],
+      ]),
+      [[123, 234, 432], ['', 'abc'], [''], ['', '1']]
+    );
   });
 });
 

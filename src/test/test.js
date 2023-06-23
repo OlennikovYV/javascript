@@ -1,6 +1,6 @@
 mocha.setup('bdd');
 
-describe(`Homogenous arrays`, function () {
+describe(`Incorrect division method`, function () {
   const equal = chai.assert.equal;
   const deepEqual = chai.assert.deepEqual;
   const isDefined = chai.assert.isDefined;
@@ -8,22 +8,14 @@ describe(`Homogenous arrays`, function () {
   const isTrue = chai.assert.isTrue;
   const isFalse = chai.assert.isFalse;
 
-  it('test', () => {
-    deepEqual(
-      filterHomogenous([[1, 5, 4], ['a', 3, 5], ['b'], [], ['1', 2, 3]]),
-      [[1, 5, 4], ['b']]
-    );
-    deepEqual(
-      filterHomogenous([
-        [123, 234, 432],
-        ['', 'abc'],
-        [''],
-        ['', 1],
-        ['', '1'],
-        [],
-      ]),
-      [[123, 234, 432], ['', 'abc'], [''], ['', '1']]
-    );
+  it('example tests', function () {
+    equal(solve(2, 1), 2);
+    equal(solve(2, 4), 0.5);
+    equal(solve(42, 0), Infinity);
+    equal(solve(0, 8), 0);
+    equal(solve(7, 2), 3.5);
+    equal(solve(4.2, 1), 4.2);
+    equal(solve(9999, 11), 909);
   });
 });
 

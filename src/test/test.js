@@ -8,14 +8,19 @@ describe(`Incorrect division method`, function () {
   const isTrue = chai.assert.isTrue;
   const isFalse = chai.assert.isFalse;
 
-  it('example tests', function () {
-    equal(solve(2, 1), 2);
-    equal(solve(2, 4), 0.5);
-    equal(solve(42, 0), Infinity);
-    equal(solve(0, 8), 0);
-    equal(solve(7, 2), 3.5);
-    equal(solve(4.2, 1), 4.2);
-    equal(solve(9999, 11), 909);
+  it('test', () => {
+    equal(
+      matchArrays(['Perl', 'Closure', 'JavaScript'], ['Go', 'C++', 'Erlang']),
+      0
+    );
+    equal(
+      matchArrays(
+        ['incapsulation', 'OOP', 'array'],
+        ['time', 'propert', 'paralelism', 'OOP']
+      ),
+      1
+    );
+    equal(matchArrays([1, 2, 3, 4, 5], [2, 3, 4, 5, 6]), 4);
   });
 });
 

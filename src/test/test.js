@@ -1,6 +1,6 @@
 mocha.setup('bdd');
 
-describe(`Incorrect division method`, function () {
+describe(`Integer Difference`, function () {
   const equal = chai.assert.equal;
   const deepEqual = chai.assert.deepEqual;
   const isDefined = chai.assert.isDefined;
@@ -8,19 +8,10 @@ describe(`Incorrect division method`, function () {
   const isTrue = chai.assert.isTrue;
   const isFalse = chai.assert.isFalse;
 
-  it('test', () => {
-    equal(
-      matchArrays(['Perl', 'Closure', 'JavaScript'], ['Go', 'C++', 'Erlang']),
-      0
-    );
-    equal(
-      matchArrays(
-        ['incapsulation', 'OOP', 'array'],
-        ['time', 'propert', 'paralelism', 'OOP']
-      ),
-      1
-    );
-    equal(matchArrays([1, 2, 3, 4, 5], [2, 3, 4, 5, 6]), 4);
+  it('should work for basic tests', function () {
+    equal(intDiff([1, 1, 5, 6, 9, 16, 27], 4), 3);
+    equal(intDiff([1, 1, 3, 3], 2), 4);
+    equal(intDiff([1, 6, 2, 3, 7, 8, 7], 0), 1);
   });
 });
 

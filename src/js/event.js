@@ -1,12 +1,26 @@
-const Calculator = {
-  average: function (...args) {
-    if (args.length === 0) return 0;
+function inverseSlice(items, a, b) {
+  return [...items.slice(0, a), ...items.slice(b, items.length)];
+}
 
-    return args.reduce((sum, num) => sum + num, 0) / args.length;
-  },
-};
-
-console.log(Calculator.average(3, 4, 5)); // 4
-console.log(Calculator.average(3, 4, 5, 6, 7, 8, 9, 8, 7, 6, 5, 4, 3));
-// 5.769230769230769
-console.log(Calculator.average()); // 0
+console.log(inverseSlice([12, 14, 63, 72, 55, 24], 2, 4));
+// [12, 14, 55, 24]
+console.log(inverseSlice([12, 14, 63, 72, 55, 24], 0, 3));
+// [72, 55, 24]
+console.log(
+  inverseSlice(
+    [
+      'Intuition',
+      'is',
+      'a',
+      'poor',
+      'guide',
+      'when',
+      'facing',
+      'probabilistic',
+      'evidence',
+    ],
+    5,
+    13
+  )
+);
+// ['Intuition', 'is', 'a', 'poor', 'guide']

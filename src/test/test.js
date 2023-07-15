@@ -1,6 +1,6 @@
 mocha.setup('bdd');
 
-describe(`Thinkful - List and Loop Drills: Inverse Slicer`, function () {
+describe(`Multiply the number`, function () {
   const equal = chai.assert.equal;
   const deepEqual = chai.assert.deepEqual;
   const isDefined = chai.assert.isDefined;
@@ -11,26 +11,11 @@ describe(`Thinkful - List and Loop Drills: Inverse Slicer`, function () {
   const oneOf = chai.assert.oneOf;
 
   it('Basic tests', function () {
-    deepEqual(inverseSlice([12, 14, 63, 72, 55, 24], 2, 4), [12, 14, 55, 24]);
-    deepEqual(inverseSlice([12, 14, 63, 72, 55, 24], 0, 3), [72, 55, 24]);
-    deepEqual(
-      inverseSlice(
-        [
-          'Intuition',
-          'is',
-          'a',
-          'poor',
-          'guide',
-          'when',
-          'facing',
-          'probabilistic',
-          'evidence',
-        ],
-        5,
-        13
-      ),
-      ['Intuition', 'is', 'a', 'poor', 'guide']
-    );
+    equal(multiply(10), 250);
+    equal(multiply(5), 25);
+    equal(multiply(200), 25000);
+    equal(multiply(0), 0);
+    equal(multiply(-2), -10);
   });
 });
 

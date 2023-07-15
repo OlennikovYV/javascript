@@ -1,28 +1,12 @@
-function inverseSlice(items, a, b) {
-  items.splice(a, b - a);
+function multiply(number) {
+  const unsignedNumber = Math.abs(number);
+  const countDigit = String(unsignedNumber).length;
 
-  return items;
+  return number * Math.pow(5, countDigit);
 }
 
-console.log(inverseSlice([12, 14, 63, 72, 55, 24], 2, 4));
-// [12, 14, 55, 24]
-console.log(inverseSlice([12, 14, 63, 72, 55, 24], 0, 3));
-// [72, 55, 24]
-console.log(
-  inverseSlice(
-    [
-      'Intuition',
-      'is',
-      'a',
-      'poor',
-      'guide',
-      'when',
-      'facing',
-      'probabilistic',
-      'evidence',
-    ],
-    5,
-    13
-  )
-);
-// ['Intuition', 'is', 'a', 'poor', 'guide']
+console.log(multiply(10)); // 250
+console.log(multiply(5)); // 25
+console.log(multiply(200)); // 25000
+console.log(multiply(0)); // 0
+console.log(multiply(-2)); // -10

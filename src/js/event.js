@@ -1,16 +1,11 @@
 function pattern(n) {
-  let pattern = n % 2 === 0 ? n : n - 1;
-  let output = '';
+  let output = [];
 
-  if (n <= 1) return output;
-
-  for (let i = 2; i <= pattern; i = i + 2) {
-    const endLine = i !== pattern ? '\n' : '';
-
-    output = output + String(i).repeat(i) + endLine;
+  for (let i = 2; i <= n; i = i + 2) {
+    output.push(String(i).repeat(i));
   }
 
-  return output;
+  return output.join('\n');
 }
 
 console.log(pattern(2)); // '22'

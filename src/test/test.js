@@ -1,6 +1,6 @@
 mocha.setup('bdd');
 
-describe(`Complete The Pattern #5 - Even Ladder`, function () {
+describe(`Move all vowels`, function () {
   const equal = chai.assert.equal;
   const deepEqual = chai.assert.deepEqual;
   const isDefined = chai.assert.isDefined;
@@ -10,20 +10,17 @@ describe(`Complete The Pattern #5 - Even Ladder`, function () {
   const approximately = chai.assert.approximately;
   const oneOf = chai.assert.oneOf;
 
-  it('n=2', () => {
-    equal(pattern(2), '22');
+  it('Testing for "day"', () => {
+    equal(moveVowel('day'), 'dya');
   });
-  it('n=1', () => {
-    equal(pattern(1), '');
+  it('Testing for "apple"', () => {
+    equal(moveVowel('apple'), 'pplae');
   });
-  it('n=5', () => {
-    equal(pattern(5), '22\n4444');
+  it('Testing for "peace"', () => {
+    equal(moveVowel('peace'), 'pceae');
   });
-  it('n=0', () => {
-    equal(pattern(0), '');
-  });
-  it('n=-25', () => {
-    equal(pattern(-25), '');
+  it('Testing for "maker"', () => {
+    equal(moveVowel('maker'), 'mkrae');
   });
 });
 

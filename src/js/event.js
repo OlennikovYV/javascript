@@ -1,15 +1,20 @@
-function pattern(n) {
-  let output = [];
+function moveVowel(input) {
+  const vowels = ['a', 'e', 'i', 'o', 'u'];
+  const vowelArray = [];
+  const consonantArray = [];
 
-  for (let i = 2; i <= n; i = i + 2) {
-    output.push(String(i).repeat(i));
+  for (let i = 0; i < input.length; i = i + 1) {
+    const currentAlpha = input[i];
+
+    vowels.includes(currentAlpha)
+      ? vowelArray.push(currentAlpha)
+      : consonantArray.push(currentAlpha);
   }
 
-  return output.join('\n');
+  return consonantArray.concat(vowelArray).join``;
 }
 
-console.log(pattern(2)); // '22'
-console.log(pattern(1)); // ''
-console.log(pattern(5)); // '22\n4444'
-console.log(pattern(0)); // ''
-console.log(pattern(-25)); // ''
+console.log(moveVowel('day')); // 'dya'
+console.log(moveVowel('apple')); // 'pplae'
+console.log(moveVowel('peace')); // 'pceae'
+console.log(moveVowel('maker')); // 'mkrae'

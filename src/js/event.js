@@ -1,13 +1,5 @@
 function isToday(date) {
-  const now = new Date();
-  const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
-  const checkDate = new Date(
-    date.getFullYear(),
-    date.getMonth(),
-    date.getDate()
-  );
-
-  return today.getTime() - checkDate.getTime() === 0;
+  return new Date().setHours(0, 0, 0, 0) === date.setHours(0, 0, 0, 0);
 }
 
 const today = new Date();

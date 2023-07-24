@@ -11,7 +11,7 @@ describe(`Is the date today`, function () {
   const oneOf = chai.assert.oneOf;
 
   const today = new Date();
-  it('should return <code>true</code> for today', () => {
+  it('should return true for today', () => {
     let actualToday = isToday(today);
     assertNotPrinting(actualToday);
     equal(actualToday, true);

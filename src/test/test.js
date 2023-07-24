@@ -1,6 +1,6 @@
 mocha.setup('bdd');
 
-describe(`Move all vowels`, function () {
+describe(`Is the date today`, function () {
   const equal = chai.assert.equal;
   const deepEqual = chai.assert.deepEqual;
   const isDefined = chai.assert.isDefined;
@@ -10,18 +10,31 @@ describe(`Move all vowels`, function () {
   const approximately = chai.assert.approximately;
   const oneOf = chai.assert.oneOf;
 
-  it('Testing for "day"', () => {
-    equal(moveVowel('day'), 'dya');
+  const today = new Date();
+  it('should return <code>true</code> for today', () => {
+    let actualToday = isToday(today);
+    assertNotPrinting(actualToday);
+    equal(actualToday, true);
   });
-  it('Testing for "apple"', () => {
-    equal(moveVowel('apple'), 'pplae');
+
+  it('should return false for tomorrow', () => {
+    const tomorrow = new Date();
+    tomorrow.setDate(today.getDate() + 1);
+    equal(isToday(tomorrow), false);
   });
-  it('Testing for "peace"', () => {
-    equal(moveVowel('peace'), 'pceae');
+
+  it('should return false for yesterday', () => {
+    const yesterday = new Date();
+    yesterday.setDate(today.getDate() - 1);
+    equal(isToday(yesterday), false);
   });
-  it('Testing for "maker"', () => {
-    equal(moveVowel('maker'), 'mkrae');
-  });
+
+  function assertNotPrinting(actual) {
+    isDefined(
+      actual,
+      'You should return true or false. Did you print the answer instead?\n'
+    );
+  }
 });
 
 mocha.run();

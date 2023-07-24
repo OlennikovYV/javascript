@@ -1,20 +1,23 @@
-function moveVowel(input) {
-  const vowels = ['a', 'e', 'i', 'o', 'u'];
-  const vowelArray = [];
-  const consonantArray = [];
+function isToday(date) {
+  const now = new Date();
+  const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+  const checkDate = new Date(
+    date.getFullYear(),
+    date.getMonth(),
+    date.getDate()
+  );
 
-  for (let i = 0; i < input.length; i = i + 1) {
-    const currentAlpha = input[i];
-
-    vowels.includes(currentAlpha)
-      ? vowelArray.push(currentAlpha)
-      : consonantArray.push(currentAlpha);
-  }
-
-  return consonantArray.concat(vowelArray).join``;
+  return today.getTime() - checkDate.getTime() === 0;
 }
 
-console.log(moveVowel('day')); // 'dya'
-console.log(moveVowel('apple')); // 'pplae'
-console.log(moveVowel('peace')); // 'pceae'
-console.log(moveVowel('maker')); // 'mkrae'
+const today = new Date();
+let actualToday = isToday(today);
+console.log(actualToday); // true
+
+const tomorrow = new Date();
+tomorrow.setDate(today.getDate() + 1);
+console.log(isToday(tomorrow)); // false
+
+const yesterday = new Date();
+yesterday.setDate(today.getDate() - 1);
+console.log(isToday(yesterday)); // false

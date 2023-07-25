@@ -10,31 +10,18 @@ describe(`Is the date today`, function () {
   const approximately = chai.assert.approximately;
   const oneOf = chai.assert.oneOf;
 
-  const today = new Date();
-  it('should return true for today', () => {
-    let actualToday = isToday(today);
-    assertNotPrinting(actualToday);
-    equal(actualToday, true);
+  it('Fund4m3nt41s', () => {
+    equal(nerdify('Fund4m3nt41s'), 'Fund4m3nt41s');
   });
-
-  it('should return false for tomorrow', () => {
-    const tomorrow = new Date();
-    tomorrow.setDate(today.getDate() + 1);
-    equal(isToday(tomorrow), false);
+  it('Seven', () => {
+    equal(nerdify('Seven'), 'S3v3n');
   });
-
-  it('should return false for yesterday', () => {
-    const yesterday = new Date();
-    yesterday.setDate(today.getDate() - 1);
-    equal(isToday(yesterday), false);
+  it('Los Angeles', () => {
+    equal(nerdify('Los Angeles'), 'Los 4ng313s');
   });
-
-  function assertNotPrinting(actual) {
-    isDefined(
-      actual,
-      'You should return true or false. Did you print the answer instead?\n'
-    );
-  }
+  it('Seoijselawuue', () => {
+    equal(nerdify('Seoijselawuue'), 'S3oijs314wuu3');
+  });
 });
 
 mocha.run();

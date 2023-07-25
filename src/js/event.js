@@ -1,15 +1,14 @@
-function isToday(date) {
-  return new Date().setHours(0, 0, 0, 0) === date.setHours(0, 0, 0, 0);
+function nerdify(txt) {
+  const replace = {
+    a: '4',
+    e: '3',
+    l: '1',
+  };
+
+  return txt.replace(/[AEael]/g, alpha => replace[alpha.toLowerCase()]);
 }
 
-const today = new Date();
-let actualToday = isToday(today);
-console.log(actualToday); // true
-
-const tomorrow = new Date();
-tomorrow.setDate(today.getDate() + 1);
-console.log(isToday(tomorrow)); // false
-
-const yesterday = new Date();
-yesterday.setDate(today.getDate() - 1);
-console.log(isToday(yesterday)); // false
+console.log(nerdify('Fund4m3nt41s')); // 'Fund4m3nt41s'
+console.log(nerdify('Seven')); // 'S3v3n'
+console.log(nerdify('Los Angeles')); // 'Los 4ng313s'
+console.log(nerdify('Seoijselawuue')); // 'S3oijs314wuu3'

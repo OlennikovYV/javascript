@@ -1,20 +1,31 @@
-function wordToBin(str) {
-  return Array.from(str).map(alpha =>
-    alpha.charCodeAt(0).toString(2).padStart(8, '0')
-  );
+function combine(...arg) {
+  const combine = {};
+
+  arg.map(object => {
+    for (const key in object) {
+      combine[key] = (combine[key] || 0) + object[key];
+    }
+  });
+
+  return combine;
 }
 
-console.log(wordToBin('man'));
-// ['01101101', '01100001', '01101110'],
-console.log(wordToBin('AB'));
-// ['01000001', '01000010'],
-console.log(wordToBin('wecking'));
-// ['01110111', '01100101', '01100011',
-//  '01101011', '01101001', '01101110',
-//  '01100111']
-console.log(wordToBin('Ruby'));
-// ['01010010', '01110101', '01100010', '01111001'],
-console.log(wordToBin('Yosemite'));
-// ['01011001', '01101111', '01110011',
-//  '01100101', '01101101', '01101001',
-//  '01110100', '01100101']
+const objA = { a: 10, b: 20, c: 30 };
+const objB = { a: 3, c: 6, d: 3 };
+const objC = { a: 5, d: 11, e: 8 };
+const objD = { c: 3 };
+
+console.log(combine(objA, objB));
+// { a: 13, b: 20, c: 36, d: 3 }
+console.log(combine(objA, objC));
+// { a: 15, b: 20, c: 30, d: 11, e: 8 }
+
+console.log(combine(objA, objB, objC));
+// {a: 18, b: 20, c: 36, d: 14, e: 8}
+console.log(combine(objA, objC, objD));
+// {a: 15, b: 20, c: 33, d: 11, e: 8}
+
+console.log(combine({}, {}, {}));
+// {}
+console.log(combine(objA, objC, {}));
+// { a: 15, b: 20, c: 30, d: 11, e: 8 }

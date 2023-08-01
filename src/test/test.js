@@ -10,57 +10,42 @@ describe(`Word to binary`, function () {
   const approximately = chai.assert.approximately;
   const oneOf = chai.assert.oneOf;
 
-  it('man', () => {
-    deepEqual(
-      wordToBin('man'),
-      ['01101101', '01100001', '01101110'],
-      "should return [ '01101101', '01100001', '01101110' ] for `man` "
-    );
+  const objA = { a: 10, b: 20, c: 30 };
+  const objB = { a: 3, c: 6, d: 3 };
+  const objC = { a: 5, d: 11, e: 8 };
+  const objD = { c: 3 };
+
+  it('Combine two objects', () => {
+    deepEqual(combine(objA, objB), { a: 13, b: 20, c: 36, d: 3 });
+    deepEqual(combine(objA, objC), { a: 15, b: 20, c: 30, d: 11, e: 8 });
   });
-  it('AB', () => {
-    deepEqual(
-      wordToBin('AB'),
-      ['01000001', '01000010'],
-      "should return ['01000001', '01000010'] for `AB`"
-    );
+
+  it('Combine three objects', () => {
+    deepEqual(combine(objA, objB, objC), {
+      a: 18,
+      b: 20,
+      c: 36,
+      d: 14,
+      e: 8,
+    });
+    deepEqual(combine(objA, objC, objD), {
+      a: 15,
+      b: 20,
+      c: 33,
+      d: 11,
+      e: 8,
+    });
   });
-  it('wecking', () => {
-    deepEqual(
-      wordToBin('wecking'),
-      [
-        '01110111',
-        '01100101',
-        '01100011',
-        '01101011',
-        '01101001',
-        '01101110',
-        '01100111',
-      ],
-      "should return [ '01110111', '01100101', '01100011', '01101011', '01101001', '01101110', '01100111' ]  for `wecking`"
-    );
-  });
-  it('Ruby', () => {
-    deepEqual(
-      wordToBin('Ruby'),
-      ['01010010', '01110101', '01100010', '01111001'],
-      "should return [ '01010010', '01110101', '01100010', '01111001' ]  for `Ruby`"
-    );
-  });
-  it('Yosemite', () => {
-    deepEqual(
-      wordToBin('Yosemite'),
-      [
-        '01011001',
-        '01101111',
-        '01110011',
-        '01100101',
-        '01101101',
-        '01101001',
-        '01110100',
-        '01100101',
-      ],
-      "should return [ '01011001', '01101111', '01110011', '01100101', '01101101', '01101001', '01110100', '01100101' ]  for `Yosemite`"
-    );
+
+  it('Handle empty objects', () => {
+    deepEqual(combine({}, {}, {}), {});
+    deepEqual(combine(objA, objC, {}), {
+      a: 15,
+      b: 20,
+      c: 30,
+      d: 11,
+      e: 8,
+    });
   });
 });
 

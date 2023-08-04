@@ -1,5 +1,5 @@
 function ensureQuestion(s) {
-  return s.slice(-1) === '?' ? s : s + '?';
+  return s.endsWith('?') ? s : s + '?';
 }
 
 console.log(ensureQuestion('')); // '?'

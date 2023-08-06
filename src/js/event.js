@@ -1,44 +1,18 @@
-function getVillainName(birthday) {
-  const m = [
-    'Evil',
-    'Vile',
-    'Cruel',
-    'Trashy',
-    'Despicable',
-    'Embarrassing',
-    'Disreputable',
-    'Atrocious',
-    'Twirling',
-    'Orange',
-    'Terrifying',
-    'Awkward',
-  ];
-  const d = [
-    'Mustache',
-    'Pickle',
-    'Hood Ornament',
-    'Raisin',
-    'Recycling Bin',
-    'Potato',
-    'Tomato',
-    'House Cat',
-    'Teaspoon',
-    'Laundry Basket',
-  ];
-  const firstName = m[birthday.getMonth()];
-  const lastName = d[birthday.getDate() % 10];
-
-  return `The ${firstName} ${lastName}`;
+function sortList(sortBy, list) {
+  return list.sort((a, b) => b[sortBy] - a[sortBy]);
 }
 
-//may 3
-console.log(getVillainName(new Date('May 3')));
-//
+const list = [
+  { a: 1, b: 3 },
+  { a: 3, b: 2 },
+  { a: 2, b: 40 },
+  { a: 4, b: 12 },
+];
 
-//apr 1
-console.log(getVillainName(new Date('April 21')));
-//
-
-//dec 7
-console.log(getVillainName(new Date('December 17')));
-//
+console.log(sortList('a', list));
+// [
+//   {"a": 4, "b": 12},
+//   {"a": 3, "b": 2},
+//   {"a": 2, "b": 40},
+//   {"a": 1, "b": 3}
+// ]

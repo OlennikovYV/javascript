@@ -1,18 +1,11 @@
-function sortList(sortBy, list) {
-  return list.sort((a, b) => b[sortBy] - a[sortBy]);
+function myFirstKata(a, b) {
+  if (typeof a !== 'number' || typeof b !== 'number') return false;
+  return (a % b) + (b % a);
 }
 
-const list = [
-  { a: 1, b: 3 },
-  { a: 3, b: 2 },
-  { a: 2, b: 40 },
-  { a: 4, b: 12 },
-];
-
-console.log(sortList('a', list));
-// [
-//   {"a": 4, "b": 12},
-//   {"a": 3, "b": 2},
-//   {"a": 2, "b": 40},
-//   {"a": 1, "b": 3}
-// ]
+console.log(myFirstKata(3, 5)); // 5
+console.log(myFirstKata('hello', 3)); // false
+console.log(myFirstKata(67, 'bye')); // false
+console.log(myFirstKata(true, true)); // false
+console.log(myFirstKata(314, 107)); // 207
+console.log(myFirstKata(19483, 9)); // 16

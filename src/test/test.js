@@ -1,6 +1,6 @@
 mocha.setup('bdd');
 
-describe(`Fix the Bugs (Syntax) - My First Kata`, function () {
+describe(`Push a hash/an object into array`, function () {
   const equal = chai.assert.equal;
   const deepEqual = chai.assert.deepEqual;
   const isDefined = chai.assert.isDefined;
@@ -9,14 +9,21 @@ describe(`Fix the Bugs (Syntax) - My First Kata`, function () {
   const isFalse = chai.assert.isFalse;
   const approximately = chai.assert.approximately;
   const oneOf = chai.assert.oneOf;
+  const isNotEmpty = chai.assert.isNotEmpty;
+  const lengthOf = chai.assert.lengthOf;
 
-  it('test', () => {
-    equal(myFirstKata(3, 5), (3 % 5) + (5 % 3));
-    equal(myFirstKata('hello', 3), false);
-    equal(myFirstKata(67, 'bye'), false);
-    equal(myFirstKata(true, true), false);
-    equal(myFirstKata(314, 107), (107 % 314) + (314 % 107));
-    equal(myFirstKata(19483, 9), (9 % 19483) + (19483 % 9));
+  it('should has a value', function () {
+    isNotEmpty(items, 'The array is still empty');
+  });
+  it('should has only one value', function () {
+    lengthOf(items, 1, 'The array contains too many values');
+  });
+  it('should has the correct value', function () {
+    deepEqual(
+      items,
+      [{ a: 'b', c: 'd' }],
+      'The array does not contain the correct value"'
+    );
   });
 });
 

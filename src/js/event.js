@@ -1,11 +1,7 @@
-function myFirstKata(a, b) {
-  if (typeof a !== 'number' || typeof b !== 'number') return false;
-  return (a % b) + (b % a);
-}
+const items = [];
 
-console.log(myFirstKata(3, 5)); // 5
-console.log(myFirstKata('hello', 3)); // false
-console.log(myFirstKata(67, 'bye')); // false
-console.log(myFirstKata(true, true)); // false
-console.log(myFirstKata(314, 107)); // 207
-console.log(myFirstKata(19483, 9)); // 16
+items.push({ a: 'b', c: 'd' });
+
+console.log(items.length !== 0); // true
+console.log(items.length); // 1
+console.dir(JSON.stringify(items)); // [{ a: 'b', c: 'd' }]

@@ -1,22 +1,15 @@
 function capitalsFirst(str) {
-  let cases = {
-    upperCase: [],
-    lowerCase: [],
-  };
+  let words = str.split(' ');
 
-  if (str === 'hey You, Sort me Already!') return 'You, Sort Already! hey me';
+  let upper = words.filter(function (x) {
+    return x.charAt(0).match(/[A-Z]/);
+  });
 
-  str.split(' ').reduce((cases, word) => {
-    if (/[A-Za-z]/i.test(word[0])) {
-      word[0] === word[0].toUpperCase()
-        ? cases.upperCase.push(word)
-        : cases.lowerCase.push(word);
-    }
+  let lower = words.filter(function (x) {
+    return x.charAt(0).match(/[a-z]/);
+  });
 
-    return cases;
-  }, cases);
-
-  return cases.upperCase.concat(cases.lowerCase).join(' ');
+  return upper.concat(lower).join(' ');
 }
 
 console.log(capitalsFirst('hey You, Sort me Already!'));

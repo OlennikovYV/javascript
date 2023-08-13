@@ -1,19 +1,12 @@
-function capitalsFirst(str) {
-  let words = str.split(' ');
-
-  let upper = words.filter(function (x) {
-    return x.charAt(0).match(/[A-Z]/);
-  });
-
-  let lower = words.filter(function (x) {
-    return x.charAt(0).match(/[a-z]/);
-  });
-
-  return upper.concat(lower).join(' ');
+function scramble(str, arr) {
+  return [...str]
+    .reduce((array, char, i) => {
+      array[arr[i]] = char;
+      return array;
+    }, [])
+    .join('');
 }
 
-console.log(capitalsFirst('hey You, Sort me Already!'));
-// 'You, Sort Already! hey me'
-console.log(capitalsFirst('Does That Make sense to you?'));
-console.log(capitalsFirst('First Thing In The Morning, i need coffee'));
-console.log(capitalsFirst('Hejtgq Mq#1 Y9qu2 R2b A@n6md Kq qxwln'));
+console.log(scramble('abcd', [0, 3, 1, 2])); // 'acdb'
+console.log(scramble('sc301s', [4, 0, 3, 1, 5, 2])); // 'c0s3s1'
+console.log(scramble('bskl5', [2, 1, 4, 3, 0])); // '5sblk',

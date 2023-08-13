@@ -1,10 +1,5 @@
 function scramble(str, arr) {
-  return [...str]
-    .reduce((array, char, i) => {
-      array[arr[i]] = char;
-      return array;
-    }, [])
-    .join('');
+  return arr.map((_, i) => str[arr.indexOf(i)]).join('');
 }
 
 console.log(scramble('abcd', [0, 3, 1, 2])); // 'acdb'

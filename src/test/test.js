@@ -1,6 +1,6 @@
 mocha.setup('bdd');
 
-describe(`String Scramble`, function () {
+describe(`Hungarian Vowel Harmony (easy)`, function () {
   const equal = chai.assert.equal;
   const deepEqual = chai.assert.deepEqual;
   const isDefined = chai.assert.isDefined;
@@ -12,14 +12,26 @@ describe(`String Scramble`, function () {
   const isNotEmpty = chai.assert.isNotEmpty;
   const lengthOf = chai.assert.lengthOf;
 
-  it('test', () => {
-    equal(scramble('abcd', [0, 3, 1, 2]), 'acdb', 'Should return acdb');
-    equal(
-      scramble('sc301s', [4, 0, 3, 1, 5, 2]),
-      'c0s3s1',
-      'Should return c0s3s1'
-    );
-    equal(scramble('bskl5', [2, 1, 4, 3, 0]), '5sblk', 'Should return 5sblk');
+  const tests = [
+    // [input, expected]
+    ['ablak', 'ablaknak'],
+    ['tükör', 'tükörnek'],
+    ['keret', 'keretnek'],
+    ['otthon', 'otthonnak'],
+    ['virág', 'virágnak'],
+    ['tett', 'tettnek'],
+    ['rokkant', 'rokkantnak'],
+    ['rossz', 'rossznak'],
+    ['gonosz', 'gonosznak'],
+    ['űr', 'űrnek'],
+  ];
+
+  it('should work for example tests', function () {
+    for (let i = 0, l = tests.length; i < l; i++) {
+      const input = tests[i][0];
+      const expected = tests[i][1];
+      equal(dative(input), expected);
+    }
   });
 });
 

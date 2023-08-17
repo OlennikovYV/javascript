@@ -1,6 +1,6 @@
 mocha.setup('bdd');
 
-describe(`Hungarian Vowel Harmony (easy)`, function () {
+describe(`Ordering the words!`, function () {
   const equal = chai.assert.equal;
   const deepEqual = chai.assert.deepEqual;
   const isDefined = chai.assert.isDefined;
@@ -12,26 +12,17 @@ describe(`Hungarian Vowel Harmony (easy)`, function () {
   const isNotEmpty = chai.assert.isNotEmpty;
   const lengthOf = chai.assert.lengthOf;
 
-  const tests = [
-    // [input, expected]
-    ['ablak', 'ablaknak'],
-    ['tükör', 'tükörnek'],
-    ['keret', 'keretnek'],
-    ['otthon', 'otthonnak'],
-    ['virág', 'virágnak'],
-    ['tett', 'tettnek'],
-    ['rokkant', 'rokkantnak'],
-    ['rossz', 'rossznak'],
-    ['gonosz', 'gonosznak'],
-    ['űr', 'űrnek'],
-  ];
-
-  it('should work for example tests', function () {
-    for (let i = 0, l = tests.length; i < l; i++) {
-      const input = tests[i][0];
-      const expected = tests[i][1];
-      equal(dative(input), expected);
-    }
+  it('Tests', () => {
+    equal(orderWord('Hello, World!'), ' !,HWdellloor');
+    equal(orderWord('bobby'), 'bbboy');
+    equal(orderWord('b'), 'b');
+    equal(orderWord(''), 'Invalid String!');
+    equal(orderWord('completesolution'), 'ceeillmnooopsttu');
+    equal(orderWord('"][@!$*(^&%'), '!"$%&(*@[]^');
+    equal(orderWord('i"d][@z!$r(^a&world%'), '!"$%&(@[]^addilorrwz');
+    equal(orderWord(null), 'Invalid String!');
+    equal(orderWord('cba'), 'abc');
+    equal(orderWord('abc'), 'abc');
   });
 });
 

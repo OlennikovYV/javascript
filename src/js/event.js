@@ -1,32 +1,21 @@
-function dative(word) {
-  const frontVowel = ['e', 'é', 'i', 'í', 'ö', 'ő', 'ü', 'ű']; // the suffix is -nek
-  const backVowel = ['a', 'á', 'o', 'ó', 'u', 'ú']; // the suffix is -nak
-
-  for (let i = word.length - 1; i >= 0; i = i - 1) {
-    if (frontVowel.includes(word[i])) return word + 'nek';
-    if (backVowel.includes(word[i])) return word + 'nak';
+function orderWord(s) {
+  function sortASCII(string) {
+    return string
+      .split('')
+      .sort((a, b) => a.charCodeAt(0) - b.charCodeAt(0))
+      .join('');
   }
+
+  return s ? sortASCII(s) : 'Invalid String!';
 }
 
-const tests = [
-  // [input, expected]
-  ['ablak', 'ablaknak'],
-  ['tükör', 'tükörnek'],
-  ['keret', 'keretnek'],
-  ['otthon', 'otthonnak'],
-  ['virág', 'virágnak'],
-  ['tett', 'tettnek'],
-  ['rokkant', 'rokkantnak'],
-  ['rossz', 'rossznak'],
-  ['gonosz', 'gonosznak'],
-  ['űr', 'űrnek'],
-];
-
-for (let i = 0, l = tests.length; i < l; i++) {
-  var input = tests[i][0];
-  var expected = tests[i][1];
-  const expectedFunc = dative(input);
-  console.log(
-    input + ' -> ' + expectedFunc + ' -> ' + String(expected === expectedFunc)
-  );
-}
+console.log(orderWord('Hello, World!')); // ' !,HWdellloor'
+console.log(orderWord('bobby')); // 'bbboy'
+console.log(orderWord('b')); // 'b'
+console.log(orderWord('')); // 'Invalid String!'
+console.log(orderWord('completesolution')); // 'ceeillmnooopsttu'
+console.log(orderWord('"][@!$*(^&%')); // '!"$%&(*@[]^'
+console.log(orderWord('i"d][@z!$r(^a&world%')); // '!"$%&(@[]^addilorrwz'
+console.log(orderWord(null)); // 'Invalid String!'
+console.log(orderWord('cba')); // 'abc'
+console.log(orderWord('abc')); // 'abc'

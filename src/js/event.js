@@ -1,9 +1,6 @@
 function orderWord(s) {
   function sortASCII(string) {
-    return string
-      .split('')
-      .sort((a, b) => a.charCodeAt(0) - b.charCodeAt(0))
-      .join('');
+    return string.split('').sort().join('');
   }
 
   return s ? sortASCII(s) : 'Invalid String!';

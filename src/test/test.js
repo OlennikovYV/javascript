@@ -1,6 +1,6 @@
 mocha.setup('bdd');
 
-describe(`Ordering the words!`, function () {
+describe(`Milk and Cookies for Santa`, function () {
   const equal = chai.assert.equal;
   const deepEqual = chai.assert.deepEqual;
   const isDefined = chai.assert.isDefined;
@@ -12,17 +12,16 @@ describe(`Ordering the words!`, function () {
   const isNotEmpty = chai.assert.isNotEmpty;
   const lengthOf = chai.assert.lengthOf;
 
-  it('Tests', () => {
-    equal(orderWord('Hello, World!'), ' !,HWdellloor');
-    equal(orderWord('bobby'), 'bbboy');
-    equal(orderWord('b'), 'b');
-    equal(orderWord(''), 'Invalid String!');
-    equal(orderWord('completesolution'), 'ceeillmnooopsttu');
-    equal(orderWord('"][@!$*(^&%'), '!"$%&(*@[]^');
-    equal(orderWord('i"d][@z!$r(^a&world%'), '!"$%&(@[]^addilorrwz');
-    equal(orderWord(null), 'Invalid String!');
-    equal(orderWord('cba'), 'abc');
-    equal(orderWord('abc'), 'abc');
+  it('test', () => {
+    let year = 2013;
+    let month = 11;
+    let day = 24;
+    equal(timeForMilkAndCookies(new Date(year, month, day)), true);
+
+    year = 2013;
+    month = 10;
+    day = 24;
+    equal(timeForMilkAndCookies(new Date(year, month, day)), false);
   });
 });
 

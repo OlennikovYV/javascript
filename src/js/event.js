@@ -1,18 +1,13 @@
-function orderWord(s) {
-  function sortASCII(string) {
-    return string.split('').sort().join('');
-  }
-
-  return s ? sortASCII(s) : 'Invalid String!';
+function timeForMilkAndCookies(date) {
+  return date.getDate() === 24 && date.getMonth() === 11;
 }
 
-console.log(orderWord('Hello, World!')); // ' !,HWdellloor'
-console.log(orderWord('bobby')); // 'bbboy'
-console.log(orderWord('b')); // 'b'
-console.log(orderWord('')); // 'Invalid String!'
-console.log(orderWord('completesolution')); // 'ceeillmnooopsttu'
-console.log(orderWord('"][@!$*(^&%')); // '!"$%&(*@[]^'
-console.log(orderWord('i"d][@z!$r(^a&world%')); // '!"$%&(@[]^addilorrwz'
-console.log(orderWord(null)); // 'Invalid String!'
-console.log(orderWord('cba')); // 'abc'
-console.log(orderWord('abc')); // 'abc'
+let year = 2013;
+let month = 11;
+let day = 24;
+console.log(timeForMilkAndCookies(new Date(year, month, day))); // true
+
+year = 2013;
+month = 10;
+day = 24;
+console.log(timeForMilkAndCookies(new Date(year, month, day))); // false

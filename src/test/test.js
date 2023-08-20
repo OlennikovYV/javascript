@@ -1,6 +1,6 @@
 mocha.setup('bdd');
 
-describe(`Milk and Cookies for Santa`, function () {
+describe(`Singleton Pattern`, function () {
   const equal = chai.assert.equal;
   const deepEqual = chai.assert.deepEqual;
   const isDefined = chai.assert.isDefined;
@@ -13,15 +13,13 @@ describe(`Milk and Cookies for Santa`, function () {
   const lengthOf = chai.assert.lengthOf;
 
   it('test', () => {
-    let year = 2013;
-    let month = 11;
-    let day = 24;
-    equal(timeForMilkAndCookies(new Date(year, month, day)), true);
+    var obj1 = new Singleton();
+    var obj2 = new Singleton();
 
-    year = 2013;
-    month = 10;
-    day = 24;
-    equal(timeForMilkAndCookies(new Date(year, month, day)), false);
+    deepEqual(obj1, obj2);
+
+    obj1.test = 1;
+    equal(obj2.test, 1); // => 1
   });
 });
 

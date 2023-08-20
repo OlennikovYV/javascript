@@ -1,13 +1,12 @@
-function timeForMilkAndCookies(date) {
-  return date.getDate() === 24 && date.getMonth() === 11;
-}
+const Singleton = function () {
+  if (this.constructor.instance) return this.constructor.instance;
 
-let year = 2013;
-let month = 11;
-let day = 24;
-console.log(timeForMilkAndCookies(new Date(year, month, day))); // true
+  this.constructor.instance = this;
+};
 
-year = 2013;
-month = 10;
-day = 24;
-console.log(timeForMilkAndCookies(new Date(year, month, day))); // false
+var obj1 = new Singleton();
+var obj2 = new Singleton();
+
+obj1 === obj2; // => true
+obj1.test = 1;
+console.log(obj2.test); // => 1

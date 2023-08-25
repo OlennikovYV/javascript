@@ -1,6 +1,6 @@
 mocha.setup('bdd');
 
-describe(`Singleton Pattern`, function () {
+describe(`99 Problems, #1: last in list`, function () {
   const equal = chai.assert.equal;
   const deepEqual = chai.assert.deepEqual;
   const isDefined = chai.assert.isDefined;
@@ -12,14 +12,11 @@ describe(`Singleton Pattern`, function () {
   const isNotEmpty = chai.assert.isNotEmpty;
   const lengthOf = chai.assert.lengthOf;
 
-  it('test', () => {
-    var obj1 = new Singleton();
-    var obj2 = new Singleton();
-
-    deepEqual(obj1, obj2);
-
-    obj1.test = 1;
-    equal(obj2.test, 1); // => 1
+  it('should work with non-empty lists', function () {
+    equal(last([1, 2, 3]), 3, 'last([1,2,3]) == 3');
+  });
+  it('should work with empty lists', function () {
+    equal(last([]), null, 'last( [] ) == null');
   });
 });
 

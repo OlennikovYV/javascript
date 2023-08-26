@@ -1,6 +1,6 @@
 mocha.setup('bdd');
 
-describe(`99 Problems, #1: last in list`, function () {
+describe(`Colour Association`, function () {
   const equal = chai.assert.equal;
   const deepEqual = chai.assert.deepEqual;
   const isDefined = chai.assert.isDefined;
@@ -12,11 +12,28 @@ describe(`99 Problems, #1: last in list`, function () {
   const isNotEmpty = chai.assert.isNotEmpty;
   const lengthOf = chai.assert.lengthOf;
 
-  it('should work with non-empty lists', function () {
-    equal(last([1, 2, 3]), 3, 'last([1,2,3]) == 3');
-  });
-  it('should work with empty lists', function () {
-    equal(last([]), null, 'last( [] ) == null');
+  it('Should pass sample tests', () => {
+    deepEqual(
+      colourAssociation([
+        ['white', 'goodness'],
+        ['blue', 'tranquility'],
+      ]),
+      [{ white: 'goodness' }, { blue: 'tranquility' }]
+    );
+    deepEqual(
+      colourAssociation([
+        ['red', 'energy'],
+        ['yellow', 'creativity'],
+        ['brown', 'friendly'],
+        ['green', 'growth'],
+      ]),
+      [
+        { red: 'energy' },
+        { yellow: 'creativity' },
+        { brown: 'friendly' },
+        { green: 'growth' },
+      ]
+    );
   });
 });
 

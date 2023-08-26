@@ -1,5 +1,5 @@
 function colourAssociation(array) {
-  return array.map(association => ({ [association[0]]: association[1] }));
+  return array.map(([color, association]) => ({ [color]: association }));
 }
 
 console.log(

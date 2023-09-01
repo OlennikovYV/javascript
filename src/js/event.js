@@ -1,19 +1,12 @@
-function noIfsNoButs(a, b) {
-  const Greater = a > b;
-  const Smaller = a < b;
-  const Equal = a === b;
-
-  const strGreater = Greater && 'is greater than';
-  const strSmaller = Smaller && 'is smaller than';
-  const strEqual = Equal && 'is equal to';
-
-  return `${a} ${strGreater || strSmaller || strEqual} ${b}`;
+function generateLink(user) {
+  return 'http://www.codewars.com/users/' + encodeURIComponent(user);
 }
 
-console.log(noIfsNoButs(45, 51)); // '45 is smaller than 51'
-console.log(noIfsNoButs(1, 2)); // '1 is smaller than 2'
-console.log(noIfsNoButs(-3, 2)); // '-3 is smaller than 2'
-console.log(noIfsNoButs(1, 1)); // '1 is equal to 1'
-console.log(noIfsNoButs(100, 100)); // '100 is equal to 100'
-console.log(noIfsNoButs(100, 80)); // '100 is greater than 80'
-console.log(noIfsNoButs(20, 19)); // '20 is greater than 19'
+console.log(generateLink('matt c')); // 'http://www.codewars.com/users/matt%20c'
+console.log(generateLink('g964')); // 'http://www.codewars.com/users/g964'
+console.log(generateLink('GiacomoSorbi'));
+// 'http://www.codewars.com/users/GiacomoSorbi'
+console.log(generateLink('ZozoFouchtra'));
+// 'http://www.codewars.com/users/ZozoFouchtra'
+console.log(generateLink('colbydauph'));
+// 'http://www.codewars.com/users/colbydauph'

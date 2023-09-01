@@ -1,6 +1,6 @@
 mocha.setup('bdd');
 
-describe(`No ifs no buts`, function () {
+describe(`Generate user links`, function () {
   const equal = chai.assert.equal;
   const deepEqual = chai.assert.deepEqual;
   const isDefined = chai.assert.isDefined;
@@ -12,14 +12,21 @@ describe(`No ifs no buts`, function () {
   const isNotEmpty = chai.assert.isNotEmpty;
   const lengthOf = chai.assert.lengthOf;
 
-  it('Should handle manual tests', function () {
-    equal(noIfsNoButs(45, 51), '45 is smaller than 51');
-    equal(noIfsNoButs(1, 2), '1 is smaller than 2');
-    equal(noIfsNoButs(-3, 2), '-3 is smaller than 2');
-    equal(noIfsNoButs(1, 1), '1 is equal to 1');
-    equal(noIfsNoButs(100, 100), '100 is equal to 100');
-    equal(noIfsNoButs(100, 80), '100 is greater than 80');
-    equal(noIfsNoButs(20, 19), '20 is greater than 19');
+  it('Basic Tests', () => {
+    equal(generateLink('matt c'), 'http://www.codewars.com/users/matt%20c');
+    equal(generateLink('g964'), 'http://www.codewars.com/users/g964');
+    equal(
+      generateLink('GiacomoSorbi'),
+      'http://www.codewars.com/users/GiacomoSorbi'
+    );
+    equal(
+      generateLink('ZozoFouchtra'),
+      'http://www.codewars.com/users/ZozoFouchtra'
+    );
+    equal(
+      generateLink('colbydauph'),
+      'http://www.codewars.com/users/colbydauph'
+    );
   });
 });
 

@@ -1,6 +1,6 @@
 mocha.setup('bdd');
 
-describe(`Generate user links`, function () {
+describe(`Training JS #26: methods of arrayObject---map()`, function () {
   const equal = chai.assert.equal;
   const deepEqual = chai.assert.deepEqual;
   const isDefined = chai.assert.isDefined;
@@ -12,21 +12,10 @@ describe(`Generate user links`, function () {
   const isNotEmpty = chai.assert.isNotEmpty;
   const lengthOf = chai.assert.lengthOf;
 
-  it('Basic Tests', () => {
-    equal(generateLink('matt c'), 'http://www.codewars.com/users/matt%20c');
-    equal(generateLink('g964'), 'http://www.codewars.com/users/g964');
-    equal(
-      generateLink('GiacomoSorbi'),
-      'http://www.codewars.com/users/GiacomoSorbi'
-    );
-    equal(
-      generateLink('ZozoFouchtra'),
-      'http://www.codewars.com/users/ZozoFouchtra'
-    );
-    equal(
-      generateLink('colbydauph'),
-      'http://www.codewars.com/users/colbydauph'
-    );
+  it('test', () => {
+    deepEqual(isolateIt(['abcd', 'efgh']), ['ab|cd', 'ef|gh']);
+    deepEqual(isolateIt(['abcde', 'fghij']), ['ab|de', 'fg|ij']);
+    deepEqual(isolateIt(['1234', '56789']), ['12|34', '56|89']);
   });
 });
 

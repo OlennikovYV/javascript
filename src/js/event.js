@@ -1,12 +1,16 @@
-function generateLink(user) {
-  return 'http://www.codewars.com/users/' + encodeURIComponent(user);
+const insertSpliter = str => {
+  const lengthPart = Math.floor(str.length / 2);
+  const arrayString = Array(...str);
+  const leftPart = arrayString.slice(0, lengthPart).join('');
+  const rightPart = arrayString.slice(-lengthPart).join('');
+
+  return leftPart + '|' + rightPart;
+};
+
+function isolateIt(arr) {
+  return arr.map(string => insertSpliter(string));
 }
 
-console.log(generateLink('matt c')); // 'http://www.codewars.com/users/matt%20c'
-console.log(generateLink('g964')); // 'http://www.codewars.com/users/g964'
-console.log(generateLink('GiacomoSorbi'));
-// 'http://www.codewars.com/users/GiacomoSorbi'
-console.log(generateLink('ZozoFouchtra'));
-// 'http://www.codewars.com/users/ZozoFouchtra'
-console.log(generateLink('colbydauph'));
-// 'http://www.codewars.com/users/colbydauph'
+console.log(isolateIt(['abcd', 'efgh'])); // ['ab|cd', 'ef|gh']
+console.log(isolateIt(['abcde', 'fghij'])); // ['ab|de', 'fg|ij']
+console.log(isolateIt(['1234', '56789'])); // ['12|34', '56|89']

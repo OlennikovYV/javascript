@@ -1,12 +1,13 @@
-function isolateIt(arr) {
-  return arr.map(
-    string =>
-      string.slice(0, string.length / 2) +
-      '|' +
-      string.slice(-string.length / 2)
-  );
+function inter(s1, s2) {
+  return new Set([...s1].filter(el => s2.has(el)));
 }
 
-console.log(isolateIt(['abcd', 'efgh'])); // ['ab|cd', 'ef|gh']
-console.log(isolateIt(['abcde', 'fghij'])); // ['ab|de', 'fg|ij']
-console.log(isolateIt(['1234', '56789'])); // ['12|34', '56|89']
+let A = new Set([1, 2]),
+  B = new Set([2, 3]),
+  C = new Set([2]),
+  AB = inter(A, B);
+
+console.log(inter(A, A)); // {1, 2}
+console.log(AB); // {2}
+console.log([...AB].sort()); // [2]
+console.log(AB instanceof Set); // true

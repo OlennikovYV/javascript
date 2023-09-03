@@ -1,6 +1,6 @@
 mocha.setup('bdd');
 
-describe(`Training JS #26: methods of arrayObject---map()`, function () {
+describe(`Playing with Sets : Intersection`, function () {
   const equal = chai.assert.equal;
   const deepEqual = chai.assert.deepEqual;
   const isDefined = chai.assert.isDefined;
@@ -13,9 +13,21 @@ describe(`Training JS #26: methods of arrayObject---map()`, function () {
   const lengthOf = chai.assert.lengthOf;
 
   it('test', () => {
-    deepEqual(isolateIt(['abcd', 'efgh']), ['ab|cd', 'ef|gh']);
-    deepEqual(isolateIt(['abcde', 'fghij']), ['ab|de', 'fg|ij']);
-    deepEqual(isolateIt(['1234', '56789']), ['12|34', '56|89']);
+    let A = new Set([1, 2]),
+      B = new Set([2, 3]),
+      C = new Set([2]),
+      AB = inter(A, B);
+
+    deepEqual(inter(A, A), A, 'A inter A == A');
+
+    deepEqual(AB, C);
+    deepEqual(
+      [...AB].sort(),
+      [...inter(B, A)].sort(),
+      'A inter B == B inter A'
+    );
+
+    isTrue(AB instanceof Set, true, 'A inter B should be a Set too');
   });
 });
 

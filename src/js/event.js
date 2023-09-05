@@ -1,13 +1,5 @@
-function inter(s1, s2) {
-  return new Set([...s1].filter(el => s2.has(el)));
+function add(...params) {
+  return params.reduce((sum, el, i) => sum + el * (i + 1), 0);
 }
 
-let A = new Set([1, 2]),
-  B = new Set([2, 3]),
-  C = new Set([2]),
-  AB = inter(A, B);
-
-console.log(inter(A, A)); // {1, 2}
-console.log(AB); // {2}
-console.log([...AB].sort()); // [2]
-console.log(AB instanceof Set); // true
+console.log(add(100, 200, 300)); // 1400

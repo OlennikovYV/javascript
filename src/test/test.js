@@ -1,6 +1,6 @@
 mocha.setup('bdd');
 
-describe(`Gradually Adding Parameters`, function () {
+describe(`Scoring Tests`, function () {
   const equal = chai.assert.equal;
   const deepEqual = chai.assert.deepEqual;
   const isDefined = chai.assert.isDefined;
@@ -12,8 +12,9 @@ describe(`Gradually Adding Parameters`, function () {
   const isNotEmpty = chai.assert.isNotEmpty;
   const lengthOf = chai.assert.lengthOf;
 
-  it('test', () => {
-    equal(add(100, 200, 300), 1400);
+  it('Testing for fixed tests', () => {
+    equal(scoreTest([0, 0, 0, 0, 2, 1, 0], 2, 0, 1), 9);
+    equal(scoreTest([0, 1, 0, 0, 2, 1, 0, 2, 2, 1], 3, -1, 2), 3);
   });
 });
 

@@ -1,10 +1,7 @@
 function scoreTest(str, right, omit, wrong) {
+  const grade = [right, omit, -wrong];
   return str.reduce((totalScore, answer) => {
-    if (answer === 0) totalScore += right;
-    if (answer === 1) totalScore += omit;
-    if (answer === 2) totalScore -= wrong;
-
-    return totalScore;
+    return totalScore + grade[answer];
   }, 0);
 }
 

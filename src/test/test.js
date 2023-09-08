@@ -1,6 +1,6 @@
 mocha.setup('bdd');
 
-describe(`Scoring Tests`, function () {
+describe(`Selective fear of numbers`, function () {
   const equal = chai.assert.equal;
   const deepEqual = chai.assert.deepEqual;
   const isDefined = chai.assert.isDefined;
@@ -13,8 +13,11 @@ describe(`Scoring Tests`, function () {
   const lengthOf = chai.assert.lengthOf;
 
   it('Testing for fixed tests', () => {
-    equal(scoreTest([0, 0, 0, 0, 2, 1, 0], 2, 0, 1), 9);
-    equal(scoreTest([0, 1, 0, 0, 2, 1, 0, 2, 2, 1], 3, -1, 2), 3);
+    equal(AmIAfraid('Monday', 13), false, 'Should return false');
+    equal(AmIAfraid('Sunday', -666), true, 'Should return true');
+    equal(AmIAfraid('Tuesday', 2), false, 'Should return false');
+    equal(AmIAfraid('Tuesday', 965), true, 'Should return true');
+    equal(AmIAfraid('Friday', 2), true, 'Should return true');
   });
 });
 

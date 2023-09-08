@@ -1,15 +1,13 @@
 const AmIAfraid = function (day, num) {
-  const depends = {
-    Monday: num => num === 12,
-    Tuesday: num => num > 95,
-    Wednesday: num => num === 34,
-    Thursday: num => num === 0,
-    Friday: num => num % 2 === 0,
-    Saturday: num => num === 56,
-    Sunday: num => Math.abs(num) === 666,
-  };
-
-  return depends[day](num);
+  return {
+    Monday: num === 12,
+    Tuesday: num > 95,
+    Wednesday: num === 34,
+    Thursday: num === 0,
+    Friday: num % 2 === 0,
+    Saturday: num === 56,
+    Sunday: Math.abs(num) === 666,
+  }[day];
 };
 
 console.log(AmIAfraid('Monday', 13)); // false

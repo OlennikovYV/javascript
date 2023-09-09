@@ -1,17 +1,28 @@
-const AmIAfraid = function (day, num) {
-  return {
-    Monday: num === 12,
-    Tuesday: num > 95,
-    Wednesday: num === 34,
-    Thursday: num === 0,
-    Friday: num % 2 === 0,
-    Saturday: num === 56,
-    Sunday: Math.abs(num) === 666,
-  }[day];
-};
+function determineTime(durations) {
+  const secondsInDay = 60 * 60 * 24;
+  const secondsInHour = 60 * 60;
+  const secondsInMinute = 60;
 
-console.log(AmIAfraid('Monday', 13)); // false
-console.log(AmIAfraid('Sunday', -666)); // true
-console.log(AmIAfraid('Tuesday', 2)); // false
-console.log(AmIAfraid('Tuesday', 965)); // true
-console.log(AmIAfraid('Friday', 2)); // true
+  const durationsDelivePresents = durations.reduce(
+    (durationInSeconds, time) => {
+      const [hours, minutes, seconds] = time.split(':');
+
+      return (
+        durationInSeconds +
+        Number(hours) * secondsInHour +
+        Number(minutes) * secondsInMinute +
+        Number(seconds)
+      );
+    },
+    0
+  );
+
+  return durationsDelivePresents <= secondsInDay;
+}
+
+console.log(determineTime(['00:30:00', '02:30:00', '00:15:00'])); // true
+console.log(determineTime([])); // true
+console.log(determineTime(['04:30:00', '02:00:00', '01:30:00', '16:00:00'])); // true
+console.log(determineTime(['12:00:00', '12:00:00'])); // true
+console.log(determineTime(['12:00:00', '12:00:01'])); // false
+console.log(determineTime(['06:00:00', '12:00:00', '06:30:00'])); // false

@@ -1,6 +1,6 @@
 mocha.setup('bdd');
 
-describe(`Selective fear of numbers`, function () {
+describe(`Can Santa save Christmas?`, function () {
   const equal = chai.assert.equal;
   const deepEqual = chai.assert.deepEqual;
   const isDefined = chai.assert.isDefined;
@@ -12,12 +12,16 @@ describe(`Selective fear of numbers`, function () {
   const isNotEmpty = chai.assert.isNotEmpty;
   const lengthOf = chai.assert.lengthOf;
 
-  it('Testing for fixed tests', () => {
-    equal(AmIAfraid('Monday', 13), false, 'Should return false');
-    equal(AmIAfraid('Sunday', -666), true, 'Should return true');
-    equal(AmIAfraid('Tuesday', 2), false, 'Should return false');
-    equal(AmIAfraid('Tuesday', 965), true, 'Should return true');
-    equal(AmIAfraid('Friday', 2), true, 'Should return true');
+  it('sample tests', () => {
+    equal(determineTime(['00:30:00', '02:30:00', '00:15:00']), true);
+    equal(determineTime([]), true);
+    equal(
+      determineTime(['04:30:00', '02:00:00', '01:30:00', '16:00:00']),
+      true
+    );
+    equal(determineTime(['12:00:00', '12:00:00']), true);
+    equal(determineTime(['12:00:00', '12:00:01']), false);
+    equal(determineTime(['06:00:00', '12:00:00', '06:30:00']), false);
   });
 });
 

@@ -1,28 +1,7 @@
-function determineTime(durations) {
-  const secondsInDay = 60 * 60 * 24;
-  const secondsInHour = 60 * 60;
-  const secondsInMinute = 60;
+const digitize = n => String(n).split('').map(Number);
 
-  const durationsDelivePresents = durations.reduce(
-    (durationInSeconds, time) => {
-      const [hours, minutes, seconds] = time.split(':');
-
-      return (
-        durationInSeconds +
-        Number(hours) * secondsInHour +
-        Number(minutes) * secondsInMinute +
-        Number(seconds)
-      );
-    },
-    0
-  );
-
-  return durationsDelivePresents <= secondsInDay;
-}
-
-console.log(determineTime(['00:30:00', '02:30:00', '00:15:00'])); // true
-console.log(determineTime([])); // true
-console.log(determineTime(['04:30:00', '02:00:00', '01:30:00', '16:00:00'])); // true
-console.log(determineTime(['12:00:00', '12:00:00'])); // true
-console.log(determineTime(['12:00:00', '12:00:01'])); // false
-console.log(determineTime(['06:00:00', '12:00:00', '06:30:00'])); // false
+console.log(digitize(123)); // [1,2,3
+console.log(digitize(1)); // [1
+console.log(digitize(0)); // [0
+console.log(digitize(1230)); // [1,2,3, 0
+console.log(digitize(8675309)); // [8,6,7,5,3,0,9

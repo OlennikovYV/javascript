@@ -1,6 +1,6 @@
 mocha.setup('bdd');
 
-describe(`Digitize`, function () {
+describe(`Simple Fun #37: House Numbers Sum`, function () {
   const equal = chai.assert.equal;
   const deepEqual = chai.assert.deepEqual;
   const isDefined = chai.assert.isDefined;
@@ -12,12 +12,11 @@ describe(`Digitize`, function () {
   const isNotEmpty = chai.assert.isNotEmpty;
   const lengthOf = chai.assert.lengthOf;
 
-  it('Testing for fixed tests', () => {
-    deepEqual(digitize(123), [1, 2, 3]);
-    deepEqual(digitize(1), [1]);
-    deepEqual(digitize(0), [0]);
-    deepEqual(digitize(1230), [1, 2, 3, 0]);
-    deepEqual(digitize(8675309), [8, 6, 7, 5, 3, 0, 9]);
+  it('It should works for basic tests.', function () {
+    equal(houseNumbersSum([5, 1, 2, 3, 0, 1, 5, 0, 2]), 11);
+    equal(houseNumbersSum([4, 2, 1, 6, 0]), 13);
+    equal(houseNumbersSum([4, 1, 2, 3, 0, 10, 2]), 10);
+    equal(houseNumbersSum([0, 1, 2, 3, 4, 5]), 0);
   });
 });
 

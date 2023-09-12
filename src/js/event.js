@@ -1,10 +1,14 @@
-function houseNumbersSum(inputArray) {
-  return inputArray
-    .slice(0, inputArray.indexOf(0))
-    .reduce((sum, digit) => sum + digit, 0);
+class Person {
+  constructor(name) {
+    this.name = name;
+  }
 }
 
-console.log(houseNumbersSum([5, 1, 2, 3, 0, 1, 5, 0, 2])); // 11
-console.log(houseNumbersSum([4, 2, 1, 6, 0])); // 13
-console.log(houseNumbersSum([4, 1, 2, 3, 0, 10, 2])); // 10
-console.log(houseNumbersSum([0, 1, 2, 3, 4, 5])); // 0
+Person.prototype.greet = function (name) {
+  return 'Hello ' + name + ', my name is ' + this.name;
+};
+
+const joe = new Person('Joe');
+
+console.log(joe.greet('Kate')); // 'Hello Kate, my name is Joe'
+console.log(joe.name); // 'Joe'

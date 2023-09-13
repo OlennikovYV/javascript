@@ -1,14 +1,9 @@
 function encode(str) {
-  return str
-    .split('')
-    .map(char => {
-      let substractionCharCode = char === char.toUpperCase() ? 64 : 96;
+  return str.replace(/[a-z]/gi, char => {
+    const charCode = char.charCodeAt(0);
 
-      return /[a-z]/i.test(char)
-        ? char.charCodeAt(0) - substractionCharCode
-        : char;
-    })
-    .join('');
+    return charCode - (charCode < 97 ? 64 : 96);
+  });
 }
 
 console.log(encode('abc')); // '123'

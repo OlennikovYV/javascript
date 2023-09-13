@@ -1,6 +1,6 @@
 mocha.setup('bdd');
 
-describe(`Refactored Greeting`, function () {
+describe(`The old switcheroo 2`, function () {
   const equal = chai.assert.equal;
   const deepEqual = chai.assert.deepEqual;
   const isDefined = chai.assert.isDefined;
@@ -12,11 +12,11 @@ describe(`Refactored Greeting`, function () {
   const isNotEmpty = chai.assert.isNotEmpty;
   const lengthOf = chai.assert.lengthOf;
 
-  it('It should works for basic tests.', function () {
-    const joe = new Person('Joe');
-
-    equal(joe.greet('Kate'), 'Hello Kate, my name is Joe');
-    equal(joe.name, 'Joe');
+  it('Initial Tests', () => {
+    equal(encode('abc'), '123');
+    equal(encode('ABCD'), '1234');
+    equal(encode('ZzzzZ'), '2626262626');
+    equal(encode('abc-#@5'), '123-#@5');
   });
 });
 

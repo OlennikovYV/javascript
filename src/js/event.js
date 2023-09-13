@@ -1,14 +1,17 @@
-class Person {
-  constructor(name) {
-    this.name = name;
-  }
+function encode(str) {
+  return str
+    .split('')
+    .map(char => {
+      let substractionCharCode = char === char.toUpperCase() ? 64 : 96;
+
+      return /[a-z]/i.test(char)
+        ? char.charCodeAt(0) - substractionCharCode
+        : char;
+    })
+    .join('');
 }
 
-Person.prototype.greet = function (name) {
-  return 'Hello ' + name + ', my name is ' + this.name;
-};
-
-const joe = new Person('Joe');
-
-console.log(joe.greet('Kate')); // 'Hello Kate, my name is Joe'
-console.log(joe.name); // 'Joe'
+console.log(encode('abc')); // '123'
+console.log(encode('ABCD')); // '1234'
+console.log(encode('ZzzzZ')); // '2626262626'
+console.log(encode('abc-#@5')); // '123-#@5'

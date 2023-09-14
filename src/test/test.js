@@ -1,6 +1,6 @@
 mocha.setup('bdd');
 
-describe(`The old switcheroo 2`, function () {
+describe(`Elapsed Seconds`, function () {
   const equal = chai.assert.equal;
   const deepEqual = chai.assert.deepEqual;
   const isDefined = chai.assert.isDefined;
@@ -12,11 +12,15 @@ describe(`The old switcheroo 2`, function () {
   const isNotEmpty = chai.assert.isNotEmpty;
   const lengthOf = chai.assert.lengthOf;
 
-  it('Initial Tests', () => {
-    equal(encode('abc'), '123');
-    equal(encode('ABCD'), '1234');
-    equal(encode('ZzzzZ'), '2626262626');
-    equal(encode('abc-#@5'), '123-#@5');
+  it('sample tests', () => {
+    const start = new Date(2013, 1, 1, 0, 0, 1);
+    const end = new Date(2013, 1, 1, 0, 0, 2);
+    const end2 = new Date(2013, 1, 1, 0, 0, 20);
+    const end3 = new Date(2013, 1, 1, 0, 1, 20);
+
+    equal(elapsedSeconds(start, end), 1);
+    equal(elapsedSeconds(start, end2), 19);
+    equal(elapsedSeconds(start, end3), 79);
   });
 });
 

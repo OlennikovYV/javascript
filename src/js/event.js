@@ -1,14 +1,18 @@
-function elapsedSeconds(startDate, endDate) {
-  const millisecondsInSeconds = 1000;
+Number.prototype.toString = function () {
+  return this + '';
+};
 
-  return (endDate - startDate) / millisecondsInSeconds;
-}
+Boolean.prototype.toString = function () {
+  return this + '';
+};
 
-const start = new Date(2013, 1, 1, 0, 0, 1);
-const end = new Date(2013, 1, 1, 0, 0, 2);
-const end2 = new Date(2013, 1, 1, 0, 0, 20);
-const end3 = new Date(2013, 1, 1, 0, 1, 20);
+Array.prototype.toString = function () {
+  return '[' + this.join(',') + ']';
+};
 
-console.log(elapsedSeconds(start, end)); // 1
-console.log(elapsedSeconds(start, end2)); // 19
-console.log(elapsedSeconds(start, end3)); // 79
+console.log((123).toString()); // '123'
+console.log(Math.PI.toString()); // '3.141592653589793'
+console.log(Math.E.toString()); // '2.718281828459045'
+console.log(true.toString()); // 'true'
+console.log(false.toString()); // 'false'
+console.log([1, 2, 3, 4, 5].toString().replace(/\s+/g, '')); // '[1,2,3,4,5]'

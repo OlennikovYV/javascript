@@ -1,6 +1,6 @@
 mocha.setup('bdd');
 
-describe(`Elapsed Seconds`, function () {
+describe(`Strings, strings, strings (Easy)`, function () {
   const equal = chai.assert.equal;
   const deepEqual = chai.assert.deepEqual;
   const isDefined = chai.assert.isDefined;
@@ -12,15 +12,13 @@ describe(`Elapsed Seconds`, function () {
   const isNotEmpty = chai.assert.isNotEmpty;
   const lengthOf = chai.assert.lengthOf;
 
-  it('sample tests', () => {
-    const start = new Date(2013, 1, 1, 0, 0, 1);
-    const end = new Date(2013, 1, 1, 0, 0, 2);
-    const end2 = new Date(2013, 1, 1, 0, 0, 20);
-    const end3 = new Date(2013, 1, 1, 0, 1, 20);
-
-    equal(elapsedSeconds(start, end), 1);
-    equal(elapsedSeconds(start, end2), 19);
-    equal(elapsedSeconds(start, end3), 79);
+  it('should work for my example test cases', () => {
+    equal((123).toString(), '123');
+    equal(Math.PI.toString(), '3.141592653589793');
+    equal(Math.E.toString(), '2.718281828459045');
+    equal(true.toString(), 'true');
+    equal(false.toString(), 'false');
+    equal([1, 2, 3, 4, 5].toString().replace(/\s+/g, ''), '[1,2,3,4,5]');
   });
 });
 

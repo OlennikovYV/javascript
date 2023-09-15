@@ -1,14 +1,9 @@
-Number.prototype.toString = function () {
-  return this + '';
-};
-
-Boolean.prototype.toString = function () {
-  return this + '';
-};
-
-Array.prototype.toString = function () {
-  return '[' + this.join(',') + ']';
-};
+Number.prototype.toString =
+  Boolean.prototype.toString =
+  Array.prototype.toString =
+    function () {
+      return JSON.stringify(this);
+    };
 
 console.log((123).toString()); // '123'
 console.log(Math.PI.toString()); // '3.141592653589793'

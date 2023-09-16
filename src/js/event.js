@@ -3,10 +3,7 @@ var hotpo = function (n) {
   let number = n;
 
   while (number > 1) {
-    const isOdd = number % 2;
-    if (isOdd) number = 3 * number + 1;
-    if (!isOdd) number /= 2;
-
+    number = number % 2 ? 3 * number + 1 : number / 2;
     count++;
   }
 

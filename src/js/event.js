@@ -1,13 +1,20 @@
-Number.prototype.toString =
-  Boolean.prototype.toString =
-  Array.prototype.toString =
-    function () {
-      return JSON.stringify(this);
-    };
+var hotpo = function (n) {
+  let count = 0;
+  let number = n;
 
-console.log((123).toString()); // '123'
-console.log(Math.PI.toString()); // '3.141592653589793'
-console.log(Math.E.toString()); // '2.718281828459045'
-console.log(true.toString()); // 'true'
-console.log(false.toString()); // 'false'
-console.log([1, 2, 3, 4, 5].toString().replace(/\s+/g, '')); // '[1,2,3,4,5]'
+  while (number > 1) {
+    const isOdd = number % 2;
+    if (isOdd) number = 3 * number + 1;
+    if (!isOdd) number /= 2;
+
+    count++;
+  }
+
+  return count;
+};
+
+console.log(hotpo(0)); // 0
+console.log(hotpo(1)); // 0
+console.log(hotpo(5)); // 5
+console.log(hotpo(6)); // 8
+console.log(hotpo(23)); // 15

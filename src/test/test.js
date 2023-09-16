@@ -1,6 +1,6 @@
 mocha.setup('bdd');
 
-describe(`Strings, strings, strings (Easy)`, function () {
+describe(`Collatz Conjecture (3n+1)`, function () {
   const equal = chai.assert.equal;
   const deepEqual = chai.assert.deepEqual;
   const isDefined = chai.assert.isDefined;
@@ -12,13 +12,12 @@ describe(`Strings, strings, strings (Easy)`, function () {
   const isNotEmpty = chai.assert.isNotEmpty;
   const lengthOf = chai.assert.lengthOf;
 
-  it('should work for my example test cases', () => {
-    equal((123).toString(), '123');
-    equal(Math.PI.toString(), '3.141592653589793');
-    equal(Math.E.toString(), '2.718281828459045');
-    equal(true.toString(), 'true');
-    equal(false.toString(), 'false');
-    equal([1, 2, 3, 4, 5].toString().replace(/\s+/g, ''), '[1,2,3,4,5]');
+  it('Examples', function () {
+    equal(hotpo(0), 0);
+    equal(hotpo(1), 0);
+    equal(hotpo(5), 5);
+    equal(hotpo(6), 8);
+    equal(hotpo(23), 15);
   });
 });
 

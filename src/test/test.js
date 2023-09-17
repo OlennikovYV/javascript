@@ -1,6 +1,6 @@
 mocha.setup('bdd');
 
-describe(`Collatz Conjecture (3n+1)`, function () {
+describe(`Complete The Pattern #6 - Odd Ladder`, function () {
   const equal = chai.assert.equal;
   const deepEqual = chai.assert.deepEqual;
   const isDefined = chai.assert.isDefined;
@@ -12,12 +12,12 @@ describe(`Collatz Conjecture (3n+1)`, function () {
   const isNotEmpty = chai.assert.isNotEmpty;
   const lengthOf = chai.assert.lengthOf;
 
-  it('Examples', function () {
-    equal(hotpo(0), 0);
-    equal(hotpo(1), 0);
-    equal(hotpo(5), 5);
-    equal(hotpo(6), 8);
-    equal(hotpo(23), 15);
+  it('test', () => {
+    equal(pattern(4), '1\n333');
+    equal(pattern(1), '1');
+    equal(pattern(5), '1\n333\n55555');
+    equal(pattern(0), '');
+    equal(pattern(-25), '');
   });
 });
 

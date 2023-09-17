@@ -1,17 +1,15 @@
-var hotpo = function (n) {
-  let count = 0;
-  let number = n;
+function pattern(n) {
+  let output = [];
 
-  while (number > 1) {
-    number = number % 2 ? 3 * number + 1 : number / 2;
-    count++;
+  for (let i = 0; i <= n; i += 1) {
+    if (i % 2 === 1) output.push(String(i).repeat(i));
   }
 
-  return count;
-};
+  return output.join('\n');
+}
 
-console.log(hotpo(0)); // 0
-console.log(hotpo(1)); // 0
-console.log(hotpo(5)); // 5
-console.log(hotpo(6)); // 8
-console.log(hotpo(23)); // 15
+console.log(pattern(4)); // '1\n333'
+console.log(pattern(1)); // '1'
+console.log(pattern(5)); // '1\n333\n55555'
+console.log(pattern(0)); // ''
+console.log(pattern(-25)); // ''

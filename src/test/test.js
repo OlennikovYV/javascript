@@ -1,6 +1,6 @@
 mocha.setup('bdd');
 
-describe(`Complete The Pattern #6 - Odd Ladder`, function () {
+describe(`Password Hashes`, function () {
   const equal = chai.assert.equal;
   const deepEqual = chai.assert.deepEqual;
   const isDefined = chai.assert.isDefined;
@@ -13,11 +13,14 @@ describe(`Complete The Pattern #6 - Odd Ladder`, function () {
   const lengthOf = chai.assert.lengthOf;
 
   it('test', () => {
-    equal(pattern(4), '1\n333');
-    equal(pattern(1), '1');
-    equal(pattern(5), '1\n333\n55555');
-    equal(pattern(0), '');
-    equal(pattern(-25), '');
+    const tests = [
+      ['password', '5f4dcc3b5aa765d61d8327deb882cf99'],
+      ['abc123', 'e99a18c428cb38d5f260853678922e03'],
+    ];
+
+    for (let i = 0; i < tests.length; i++) {
+      equal(passHash(tests[i][0]), tests[i][1]);
+    }
   });
 });
 

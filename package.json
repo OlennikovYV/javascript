@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/OlennikovYV/javascript/issues"
   },
-  "homepage": "https://github.com/OlennikovYV/javascript#readme"
+  "homepage": "https://github.com/OlennikovYV/javascript#readme",
+  "dependencies": {
+    "md5": "^2.3.0"
+  }
 }

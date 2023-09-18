@@ -1,15 +1,6 @@
-function pattern(n) {
-  let output = [];
-
-  for (let i = 0; i <= n; i += 1) {
-    if (i % 2 === 1) output.push(String(i).repeat(i));
-  }
-
-  return output.join('\n');
+function passHash(str) {
+  return MD5.generate(str);
 }
 
-console.log(pattern(4)); // '1\n333'
-console.log(pattern(1)); // '1'
-console.log(pattern(5)); // '1\n333\n55555'
-console.log(pattern(0)); // ''
-console.log(pattern(-25)); // ''
+console.log(passHash('password')); // '5f4dcc3b5aa765d61d8327deb882cf99'
+console.log(passHash('abc123')); // 'e99a18c428cb38d5f260853678922e03'

@@ -1,6 +1,6 @@
 mocha.setup('bdd');
 
-describe(`Password Hashes`, function () {
+describe(`Debug Basic Calculator`, function () {
   const equal = chai.assert.equal;
   const deepEqual = chai.assert.deepEqual;
   const isDefined = chai.assert.isDefined;
@@ -13,14 +13,12 @@ describe(`Password Hashes`, function () {
   const lengthOf = chai.assert.lengthOf;
 
   it('test', () => {
-    const tests = [
-      ['password', '5f4dcc3b5aa765d61d8327deb882cf99'],
-      ['abc123', 'e99a18c428cb38d5f260853678922e03'],
-    ];
-
-    for (let i = 0; i < tests.length; i++) {
-      equal(passHash(tests[i][0]), tests[i][1]);
-    }
+    equal(calculate(2, '+', 4), 6);
+    equal(calculate(6, '-', 1.5), 4.5);
+    equal(calculate(-4, '*', 8), -32);
+    equal(calculate(49, '/', -7), -7);
+    equal(calculate(8, 'm', 2), null);
+    equal(calculate(4, '/', 0), null);
   });
 });
 

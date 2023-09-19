@@ -1,6 +1,21 @@
-function passHash(str) {
-  return MD5.generate(str);
-}
+const calculate = function calculate(a, o, b) {
+  switch (o) {
+    case '+':
+      return a + b;
+    case '-':
+      return a - b;
+    case '*':
+      return a * b;
+    case '/':
+      return b !== 0 ? a / b : null;
+    default:
+      return null;
+  }
+};
 
-console.log(passHash('password')); // '5f4dcc3b5aa765d61d8327deb882cf99'
-console.log(passHash('abc123')); // 'e99a18c428cb38d5f260853678922e03'
+console.log(calculate(2, '+', 4)); // 6
+console.log(calculate(6, '-', 1.5)); // 4.5
+console.log(calculate(-4, '*', 8)); // -32
+console.log(calculate(49, '/', -7)); // -7
+console.log(calculate(8, 'm', 2)); // null
+console.log(calculate(4, '/', 0)); // null

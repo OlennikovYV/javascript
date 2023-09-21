@@ -1,21 +1,24 @@
-const calculate = function calculate(a, o, b) {
-  switch (o) {
-    case '+':
-      return a + b;
-    case '-':
-      return a - b;
-    case '*':
-      return a * b;
-    case '/':
-      return b !== 0 ? a / b : null;
-    default:
-      return null;
-  }
-};
+function randomCase(x) {
+  const randomBoolean = () => (Math.random() < 0.5 ? 0 : 1);
+  return x
+    .split('')
+    .map(char => (randomBoolean() ? char.toLowerCase() : char.toUpperCase()))
+    .join('');
+}
 
-console.log(calculate(2, '+', 4)); // 6
-console.log(calculate(6, '-', 1.5)); // 4.5
-console.log(calculate(-4, '*', 8)); // -32
-console.log(calculate(49, '/', -7)); // -7
-console.log(calculate(8, 'm', 2)); // null
-console.log(calculate(4, '/', 0)); // null
+let v = [
+  'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
+  'Donec eleifend cursus lobortis',
+  'THIS IS AN ALL CAPS STRING',
+  'this is an all lower string',
+];
+
+for (let i in v) {
+  let r = randomCase(v[i]);
+  console.log(v[i]);
+  console.log(r);
+  console.log(r.toLowerCase() === v[i].toLowerCase()); // true
+  console.log(r === v[i]); // false
+  console.log(r === v[i].toUpperCase()); // false
+  console.log(r === v[i].toLowerCase()); // false
+}

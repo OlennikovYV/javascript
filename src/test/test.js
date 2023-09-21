@@ -1,7 +1,8 @@
 mocha.setup('bdd');
 
-describe(`Debug Basic Calculator`, function () {
+describe(`RaNDoM CAsE`, function () {
   const equal = chai.assert.equal;
+  const notEqual = chai.assert.notEqual;
   const deepEqual = chai.assert.deepEqual;
   const isDefined = chai.assert.isDefined;
   const isNull = chai.assert.isNull;
@@ -13,12 +14,20 @@ describe(`Debug Basic Calculator`, function () {
   const lengthOf = chai.assert.lengthOf;
 
   it('test', () => {
-    equal(calculate(2, '+', 4), 6);
-    equal(calculate(6, '-', 1.5), 4.5);
-    equal(calculate(-4, '*', 8), -32);
-    equal(calculate(49, '/', -7), -7);
-    equal(calculate(8, 'm', 2), null);
-    equal(calculate(4, '/', 0), null);
+    let v = [
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
+      'Donec eleifend cursus lobortis',
+      'THIS IS AN ALL CAPS STRING',
+      'this is an all lower string',
+    ];
+
+    for (let i in v) {
+      let r = randomCase(v[i]);
+      equal(r.toLowerCase(), v[i].toLowerCase());
+      notEqual(r, v[i]);
+      notEqual(r, v[i].toUpperCase());
+      notEqual(r, v[i].toLowerCase());
+    }
   });
 });
 

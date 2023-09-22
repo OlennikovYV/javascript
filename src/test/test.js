@@ -1,6 +1,6 @@
 mocha.setup('bdd');
 
-describe(`RaNDoM CAsE`, function () {
+describe(`Write shortest function to calculate Average number of Array`, function () {
   const equal = chai.assert.equal;
   const notEqual = chai.assert.notEqual;
   const deepEqual = chai.assert.deepEqual;
@@ -13,21 +13,8 @@ describe(`RaNDoM CAsE`, function () {
   const isNotEmpty = chai.assert.isNotEmpty;
   const lengthOf = chai.assert.lengthOf;
 
-  it('test', () => {
-    let v = [
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
-      'Donec eleifend cursus lobortis',
-      'THIS IS AN ALL CAPS STRING',
-      'this is an all lower string',
-    ];
-
-    for (let i in v) {
-      let r = randomCase(v[i]);
-      equal(r.toLowerCase(), v[i].toLowerCase());
-      notEqual(r, v[i]);
-      notEqual(r, v[i].toUpperCase());
-      notEqual(r, v[i].toLowerCase());
-    }
+  it('Fixed Tests', () => {
+    equal(avg([0, 1, 2, 3, 4]), 2, 'returns valid avg number');
   });
 });
 

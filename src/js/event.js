@@ -1,3 +1,13 @@
-const avg = a => a.reduce((sum, number) => sum + number, 0) / a.length;
+function generatePairs(n) {
+  const pairs = [];
 
-console.log(avg([0, 1, 2, 3, 4])); // 2
+  for (i = 0; i <= n; i++)
+    for (j = 0; j <= n; j++) {
+      if (i <= j) pairs.push([i, j]);
+    }
+
+  return pairs;
+}
+
+console.log(generatePairs(2));
+// [ [0, 0], [0, 1], [0, 2], [1, 1], [1, 2], [2, 2] ]

@@ -1,6 +1,6 @@
 mocha.setup('bdd');
 
-describe(`Write shortest function to calculate Average number of Array`, function () {
+describe(`Pairs of integers from 0 to n`, function () {
   const equal = chai.assert.equal;
   const notEqual = chai.assert.notEqual;
   const deepEqual = chai.assert.deepEqual;
@@ -13,8 +13,15 @@ describe(`Write shortest function to calculate Average number of Array`, functio
   const isNotEmpty = chai.assert.isNotEmpty;
   const lengthOf = chai.assert.lengthOf;
 
-  it('Fixed Tests', () => {
-    equal(avg([0, 1, 2, 3, 4]), 2, 'returns valid avg number');
+  it('test', () => {
+    deepEqual(generatePairs(2), [
+      [0, 0],
+      [0, 1],
+      [0, 2],
+      [1, 1],
+      [1, 2],
+      [2, 2],
+    ]);
   });
 });
 

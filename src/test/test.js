@@ -1,6 +1,6 @@
 mocha.setup('bdd');
 
-describe(`Pairs of integers from 0 to n`, function () {
+describe(`Eliminate the intruders! Bit manipulation`, function () {
   const equal = chai.assert.equal;
   const notEqual = chai.assert.notEqual;
   const deepEqual = chai.assert.deepEqual;
@@ -13,16 +13,11 @@ describe(`Pairs of integers from 0 to n`, function () {
   const isNotEmpty = chai.assert.isNotEmpty;
   const lengthOf = chai.assert.lengthOf;
 
-  it('test', () => {
-    deepEqual(generatePairs(2), [
-      [0, 0],
-      [0, 1],
-      [0, 2],
-      [1, 1],
-      [1, 2],
-      [2, 2],
-    ]);
-  });
+  it('Testing for 11010101010101', () =>
+    equal(eliminateUnsetBits('11010101010101'), 255));
+  it('Testing for 111', () => equal(eliminateUnsetBits('111'), 7));
+  it('Testing for 1000000', () => equal(eliminateUnsetBits('1000000'), 1));
+  it('Testing for 000', () => equal(eliminateUnsetBits('000'), 0));
 });
 
 mocha.run();

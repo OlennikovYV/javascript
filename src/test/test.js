@@ -1,6 +1,6 @@
 mocha.setup('bdd');
 
-describe(`Eliminate the intruders! Bit manipulation`, function () {
+describe(`Recursion 101`, function () {
   const equal = chai.assert.equal;
   const notEqual = chai.assert.notEqual;
   const deepEqual = chai.assert.deepEqual;
@@ -13,11 +13,12 @@ describe(`Eliminate the intruders! Bit manipulation`, function () {
   const isNotEmpty = chai.assert.isNotEmpty;
   const lengthOf = chai.assert.lengthOf;
 
-  it('Testing for 11010101010101', () =>
-    equal(eliminateUnsetBits('11010101010101'), 255));
-  it('Testing for 111', () => equal(eliminateUnsetBits('111'), 7));
-  it('Testing for 1000000', () => equal(eliminateUnsetBits('1000000'), 1));
-  it('Testing for 000', () => equal(eliminateUnsetBits('000'), 0));
+  it('Testing', () => {
+    deepEqual(solve(6, 19), [6, 7]);
+    deepEqual(solve(2, 1), [0, 1]);
+    deepEqual(solve(22, 5), [0, 1]);
+    deepEqual(solve(2, 10), [2, 2]);
+  });
 });
 
 mocha.run();

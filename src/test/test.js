@@ -1,6 +1,6 @@
 mocha.setup('bdd');
 
-describe(`Recursion 101`, function () {
+describe(`For the sake of argument`, function () {
   const equal = chai.assert.equal;
   const notEqual = chai.assert.notEqual;
   const deepEqual = chai.assert.deepEqual;
@@ -14,10 +14,9 @@ describe(`Recursion 101`, function () {
   const lengthOf = chai.assert.lengthOf;
 
   it('Testing', () => {
-    deepEqual(solve(6, 19), [6, 7]);
-    deepEqual(solve(2, 1), [0, 1]);
-    deepEqual(solve(22, 5), [0, 1]);
-    deepEqual(solve(2, 10), [2, 2]);
+    equal(numbers(1, 4, 3, 2, 5), true);
+    equal(numbers(1, 'a', 3), false);
+    equal(numbers(1, 3, NaN), true);
   });
 });
 

@@ -1,13 +1,13 @@
 Array.prototype.all = function (p) {
-  return true === this.reduce((bool, elem) => bool && p(elem), true);
+  return this.filter(p).length === this.length;
 };
 
 Array.prototype.none = function (p) {
-  return false === this.reduce((bool, elem) => bool || p(elem), false);
+  return this.filter(p).length === 0;
 };
 
 Array.prototype.any = function (p) {
-  return true === this.reduce((bool, elem) => bool || p(elem), false);
+  return this.filter(p).length > 0;
 };
 
 const isGreaterThanZero = number => number > 0;

@@ -1,6 +1,6 @@
 mocha.setup('bdd');
 
-describe(`For the sake of argument`, function () {
+describe(`All, None & Any`, function () {
   const equal = chai.assert.equal;
   const notEqual = chai.assert.notEqual;
   const deepEqual = chai.assert.deepEqual;
@@ -14,9 +14,14 @@ describe(`For the sake of argument`, function () {
   const lengthOf = chai.assert.lengthOf;
 
   it('Testing', () => {
-    equal(numbers(1, 4, 3, 2, 5), true);
-    equal(numbers(1, 'a', 3), false);
-    equal(numbers(1, 3, NaN), true);
+    isTrue([1, 2, 3].all(isGreaterThanZero), 'All are greater than zero');
+    isFalse([-1, 0, 2].all(isGreaterThanZero), 'One is less than zero');
+
+    isFalse([-1, 2, 3].none(isLessThanZero), 'One is less than zero');
+    isTrue([-1, -2, -3].none(isGreaterThanZero), 'None are greater than zero');
+
+    isTrue([-1, 2, 3].any(isGreaterThanZero), 'Two are greater than zero');
+    isFalse([-1, -2, -3].any(isGreaterThanZero), 'None are greater than zero');
   });
 });
 

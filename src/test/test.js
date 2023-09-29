@@ -1,6 +1,6 @@
 mocha.setup('bdd');
 
-describe(`All, None & Any`, function () {
+describe(`Count strings in objects`, function () {
   const equal = chai.assert.equal;
   const notEqual = chai.assert.notEqual;
   const deepEqual = chai.assert.deepEqual;
@@ -13,15 +13,20 @@ describe(`All, None & Any`, function () {
   const isNotEmpty = chai.assert.isNotEmpty;
   const lengthOf = chai.assert.lengthOf;
 
-  it('Testing', () => {
-    isTrue([1, 2, 3].all(isGreaterThanZero), 'All are greater than zero');
-    isFalse([-1, 0, 2].all(isGreaterThanZero), 'One is less than zero');
-
-    isFalse([-1, 2, 3].none(isLessThanZero), 'One is less than zero');
-    isTrue([-1, -2, -3].none(isGreaterThanZero), 'None are greater than zero');
-
-    isTrue([-1, 2, 3].any(isGreaterThanZero), 'Two are greater than zero');
-    isFalse([-1, -2, -3].any(isGreaterThanZero), 'None are greater than zero');
+  it('should test', () => {
+    equal(
+      strCount({
+        first: '1',
+        second: '2',
+        third: false,
+        fourth: ['anytime', 2, 3, 4],
+        fifth: null,
+        sixth: undefined,
+        seventh: {},
+      }),
+      3,
+      'Did not count the correct number of strings. Check counting inside nested objects.'
+    );
   });
 });
 

@@ -1,23 +1,22 @@
-Array.prototype.all = function (p) {
-  return this.filter(p).length === this.length;
-};
+function strCount(obj) {
+  let resultCount = 0;
 
-Array.prototype.none = function (p) {
-  return this.filter(p).length === 0;
-};
+  for (let key in obj) {
+    if (typeof obj[key] === 'object') resultCount += strCount(obj[key]);
+    if (typeof obj[key] === 'string') resultCount++;
+  }
 
-Array.prototype.any = function (p) {
-  return this.filter(p).length > 0;
-};
+  return resultCount;
+}
 
-const isGreaterThanZero = number => number > 0;
-const isLessThanZero = number => number < 0;
-
-console.log([1, 2, 3].all(isGreaterThanZero)); // True
-console.log([-1, 0, 2].all(isGreaterThanZero)); // False
-
-console.log([-1, 2, 3].none(isLessThanZero)); // False
-console.log([-1, -2, -3].none(isGreaterThanZero)); // True
-
-console.log([-1, 2, 3].any(isGreaterThanZero)); // True
-console.log([-1, -2, -3].any(isGreaterThanZero)); // False
+console.log(
+  strCount({
+    first: '1',
+    second: '2',
+    third: false,
+    fourth: ['anytime', 2, 3, 4],
+    fifth: null,
+    sixth: undefined,
+    seventh: {},
+  })
+); // 3

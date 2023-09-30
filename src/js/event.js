@@ -1,22 +1,15 @@
-function strCount(obj) {
-  let resultCount = 0;
-
-  for (let key in obj) {
-    if (typeof obj[key] === 'object') resultCount += strCount(obj[key]);
-    if (typeof obj[key] === 'string') resultCount++;
-  }
-
-  return resultCount;
+function cartesianNeighbor(x, y) {
+  return [
+    [x - 1, y - 1],
+    [x - 1, y],
+    [x - 1, y + 1],
+    [x, y - 1],
+    [x, y + 1],
+    [x + 1, y - 1],
+    [x + 1, y],
+    [x + 1, y + 1],
+  ];
 }
 
-console.log(
-  strCount({
-    first: '1',
-    second: '2',
-    third: false,
-    fourth: ['anytime', 2, 3, 4],
-    fifth: null,
-    sixth: undefined,
-    seventh: {},
-  })
-); // 3
+console.log(cartesianNeighbor(2, 2));
+// [[1,1],[1,2],[1,3],[2,1],[2,3],[3,1],[3,2],[3,3]]

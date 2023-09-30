@@ -1,6 +1,6 @@
 mocha.setup('bdd');
 
-describe(`Count strings in objects`, function () {
+describe(`Cartesian neighbors`, function () {
   const equal = chai.assert.equal;
   const notEqual = chai.assert.notEqual;
   const deepEqual = chai.assert.deepEqual;
@@ -13,20 +13,17 @@ describe(`Count strings in objects`, function () {
   const isNotEmpty = chai.assert.isNotEmpty;
   const lengthOf = chai.assert.lengthOf;
 
-  it('should test', () => {
-    equal(
-      strCount({
-        first: '1',
-        second: '2',
-        third: false,
-        fourth: ['anytime', 2, 3, 4],
-        fifth: null,
-        sixth: undefined,
-        seventh: {},
-      }),
-      3,
-      'Did not count the correct number of strings. Check counting inside nested objects.'
-    );
+  it('Example Test', () => {
+    deepEqual(cartesianNeighbor(2, 2), [
+      [1, 1],
+      [1, 2],
+      [1, 3],
+      [2, 1],
+      [2, 3],
+      [3, 1],
+      [3, 2],
+      [3, 3],
+    ]);
   });
 });
 

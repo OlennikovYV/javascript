@@ -1,15 +1,27 @@
-function cartesianNeighbor(x, y) {
-  return [
-    [x - 1, y - 1],
-    [x - 1, y],
-    [x - 1, y + 1],
-    [x, y - 1],
-    [x, y + 1],
-    [x + 1, y - 1],
-    [x + 1, y],
-    [x + 1, y + 1],
-  ];
+function dropCap(n) {
+  return n
+    .split(' ')
+    .map(word => {
+      if (word.length <= 2) return word;
+
+      return word[0].toUpperCase() + word.slice(1).toLowerCase();
+    })
+    .join(' ');
 }
 
-console.log(cartesianNeighbor(2, 2));
-// [[1,1],[1,2],[1,3],[2,1],[2,3],[3,1],[3,2],[3,3]]
+console.log(dropCap('Apple Banana')); // 'Apple Banana'
+console.log(dropCap('Apple')); // 'Apple'
+console.log(dropCap('')); // ''
+console.log(dropCap('of')); // 'of'
+console.log(
+  dropCap(
+    'Revelation of the contents outraged American public opinion, and helped generate'
+  )
+);
+// 'Revelation of The Contents Outraged American Public Opinion, And Helped Generate'
+console.log(dropCap('more  than    one space between words'));
+// 'More  Than    One Space Between Words'
+console.log(dropCap('  leading spaces')); // '  Leading Spaces'
+console.log(dropCap('trailing spaces   ')); // 'Trailing Spaces   '
+console.log(dropCap('ALL CAPS CRAZINESS')); // 'All Caps Craziness'
+console.log(dropCap('rAnDoM CaPs CrAzInEsS')); // 'Random Caps Craziness'

@@ -1,6 +1,6 @@
 mocha.setup('bdd');
 
-describe(`Cartesian neighbors`, function () {
+describe(`Dropcaps`, function () {
   const equal = chai.assert.equal;
   const notEqual = chai.assert.notEqual;
   const deepEqual = chai.assert.deepEqual;
@@ -13,17 +13,25 @@ describe(`Cartesian neighbors`, function () {
   const isNotEmpty = chai.assert.isNotEmpty;
   const lengthOf = chai.assert.lengthOf;
 
-  it('Example Test', () => {
-    deepEqual(cartesianNeighbor(2, 2), [
-      [1, 1],
-      [1, 2],
-      [1, 3],
-      [2, 1],
-      [2, 3],
-      [3, 1],
-      [3, 2],
-      [3, 3],
-    ]);
+  it('Tests', () => {
+    equal(dropCap('Apple Banana'), 'Apple Banana');
+    equal(dropCap('Apple'), 'Apple');
+    equal(dropCap(''), '');
+    equal(dropCap('of'), 'of');
+    equal(
+      dropCap(
+        'Revelation of the contents outraged American public opinion, and helped generate'
+      ),
+      'Revelation of The Contents Outraged American Public Opinion, And Helped Generate'
+    );
+    equal(
+      dropCap('more  than    one space between words'),
+      'More  Than    One Space Between Words'
+    );
+    equal(dropCap('  leading spaces'), '  Leading Spaces');
+    equal(dropCap('trailing spaces   '), 'Trailing Spaces   ');
+    equal(dropCap('ALL CAPS CRAZINESS'), 'All Caps Craziness');
+    equal(dropCap('rAnDoM CaPs CrAzInEsS'), 'Random Caps Craziness');
   });
 });
 

@@ -1,27 +1,12 @@
-function dropCap(n) {
-  return n
-    .split(' ')
-    .map(word => {
-      if (word.length <= 2) return word;
+const Foo = function (value) {
+  this.val = value;
+};
 
-      return word[0].toUpperCase() + word.slice(1).toLowerCase();
-    })
-    .join(' ');
-}
+Foo.prototype.valueOf = function () {
+  return this.val;
+};
 
-console.log(dropCap('Apple Banana')); // 'Apple Banana'
-console.log(dropCap('Apple')); // 'Apple'
-console.log(dropCap('')); // ''
-console.log(dropCap('of')); // 'of'
-console.log(
-  dropCap(
-    'Revelation of the contents outraged American public opinion, and helped generate'
-  )
-);
-// 'Revelation of The Contents Outraged American Public Opinion, And Helped Generate'
-console.log(dropCap('more  than    one space between words'));
-// 'More  Than    One Space Between Words'
-console.log(dropCap('  leading spaces')); // '  Leading Spaces'
-console.log(dropCap('trailing spaces   ')); // 'Trailing Spaces   '
-console.log(dropCap('ALL CAPS CRAZINESS')); // 'All Caps Craziness'
-console.log(dropCap('rAnDoM CaPs CrAzInEsS')); // 'Random Caps Craziness'
+console.log(new Foo(2) + new Foo(3)); // 5
+console.log(new Foo(-2) + new Foo(3)); // 1
+console.log(new Foo(-21) + new Foo(-7)); // -28
+console.log(new Foo(1.5) + new Foo(0.2)); // 1.7

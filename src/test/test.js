@@ -1,6 +1,6 @@
 mocha.setup('bdd');
 
-describe(`Operator overload ?`, function () {
+describe(`WeIrD StRiNg CaSe`, function () {
   const equal = chai.assert.equal;
   const notEqual = chai.assert.notEqual;
   const deepEqual = chai.assert.deepEqual;
@@ -13,11 +13,12 @@ describe(`Operator overload ?`, function () {
   const isNotEmpty = chai.assert.isNotEmpty;
   const lengthOf = chai.assert.lengthOf;
 
-  it('test', () => {
-    equal(new Foo(2) + new Foo(3), 5);
-    equal(new Foo(-2) + new Foo(3), 1);
-    equal(new Foo(-21) + new Foo(-7), -28);
-    equal(new Foo(1.5) + new Foo(0.2), 1.7);
+  it('should return the correct value for a single word', function () {
+    equal(toWeirdCase('This'), 'ThIs');
+    equal(toWeirdCase('is'), 'Is');
+  });
+  it('should return the correct value for multiple words', function () {
+    equal(toWeirdCase('This is a test'), 'ThIs Is A TeSt');
   });
 });
 

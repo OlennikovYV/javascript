@@ -1,12 +1,17 @@
-const Foo = function (value) {
-  this.val = value;
-};
+function toWeirdCase(string) {
+  return string
+    .split(' ')
+    .map(word =>
+      word
+        .split('')
+        .map((char, index) =>
+          index % 2 ? char.toLowerCase() : char.toUpperCase()
+        )
+        .join('')
+    )
+    .join(' ');
+}
 
-Foo.prototype.valueOf = function () {
-  return this.val;
-};
-
-console.log(new Foo(2) + new Foo(3)); // 5
-console.log(new Foo(-2) + new Foo(3)); // 1
-console.log(new Foo(-21) + new Foo(-7)); // -28
-console.log(new Foo(1.5) + new Foo(0.2)); // 1.7
+console.log(toWeirdCase('This')); // 'ThIs'
+console.log(toWeirdCase('is')); // 'Is'
+console.log(toWeirdCase('This is a test')); // 'ThIs Is A TeSt'

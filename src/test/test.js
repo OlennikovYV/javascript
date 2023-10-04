@@ -1,6 +1,6 @@
 mocha.setup('bdd');
 
-describe(`WeIrD StRiNg CaSe`, function () {
+describe(`The Hashtag Generator`, function () {
   const equal = chai.assert.equal;
   const notEqual = chai.assert.notEqual;
   const deepEqual = chai.assert.deepEqual;
@@ -13,12 +13,47 @@ describe(`WeIrD StRiNg CaSe`, function () {
   const isNotEmpty = chai.assert.isNotEmpty;
   const lengthOf = chai.assert.lengthOf;
 
-  it('should return the correct value for a single word', function () {
-    equal(toWeirdCase('This'), 'ThIs');
-    equal(toWeirdCase('is'), 'Is');
-  });
-  it('should return the correct value for multiple words', function () {
-    equal(toWeirdCase('This is a test'), 'ThIs Is A TeSt');
+  it('Sample tests', () => {
+    equal(
+      generateHashtag(''),
+      false,
+      'Expected an empty string to return false'
+    );
+    equal(generateHashtag(' '.repeat(200)), false, 'Still an empty string');
+    equal(
+      generateHashtag('Do We have A Hashtag'),
+      '#DoWeHaveAHashtag',
+      'Expected a Hashtag (#) at the beginning.'
+    );
+    equal(
+      generateHashtag('Codewars'),
+      '#Codewars',
+      'Should handle a single word.'
+    );
+    equal(
+      generateHashtag('Codewars Is Nice'),
+      '#CodewarsIsNice',
+      'Should remove spaces.'
+    );
+    equal(
+      generateHashtag('Codewars is nice'),
+      '#CodewarsIsNice',
+      'Should capitalize first letters of words.'
+    );
+    equal(generateHashtag('code' + ' '.repeat(140) + 'wars'), '#CodeWars');
+    equal(
+      generateHashtag(
+        'Looooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong Cat'
+      ),
+      false,
+      'Should return false if the final word is longer than 140 chars.'
+    );
+    equal(
+      generateHashtag('a'.repeat(139)),
+      '#A' + 'a'.repeat(138),
+      'Should work'
+    );
+    equal(generateHashtag('a'.repeat(140)), false, 'Too long');
   });
 });
 

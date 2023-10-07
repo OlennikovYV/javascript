@@ -1,16 +1,17 @@
-function stringChunk(str, n) {
-  const chunks = [];
+function makeSentence(parts) {
+  return parts.reduce((phrase, part, index, list) => {
+    if (index === 0) return (phrase += part);
+    if (index === list.length - 1)
+      return (phrase += part === '.' ? '.' : ' ' + part + '.');
 
-  if (n <= 0 || Number.isInteger(n) === false) return chunks;
+    if (part === ',') return (phrase += part);
+    if (part === '.') return phrase;
 
-  for (let i = 0; i < str.length; i += n) {
-    chunks.push(str.slice(i, i + n));
-  }
-
-  return chunks;
+    return phrase + ' ' + part;
+  }, '');
 }
 
-console.log(stringChunk('codewars', 2)); //  ['co', 'de', 'wa', 'rs']
-console.log(stringChunk('thiskataeasy', 4)); // ['this', 'kata', 'easy']
-console.log(stringChunk('hello world', 3)); // ['hel', 'lo ', 'wor', 'ld']
-console.log(stringChunk('sunny day', 0)); // []
+console.log(makeSentence(['hello', ',', 'my', 'dear'])); // 'hello, my dear.'
+console.log(makeSentence(['hello', 'world'])); // 'hello world.
+console.log(makeSentence(['hello', 'world', '.'])); // 'hello world.'
+console.log(makeSentence(['hello', 'world', '.', '.', '.'])); // 'hello world.'

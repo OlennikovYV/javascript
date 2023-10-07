@@ -1,6 +1,6 @@
 mocha.setup('bdd');
 
-describe(`String chunks`, function () {
+describe(`Simple Sentences`, function () {
   const equal = chai.assert.equal;
   const notEqual = chai.assert.notEqual;
   const deepEqual = chai.assert.deepEqual;
@@ -14,10 +14,10 @@ describe(`String chunks`, function () {
   const lengthOf = chai.assert.lengthOf;
 
   it('test', () => {
-    deepEqual(stringChunk('codewars', 2), ['co', 'de', 'wa', 'rs']);
-    deepEqual(stringChunk('thiskataeasy', 4), ['this', 'kata', 'easy']);
-    deepEqual(stringChunk('hello world', 3), ['hel', 'lo ', 'wor', 'ld']);
-    deepEqual(stringChunk('sunny day', 0), []);
+    equal(makeSentence(['hello', 'world']), 'hello world.');
+    equal(makeSentence(['hello', ',', 'my', 'dear']), 'hello, my dear.');
+    equal(makeSentence(['hello', 'world', '.']), 'hello world.');
+    equal(makeSentence(['hello', 'world', '.', '.', '.']), 'hello world.');
   });
 });
 

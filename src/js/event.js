@@ -1,14 +1,12 @@
 function makeSentence(parts) {
-  return parts.reduce((phrase, part, index, list) => {
-    if (index === 0) return (phrase += part);
-    if (index === list.length - 1)
-      return (phrase += part === '.' ? '.' : ' ' + part + '.');
+  const phrase = parts.reduce((sumWords, part) => {
+    if (part === ',') return sumWords + part;
+    if (part === '.') return sumWords;
 
-    if (part === ',') return (phrase += part);
-    if (part === '.') return phrase;
+    return sumWords + ' ' + part;
+  });
 
-    return phrase + ' ' + part;
-  }, '');
+  return phrase + '.';
 }
 
 console.log(makeSentence(['hello', ',', 'my', 'dear'])); // 'hello, my dear.'

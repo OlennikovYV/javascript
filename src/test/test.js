@@ -1,6 +1,6 @@
 mocha.setup('bdd');
 
-describe(`Simple Sentences`, function () {
+describe(`Lazy Repeater`, function () {
   const equal = chai.assert.equal;
   const notEqual = chai.assert.notEqual;
   const deepEqual = chai.assert.deepEqual;
@@ -13,11 +13,16 @@ describe(`Simple Sentences`, function () {
   const isNotEmpty = chai.assert.isNotEmpty;
   const lengthOf = chai.assert.lengthOf;
 
-  it('test', () => {
-    equal(makeSentence(['hello', 'world']), 'hello world.');
-    equal(makeSentence(['hello', ',', 'my', 'dear']), 'hello, my dear.');
-    equal(makeSentence(['hello', 'world', '.']), 'hello world.');
-    equal(makeSentence(['hello', 'world', '.', '.', '.']), 'hello world.');
+  const abc = makeLooper('abc');
+  it('Should cycle through the given string', function () {
+    equal(abc(), 'a');
+    equal(abc(), 'b');
+    equal(abc(), 'c');
+  });
+  it('Should return to its initial cycle once it reaches the end', () => {
+    equal(abc(), 'a');
+    equal(abc(), 'b');
+    equal(abc(), 'c');
   });
 });
 

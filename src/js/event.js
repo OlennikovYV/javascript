@@ -1,15 +1,22 @@
-function makeSentence(parts) {
-  const phrase = parts.reduce((sumWords, part) => {
-    if (part === ',') return sumWords + part;
-    if (part === '.') return sumWords;
+function makeLooper(str) {
+  let currentIndex = 0;
+  let stringLooper = str;
 
-    return sumWords + ' ' + part;
-  });
+  return function () {
+    const currentChar = stringLooper[currentIndex];
 
-  return phrase + '.';
+    currentIndex =
+      currentIndex === stringLooper.length - 1 ? 0 : currentIndex + 1;
+
+    return currentChar;
+  };
 }
 
-console.log(makeSentence(['hello', ',', 'my', 'dear'])); // 'hello, my dear.'
-console.log(makeSentence(['hello', 'world'])); // 'hello world.
-console.log(makeSentence(['hello', 'world', '.'])); // 'hello world.'
-console.log(makeSentence(['hello', 'world', '.', '.', '.'])); // 'hello world.'
+const abc = makeLooper('abc');
+
+console.log(abc()); // 'a'
+console.log(abc()); // 'b'
+console.log(abc()); // 'c'
+console.log(abc()); // 'a'
+console.log(abc()); // 'b'
+console.log(abc()); // 'c'

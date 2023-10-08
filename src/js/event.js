@@ -1,14 +1,8 @@
 function makeLooper(str) {
   let currentIndex = 0;
-  let stringLooper = str;
 
   return function () {
-    const currentChar = stringLooper[currentIndex];
-
-    currentIndex =
-      currentIndex === stringLooper.length - 1 ? 0 : currentIndex + 1;
-
-    return currentChar;
+    return str[currentIndex++ % str.length];
   };
 }
 

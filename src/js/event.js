@@ -1,16 +1,22 @@
-function makeLooper(str) {
-  let currentIndex = 0;
+function inArray(array1, array2) {
+  const result = [];
 
-  return function () {
-    return str[currentIndex++ % str.length];
-  };
+  for (let i = 0; i < array1.length; i += 1) {
+    if (array2.some(word => word.indexOf(array1[i]) !== -1)) {
+      result.push(array1[i]);
+    }
+  }
+
+  return result.sort();
 }
 
-const abc = makeLooper('abc');
+a2 = ['lively', 'alive', 'harp', 'sharp', 'armstrong'];
 
-console.log(abc()); // 'a'
-console.log(abc()); // 'b'
-console.log(abc()); // 'c'
-console.log(abc()); // 'a'
-console.log(abc()); // 'b'
-console.log(abc()); // 'c'
+a1 = ['xyz', 'live', 'strong'];
+console.log(inArray(a1, a2)); // ['live', 'strong']
+
+a1 = ['live', 'strong', 'arp'];
+console.log(inArray(a1, a2)); // ['arp', 'live', 'strong']
+
+a1 = ['tarp', 'mice', 'bull'];
+console.log(inArray(a1, a2)); // []

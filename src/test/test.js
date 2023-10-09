@@ -1,6 +1,6 @@
 mocha.setup('bdd');
 
-describe(`Lazy Repeater`, function () {
+describe(`Which are in?`, function () {
   const equal = chai.assert.equal;
   const notEqual = chai.assert.notEqual;
   const deepEqual = chai.assert.deepEqual;
@@ -13,16 +13,17 @@ describe(`Lazy Repeater`, function () {
   const isNotEmpty = chai.assert.isNotEmpty;
   const lengthOf = chai.assert.lengthOf;
 
-  const abc = makeLooper('abc');
-  it('Should cycle through the given string', function () {
-    equal(abc(), 'a');
-    equal(abc(), 'b');
-    equal(abc(), 'c');
-  });
-  it('Should return to its initial cycle once it reaches the end', () => {
-    equal(abc(), 'a');
-    equal(abc(), 'b');
-    equal(abc(), 'c');
+  it('test', () => {
+    a2 = ['lively', 'alive', 'harp', 'sharp', 'armstrong'];
+
+    a1 = ['xyz', 'live', 'strong'];
+    deepEqual(inArray(a1, a2), ['live', 'strong']);
+
+    a1 = ['live', 'strong', 'arp'];
+    deepEqual(inArray(a1, a2), ['arp', 'live', 'strong']);
+
+    a1 = ['tarp', 'mice', 'bull'];
+    deepEqual(inArray(a1, a2), []);
   });
 });
 

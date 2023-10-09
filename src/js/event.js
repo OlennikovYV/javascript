@@ -1,13 +1,7 @@
 function inArray(array1, array2) {
-  const result = [];
-
-  for (let i = 0; i < array1.length; i += 1) {
-    if (array2.some(word => word.indexOf(array1[i]) !== -1)) {
-      result.push(array1[i]);
-    }
-  }
-
-  return result.sort();
+  return array1
+    .filter(subWord => array2.find(word => word.match(subWord)))
+    .sort();
 }
 
 a2 = ['lively', 'alive', 'harp', 'sharp', 'armstrong'];

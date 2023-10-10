@@ -1,16 +1,11 @@
-function inArray(array1, array2) {
-  return array1
-    .filter(subWord => array2.find(word => word.match(subWord)))
-    .sort();
-}
+const cannonsReady = gunners => {
+  return Object.entries(gunners).every(gunner => gunner[1] === 'aye')
+    ? 'Fire!'
+    : 'Shiver me timbers!';
+};
 
-a2 = ['lively', 'alive', 'harp', 'sharp', 'armstrong'];
+let a = { Mike: 'aye', Joe: 'aye', Johnson: 'aye', Peter: 'aye' };
+let b = { Mike: 'aye', Joe: 'nay', Johnson: 'aye', Peter: 'aye' };
 
-a1 = ['xyz', 'live', 'strong'];
-console.log(inArray(a1, a2)); // ['live', 'strong']
-
-a1 = ['live', 'strong', 'arp'];
-console.log(inArray(a1, a2)); // ['arp', 'live', 'strong']
-
-a1 = ['tarp', 'mice', 'bull'];
-console.log(inArray(a1, a2)); // []
+console.log(cannonsReady(a)); // 'Fire!'
+console.log(cannonsReady(b)); // 'Shiver me timbers!'

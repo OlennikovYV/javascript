@@ -1,5 +1,5 @@
 const cannonsReady = gunners => {
-  return Object.entries(gunners).every(gunner => gunner[1] === 'aye')
+  return Object.values(gunners).every(ready => ready === 'aye')
     ? 'Fire!'
     : 'Shiver me timbers!';
 };

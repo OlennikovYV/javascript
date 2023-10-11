@@ -1,6 +1,6 @@
 mocha.setup('bdd');
 
-describe(`Pirates!! Are the Cannons ready!??`, function () {
+describe(`Grouped by commas`, function () {
   const equal = chai.assert.equal;
   const notEqual = chai.assert.notEqual;
   const deepEqual = chai.assert.deepEqual;
@@ -13,14 +13,15 @@ describe(`Pirates!! Are the Cannons ready!??`, function () {
   const isNotEmpty = chai.assert.isNotEmpty;
   const lengthOf = chai.assert.lengthOf;
 
-  let a = { Mike: 'aye', Joe: 'aye', Johnson: 'aye', Peter: 'aye' };
-  let b = { Mike: 'aye', Joe: 'nay', Johnson: 'aye', Peter: 'aye' };
-
-  it('should Fire on aye', function () {
-    equal(cannonsReady(a), 'Fire!');
-  });
-  it('should Shiver me timbers on nay', function () {
-    equal(cannonsReady(b), 'Shiver me timbers!');
+  it('test', () => {
+    equal(groupByCommas(1), '1');
+    equal(groupByCommas(10), '10');
+    equal(groupByCommas(100), '100');
+    equal(groupByCommas(1000), '1,000');
+    equal(groupByCommas(10000), '10,000');
+    equal(groupByCommas(100000), '100,000');
+    equal(groupByCommas(1000000), '1,000,000');
+    equal(groupByCommas(35235235), '35,235,235');
   });
 });
 

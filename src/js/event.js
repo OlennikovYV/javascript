@@ -1,11 +1,12 @@
-const cannonsReady = gunners => {
-  return Object.values(gunners).every(ready => ready === 'aye')
-    ? 'Fire!'
-    : 'Shiver me timbers!';
-};
+function groupByCommas(n) {
+  return n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+}
 
-let a = { Mike: 'aye', Joe: 'aye', Johnson: 'aye', Peter: 'aye' };
-let b = { Mike: 'aye', Joe: 'nay', Johnson: 'aye', Peter: 'aye' };
-
-console.log(cannonsReady(a)); // 'Fire!'
-console.log(cannonsReady(b)); // 'Shiver me timbers!'
+console.log(groupByCommas(1)); // '1'
+console.log(groupByCommas(10)); // '10'
+console.log(groupByCommas(100)); // '100'
+console.log(groupByCommas(1000)); // '1,000'
+console.log(groupByCommas(10000)); // '10,000'
+console.log(groupByCommas(100000)); // '100,000'
+console.log(groupByCommas(1000000)); // '1,000,000'
+console.log(groupByCommas(35235235)); // '35,235,235'

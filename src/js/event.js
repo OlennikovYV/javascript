@@ -1,5 +1,5 @@
 function groupByCommas(n) {
-  return n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+  return n.toLocaleString('en-US');
 }
 
 console.log(groupByCommas(1)); // '1'

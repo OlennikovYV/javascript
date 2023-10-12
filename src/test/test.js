@@ -1,6 +1,6 @@
 mocha.setup('bdd');
 
-describe(`Grouped by commas`, function () {
+describe(`Merging sorted integer arrays (without duplicates)`, function () {
   const equal = chai.assert.equal;
   const notEqual = chai.assert.notEqual;
   const deepEqual = chai.assert.deepEqual;
@@ -13,15 +13,9 @@ describe(`Grouped by commas`, function () {
   const isNotEmpty = chai.assert.isNotEmpty;
   const lengthOf = chai.assert.lengthOf;
 
-  it('test', () => {
-    equal(groupByCommas(1), '1');
-    equal(groupByCommas(10), '10');
-    equal(groupByCommas(100), '100');
-    equal(groupByCommas(1000), '1,000');
-    equal(groupByCommas(10000), '10,000');
-    equal(groupByCommas(100000), '100,000');
-    equal(groupByCommas(1000000), '1,000,000');
-    equal(groupByCommas(35235235), '35,235,235');
+  it('Example Tests', function () {
+    deepEqual(mergeArrays([1, 3, 5], [2, 4, 6]), [1, 2, 3, 4, 5, 6]);
+    deepEqual(mergeArrays([2, 4, 8], [2, 4, 6]), [2, 4, 6, 8]);
   });
 });
 

@@ -1,5 +1,7 @@
 function mergeArrays(a, b) {
-  return [...new Set(a.concat(b))].sort((x, y) => x - y);
+  return [...a, ...b]
+    .filter((uniq, index, arr) => index === arr.indexOf(uniq))
+    .sort((a, b) => a - b);
 }
 
 console.log(mergeArrays([1, 3, 5], [2, 4, 6])); // [1, 2, 3, 4, 5, 6]

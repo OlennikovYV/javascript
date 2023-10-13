@@ -1,6 +1,6 @@
 mocha.setup('bdd');
 
-describe(`Merging sorted integer arrays (without duplicates)`, function () {
+describe(`Matrix Addition`, function () {
   const equal = chai.assert.equal;
   const notEqual = chai.assert.notEqual;
   const deepEqual = chai.assert.deepEqual;
@@ -13,9 +13,57 @@ describe(`Merging sorted integer arrays (without duplicates)`, function () {
   const isNotEmpty = chai.assert.isNotEmpty;
   const lengthOf = chai.assert.lengthOf;
 
-  it('Example Tests', function () {
-    deepEqual(mergeArrays([1, 3, 5], [2, 4, 6]), [1, 2, 3, 4, 5, 6]);
-    deepEqual(mergeArrays([2, 4, 8], [2, 4, 6]), [2, 4, 6, 8]);
+  it('Sample tests', () => {
+    deepEqual(
+      matrixAddition(
+        [
+          [1, 2],
+          [1, 2],
+        ],
+        //    +
+        [
+          [2, 3],
+          [2, 3],
+        ]
+      ),
+      //    =
+      [
+        [3, 5],
+        [3, 5],
+      ]
+    );
+
+    deepEqual(
+      matrixAddition(
+        [[1]],
+        //   +
+        [[2]]
+      ),
+      //   =
+      [[3]]
+    );
+
+    deepEqual(
+      matrixAddition(
+        [
+          [1, 2, 3],
+          [3, 2, 1],
+          [1, 1, 1],
+        ],
+        //      +
+        [
+          [2, 2, 1],
+          [3, 2, 3],
+          [1, 1, 3],
+        ]
+      ),
+      //      =
+      [
+        [3, 4, 4],
+        [6, 4, 4],
+        [2, 2, 4],
+      ]
+    );
   });
 });
 

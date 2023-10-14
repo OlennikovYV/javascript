@@ -1,16 +1,9 @@
-function makeLooper(str) {
-  let currentIndex = 0;
-
-  return function () {
-    return str[currentIndex++ % str.length];
+function hexStringToRGB(hexString) {
+  return {
+    r: parseInt(hexString.slice(1, 3), 16),
+    g: parseInt(hexString.slice(3, 5), 16),
+    b: parseInt(hexString.slice(5, 7), 16),
   };
 }
 
-const abc = makeLooper('abc');
-
-console.log(abc()); // 'a'
-console.log(abc()); // 'b'
-console.log(abc()); // 'c'
-console.log(abc()); // 'a'
-console.log(abc()); // 'b'
-console.log(abc()); // 'c'
+console.log(hexStringToRGB('#FF9933')); // {r:255, g:153, b:51}

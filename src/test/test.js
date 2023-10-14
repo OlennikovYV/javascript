@@ -1,6 +1,6 @@
 mocha.setup('bdd');
 
-describe(`Convert A Hex String To RGB`, function () {
+describe(`Lazy Repeater`, function () {
   const equal = chai.assert.equal;
   const notEqual = chai.assert.notEqual;
   const deepEqual = chai.assert.deepEqual;
@@ -13,8 +13,16 @@ describe(`Convert A Hex String To RGB`, function () {
   const isNotEmpty = chai.assert.isNotEmpty;
   const lengthOf = chai.assert.lengthOf;
 
-  it('test', () => {
-    deepEqual(hexStringToRGB('#FF9933'), { r: 255, g: 153, b: 51 });
+  const abc = makeLooper('abc');
+  it('Should cycle through the given string', function () {
+    equal(abc(), 'a');
+    equal(abc(), 'b');
+    equal(abc(), 'c');
+  });
+  it('Should return to its initial cycle once it reaches the end', () => {
+    equal(abc(), 'a');
+    equal(abc(), 'b');
+    equal(abc(), 'c');
   });
 });
 

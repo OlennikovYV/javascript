@@ -1,6 +1,6 @@
 mocha.setup('bdd');
 
-describe(`Convert A Hex String To RGB`, function () {
+describe(`Debug Sum of Digits of a Number`, function () {
   const equal = chai.assert.equal;
   const notEqual = chai.assert.notEqual;
   const deepEqual = chai.assert.deepEqual;
@@ -13,8 +13,10 @@ describe(`Convert A Hex String To RGB`, function () {
   const isNotEmpty = chai.assert.isNotEmpty;
   const lengthOf = chai.assert.lengthOf;
 
-  it('test', () => {
-    deepEqual(hexStringToRGB('#FF9933'), { r: 255, g: 153, b: 51 });
+  it('Fixed tests', () => {
+    equal(getSumOfDigits(123), 6, 'Incorrect answer for integer=123');
+    equal(getSumOfDigits(223), 7, 'Incorrect answer for integer=223');
+    equal(getSumOfDigits(0), 0, 'Incorrect answer for integer=0');
   });
 });
 

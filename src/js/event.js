@@ -1,9 +1,14 @@
-function hexStringToRGB(hexString) {
-  return {
-    r: parseInt(hexString.slice(1, 3), 16),
-    g: parseInt(hexString.slice(3, 5), 16),
-    b: parseInt(hexString.slice(5, 7), 16),
-  };
+function getSumOfDigits(integer) {
+  let sum = 0;
+  const digits = Math.floor(integer).toString();
+
+  for (let ix = 0; ix < digits.length; ix += 1) {
+    sum += +digits[ix];
+  }
+
+  return sum;
 }
 
-console.log(hexStringToRGB('#FF9933')); // {r:255, g:153, b:51}
+console.log(getSumOfDigits(123)); // 6
+console.log(getSumOfDigits(223)); // 7
+console.log(getSumOfDigits(0)); // 0

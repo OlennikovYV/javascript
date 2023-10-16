@@ -1,6 +1,6 @@
 mocha.setup('bdd');
 
-describe(`Debug Sum of Digits of a Number`, function () {
+describe(`Switch/Case - Bug Fixing #6`, function () {
   const equal = chai.assert.equal;
   const notEqual = chai.assert.notEqual;
   const deepEqual = chai.assert.deepEqual;
@@ -14,9 +14,36 @@ describe(`Debug Sum of Digits of a Number`, function () {
   const lengthOf = chai.assert.lengthOf;
 
   it('Fixed tests', () => {
-    equal(getSumOfDigits(123), 6, 'Incorrect answer for integer=123');
-    equal(getSumOfDigits(223), 7, 'Incorrect answer for integer=223');
-    equal(getSumOfDigits(0), 0, 'Incorrect answer for integer=0');
+    equal(
+      evalObject({ a: 1, b: 1, operation: '+' }),
+      2,
+      'Return the evaluated string as a number!'
+    );
+    equal(
+      evalObject({ a: 1, b: 1, operation: '-' }),
+      0,
+      'Return the evaluated string as a number!'
+    );
+    equal(
+      evalObject({ a: 1, b: 1, operation: '/' }),
+      1,
+      'Return the evaluated string as a number!'
+    );
+    equal(
+      evalObject({ a: 1, b: 1, operation: '*' }),
+      1,
+      'Return the evaluated string as a number!'
+    );
+    equal(
+      evalObject({ a: 1, b: 1, operation: '%' }),
+      0,
+      'Return the evaluated string as a number!'
+    );
+    equal(
+      evalObject({ a: 1, b: 1, operation: '^' }),
+      1,
+      'Return the evaluated string as a number!'
+    );
   });
 });
 

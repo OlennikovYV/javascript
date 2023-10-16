@@ -1,10 +1,30 @@
-function getSumOfDigits(integer) {
-  return Array.from(String(integer)).reduce(
-    (sum, digit) => sum + Number(digit),
-    0
-  );
+function evalObject(value) {
+  let result = 0;
+  switch (value.operation) {
+    case '+':
+      result = value.a + value.b;
+      break;
+    case '-':
+      result = value.a - value.b;
+      break;
+    case '/':
+      result = value.a / value.b;
+      break;
+    case '*':
+      result = value.a * value.b;
+      break;
+    case '%':
+      result = value.a % value.b;
+      break;
+    case '^':
+      result = Math.pow(value.a, value.b);
+  }
+  return result;
 }
 
-console.log(getSumOfDigits(123)); // 6
-console.log(getSumOfDigits(223)); // 7
-console.log(getSumOfDigits(0)); // 0
+console.log(evalObject({ a: 1, b: 1, operation: '+' })); // 2
+console.log(evalObject({ a: 1, b: 1, operation: '-' })); // 0
+console.log(evalObject({ a: 1, b: 1, operation: '/' })); // 1
+console.log(evalObject({ a: 1, b: 1, operation: '*' })); // 1
+console.log(evalObject({ a: 1, b: 1, operation: '%' })); // 0
+console.log(evalObject({ a: 1, b: 1, operation: '^' })); // 1

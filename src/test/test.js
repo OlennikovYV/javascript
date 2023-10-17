@@ -1,6 +1,6 @@
 mocha.setup('bdd');
 
-describe(`Switch/Case - Bug Fixing #6`, function () {
+describe(`Job Matching #1`, function () {
   const equal = chai.assert.equal;
   const notEqual = chai.assert.notEqual;
   const deepEqual = chai.assert.deepEqual;
@@ -13,37 +13,13 @@ describe(`Switch/Case - Bug Fixing #6`, function () {
   const isNotEmpty = chai.assert.isNotEmpty;
   const lengthOf = chai.assert.lengthOf;
 
-  it('Fixed tests', () => {
-    equal(
-      evalObject({ a: 1, b: 1, operation: '+' }),
-      2,
-      'Return the evaluated string as a number!'
-    );
-    equal(
-      evalObject({ a: 1, b: 1, operation: '-' }),
-      0,
-      'Return the evaluated string as a number!'
-    );
-    equal(
-      evalObject({ a: 1, b: 1, operation: '/' }),
-      1,
-      'Return the evaluated string as a number!'
-    );
-    equal(
-      evalObject({ a: 1, b: 1, operation: '*' }),
-      1,
-      'Return the evaluated string as a number!'
-    );
-    equal(
-      evalObject({ a: 1, b: 1, operation: '%' }),
-      0,
-      'Return the evaluated string as a number!'
-    );
-    equal(
-      evalObject({ a: 1, b: 1, operation: '^' }),
-      1,
-      'Return the evaluated string as a number!'
-    );
+  it('test', () => {
+    let candidate1 = { minSalary: 120000 },
+      job1 = { maxSalary: 130000 },
+      job2 = { maxSalary: 80000 };
+
+    equal(match(candidate1, job1), true);
+    equal(match(candidate1, job2), false);
   });
 });
 

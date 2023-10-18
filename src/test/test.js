@@ -1,6 +1,6 @@
 mocha.setup('bdd');
 
-describe(`Job Matching #1`, function () {
+describe(`Vector class`, function () {
   const equal = chai.assert.equal;
   const notEqual = chai.assert.notEqual;
   const deepEqual = chai.assert.deepEqual;
@@ -12,14 +12,20 @@ describe(`Job Matching #1`, function () {
   const oneOf = chai.assert.oneOf;
   const isNotEmpty = chai.assert.isNotEmpty;
   const lengthOf = chai.assert.lengthOf;
+  const throws = chai.assert.throws;
 
   it('test', () => {
-    let candidate1 = { minSalary: 120000 },
-      job1 = { maxSalary: 130000 },
-      job2 = { maxSalary: 80000 };
+    const a = new Vector([1, 2]);
+    const b = new Vector([3, 4]);
+    const c = new Vector([5, 6, 7, 8]);
 
-    equal(match(candidate1, job1), true);
-    equal(match(candidate1, job2), false);
+    deepEqual(a.add(b), new Vector([4, 6]));
+    deepEqual(b.subtract(a), new Vector([2, 2]));
+    equal(a.dot(b), 11);
+    equal(b.norm(), 5);
+    equal(a.toString(), '(1,2)');
+    isTrue(a.add(b).equals(new Vector([4, 6])));
+    throws(() => a.add(c), 'Error');
   });
 });
 

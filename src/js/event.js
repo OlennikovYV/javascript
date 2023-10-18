@@ -1,12 +1,63 @@
-function match(candidate, job) {
-  if (!candidate.minSalary || !job.maxSalary) throw Error('Error');
+class Vector {
+  constructor(vector) {
+    this.vector = vector;
+  }
 
-  return candidate.minSalary - candidate.minSalary * 0.1 <= job.maxSalary;
+  isEqualLength(vectorTwo) {
+    return this.vector.length === vectorTwo.vector.length;
+  }
+
+  add(vectorTwo) {
+    if (!this.isEqualLength(vectorTwo)) throw Error('Error');
+
+    return new Vector(this.vector.map((el, i) => el + vectorTwo.vector[i]));
+  }
+
+  subtract(vectorTwo) {
+    if (!this.isEqualLength(vectorTwo)) throw Error('Error');
+
+    return new Vector(this.vector.map((el, i) => el - vectorTwo.vector[i]));
+  }
+
+  dot(vectorTwo) {
+    if (!this.isEqualLength(vectorTwo)) throw Error('Error');
+
+    return this.vector.reduce(
+      (sumMul, el, i) => sumMul + el * vectorTwo.vector[i],
+      0
+    );
+  }
+
+  norm() {
+    return Math.sqrt(
+      this.vector.reduce((sumNorm, el) => sumNorm + Math.pow(el, 2), 0)
+    );
+  }
+
+  toString() {
+    return `(${this.vector.toString()})`;
+  }
+
+  equals(vectorTwo) {
+    return (
+      this.isEqualLength(vectorTwo) &&
+      this.vector.every((el, i) => el === vectorTwo.vector[i])
+    );
+  }
 }
 
-let candidate1 = { minSalary: 120000 },
-  job1 = { maxSalary: 130000 },
-  job2 = { maxSalary: 80000 };
+const a = new Vector([1, 2]);
+const b = new Vector([3, 4]);
+const c = new Vector([5, 6, 7, 8]);
 
-console.log(match(candidate1, job1)); // true
-console.log(match(candidate1, job2)); // false
+console.log(a.add(b)); // Vector([4, 6])
+console.log(b.subtract(a)); // Vector([2, 2])
+console.log(a.dot(b)); // 11
+console.log(b.norm()); // 5
+console.log(a.toString()); // (1,2)
+console.log(a.add(b).equals(new Vector([4, 6]))); // True
+try {
+  a.add(c); // Throw error 'Error'
+} catch (e) {
+  console.log(e.message);
+}

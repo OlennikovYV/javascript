@@ -1,6 +1,6 @@
 mocha.setup('bdd');
 
-describe(`Vector class`, function () {
+describe(`getNames()`, function () {
   const equal = chai.assert.equal;
   const notEqual = chai.assert.notEqual;
   const deepEqual = chai.assert.deepEqual;
@@ -14,18 +14,13 @@ describe(`Vector class`, function () {
   const lengthOf = chai.assert.lengthOf;
   const throws = chai.assert.throws;
 
-  it('test', () => {
-    const a = new Vector([1, 2]);
-    const b = new Vector([3, 4]);
-    const c = new Vector([5, 6, 7, 8]);
-
-    deepEqual(a.add(b), new Vector([4, 6]));
-    deepEqual(b.subtract(a), new Vector([2, 2]));
-    equal(a.dot(b), 11);
-    equal(b.norm(), 5);
-    equal(a.toString(), '(1,2)');
-    isTrue(a.add(b).equals(new Vector([4, 6])));
-    throws(() => a.add(c), 'Error');
+  it('should return the names of the people passed in', function () {
+    const data = [
+      { name: 'Joe', age: 20 },
+      { name: 'Bill', age: 30 },
+      { name: 'Kate', age: 23 },
+    ];
+    deepEqual(getNames(data), ['Joe', 'Bill', 'Kate']);
   });
 });
 

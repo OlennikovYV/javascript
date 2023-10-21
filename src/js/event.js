@@ -1,29 +1,37 @@
-const findInArray = function (array, iterator) {
-  return array.findIndex(iterator);
-};
+function maxProduct(a) {
+  let max1 = 0,
+    max2 = 0;
 
-const trueIfEven = function (v, i) {
-  return v % 2 === 0;
-};
-const neverTrue = function (v, i) {
-  return false;
-};
-const trueIfValueEqualsIndex = function (v, i) {
-  return v === i;
-};
-const trueIfLengthEqualsIndex = function (v, i) {
-  return v.length === i;
-};
+  for (let i = 0; i < a.length; i++) {
+    if (a[i] > max1) {
+      if (max1 > max2) max2 = max1;
+      max1 = a[i];
+    } else {
+      if (a[i] > max2) max2 = a[i];
+    }
+  }
 
-console.log(findInArray([], trueIfEven)); // -1
-console.log(findInArray([1, 3, 5, 6, 7], trueIfEven)); // 3
-console.log(findInArray([2, 4, 6, 8], trueIfEven)); // 0
-console.log(findInArray([2, 4, 6, 8], neverTrue)); // -1
-console.log(findInArray([13, 5, 3, 1, 4, 5], trueIfValueEqualsIndex)); // 4
+  return max1 * max2;
+}
+
+console.log(maxProduct([56, 335, 195, 443, 6, 494, 252])); // 218842
+console.log(maxProduct([154, 428, 455, 346])); // 194740
 console.log(
-  findInArray(
-    ['one', 'two', 'three', 'four', 'five', 'six'],
-    trueIfLengthEqualsIndex
-  )
-); // 4
-console.log(findInArray(['bc', 'af', 'd', 'e'], trueIfLengthEqualsIndex)); // -1
+  maxProduct([
+    39, 135, 47, 275, 37, 108, 265, 457, 2, 133, 316, 330, 153, 253, 321, 411,
+  ])
+); // 187827
+console.log(maxProduct([136, 376, 10, 146, 105, 63, 234])); // 87984
+console.log(
+  maxProduct([
+    354, 463, 165, 62, 472, 53, 347, 293, 252, 378, 420, 398, 255, 89,
+  ])
+); // 218536
+console.log(
+  maxProduct([346, 446, 26, 425, 432, 349, 123, 269, 285, 93, 75, 14])
+); // 192672
+console.log(maxProduct([134, 320, 266, 299])); // 95680
+console.log(
+  maxProduct([114, 424, 53, 272, 128, 215, 25, 329, 272, 313, 100, 24, 252])
+); // 139496
+console.log(maxProduct([375, 56, 337, 466, 203])); // 174750

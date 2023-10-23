@@ -1,10 +1,13 @@
-const flip =
-  fn =>
-  (...arg) =>
-    fn(...arg.reverse());
+function pattern(n) {
+  const array = [];
 
-function print(a, b) {
-  return a + ' -> ' + b;
+  for (let i = 1; i <= n; i++) {
+    array.push(Array.from(Array(i), (_, index) => n - index).join(''));
+  }
+
+  return array.join('\n');
 }
 
-console.log(flip(print)(4, 5)); // '5 -> 4'
+console.log(pattern(1)); // '1'
+console.log(pattern(2)); // '2\n21'
+console.log(pattern(5)); // '5\n54\n543\n5432\n54321'

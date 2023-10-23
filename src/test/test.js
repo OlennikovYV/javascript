@@ -1,6 +1,6 @@
 mocha.setup('bdd');
 
-describe(`Combinator Flip`, function () {
+describe(`Complete The Pattern #3 (Horizontal Image of #2)`, function () {
   const equal = chai.assert.equal;
   const notEqual = chai.assert.notEqual;
   const deepEqual = chai.assert.deepEqual;
@@ -14,7 +14,9 @@ describe(`Combinator Flip`, function () {
   const lengthOf = chai.assert.lengthOf;
 
   it('test', () => {
-    equal(flip(print)(4, 5), '5 -> 4');
+    equal(pattern(1), '1');
+    equal(pattern(2), '2\n21');
+    equal(pattern(5), '5\n54\n543\n5432\n54321');
   });
 });
 

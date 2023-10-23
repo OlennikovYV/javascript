@@ -1,8 +1,10 @@
 function pattern(n) {
+  let line = '';
   const array = [];
 
-  for (let i = 1; i <= n; i++) {
-    array.push(Array.from(Array(i), (_, index) => n - index).join(''));
+  for (let i = n; i > 0; i--) {
+    line += i;
+    array.push(line);
   }
 
   return array.join('\n');

@@ -1,6 +1,6 @@
 mocha.setup('bdd');
 
-describe(`Complete The Pattern #3 (Horizontal Image of #2)`, function () {
+describe(`Lowest product of 4 consecutive numbers`, function () {
   const equal = chai.assert.equal;
   const notEqual = chai.assert.notEqual;
   const deepEqual = chai.assert.deepEqual;
@@ -14,9 +14,11 @@ describe(`Complete The Pattern #3 (Horizontal Image of #2)`, function () {
   const lengthOf = chai.assert.lengthOf;
 
   it('test', () => {
-    equal(pattern(1), '1');
-    equal(pattern(2), '2\n21');
-    equal(pattern(5), '5\n54\n543\n5432\n54321');
+    equal(lowestProduct('123456789'), 24);
+    equal(lowestProduct('234567899'), 120);
+    equal(lowestProduct('2345611117899'), 1);
+    equal(lowestProduct('333'), 'Number is too small');
+    equal(lowestProduct('1234111'), 4, 'Numbers should be consecutives');
   });
 });
 

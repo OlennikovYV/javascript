@@ -1,15 +1,18 @@
-function pattern(n) {
-  let line = '';
-  const array = [];
+function lowestProduct(input) {
+  let consecutivesMult = Number.MAX_SAFE_INTEGER;
 
-  for (let i = n; i > 0; i--) {
-    line += i;
-    array.push(line);
+  if (input.length < 4) return 'Number is too small';
+
+  for (let i = 0; i < input.length - 3; i++) {
+    const consecutives = input[i] * input[i + 1] * input[i + 2] * input[i + 3];
+    if (consecutivesMult > consecutives) consecutivesMult = consecutives;
   }
 
-  return array.join('\n');
+  return consecutivesMult;
 }
 
-console.log(pattern(1)); // '1'
-console.log(pattern(2)); // '2\n21'
-console.log(pattern(5)); // '5\n54\n543\n5432\n54321'
+console.log(lowestProduct('123456789')); // 24
+console.log(lowestProduct('234567899')); // 120
+console.log(lowestProduct('2345611117899')); // 1
+console.log(lowestProduct('333')); // 'Number is too small'
+console.log(lowestProduct('1234111')); // 4

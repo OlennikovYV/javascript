@@ -1,14 +1,17 @@
 function lowestProduct(input) {
-  let consecutivesMult = Number.MAX_SAFE_INTEGER;
+  let array = [...input];
 
-  if (input.length < 4) return 'Number is too small';
-
-  for (let i = 0; i < input.length - 3; i++) {
-    const consecutives = input[i] * input[i + 1] * input[i + 2] * input[i + 3];
-    if (consecutivesMult > consecutives) consecutivesMult = consecutives;
-  }
-
-  return consecutivesMult;
+  return input.length < 4
+    ? 'Number is too small'
+    : Math.min(
+        ...array
+          .slice(0, -3)
+          .reduce(
+            (a, c, i) =>
+              a.concat(c * array[i + 1] * array[i + 2] * array[i + 3]),
+            []
+          )
+      );
 }
 
 console.log(lowestProduct('123456789')); // 24

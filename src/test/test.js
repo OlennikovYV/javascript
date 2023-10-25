@@ -1,6 +1,6 @@
 mocha.setup('bdd');
 
-describe(`Lowest product of 4 consecutive numbers`, function () {
+describe(`Convert PascalCase string into snake_case`, function () {
   const equal = chai.assert.equal;
   const notEqual = chai.assert.notEqual;
   const deepEqual = chai.assert.deepEqual;
@@ -14,11 +14,10 @@ describe(`Lowest product of 4 consecutive numbers`, function () {
   const lengthOf = chai.assert.lengthOf;
 
   it('test', () => {
-    equal(lowestProduct('123456789'), 24);
-    equal(lowestProduct('234567899'), 120);
-    equal(lowestProduct('2345611117899'), 1);
-    equal(lowestProduct('333'), 'Number is too small');
-    equal(lowestProduct('1234111'), 4, 'Numbers should be consecutives');
+    equal(toUnderscore('TestController'), 'test_controller');
+    equal(toUnderscore('MoviesAndBooks'), 'movies_and_books');
+    equal(toUnderscore('App7Test'), 'app7_test');
+    equal(toUnderscore(1), '1');
   });
 });
 

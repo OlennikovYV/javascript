@@ -1,15 +1,8 @@
 function toUnderscore(string) {
   return String(string)
-    .split('')
-    .map((char, index) => {
-      if (/[a-z]/i.test(char)) {
-        if (index === 0) return char.toLowerCase();
-        if (char.toUpperCase() === char) return '_' + char.toLowerCase();
-      }
-
-      return char;
-    })
-    .join('');
+    .split(/(?=[A-Z])/)
+    .join('_')
+    .toLowerCase();
 }
 
 console.log(toUnderscore('TestController')); // "test_controller"

@@ -1,6 +1,6 @@
 mocha.setup('bdd');
 
-describe(`Convert PascalCase string into snake_case`, function () {
+describe(`Training JS #27: methods of arrayObject---filter()`, function () {
   const equal = chai.assert.equal;
   const notEqual = chai.assert.notEqual;
   const deepEqual = chai.assert.deepEqual;
@@ -14,10 +14,30 @@ describe(`Convert PascalCase string into snake_case`, function () {
   const lengthOf = chai.assert.lengthOf;
 
   it('test', () => {
-    equal(toUnderscore('TestController'), 'test_controller');
-    equal(toUnderscore('MoviesAndBooks'), 'movies_and_books');
-    equal(toUnderscore('App7Test'), 'app7_test');
-    equal(toUnderscore(1), '1');
+    deepEqual(countGrade([50, 60, 70, 80, 90, 100]), {
+      S: 1,
+      A: 1,
+      B: 1,
+      C: 2,
+      D: 1,
+      X: 0,
+    });
+    deepEqual(countGrade([65, 75, , 85, 85, 95, 100, 100]), {
+      S: 2,
+      A: 1,
+      B: 2,
+      C: 2,
+      D: 0,
+      X: 0,
+    });
+    deepEqual(countGrade([-1, -1, -1, -1, -1, -1]), {
+      S: 0,
+      A: 0,
+      B: 0,
+      C: 0,
+      D: 0,
+      X: 6,
+    });
   });
 });
 

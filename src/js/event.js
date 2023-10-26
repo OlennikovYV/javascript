@@ -1,11 +1,12 @@
 function countGrade(scores) {
+  const countScores = func => scores.filter(score => func(score)).length;
   return {
-    S: scores.filter(score => score === 100).length,
-    A: scores.filter(score => score < 100 && score >= 90).length,
-    B: scores.filter(score => score < 90 && score >= 80).length,
-    C: scores.filter(score => score < 80 && score >= 60).length,
-    D: scores.filter(score => score < 60 && score >= 0).length,
-    X: scores.filter(score => score === -1).length,
+    S: countScores(score => score === 100),
+    A: countScores(score => score < 100 && score >= 90),
+    B: countScores(score => score < 90 && score >= 80),
+    C: countScores(score => score < 80 && score >= 60),
+    D: countScores(score => score < 60 && score >= 0),
+    X: countScores(score => score === -1),
   };
 }
 

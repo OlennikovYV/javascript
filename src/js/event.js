@@ -1,12 +1,13 @@
 function countGrade(scores) {
-  const countScores = func => scores.filter(score => func(score)).length;
+  const countScores = (min, max) =>
+    scores.filter(score => min <= score && score < max).length;
   return {
-    S: countScores(score => score === 100),
-    A: countScores(score => score < 100 && score >= 90),
-    B: countScores(score => score < 90 && score >= 80),
-    C: countScores(score => score < 80 && score >= 60),
-    D: countScores(score => score < 60 && score >= 0),
-    X: countScores(score => score === -1),
+    S: countScores(100, 101),
+    A: countScores(90, 100),
+    B: countScores(80, 90),
+    C: countScores(60, 80),
+    D: countScores(0, 60),
+    X: countScores(-1, 0),
   };
 }
 

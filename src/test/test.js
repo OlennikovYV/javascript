@@ -14,30 +14,11 @@ describe(`Training JS #27: methods of arrayObject---filter()`, function () {
   const lengthOf = chai.assert.lengthOf;
 
   it('test', () => {
-    deepEqual(countGrade([50, 60, 70, 80, 90, 100]), {
-      S: 1,
-      A: 1,
-      B: 1,
-      C: 2,
-      D: 1,
-      X: 0,
-    });
-    deepEqual(countGrade([65, 75, , 85, 85, 95, 100, 100]), {
-      S: 2,
-      A: 1,
-      B: 2,
-      C: 2,
-      D: 0,
-      X: 0,
-    });
-    deepEqual(countGrade([-1, -1, -1, -1, -1, -1]), {
-      S: 0,
-      A: 0,
-      B: 0,
-      C: 0,
-      D: 0,
-      X: 6,
-    });
+    equal(area(5, 4), 12);
+    equal(area(10, 6), 48);
+    equal(area(13, 5), 60);
+    equal(area(12, 5), 54.54);
+    equal(area(12, 12), 'Not a rectangle');
   });
 });
 

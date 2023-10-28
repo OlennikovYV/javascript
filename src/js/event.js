@@ -1,12 +1,5 @@
 function formatPoem(poem) {
-  const last = poem[poem.length - 1];
-  return (
-    poem
-      .split(/[.!?]/)
-      .slice(0, -1)
-      .map(string => string.trim())
-      .join('.\n') + last
-  );
+  return poem.split('. ').join('.\n');
 }
 
 console.log(

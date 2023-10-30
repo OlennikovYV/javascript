@@ -1,6 +1,6 @@
 mocha.setup('bdd');
 
-describe(`Slaphead`, function () {
+describe(`Don't rely on luck.`, function () {
   const equal = chai.assert.equal;
   const notEqual = chai.assert.notEqual;
   const deepEqual = chai.assert.deepEqual;
@@ -13,12 +13,10 @@ describe(`Slaphead`, function () {
   const isNotEmpty = chai.assert.isNotEmpty;
   const lengthOf = chai.assert.lengthOf;
 
-  it('Testing for fixed tests', () => {
-    deepEqual(bald('-//-'), ['----', 'Homer!']);
-    deepEqual(bald('/---------'), ['----------', 'Unicorn!']);
-    deepEqual(bald('/-----/-'), ['--------', 'Homer!']);
-    deepEqual(bald('--/--/---/-/---'), ['---------------', 'Careless!']);
-    deepEqual(bald('-//--//--/----/-'), ['----------------', 'Hobo!']);
+  it('test', () => {
+    let lucky_number = Math.floor(Math.random() * 100 + 1);
+
+    equal(guess, lucky_number, 'Sorry. Unlucky this time.');
   });
 });
 

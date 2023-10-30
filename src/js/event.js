@@ -1,21 +1,7 @@
-function bald(x) {
-  function hairs(countHair) {
-    if (countHair === 0) return 'Clean!';
-    if (countHair === 1) return 'Unicorn!';
-    if (countHair === 2) return 'Homer!';
-    if (countHair <= 5) return 'Careless!';
+var guess = 3;
 
-    return 'Hobo!';
-  }
+Math.random = () => 0.02;
 
-  const countHairShown = x.split('').filter(hair => hair === '/').length;
-  const hairsRemoved = x.replaceAll(/[\/]/g, '-');
+let lucky_number = Math.floor(Math.random() * 100 + 1);
 
-  return [hairsRemoved, hairs(countHairShown)];
-}
-
-console.log(bald('-//-')); // ['----', 'Homer!']
-console.log(bald('/---------')); // ['----------', 'Unicorn!']
-console.log(bald('/-----/-')); // ['--------', 'Homer!']
-console.log(bald('--/--/---/-/---')); // ['---------------', 'Careless!']
-console.log(bald('-//--//--/----/-')); // ['----------------', 'Hobo!']
+console.log(lucky_number); // 3

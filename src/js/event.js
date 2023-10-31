@@ -1,5 +1,5 @@
 function fixTheMeerkat(arr) {
-  return [arr[2], arr[1], arr[0]];
+  return arr.reverse();
 }
 
 console.log(fixTheMeerkat(['tail', 'body', 'head']));

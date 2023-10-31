@@ -1,6 +1,6 @@
 mocha.setup('bdd');
 
-describe(`Don't rely on luck.`, function () {
+describe(`My head is at the wrong end!`, function () {
   const equal = chai.assert.equal;
   const notEqual = chai.assert.notEqual;
   const deepEqual = chai.assert.deepEqual;
@@ -13,10 +13,32 @@ describe(`Don't rely on luck.`, function () {
   const isNotEmpty = chai.assert.isNotEmpty;
   const lengthOf = chai.assert.lengthOf;
 
-  it('test', () => {
-    let lucky_number = Math.floor(Math.random() * 100 + 1);
-
-    equal(guess, lucky_number, 'Sorry. Unlucky this time.');
+  it('Testing for fixed tests', () => {
+    deepEqual(fixTheMeerkat(['tail', 'body', 'head']), [
+      'head',
+      'body',
+      'tail',
+    ]);
+    deepEqual(fixTheMeerkat(['tails', 'body', 'heads']), [
+      'heads',
+      'body',
+      'tails',
+    ]);
+    deepEqual(fixTheMeerkat(['bottom', 'middle', 'top']), [
+      'top',
+      'middle',
+      'bottom',
+    ]);
+    deepEqual(fixTheMeerkat(['lower legs', 'torso', 'upper legs']), [
+      'upper legs',
+      'torso',
+      'lower legs',
+    ]);
+    deepEqual(fixTheMeerkat(['ground', 'rainbow', 'sky']), [
+      'sky',
+      'rainbow',
+      'ground',
+    ]);
   });
 });
 

@@ -1,5 +1,5 @@
 function zipvalidate(postcode) {
-  return /^[1-46][0-9]{5}$/.test(postcode);
+  return /^(?![05789])\d{6}$/.test(postcode);
 }
 
 console.log(zipvalidate('198328')); // True

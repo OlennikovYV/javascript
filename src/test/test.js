@@ -1,6 +1,6 @@
 mocha.setup('bdd');
 
-describe(`My head is at the wrong end!`, function () {
+describe(`Russian postal code checker`, function () {
   const equal = chai.assert.equal;
   const notEqual = chai.assert.notEqual;
   const deepEqual = chai.assert.deepEqual;
@@ -13,32 +13,16 @@ describe(`My head is at the wrong end!`, function () {
   const isNotEmpty = chai.assert.isNotEmpty;
   const lengthOf = chai.assert.lengthOf;
 
-  it('Testing for fixed tests', () => {
-    deepEqual(fixTheMeerkat(['tail', 'body', 'head']), [
-      'head',
-      'body',
-      'tail',
-    ]);
-    deepEqual(fixTheMeerkat(['tails', 'body', 'heads']), [
-      'heads',
-      'body',
-      'tails',
-    ]);
-    deepEqual(fixTheMeerkat(['bottom', 'middle', 'top']), [
-      'top',
-      'middle',
-      'bottom',
-    ]);
-    deepEqual(fixTheMeerkat(['lower legs', 'torso', 'upper legs']), [
-      'upper legs',
-      'torso',
-      'lower legs',
-    ]);
-    deepEqual(fixTheMeerkat(['ground', 'rainbow', 'sky']), [
-      'sky',
-      'rainbow',
-      'ground',
-    ]);
+  it('test', () => {
+    isTrue(zipvalidate('198328'));
+    isTrue(zipvalidate('310003'));
+    isTrue(zipvalidate('424000'));
+
+    isTrue(!zipvalidate('12A483'));
+    isTrue(!zipvalidate('1@63'));
+    isTrue(!zipvalidate('111'));
+    isTrue(!zipvalidate('056879'));
+    isTrue(!zipvalidate('1111111'));
   });
 });
 

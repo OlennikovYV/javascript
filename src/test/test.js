@@ -1,6 +1,6 @@
 mocha.setup('bdd');
 
-describe(`Russian postal code checker`, function () {
+describe(`Averages of numbers`, function () {
   const equal = chai.assert.equal;
   const notEqual = chai.assert.notEqual;
   const deepEqual = chai.assert.deepEqual;
@@ -13,16 +13,10 @@ describe(`Russian postal code checker`, function () {
   const isNotEmpty = chai.assert.isNotEmpty;
   const lengthOf = chai.assert.lengthOf;
 
-  it('test', () => {
-    isTrue(zipvalidate('198328'));
-    isTrue(zipvalidate('310003'));
-    isTrue(zipvalidate('424000'));
-
-    isTrue(!zipvalidate('12A483'));
-    isTrue(!zipvalidate('1@63'));
-    isTrue(!zipvalidate('111'));
-    isTrue(!zipvalidate('056879'));
-    isTrue(!zipvalidate('1111111'));
+  it('Basic Tests', function () {
+    deepEqual(averages([2, 2, 2, 2, 2]), [2, 2, 2, 2]);
+    deepEqual(averages([2, -2, 2, -2, 2]), [0, 0, 0, 0]);
+    deepEqual(averages([1, 3, 5, 1, -10]), [2, 4, 3, -4.5]);
   });
 });
 

@@ -1,13 +1,16 @@
-function zipvalidate(postcode) {
-  return /^(?![05789])\d{6}$/.test(postcode);
+function averages(numbers) {
+  let averagesArray = [];
+
+  if (!numbers || numbers.length <= 1) return [];
+
+  for (let i = 0; i < numbers.length - 1; i++) {
+    averagesArray.push((numbers[i] + numbers[i + 1]) / 2);
+  }
+
+  return averagesArray;
 }
 
-console.log(zipvalidate('198328')); // True
-console.log(zipvalidate('310003')); // True
-console.log(zipvalidate('424000')); // True
-
-console.log(zipvalidate('12A483')); // False
-console.log(zipvalidate('1@63')); // False
-console.log(zipvalidate('111')); // False
-console.log(zipvalidate('056879')); // False
-console.log(zipvalidate('1111111')); // False
+console.log(averages(null)); // []
+console.log(averages([2, 2, 2, 2, 2])); // [2, 2, 2, 2]
+console.log(averages([2, -2, 2, -2, 2])); // [0, 0, 0, 0]
+console.log(averages([1, 3, 5, 1, -10])); // [2, 4, 3, -4.5]

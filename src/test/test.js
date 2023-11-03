@@ -1,6 +1,6 @@
 mocha.setup('bdd');
 
-describe(`Averages of numbers`, function () {
+describe(`Spoonerize Me`, function () {
   const equal = chai.assert.equal;
   const notEqual = chai.assert.notEqual;
   const deepEqual = chai.assert.deepEqual;
@@ -13,10 +13,10 @@ describe(`Averages of numbers`, function () {
   const isNotEmpty = chai.assert.isNotEmpty;
   const lengthOf = chai.assert.lengthOf;
 
-  it('Basic Tests', function () {
-    deepEqual(averages([2, 2, 2, 2, 2]), [2, 2, 2, 2]);
-    deepEqual(averages([2, -2, 2, -2, 2]), [0, 0, 0, 0]);
-    deepEqual(averages([1, 3, 5, 1, -10]), [2, 4, 3, -4.5]);
+  it('Basic Tests', () => {
+    equal(spoonerize('nit picking'), 'pit nicking');
+    equal(spoonerize('wedding bells'), 'bedding wells');
+    equal(spoonerize('jelly beans'), 'belly jeans');
   });
 });
 

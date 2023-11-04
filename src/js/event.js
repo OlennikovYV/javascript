@@ -1,14 +1,25 @@
-function spoonerize(words) {
-  const wordsArray = words.split(' ');
-  const firstChar = words[0][0];
+function equableTriangle(a, b, c) {
+  const perimetr = a + b + c;
+  const halfPerimetr = perimetr / 2;
+  const area = Math.sqrt(
+    halfPerimetr * (halfPerimetr - a) * (halfPerimetr - b) * (halfPerimetr - c)
+  );
 
-  wordsArray[0] = wordsArray[wordsArray.length - 1][0] + wordsArray[0].slice(1);
-  wordsArray[wordsArray.length - 1] =
-    firstChar + wordsArray[wordsArray.length - 1].slice(1);
-
-  return wordsArray.join(' ');
+  return perimetr === area;
 }
 
-console.log(spoonerize('nit picking')); // 'pit nicking'
-console.log(spoonerize('wedding bells')); // 'bedding wells'
-console.log(spoonerize('jelly beans')); // 'belly jeans'
+console.log(equableTriangle(5, 12, 13)); // true
+console.log(equableTriangle(2, 3, 4)); // false
+console.log(equableTriangle(6, 8, 10)); // true
+console.log(equableTriangle(7, 15, 20)); // true
+console.log(equableTriangle(17, 17, 30)); // false
+console.log(equableTriangle(7, 10, 12)); // false
+console.log(equableTriangle(6, 11, 12)); // false
+console.log(equableTriangle(25, 25, 45)); // false
+console.log(equableTriangle(13, 37, 30)); // false
+console.log(equableTriangle(6, 25, 29)); // true
+console.log(equableTriangle(10, 11, 18)); // false
+console.log(equableTriangle(73, 9, 80)); // false
+console.log(equableTriangle(12, 35, 37)); // false
+console.log(equableTriangle(120, 109, 13)); // false
+console.log(equableTriangle(9, 10, 17)); // true

@@ -1,11 +1,9 @@
 function equableTriangle(a, b, c) {
   const perimetr = a + b + c;
   const halfPerimetr = perimetr / 2;
-  const area = Math.sqrt(
-    halfPerimetr * (halfPerimetr - a) * (halfPerimetr - b) * (halfPerimetr - c)
-  );
+  const area = (halfPerimetr - a) * (halfPerimetr - b) * (halfPerimetr - c);
 
-  return perimetr === area;
+  return 2 * perimetr === area;
 }
 
 console.log(equableTriangle(5, 12, 13)); // true

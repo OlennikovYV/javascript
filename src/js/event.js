@@ -1,9 +1,7 @@
 function lineupStudents(students) {
-  return students.split(' ').sort((a, b) => {
-    const diffLength = b.length - a.length;
-
-    return diffLength ? diffLength : b.localeCompare(a);
-  });
+  return students
+    .split(' ')
+    .sort((a, b) => b.length - a.length || b.localeCompare(a));
 }
 
 let s1 =

@@ -1,23 +1,133 @@
-function equableTriangle(a, b, c) {
-  const perimetr = a + b + c;
-  const halfPerimetr = perimetr / 2;
-  const area = (halfPerimetr - a) * (halfPerimetr - b) * (halfPerimetr - c);
+function lineupStudents(students) {
+  return students.split(' ').sort((a, b) => {
+    const diffLength = b.length - a.length;
 
-  return 2 * perimetr === area;
+    return diffLength ? diffLength : b.localeCompare(a);
+  });
 }
 
-console.log(equableTriangle(5, 12, 13)); // true
-console.log(equableTriangle(2, 3, 4)); // false
-console.log(equableTriangle(6, 8, 10)); // true
-console.log(equableTriangle(7, 15, 20)); // true
-console.log(equableTriangle(17, 17, 30)); // false
-console.log(equableTriangle(7, 10, 12)); // false
-console.log(equableTriangle(6, 11, 12)); // false
-console.log(equableTriangle(25, 25, 45)); // false
-console.log(equableTriangle(13, 37, 30)); // false
-console.log(equableTriangle(6, 25, 29)); // true
-console.log(equableTriangle(10, 11, 18)); // false
-console.log(equableTriangle(73, 9, 80)); // false
-console.log(equableTriangle(12, 35, 37)); // false
-console.log(equableTriangle(120, 109, 13)); // false
-console.log(equableTriangle(9, 10, 17)); // true
+let s1 =
+  'Tadashi Takahiro Takao Takashi Takayuki Takehiko Takeo Takeshi Takeshi';
+console.log(lineupStudents(s1));
+// [
+//   'Takehiko',
+//   'Takayuki',
+//   'Takahiro',
+//   'Takeshi',
+//   'Takeshi',
+//   'Takashi',
+//   'Tadashi',
+//   'Takeo',
+//   'Takao',
+// ];
+
+let s2 =
+  'Michio Miki Mikio Minori Minoru Mitsuo Mitsuru Nao Naoki Naoko Noboru Nobu Nobuo Nobuyuki Nori Norio Osamu Rafu Raiden Ringo Rokuro Ronin Ryo Ryoichi Ryota Ryozo Ryuichi Ryuu Saburo Sadao Samuru Satoru Satoshi Seiichi Seiji Senichi Shichiro Shig Shigekazu Shigeo Shigeru Shima Shin Shinichi Shinji Shiro Shoichi Shoji Shuichi Shuji Shunichi Susumu Tadao Tadashi Takahiro Takao Takashi Takayuki Takehiko Takeo Takeshi Takeshi Takumi Tama Tamotsu Taro Tatsuo Tatsuya Teruo Tetsip Tetsuya Tomi Tomio Toru Toshi Toshiaki Toshihiro Toshio Toshiyuki Toyo Tsuneo Tsutomu Tsuyoshi Uyeda Yasahiro Yasuhiro Yasuo Yasushi Yemon Yogi Yoichi Yori Yoshi Yoshiaki Yoshihiro Yoshikazu Yoshimitsu Yoshinori Yoshio Yoshiro Yoshito Yoshiyuki Yuichi Yuji Yuki';
+console.log(lineupStudents(s2));
+// [
+//   'Yoshimitsu',
+//   'Yoshiyuki',
+//   'Yoshinori',
+//   'Yoshikazu',
+//   'Yoshihiro',
+//   'Toshiyuki',
+//   'Toshihiro',
+//   'Shigekazu',
+//   'Yoshiaki',
+//   'Yasuhiro',
+//   'Yasahiro',
+//   'Tsuyoshi',
+//   'Toshiaki',
+//   'Takehiko',
+//   'Takayuki',
+//   'Takahiro',
+//   'Shunichi',
+//   'Shinichi',
+//   'Shichiro',
+//   'Nobuyuki',
+//   'Yoshito',
+//   'Yoshiro',
+//   'Yasushi',
+//   'Tsutomu',
+//   'Tetsuya',
+//   'Tatsuya',
+//   'Tamotsu',
+//   'Takeshi',
+//   'Takeshi',
+//   'Takashi',
+//   'Tadashi',
+//   'Shuichi',
+//   'Shoichi',
+//   'Shigeru',
+//   'Senichi',
+//   'Seiichi',
+//   'Satoshi',
+//   'Ryuichi',
+//   'Ryoichi',
+//   'Mitsuru',
+//   'Yuichi',
+//   'Yoshio',
+//   'Yoichi',
+//   'Tsuneo',
+//   'Toshio',
+//   'Tetsip',
+//   'Tatsuo',
+//   'Takumi',
+//   'Susumu',
+//   'Shinji',
+//   'Shigeo',
+//   'Satoru',
+//   'Samuru',
+//   'Saburo',
+//   'Rokuro',
+//   'Raiden',
+//   'Noboru',
+//   'Mitsuo',
+//   'Minoru',
+//   'Minori',
+//   'Michio',
+//   'Yoshi',
+//   'Yemon',
+//   'Yasuo',
+//   'Uyeda',
+//   'Toshi',
+//   'Tomio',
+//   'Teruo',
+//   'Takeo',
+//   'Takao',
+//   'Tadao',
+//   'Shuji',
+//   'Shoji',
+//   'Shiro',
+//   'Shima',
+//   'Seiji',
+//   'Sadao',
+//   'Ryozo',
+//   'Ryota',
+//   'Ronin',
+//   'Ringo',
+//   'Osamu',
+//   'Norio',
+//   'Nobuo',
+//   'Naoko',
+//   'Naoki',
+//   'Mikio',
+//   'Yuki',
+//   'Yuji',
+//   'Yori',
+//   'Yogi',
+//   'Toyo',
+//   'Toru',
+//   'Tomi',
+//   'Taro',
+//   'Tama',
+//   'Shin',
+//   'Shig',
+//   'Ryuu',
+//   'Rafu',
+//   'Nori',
+//   'Nobu',
+//   'Miki',
+//   'Ryo',
+//   'Nao',
+// ];

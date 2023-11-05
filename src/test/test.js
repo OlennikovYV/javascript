@@ -1,6 +1,6 @@
 mocha.setup('bdd');
 
-describe(`Check if a triangle is an equable triangle!`, function () {
+describe(`Suzuki needs help lining up his students!`, function () {
   const equal = chai.assert.equal;
   const notEqual = chai.assert.notEqual;
   const deepEqual = chai.assert.deepEqual;
@@ -13,22 +13,132 @@ describe(`Check if a triangle is an equable triangle!`, function () {
   const isNotEmpty = chai.assert.isNotEmpty;
   const lengthOf = chai.assert.lengthOf;
 
-  it('Basic Tests', () => {
-    equal(equableTriangle(5, 12, 13), true);
-    equal(equableTriangle(2, 3, 4), false);
-    equal(equableTriangle(6, 8, 10), true);
-    equal(equableTriangle(7, 15, 20), true);
-    equal(equableTriangle(17, 17, 30), false);
-    equal(equableTriangle(7, 10, 12), false);
-    equal(equableTriangle(6, 11, 12), false);
-    equal(equableTriangle(25, 25, 45), false);
-    equal(equableTriangle(13, 37, 30), false);
-    equal(equableTriangle(6, 25, 29), true);
-    equal(equableTriangle(10, 11, 18), false);
-    equal(equableTriangle(73, 9, 80), false);
-    equal(equableTriangle(12, 35, 37), false);
-    equal(equableTriangle(120, 109, 13), false);
-    equal(equableTriangle(9, 10, 17), true);
+  it('Tests', () => {
+    let s1 =
+      'Tadashi Takahiro Takao Takashi Takayuki Takehiko Takeo Takeshi Takeshi';
+    let lst1 = [
+      'Takehiko',
+      'Takayuki',
+      'Takahiro',
+      'Takeshi',
+      'Takeshi',
+      'Takashi',
+      'Tadashi',
+      'Takeo',
+      'Takao',
+    ];
+    deepEqual(lineupStudents(s1), lst1);
+
+    let s2 =
+      'Michio Miki Mikio Minori Minoru Mitsuo Mitsuru Nao Naoki Naoko Noboru Nobu Nobuo Nobuyuki Nori Norio Osamu Rafu Raiden Ringo Rokuro Ronin Ryo Ryoichi Ryota Ryozo Ryuichi Ryuu Saburo Sadao Samuru Satoru Satoshi Seiichi Seiji Senichi Shichiro Shig Shigekazu Shigeo Shigeru Shima Shin Shinichi Shinji Shiro Shoichi Shoji Shuichi Shuji Shunichi Susumu Tadao Tadashi Takahiro Takao Takashi Takayuki Takehiko Takeo Takeshi Takeshi Takumi Tama Tamotsu Taro Tatsuo Tatsuya Teruo Tetsip Tetsuya Tomi Tomio Toru Toshi Toshiaki Toshihiro Toshio Toshiyuki Toyo Tsuneo Tsutomu Tsuyoshi Uyeda Yasahiro Yasuhiro Yasuo Yasushi Yemon Yogi Yoichi Yori Yoshi Yoshiaki Yoshihiro Yoshikazu Yoshimitsu Yoshinori Yoshio Yoshiro Yoshito Yoshiyuki Yuichi Yuji Yuki';
+    let lst2 = [
+      'Yoshimitsu',
+      'Yoshiyuki',
+      'Yoshinori',
+      'Yoshikazu',
+      'Yoshihiro',
+      'Toshiyuki',
+      'Toshihiro',
+      'Shigekazu',
+      'Yoshiaki',
+      'Yasuhiro',
+      'Yasahiro',
+      'Tsuyoshi',
+      'Toshiaki',
+      'Takehiko',
+      'Takayuki',
+      'Takahiro',
+      'Shunichi',
+      'Shinichi',
+      'Shichiro',
+      'Nobuyuki',
+      'Yoshito',
+      'Yoshiro',
+      'Yasushi',
+      'Tsutomu',
+      'Tetsuya',
+      'Tatsuya',
+      'Tamotsu',
+      'Takeshi',
+      'Takeshi',
+      'Takashi',
+      'Tadashi',
+      'Shuichi',
+      'Shoichi',
+      'Shigeru',
+      'Senichi',
+      'Seiichi',
+      'Satoshi',
+      'Ryuichi',
+      'Ryoichi',
+      'Mitsuru',
+      'Yuichi',
+      'Yoshio',
+      'Yoichi',
+      'Tsuneo',
+      'Toshio',
+      'Tetsip',
+      'Tatsuo',
+      'Takumi',
+      'Susumu',
+      'Shinji',
+      'Shigeo',
+      'Satoru',
+      'Samuru',
+      'Saburo',
+      'Rokuro',
+      'Raiden',
+      'Noboru',
+      'Mitsuo',
+      'Minoru',
+      'Minori',
+      'Michio',
+      'Yoshi',
+      'Yemon',
+      'Yasuo',
+      'Uyeda',
+      'Toshi',
+      'Tomio',
+      'Teruo',
+      'Takeo',
+      'Takao',
+      'Tadao',
+      'Shuji',
+      'Shoji',
+      'Shiro',
+      'Shima',
+      'Seiji',
+      'Sadao',
+      'Ryozo',
+      'Ryota',
+      'Ronin',
+      'Ringo',
+      'Osamu',
+      'Norio',
+      'Nobuo',
+      'Naoko',
+      'Naoki',
+      'Mikio',
+      'Yuki',
+      'Yuji',
+      'Yori',
+      'Yogi',
+      'Toyo',
+      'Toru',
+      'Tomi',
+      'Taro',
+      'Tama',
+      'Shin',
+      'Shig',
+      'Ryuu',
+      'Rafu',
+      'Nori',
+      'Nobu',
+      'Miki',
+      'Ryo',
+      'Nao',
+    ];
+    deepEqual(lineupStudents(s2), lst2);
   });
 });
 

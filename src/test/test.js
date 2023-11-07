@@ -1,6 +1,6 @@
 mocha.setup('bdd');
 
-describe(`Complete The Pattern #1`, function () {
+describe(`ATM`, function () {
   const equal = chai.assert.equal;
   const notEqual = chai.assert.notEqual;
   const deepEqual = chai.assert.deepEqual;
@@ -13,10 +13,17 @@ describe(`Complete The Pattern #1`, function () {
   const isNotEmpty = chai.assert.isNotEmpty;
   const lengthOf = chai.assert.lengthOf;
 
-  it('test', () => {
-    equal(pattern(1), '1');
-    equal(pattern(2), '1\n22');
-    equal(pattern(5), '1\n22\n333\n4444\n55555');
+  it('should work when chosing notes is possible', function () {
+    equal(solve(770), 4, 'Wrong result for 770');
+    equal(solve(550), 2, 'Wrong result for 550');
+    equal(solve(10), 1, 'Wrong result for 10');
+    equal(solve(1250), 4, 'Wrong result for 1250');
+  });
+
+  it('should return -1 if chosing notes is not possible', function () {
+    equal(solve(125), -1, 'Wrong result for 125');
+    equal(solve(666), -1, 'Wrong result for 666');
+    equal(solve(42), -1, 'Wrong result for 42');
   });
 });
 

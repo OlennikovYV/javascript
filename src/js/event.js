@@ -1,20 +1,13 @@
 function solve(n) {
   let balance = n;
   let countBanktots = 0;
-  const nominals = [500, 200, 100, 50, 20, 10];
 
-  if (n % 10 !== 0) return -1;
+  [500, 200, 100, 50, 20, 10].forEach(nominal => {
+    countBanktots += Math.floor(balance / nominal);
+    balance = balance % nominal;
+  });
 
-  for (let i = 0; i < nominals.length; i++) {
-    if (balance >= nominals[i]) {
-      countCurrentNominal = Math.floor(balance / nominals[i]);
-      countBanktots += countCurrentNominal;
-
-      balance -= countCurrentNominal * nominals[i];
-    }
-  }
-
-  return countBanktots;
+  return balance ? -1 : countBanktots;
 }
 
 console.log(solve(770)); // 4

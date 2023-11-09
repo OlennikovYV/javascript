@@ -1,15 +1,8 @@
 function findDup(arr) {
-  let dup;
-  const sortArr = arr.sort((a, b) => a - b);
-
-  for (let i = 0; i < arr.length; i++) {
-    if (i + 1 !== arr[i]) {
-      dup = arr[i];
-      break;
-    }
-  }
-
-  return dup;
+  return arr.reduce(
+    (dup, digit, i) => (arr.indexOf(digit) === i ? dup : digit),
+    null
+  );
 }
 
 console.log(findDup([1, 2, 2, 3])); // 2

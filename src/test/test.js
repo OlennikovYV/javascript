@@ -1,6 +1,6 @@
 mocha.setup('bdd');
 
-describe(`Between Extremes`, function () {
+describe(`Find The Duplicated Number in a Consecutive Unsorted List`, function () {
   const equal = chai.assert.equal;
   const notEqual = chai.assert.notEqual;
   const deepEqual = chai.assert.deepEqual;
@@ -14,8 +14,8 @@ describe(`Between Extremes`, function () {
   const lengthOf = chai.assert.lengthOf;
 
   it('test', () => {
-    equal(betweenExtremes([21, 34, 54, 43, 26, 12]), 42);
-    equal(betweenExtremes([-1, -41, -77, -100]), 99);
+    equal(findDup([1, 2, 2, 3]), 2);
+    equal(findDup([1, 3, 2, 5, 4, 5, 7, 6]), 5);
   });
 });
 

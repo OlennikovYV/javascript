@@ -1,5 +1,7 @@
 function uniteUnique(...arr) {
-  return [...new Set([].concat(...arr))];
+  return []
+    .concat(...arr)
+    .filter((el, index, array) => array.indexOf(el) === index);
 }
 
 console.log(uniteUnique([1, 2], [3, 4])); // [1, 2, 3, 4]

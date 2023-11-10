@@ -1,7 +1,5 @@
 function uniteUnique(...arr) {
-  const allArr = arr.reduce((sumArr, arr) => sumArr.concat(...arr));
-
-  return [...new Set(allArr)];
+  return [...new Set([].concat(...arr))];
 }
 
 console.log(uniteUnique([1, 2], [3, 4])); // [1, 2, 3, 4]

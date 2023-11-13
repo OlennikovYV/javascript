@@ -1,6 +1,6 @@
 mocha.setup('bdd');
 
-describe(`Alternate Square Sum`, function () {
+describe(`Double Trouble`, function () {
   const equal = chai.assert.equal;
   const notEqual = chai.assert.notEqual;
   const deepEqual = chai.assert.deepEqual;
@@ -14,10 +14,10 @@ describe(`Alternate Square Sum`, function () {
   const lengthOf = chai.assert.lengthOf;
 
   it('test', () => {
-    equal(alternateSqSum([]), 0);
-    equal(alternateSqSum([1, 2, 3, 4, 5]), 29);
-    equal(alternateSqSum([-1, 0, -3, 0, -5, 3]), 0);
-    equal(alternateSqSum([-1, 2, -3, 4, -5]), 11);
+    deepEqual(trouble([1, 3, 5, 6, 7, 4, 3], 7), [1, 3, 5, 6, 7, 4]);
+    deepEqual(trouble([4, 1, 1, 1, 4], 2), [4, 1, 4]);
+    deepEqual(trouble([2, 2, 2, 2, 2, 2], 4), [2]);
+    deepEqual(trouble([2, 6, 2], 8), [2, 2]);
   });
 });
 

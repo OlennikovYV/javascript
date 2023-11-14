@@ -1,13 +1,9 @@
 function Counter() {
-  this.counter = 0;
+  let counter = 0;
 
-  this.check = function () {
-    return this.counter;
-  };
+  this.check = () => counter;
 
-  this.increment = function () {
-    this.counter = this.counter + 1;
-  };
+  this.increment = () => counter++;
 }
 
 var myCounter = new Counter();

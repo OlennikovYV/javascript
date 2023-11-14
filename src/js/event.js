@@ -1,16 +1,17 @@
-function trouble(x, t) {
-  for (let i = 0; i < x.length; ) {
-    if (x[i - 1] + x[i] !== t) {
-      i++;
-      continue;
-    }
-    x.splice(i, 1);
-  }
+function Counter() {
+  this.counter = 0;
 
-  return x;
+  this.check = function () {
+    return this.counter;
+  };
+
+  this.increment = function () {
+    this.counter = this.counter + 1;
+  };
 }
 
-console.log(trouble([1, 3, 5, 6, 7, 4, 3], 7)); // [1, 3, 5, 6, 7, 4]
-console.log(trouble([4, 1, 1, 1, 4], 2)); // [4, 1, 4]
-console.log(trouble([2, 2, 2, 2, 2, 2], 4)); // [2]
-console.log(trouble([2, 6, 2], 8)); // [2, 2]
+var myCounter = new Counter();
+
+myCounter.increment();
+myCounter.increment();
+console.log(myCounter.check()); // 2

@@ -1,13 +1,12 @@
-function Counter() {
-  let counter = 0;
+function sillycase(silly) {
+  const halfString = Math.ceil(silly.length / 2);
 
-  this.check = () => counter;
-
-  this.increment = () => counter++;
+  return (
+    silly.slice(0, halfString).toLowerCase() +
+    silly.slice(halfString).toUpperCase()
+  );
 }
 
-var myCounter = new Counter();
-
-myCounter.increment();
-myCounter.increment();
-console.log(myCounter.check()); // 2
+console.log(sillycase('foobar')); // 'fooBAR'
+console.log(sillycase('codewars')); // 'codeWARS'
+console.log(sillycase('brian')); // 'briAN'

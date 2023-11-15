@@ -1,6 +1,6 @@
 mocha.setup('bdd');
 
-describe(`You Can't Code Under Pressure #2`, function () {
+describe(`SillyCASE`, function () {
   const equal = chai.assert.equal;
   const notEqual = chai.assert.notEqual;
   const deepEqual = chai.assert.deepEqual;
@@ -13,12 +13,10 @@ describe(`You Can't Code Under Pressure #2`, function () {
   const isNotEmpty = chai.assert.isNotEmpty;
   const lengthOf = chai.assert.lengthOf;
 
-  it('test', () => {
-    var myCounter = new Counter();
-
-    myCounter.increment();
-    myCounter.increment();
-    equal(myCounter.check(), 2);
+  it('should be idempotent', function () {
+    equal(sillycase('foobar'), 'fooBAR');
+    equal(sillycase('codewars'), 'codeWARS');
+    equal(sillycase('brian'), 'briAN');
   });
 });
 

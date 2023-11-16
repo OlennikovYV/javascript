@@ -1,6 +1,6 @@
 mocha.setup('bdd');
 
-describe(`SillyCASE`, function () {
+describe(`Decreasing Inputs`, function () {
   const equal = chai.assert.equal;
   const notEqual = chai.assert.notEqual;
   const deepEqual = chai.assert.deepEqual;
@@ -13,10 +13,28 @@ describe(`SillyCASE`, function () {
   const isNotEmpty = chai.assert.isNotEmpty;
   const lengthOf = chai.assert.lengthOf;
 
-  it('should be idempotent', function () {
-    equal(sillycase('foobar'), 'fooBAR');
-    equal(sillycase('codewars'), 'codeWARS');
-    equal(sillycase('brian'), 'briAN');
+  it('add() = 0', () => {
+    equal(add(), 0);
+  });
+
+  it('add(100, 200, 300) = 300', () => {
+    equal(add(100, 200, 300), 300);
+  });
+
+  it('add(2) = 2', () => {
+    equal(add(2), 2);
+  });
+
+  it('add(4, -3, -2) = 2', () => {
+    equal(add(4, -3, -2), 2);
+  });
+
+  it('add(-1, -2, -3, -4) = -4', () => {
+    equal(add(-1, -2, -3, -4), -4);
+  });
+
+  it('add(446, -275, 241, 76, -272, -231, 327, -493) = 300', () => {
+    console.log(add(446, -275, 241, 76, -272, -231, 327, -493)); // 300
   });
 });
 

@@ -3,7 +3,7 @@ const Person = function () {
     _name: 'Leroy',
     _friends: [],
     fillFriends(f) {
-      this._friends = f;
+      this._friends.push(...f);
     },
   };
 

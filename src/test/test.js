@@ -1,6 +1,6 @@
 mocha.setup('bdd');
 
-describe(`Lexical this`, function () {
+describe(`Are there doubles?`, function () {
   const equal = chai.assert.equal;
   const notEqual = chai.assert.notEqual;
   const deepEqual = chai.assert.deepEqual;
@@ -13,19 +13,13 @@ describe(`Lexical this`, function () {
   const isNotEmpty = chai.assert.isNotEmpty;
   const lengthOf = chai.assert.lengthOf;
 
-  it('test', () => {
-    const people = [
-      ['bob', 'john'],
-      ['bob', 'john', 'dave'],
-      [],
-      ['bob', 'john', 'dave', 'matt', 'alex'],
-    ];
-
-    for (let i = 0; i < 4; i++) {
-      const person = Person();
-      person.fillFriends(people[i]);
-      deepEqual(person._friends, people[i]);
-    }
+  it('Example tests', function () {
+    equal(doubleCheck('abca'), false);
+    equal(doubleCheck('aabc'), true);
+    equal(doubleCheck('a 11 c d'), true);
+    equal(doubleCheck('AabBcC'), true);
+    equal(doubleCheck('a b  c'), true);
+    equal(doubleCheck('a b c d e f g h i h k'), false);
   });
 });
 

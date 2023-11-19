@@ -1,6 +1,6 @@
 mocha.setup('bdd');
 
-describe(`Are there doubles?`, function () {
+describe(`Regex Failure - Bug Fixing #2`, function () {
   const equal = chai.assert.equal;
   const notEqual = chai.assert.notEqual;
   const deepEqual = chai.assert.deepEqual;
@@ -13,13 +13,9 @@ describe(`Are there doubles?`, function () {
   const isNotEmpty = chai.assert.isNotEmpty;
   const lengthOf = chai.assert.lengthOf;
 
-  it('Example tests', function () {
-    equal(doubleCheck('abca'), false);
-    equal(doubleCheck('aabc'), true);
-    equal(doubleCheck('a 11 c d'), true);
-    equal(doubleCheck('AabBcC'), true);
-    equal(doubleCheck('a b  c'), true);
-    equal(doubleCheck('a b c d e f g h i h k'), false);
+  it('Fixed Tests', function () {
+    equal(filterWords("You're Bad! timmy!"), "You're awesome! timmy!");
+    equal(filterWords("You're MEAN! timmy!"), "You're awesome! timmy!");
   });
 });
 

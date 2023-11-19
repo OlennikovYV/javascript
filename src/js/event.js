@@ -1,10 +1,6 @@
-function doubleCheck(str) {
-  return /(.)\1/i.test(str);
+function filterWords(phrase) {
+  return phrase.replace(/(bad|mean|ugly|horrible|hideous)/gi, 'awesome');
 }
 
-console.log(doubleCheck('abca')); // false
-console.log(doubleCheck('aabc')); // true
-console.log(doubleCheck('a 11 c d')); // true
-console.log(doubleCheck('AabBcC')); // true
-console.log(doubleCheck('a b  c')); // true
-console.log(doubleCheck('a b c d e f g h i h k')); // false
+console.log(filterWords("You're Bad! timmy!")); // "You're awesome! timmy!"
+console.log(filterWords("You're MEAN! timmy!")); // "You're awesome! timmy!"

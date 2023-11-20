@@ -4,13 +4,13 @@ function chessBoard(rows, columns) {
   for (let i = 0; i < rows; i++) {
     const row = [];
     for (let j = 0; j < columns; j++) {
-      if (i % 2 === 0) {
-        row.push(j % 2 == 0 ? 'O' : 'X');
+      if ((i + j) % 2 === 0) {
+        row.push('O');
       } else {
-        row.push(j % 2 == 0 ? 'X' : 'O');
+        row.push('X');
       }
     }
-    board[i] = row;
+    board.push(row);
   }
 
   return board;

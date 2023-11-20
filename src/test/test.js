@@ -1,6 +1,6 @@
 mocha.setup('bdd');
 
-describe(`Regex Failure - Bug Fixing #2`, function () {
+describe(`draw me a chessboard`, function () {
   const equal = chai.assert.equal;
   const notEqual = chai.assert.notEqual;
   const deepEqual = chai.assert.deepEqual;
@@ -13,9 +13,23 @@ describe(`Regex Failure - Bug Fixing #2`, function () {
   const isNotEmpty = chai.assert.isNotEmpty;
   const lengthOf = chai.assert.lengthOf;
 
-  it('Fixed Tests', function () {
-    equal(filterWords("You're Bad! timmy!"), "You're awesome! timmy!");
-    equal(filterWords("You're MEAN! timmy!"), "You're awesome! timmy!");
+  it('should have correct number of rows and columns', function () {
+    deepEqual(chessBoard(6, 4), [
+      ['O', 'X', 'O', 'X'],
+      ['X', 'O', 'X', 'O'],
+      ['O', 'X', 'O', 'X'],
+      ['X', 'O', 'X', 'O'],
+      ['O', 'X', 'O', 'X'],
+      ['X', 'O', 'X', 'O'],
+    ]);
+  });
+
+  it("O's and X's should alternate correctly", function () {
+    deepEqual(chessBoard(3, 7), [
+      ['O', 'X', 'O', 'X', 'O', 'X', 'O'],
+      ['X', 'O', 'X', 'O', 'X', 'O', 'X'],
+      ['O', 'X', 'O', 'X', 'O', 'X', 'O'],
+    ]);
   });
 });
 

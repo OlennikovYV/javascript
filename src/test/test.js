@@ -1,6 +1,6 @@
 mocha.setup('bdd');
 
-describe(`draw me a chessboard`, function () {
+describe(`Broken Counter`, function () {
   const equal = chai.assert.equal;
   const notEqual = chai.assert.notEqual;
   const deepEqual = chai.assert.deepEqual;
@@ -13,23 +13,20 @@ describe(`draw me a chessboard`, function () {
   const isNotEmpty = chai.assert.isNotEmpty;
   const lengthOf = chai.assert.lengthOf;
 
-  it('should have correct number of rows and columns', function () {
-    deepEqual(chessBoard(6, 4), [
-      ['O', 'X', 'O', 'X'],
-      ['X', 'O', 'X', 'O'],
-      ['O', 'X', 'O', 'X'],
-      ['X', 'O', 'X', 'O'],
-      ['O', 'X', 'O', 'X'],
-      ['X', 'O', 'X', 'O'],
-    ]);
+  var counter = new Counter();
+
+  it('initialize', function () {
+    equal(counter.getValue(), 0, 'Initial counter value must be 0');
   });
 
-  it("O's and X's should alternate correctly", function () {
-    deepEqual(chessBoard(3, 7), [
-      ['O', 'X', 'O', 'X', 'O', 'X', 'O'],
-      ['X', 'O', 'X', 'O', 'X', 'O', 'X'],
-      ['O', 'X', 'O', 'X', 'O', 'X', 'O'],
-    ]);
+  it('increase', function () {
+    counter.increase();
+    equal(counter.getValue(), 1, 'Counter value must be increased');
+  });
+
+  it('reset', function () {
+    counter.reset();
+    equal(counter.getValue(), 0, 'Counter value must be 0 after reset');
   });
 });
 

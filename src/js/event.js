@@ -1,12 +1,22 @@
 function howManyDalmatians(number) {
-  if (number <= 10) {
-    return 'Hardly any';
-  } else if (number <= 50) {
-    return 'More than a handful!';
-  } else if (number === 101) {
-    return '101 DALMATIANS!!!';
-  } else {
-    return "Woah that's a lot of dogs!";
+  let dogs = [
+    'Hardly any',
+    'More than a handful!',
+    "Woah that's a lot of dogs!",
+    '101 DALMATIANS!!!',
+  ];
+
+  switch (true) {
+    case number <= 10:
+      return dogs[0];
+    case number <= 50:
+      return dogs[1];
+    case number <= 100:
+      return dogs[2];
+    case number === 101:
+      return dogs[3];
+    default:
+      return ``;
   }
 }
 

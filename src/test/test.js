@@ -1,6 +1,6 @@
 mocha.setup('bdd');
 
-describe(`Broken Counter`, function () {
+describe(`101 Dalmatians - squash the bugs, not the dogs!`, function () {
   const equal = chai.assert.equal;
   const notEqual = chai.assert.notEqual;
   const deepEqual = chai.assert.deepEqual;
@@ -13,20 +13,13 @@ describe(`Broken Counter`, function () {
   const isNotEmpty = chai.assert.isNotEmpty;
   const lengthOf = chai.assert.lengthOf;
 
-  var counter = new Counter();
-
-  it('initialize', function () {
-    equal(counter.getValue(), 0, 'Initial counter value must be 0');
-  });
-
-  it('increase', function () {
-    counter.increase();
-    equal(counter.getValue(), 1, 'Counter value must be increased');
-  });
-
-  it('reset', function () {
-    counter.reset();
-    equal(counter.getValue(), 0, 'Counter value must be 0 after reset');
+  it('Testing for fixed tests', () => {
+    equal(howManyDalmatians(26), 'More than a handful!');
+    equal(howManyDalmatians(8), 'Hardly any');
+    equal(howManyDalmatians(14), 'More than a handful!');
+    equal(howManyDalmatians(80), "Woah that's a lot of dogs!");
+    equal(howManyDalmatians(100), "Woah that's a lot of dogs!");
+    equal(howManyDalmatians(101), '101 DALMATIANS!!!');
   });
 });
 

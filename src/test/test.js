@@ -1,6 +1,6 @@
 mocha.setup('bdd');
 
-describe(`101 Dalmatians - squash the bugs, not the dogs!`, function () {
+describe(`Coding Meetup #2 - Higher-Order Functions Series - Greet developers`, function () {
   const equal = chai.assert.equal;
   const notEqual = chai.assert.notEqual;
   const deepEqual = chai.assert.deepEqual;
@@ -13,13 +13,65 @@ describe(`101 Dalmatians - squash the bugs, not the dogs!`, function () {
   const isNotEmpty = chai.assert.isNotEmpty;
   const lengthOf = chai.assert.lengthOf;
 
-  it('Testing for fixed tests', () => {
-    equal(howManyDalmatians(26), 'More than a handful!');
-    equal(howManyDalmatians(8), 'Hardly any');
-    equal(howManyDalmatians(14), 'More than a handful!');
-    equal(howManyDalmatians(80), "Woah that's a lot of dogs!");
-    equal(howManyDalmatians(100), "Woah that's a lot of dogs!");
-    equal(howManyDalmatians(101), '101 DALMATIANS!!!');
+  it('test', () => {
+    const list1 = [
+      {
+        firstName: 'Sofia',
+        lastName: 'I.',
+        country: 'Argentina',
+        continent: 'Americas',
+        age: 35,
+        language: 'Java',
+      },
+      {
+        firstName: 'Lukas',
+        lastName: 'X.',
+        country: 'Croatia',
+        continent: 'Europe',
+        age: 35,
+        language: 'Python',
+      },
+      {
+        firstName: 'Madison',
+        lastName: 'U.',
+        country: 'United States',
+        continent: 'Americas',
+        age: 32,
+        language: 'Ruby',
+      },
+    ];
+
+    const answer = [
+      {
+        firstName: 'Sofia',
+        lastName: 'I.',
+        country: 'Argentina',
+        continent: 'Americas',
+        age: 35,
+        language: 'Java',
+        greeting: 'Hi Sofia, what do you like the most about Java?',
+      },
+      {
+        firstName: 'Lukas',
+        lastName: 'X.',
+        country: 'Croatia',
+        continent: 'Europe',
+        age: 35,
+        language: 'Python',
+        greeting: 'Hi Lukas, what do you like the most about Python?',
+      },
+      {
+        firstName: 'Madison',
+        lastName: 'U.',
+        country: 'United States',
+        continent: 'Americas',
+        age: 32,
+        language: 'Ruby',
+        greeting: 'Hi Madison, what do you like the most about Ruby?',
+      },
+    ];
+
+    deepEqual(greetDevelopers(list1), answer);
   });
 });
 

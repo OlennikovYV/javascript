@@ -1,28 +1,66 @@
-function howManyDalmatians(number) {
-  let dogs = [
-    'Hardly any',
-    'More than a handful!',
-    "Woah that's a lot of dogs!",
-    '101 DALMATIANS!!!',
-  ];
+function greetDevelopers(list) {
+  list.forEach(element => {
+    greeting = `Hi ${element.firstName}, what do you like the most about ${element.language}?`;
+    element.greeting = greeting;
+  });
 
-  switch (true) {
-    case number <= 10:
-      return dogs[0];
-    case number <= 50:
-      return dogs[1];
-    case number <= 100:
-      return dogs[2];
-    case number === 101:
-      return dogs[3];
-    default:
-      return ``;
-  }
+  return list;
 }
 
-console.log(howManyDalmatians(26)); // 'More than a handful!'
-console.log(howManyDalmatians(8)); // 'Hardly any'
-console.log(howManyDalmatians(14)); // 'More than a handful!'
-console.log(howManyDalmatians(80)); // "Woah that's a lot of dogs!"
-console.log(howManyDalmatians(100)); // "Woah that's a lot of dogs!"
-console.log(howManyDalmatians(101)); // '101 DALMATIANS!!!'
+const list1 = [
+  {
+    firstName: 'Sofia',
+    lastName: 'I.',
+    country: 'Argentina',
+    continent: 'Americas',
+    age: 35,
+    language: 'Java',
+  },
+  {
+    firstName: 'Lukas',
+    lastName: 'X.',
+    country: 'Croatia',
+    continent: 'Europe',
+    age: 35,
+    language: 'Python',
+  },
+  {
+    firstName: 'Madison',
+    lastName: 'U.',
+    country: 'United States',
+    continent: 'Americas',
+    age: 32,
+    language: 'Ruby',
+  },
+];
+
+console.log(greetDevelopers(list1));
+// [
+//   {
+//     firstName: 'Sofia',
+//     lastName: 'I.',
+//     country: 'Argentina',
+//     continent: 'Americas',
+//     age: 35,
+//     language: 'Java',
+//     greeting: 'Hi Sofia, what do you like the most about Java?',
+//   },
+//   {
+//     firstName: 'Lukas',
+//     lastName: 'X.',
+//     country: 'Croatia',
+//     continent: 'Europe',
+//     age: 35,
+//     language: 'Python',
+//     greeting: 'Hi Lukas, what do you like the most about Python?',
+//   },
+//   {
+//     firstName: 'Madison',
+//     lastName: 'U.',
+//     country: 'United States',
+//     continent: 'Americas',
+//     age: 32,
+//     language: 'Ruby',
+//     greeting: 'Hi Madison, what do you like the most about Ruby?',
+//   },
+// ];

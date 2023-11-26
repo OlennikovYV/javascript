@@ -1,6 +1,6 @@
 mocha.setup('bdd');
 
-describe(`Simple Fun #152: Invite More Women?`, function () {
+describe(`Arithmetic List!`, function () {
   const equal = chai.assert.equal;
   const notEqual = chai.assert.notEqual;
   const deepEqual = chai.assert.deepEqual;
@@ -13,11 +13,11 @@ describe(`Simple Fun #152: Invite More Women?`, function () {
   const isNotEmpty = chai.assert.isNotEmpty;
   const lengthOf = chai.assert.lengthOf;
 
-  it('It should works for basic tests.', function () {
-    equal(inviteMoreWomen([1, -1, 1]), true);
-    equal(inviteMoreWomen([1, 1, 1]), true);
-    equal(inviteMoreWomen([-1, -1, -1]), false);
-    equal(inviteMoreWomen([1, -1]), false);
+  it('test', () => {
+    deepEqual(
+      seqlist(0, 1, 20),
+      [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19]
+    );
   });
 });
 

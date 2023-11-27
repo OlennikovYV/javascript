@@ -1,13 +1,41 @@
-const seqlist = function (first, c, l) {
-  const arithmeticList = [first];
-  let currentNumber = first;
+function alan(x) {
+  const stopAlan = [
+    'Rejection',
+    'Disappointment',
+    'Backstabbing Central',
+    'Shattered Dreams Parkway',
+  ];
 
-  for (let i = 0; i < l - 1; i++) {
-    currentNumber += c;
-    arithmeticList.push(currentNumber);
-  }
+  return stopAlan.every(stop => x.includes(stop))
+    ? 'Smell my cheese you mother!'
+    : 'No, seriously, run. You will miss it.';
+}
 
-  return arithmeticList;
-};
-
-console.log(seqlist(0, 1, 20)); // [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19]
+console.log(
+  alan([
+    'Norwich',
+    'Rejection',
+    'Disappointment',
+    'Backstabbing Central',
+    'Shattered Dreams Parkway',
+    'London',
+  ])
+);
+// 'Smell my cheese you mother!'
+console.log(alan(['London', 'Norwich']));
+// 'No, seriously, run. You will miss it.'
+console.log(
+  alan([
+    'Norwich',
+    'Tooting',
+    'Bank',
+    'Rejection',
+    'Disappointment',
+    'Backstabbing Central',
+    'Exeter',
+    'Shattered Dreams Parkway',
+    'Belgium',
+    'London',
+  ])
+);
+// 'Smell my cheese you mother!'

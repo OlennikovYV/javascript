@@ -1,6 +1,6 @@
 mocha.setup('bdd');
 
-describe(`Arithmetic List!`, function () {
+describe(`Alan Partridge III - London`, function () {
   const equal = chai.assert.equal;
   const notEqual = chai.assert.notEqual;
   const deepEqual = chai.assert.deepEqual;
@@ -13,10 +13,33 @@ describe(`Arithmetic List!`, function () {
   const isNotEmpty = chai.assert.isNotEmpty;
   const lengthOf = chai.assert.lengthOf;
 
-  it('test', () => {
-    deepEqual(
-      seqlist(0, 1, 20),
-      [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19]
+  it('Testing for fixed tests', () => {
+    equal(
+      alan([
+        'Norwich',
+        'Rejection',
+        'Disappointment',
+        'Backstabbing Central',
+        'Shattered Dreams Parkway',
+        'London',
+      ]),
+      'Smell my cheese you mother!'
+    );
+    equal(alan(['London', 'Norwich']), 'No, seriously, run. You will miss it.');
+    equal(
+      alan([
+        'Norwich',
+        'Tooting',
+        'Bank',
+        'Rejection',
+        'Disappointment',
+        'Backstabbing Central',
+        'Exeter',
+        'Shattered Dreams Parkway',
+        'Belgium',
+        'London',
+      ]),
+      'Smell my cheese you mother!'
     );
   });
 });

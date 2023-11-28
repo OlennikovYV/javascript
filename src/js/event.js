@@ -1,41 +1,5 @@
-function alan(x) {
-  const stopAlan = [
-    'Rejection',
-    'Disappointment',
-    'Backstabbing Central',
-    'Shattered Dreams Parkway',
-  ];
-
-  return stopAlan.every(stop => x.includes(stop))
-    ? 'Smell my cheese you mother!'
-    : 'No, seriously, run. You will miss it.';
+function sumEvenNumbers(input) {
+  return input.reduce((sum, digit) => (digit % 2 ? sum : sum + digit), 0);
 }
 
-console.log(
-  alan([
-    'Norwich',
-    'Rejection',
-    'Disappointment',
-    'Backstabbing Central',
-    'Shattered Dreams Parkway',
-    'London',
-  ])
-);
-// 'Smell my cheese you mother!'
-console.log(alan(['London', 'Norwich']));
-// 'No, seriously, run. You will miss it.'
-console.log(
-  alan([
-    'Norwich',
-    'Tooting',
-    'Bank',
-    'Rejection',
-    'Disappointment',
-    'Backstabbing Central',
-    'Exeter',
-    'Shattered Dreams Parkway',
-    'Belgium',
-    'London',
-  ])
-);
-// 'Smell my cheese you mother!'
+console.log(sumEvenNumbers([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])); // 30

@@ -1,5 +1,9 @@
-function sumEvenNumbers(input) {
-  return input.reduce((sum, digit) => (digit % 2 ? sum : sum + digit), 0);
+function sakuraFall(v) {
+  const highBranch = 400;
+
+  return v <= 0 ? 0 : highBranch / v;
 }
 
-console.log(sumEvenNumbers([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])); // 30
+console.log(sakuraFall(5)); // 80
+console.log(sakuraFall(10)); // 40
+console.log(sakuraFall(-1)); // 0

@@ -1,6 +1,6 @@
 mocha.setup('bdd');
 
-describe(`Sum even numbers`, function () {
+describe(`The falling speed of petals`, function () {
   const equal = chai.assert.equal;
   const notEqual = chai.assert.notEqual;
   const deepEqual = chai.assert.deepEqual;
@@ -13,8 +13,10 @@ describe(`Sum even numbers`, function () {
   const isNotEmpty = chai.assert.isNotEmpty;
   const lengthOf = chai.assert.lengthOf;
 
-  it('test', () => {
-    equal(sumEvenNumbers([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]), 30);
+  it('Testing for fixed tests', () => {
+    equal(sakuraFall(5), 80);
+    equal(sakuraFall(10), 40);
+    equal(sakuraFall(-1), 0);
   });
 });
 

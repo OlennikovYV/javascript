@@ -1,26 +1,30 @@
-function adjacentElementsProduct(array) {
-  return array.reduce((maxProduct, number, index) => {
-    currentMul = array[index - 1] * number;
-    if (currentMul > maxProduct) maxProduct = currentMul;
+let employees = [
+  { firstName: 'Ollie', lastName: 'Hepburn', role: 'Boss' },
+  { firstName: 'Morty', lastName: 'Smith', role: 'Truck Driver' },
+  { firstName: 'Peter', lastName: 'Ross', role: 'Warehouse Manager' },
+  { firstName: 'Cal', lastName: 'Neil', role: 'Sales Assistant' },
+  { firstName: 'Jesse', lastName: 'Saunders', role: 'Admin' },
+  { firstName: 'Anna', lastName: 'Jones', role: 'Sales Assistant' },
+  { firstName: 'Carmel', lastName: 'Hamm', role: 'Admin' },
+  { firstName: 'Tori', lastName: 'Sparks', role: 'Sales Manager' },
+  { firstName: 'Peter', lastName: 'Jones', role: 'Warehouse Picker' },
+  { firstName: 'Mort', lastName: 'Smith', role: 'Warehouse Picker' },
+  { firstName: 'Anna', lastName: 'Bell', role: 'Admin' },
+  { firstName: 'Jewel', lastName: 'Bell', role: 'Receptionist' },
+  { firstName: 'Colin', lastName: 'Brown', role: 'Trainee' },
+];
 
-    return maxProduct;
-  }, Number.MIN_SAFE_INTEGER);
+function findEmployeesRole(name) {
+  const [firstName, lastName] = name.split(' ');
+
+  let findEmployer = employees.filter(
+    employer =>
+      employer.firstName === firstName && employer.lastName === lastName
+  );
+
+  return findEmployer.length > 0 ? findEmployer[0].role : 'Does not work here!';
 }
 
-//"Positive numbers"
-console.log(adjacentElementsProduct([5, 8])); // 40
-console.log(adjacentElementsProduct([1, 2, 3])); // 6
-console.log(adjacentElementsProduct([1, 5, 10, 9])); // 90
-console.log(adjacentElementsProduct([4, 12, 3, 1, 5])); // 48
-console.log(adjacentElementsProduct([5, 1, 2, 3, 1, 4])); // 6
-
-//"Both positive and negative values"
-console.log(adjacentElementsProduct([3, 6, -2, -5, 7, 3])); // 21
-console.log(adjacentElementsProduct([9, 5, 10, 2, 24, -1, -48])); // 50
-console.log(adjacentElementsProduct([5, 6, -4, 2, 3, 2, -23])); // 30
-console.log(adjacentElementsProduct([-23, 4, -5, 99, -27, 329, -2, 7, -921])); // -14
-console.log(adjacentElementsProduct([5, 1, 2, 3, 1, 4])); // 6
-
-//"Contains zeroes"
-console.log(adjacentElementsProduct([1, 0, 1, 0, 1000])); // 0
-console.log(adjacentElementsProduct([1, 2, 3, 0])); // 6
+console.log(findEmployeesRole('Dipper Pines')); // 'Does not work here!'
+console.log(findEmployeesRole('Morty Smith')); // 'Truck Driver'
+console.log(findEmployeesRole('Anna Bell')); // 'Admin'

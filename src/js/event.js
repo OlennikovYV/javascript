@@ -15,14 +15,10 @@ let employees = [
 ];
 
 function findEmployeesRole(name) {
-  const [firstName, lastName] = name.split(' ');
-
-  let findEmployer = employees.filter(
-    employer =>
-      employer.firstName === firstName && employer.lastName === lastName
-  );
-
-  return findEmployer.length > 0 ? findEmployer[0].role : 'Does not work here!';
+  for (var i = 0; i < employees.length; i++)
+    if (name === employees[i].firstName + ' ' + employees[i].lastName)
+      return employees[i].role;
+  return 'Does not work here!';
 }
 
 console.log(findEmployeesRole('Dipper Pines')); // 'Does not work here!'

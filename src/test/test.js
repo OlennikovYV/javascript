@@ -1,6 +1,6 @@
 mocha.setup('bdd');
 
-describe(`Find an employees role in the company`, function () {
+describe(`Elevator Distance`, function () {
   const equal = chai.assert.equal;
   const notEqual = chai.assert.notEqual;
   const deepEqual = chai.assert.deepEqual;
@@ -14,9 +14,9 @@ describe(`Find an employees role in the company`, function () {
   const lengthOf = chai.assert.lengthOf;
 
   it('test', () => {
-    equal(findEmployeesRole('Dipper Pines'), 'Does not work here!');
-    equal(findEmployeesRole('Morty Smith'), 'Truck Driver');
-    equal(findEmployeesRole('Anna Bell'), 'Admin');
+    equal(elevatorDistance([5, 2, 8]), 9);
+    equal(elevatorDistance([1, 2, 3]), 2);
+    equal(elevatorDistance([7, 1, 7, 1]), 18);
   });
 });
 

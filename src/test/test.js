@@ -1,6 +1,6 @@
 mocha.setup('bdd');
 
-describe(`Elevator Distance`, function () {
+describe(`Santa's Naughty List`, function () {
   const equal = chai.assert.equal;
   const notEqual = chai.assert.notEqual;
   const deepEqual = chai.assert.deepEqual;
@@ -13,10 +13,29 @@ describe(`Elevator Distance`, function () {
   const isNotEmpty = chai.assert.isNotEmpty;
   const lengthOf = chai.assert.lengthOf;
 
-  it('test', () => {
-    equal(elevatorDistance([5, 2, 8]), 9);
-    equal(elevatorDistance([1, 2, 3]), 2);
-    equal(elevatorDistance([7, 1, 7, 1]), 18);
+  it('Basic test', function () {
+    deepEqual(
+      findChildren(
+        ['Jason', 'Jackson', 'Jordan', 'Johnny'],
+        ['Jason', 'Jordan', 'Jennifer']
+      ),
+      ['Jason', 'Jordan']
+    );
+  });
+  it('Capitalization test', function () {
+    deepEqual(
+      findChildren(
+        ['jASon', 'JAsoN', 'JaSON', 'jasON'],
+        ['JasoN', 'jASOn', 'JAsoN', 'jASon', 'JASON']
+      ),
+      ['JAsoN', 'jASon']
+    );
+  });
+  it('Sorting test', function () {
+    deepEqual(
+      findChildren(['Jason', 'James', 'Johnson'], ['Jason', 'James', 'JJ']),
+      ['James', 'Jason']
+    );
   });
 });
 

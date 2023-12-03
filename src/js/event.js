@@ -1,16 +1,36 @@
-function elevatorDistance(array) {
-  let countFloor = 0;
+function findChildren(santasList, children) {
+  const santaChildrenList = [];
 
-  array.reduce((currentFloor, travel) => {
-    countFloor += Math.abs(currentFloor - travel);
-    currentFloor = travel;
-
-    return currentFloor;
+  santasList.filter(nameChildren => {
+    if (
+      children.includes(nameChildren) &&
+      !santaChildrenList.includes(nameChildren)
+    ) {
+      santaChildrenList.push(nameChildren);
+      return true;
+    } else {
+      return false;
+    }
   });
 
-  return countFloor;
+  return santaChildrenList.sort();
 }
 
-console.log(elevatorDistance([5, 2, 8])); // 9
-console.log(elevatorDistance([1, 2, 3])); // 2
-console.log(elevatorDistance([7, 1, 7, 1])); // 18
+console.log(
+  findChildren(
+    ['Jason', 'Jackson', 'Jordan', 'Johnny'],
+    ['Jason', 'Jordan', 'Jennifer']
+  )
+);
+// ["Jason", "Jordan"]);
+console.log(
+  findChildren(
+    ['jASon', 'JAsoN', 'JaSON', 'jasON'],
+    ['JasoN', 'jASOn', 'JAsoN', 'jASon', 'JASON']
+  )
+);
+// ["JAsoN", "jASon"]);
+console.log(
+  findChildren(['Jason', 'James', 'Johnson'], ['Jason', 'James', 'JJ'])
+);
+// ["James", "Jason"]);

@@ -1,36 +1,8 @@
-function findChildren(santasList, children) {
-  const santaChildrenList = [];
+const fibonacci = n => {
+  return n <= 1 ? n : fibonacci(n - 1) + fibonacci(n - 2);
+};
 
-  santasList.filter(nameChildren => {
-    if (
-      children.includes(nameChildren) &&
-      !santaChildrenList.includes(nameChildren)
-    ) {
-      santaChildrenList.push(nameChildren);
-      return true;
-    } else {
-      return false;
-    }
-  });
-
-  return santaChildrenList.sort();
-}
-
-console.log(
-  findChildren(
-    ['Jason', 'Jackson', 'Jordan', 'Johnny'],
-    ['Jason', 'Jordan', 'Jennifer']
-  )
-);
-// ["Jason", "Jordan"]);
-console.log(
-  findChildren(
-    ['jASon', 'JAsoN', 'JaSON', 'jasON'],
-    ['JasoN', 'jASOn', 'JAsoN', 'jASon', 'JASON']
-  )
-);
-// ["JAsoN", "jASon"]);
-console.log(
-  findChildren(['Jason', 'James', 'Johnson'], ['Jason', 'James', 'JJ'])
-);
-// ["James", "Jason"]);
+console.log(fibonacci(1)); // 1
+console.log(fibonacci(2)); // 1
+console.log(fibonacci(3)); // 2
+console.log(fibonacci(4)); // 3

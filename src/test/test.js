@@ -1,6 +1,6 @@
 mocha.setup('bdd');
 
-describe(`Santa's Naughty List`, function () {
+describe(`Recursion #2 - Fibonacci`, function () {
   const equal = chai.assert.equal;
   const notEqual = chai.assert.notEqual;
   const deepEqual = chai.assert.deepEqual;
@@ -13,29 +13,17 @@ describe(`Santa's Naughty List`, function () {
   const isNotEmpty = chai.assert.isNotEmpty;
   const lengthOf = chai.assert.lengthOf;
 
-  it('Basic test', function () {
-    deepEqual(
-      findChildren(
-        ['Jason', 'Jackson', 'Jordan', 'Johnny'],
-        ['Jason', 'Jordan', 'Jennifer']
-      ),
-      ['Jason', 'Jordan']
-    );
+  it(`fibonacci(1)`, () => {
+    equal(fibonacci(1), 1);
   });
-  it('Capitalization test', function () {
-    deepEqual(
-      findChildren(
-        ['jASon', 'JAsoN', 'JaSON', 'jasON'],
-        ['JasoN', 'jASOn', 'JAsoN', 'jASon', 'JASON']
-      ),
-      ['JAsoN', 'jASon']
-    );
+  it(`fibonacci(2)`, () => {
+    equal(fibonacci(2), 1);
   });
-  it('Sorting test', function () {
-    deepEqual(
-      findChildren(['Jason', 'James', 'Johnson'], ['Jason', 'James', 'JJ']),
-      ['James', 'Jason']
-    );
+  it(`fibonacci(3)`, () => {
+    equal(fibonacci(3), 2);
+  });
+  it(`fibonacci(4)`, () => {
+    equal(fibonacci(4), 3);
   });
 });
 

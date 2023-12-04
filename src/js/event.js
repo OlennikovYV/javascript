@@ -1,5 +1,7 @@
+const cache = { 1: 1, 2: 1 };
+
 const fibonacci = n => {
-  return n <= 1 ? n : fibonacci(n - 1) + fibonacci(n - 2);
+  return cache[n] || (cache[n] = fibonacci(n - 1) + fibonacci(n - 2));
 };
 
 console.log(fibonacci(1)); // 1

@@ -1,6 +1,6 @@
 mocha.setup('bdd');
 
-describe(`Recursion #2 - Fibonacci`, function () {
+describe(`Organise duplicate numbers in list`, function () {
   const equal = chai.assert.equal;
   const notEqual = chai.assert.notEqual;
   const deepEqual = chai.assert.deepEqual;
@@ -13,17 +13,11 @@ describe(`Recursion #2 - Fibonacci`, function () {
   const isNotEmpty = chai.assert.isNotEmpty;
   const lengthOf = chai.assert.lengthOf;
 
-  it(`fibonacci(1)`, () => {
-    equal(fibonacci(1), 1);
+  it('Testing for input [3, 2, 6, 2, 1, 3]', function () {
+    deepEqual(group([3, 2, 6, 2, 1, 3]), [[3, 3], [2, 2], [6], [1]]);
   });
-  it(`fibonacci(2)`, () => {
-    equal(fibonacci(2), 1);
-  });
-  it(`fibonacci(3)`, () => {
-    equal(fibonacci(3), 2);
-  });
-  it(`fibonacci(4)`, () => {
-    equal(fibonacci(4), 3);
+  it('Testing for input [3, 2, 6, 2]', function () {
+    deepEqual(group([3, 2, 6, 2]), [[3], [2, 2], [6]]);
   });
 });
 

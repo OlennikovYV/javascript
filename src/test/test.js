@@ -1,6 +1,6 @@
 mocha.setup('bdd');
 
-describe(`Organise duplicate numbers in list`, function () {
+describe(`Mispelled word`, function () {
   const equal = chai.assert.equal;
   const notEqual = chai.assert.notEqual;
   const deepEqual = chai.assert.deepEqual;
@@ -13,11 +13,18 @@ describe(`Organise duplicate numbers in list`, function () {
   const isNotEmpty = chai.assert.isNotEmpty;
   const lengthOf = chai.assert.lengthOf;
 
-  it('Testing for input [3, 2, 6, 2, 1, 3]', function () {
-    deepEqual(group([3, 2, 6, 2, 1, 3]), [[3, 3], [2, 2], [6], [1]]);
-  });
-  it('Testing for input [3, 2, 6, 2]', function () {
-    deepEqual(group([3, 2, 6, 2]), [[3], [2, 2], [6]]);
+  it('Sample Tests', () => {
+    equal(mispelled('versed', 'versed'), true);
+    equal(mispelled('versed', 'xersed'), true);
+    equal(mispelled('versed', 'applb'), false);
+
+    equal(mispelled('versed', 'v5rsed'), true);
+    equal(mispelled('1versed', 'versed'), true);
+    equal(mispelled('versed', 'versed1'), true);
+
+    equal(mispelled('versed', 'aversed'), true);
+    equal(mispelled('aaversed', 'versed'), false);
+    equal(mispelled('versed', 'aaversed'), false);
   });
 });
 

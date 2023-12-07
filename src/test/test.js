@@ -1,6 +1,6 @@
 mocha.setup('bdd');
 
-describe(`Mispelled word`, function () {
+describe(`Cut array into smaller parts`, function () {
   const equal = chai.assert.equal;
   const notEqual = chai.assert.notEqual;
   const deepEqual = chai.assert.deepEqual;
@@ -14,17 +14,9 @@ describe(`Mispelled word`, function () {
   const lengthOf = chai.assert.lengthOf;
 
   it('Sample Tests', () => {
-    equal(mispelled('versed', 'versed'), true);
-    equal(mispelled('versed', 'xersed'), true);
-    equal(mispelled('versed', 'applb'), false);
-
-    equal(mispelled('versed', 'v5rsed'), true);
-    equal(mispelled('1versed', 'versed'), true);
-    equal(mispelled('versed', 'versed1'), true);
-
-    equal(mispelled('versed', 'aversed'), true);
-    equal(mispelled('aaversed', 'versed'), false);
-    equal(mispelled('versed', 'aaversed'), false);
+    deepEqual(makeParts([1, 2, 3, 4, 5], 2), [[1, 2], [3, 4], [5]]);
+    deepEqual(makeParts([1, 2, 3], 1), [[1], [2], [3]]);
+    deepEqual(makeParts([1, 2, 3, 4, 5], 10), [[1, 2, 3, 4, 5]]);
   });
 });
 

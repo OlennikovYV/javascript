@@ -1,30 +1,13 @@
-const mispelled = function (word1, word2) {
-  const lengthWord1 = word1.length;
-  const lengthWord2 = word2.length;
-  let countDifferent = 0;
+function makeParts(arr, chunkSize) {
+  const partsArray = [];
 
-  if (word1 === word2) return true;
-
-  if (Math.abs(lengthWord1 - lengthWord2) > 1) return false;
-
-  if (Math.abs(lengthWord1 - lengthWord2) === 1)
-    if (word1.includes(word2) || word2.includes(word1)) return true;
-
-  for (let i = 0; i < lengthWord1; i++) {
-    if (word1[i] !== word2[i]) countDifferent++;
+  for (let i = 0; i < arr.length; i += chunkSize) {
+    partsArray.push(arr.slice(i, i + chunkSize));
   }
 
-  return countDifferent <= 1;
-};
+  return partsArray;
+}
 
-console.log(mispelled('versed', 'versed')); // true
-console.log(mispelled('versed', 'xersed')); // true
-console.log(mispelled('versed', 'applb')); // false
-
-console.log(mispelled('versed', 'v5rsed')); // true
-console.log(mispelled('1versed', 'versed')); // true
-console.log(mispelled('versed', 'versed1')); // true
-
-console.log(mispelled('versed', 'aversed')); // true
-console.log(mispelled('aaversed', 'versed')); // false
-console.log(mispelled('versed', 'aaversed')); // false
+console.log(makeParts([1, 2, 3, 4, 5], 2)); // [[1, 2], [3, 4], [5]]
+console.log(makeParts([1, 2, 3], 1)); // [[1], [2], [3]]
+console.log(makeParts([1, 2, 3, 4, 5], 10)); // [[1, 2, 3, 4, 5]]

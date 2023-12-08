@@ -1,6 +1,6 @@
 mocha.setup('bdd');
 
-describe(`Cut array into smaller parts`, function () {
+describe(`isEven? - Bitwise Series`, function () {
   const equal = chai.assert.equal;
   const notEqual = chai.assert.notEqual;
   const deepEqual = chai.assert.deepEqual;
@@ -13,10 +13,14 @@ describe(`Cut array into smaller parts`, function () {
   const isNotEmpty = chai.assert.isNotEmpty;
   const lengthOf = chai.assert.lengthOf;
 
-  it('Sample Tests', () => {
-    deepEqual(makeParts([1, 2, 3, 4, 5], 2), [[1, 2], [3, 4], [5]]);
-    deepEqual(makeParts([1, 2, 3], 1), [[1], [2], [3]]);
-    deepEqual(makeParts([1, 2, 3, 4, 5], 10), [[1, 2, 3, 4, 5]]);
+  it('It should handle manual tests', function () {
+    equal(isEven('%'), false);
+    equal(isEven(2), true);
+    equal(isEven(3), false);
+    equal(isEven(14), true);
+    equal(isEven(15), false);
+    equal(isEven(26), true);
+    equal(isEven(27), false);
   });
 });
 

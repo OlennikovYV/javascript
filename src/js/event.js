@@ -1,13 +1,11 @@
-function makeParts(arr, chunkSize) {
-  const partsArray = [];
+const isEven = function (n) {
+  return Number.isInteger(n / 2);
+};
 
-  for (let i = 0; i < arr.length; i += chunkSize) {
-    partsArray.push(arr.slice(i, i + chunkSize));
-  }
-
-  return partsArray;
-}
-
-console.log(makeParts([1, 2, 3, 4, 5], 2)); // [[1, 2], [3, 4], [5]]
-console.log(makeParts([1, 2, 3], 1)); // [[1], [2], [3]]
-console.log(makeParts([1, 2, 3, 4, 5], 10)); // [[1, 2, 3, 4, 5]]
+console.log(isEven('%')); // falsse
+console.log(isEven(2)); // true
+console.log(isEven(3)); // false
+console.log(isEven(14)); // true
+console.log(isEven(15)); // false
+console.log(isEven(26)); // true
+console.log(isEven(27)); // false

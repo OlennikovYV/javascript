@@ -1,11 +1,14 @@
-const isEven = function (n) {
-  return Number.isInteger(n / 2);
-};
+const sumNested = arr =>
+  arr.reduce((sum, el) => sum + (Array.isArray(el) ? sumNested(el) : el), 0);
 
-console.log(isEven('%')); // falsse
-console.log(isEven(2)); // true
-console.log(isEven(3)); // false
-console.log(isEven(14)); // true
-console.log(isEven(15)); // false
-console.log(isEven(26)); // true
-console.log(isEven(27)); // false
+console.log(sumNested([1])); // 1
+console.log(sumNested([1, 2, 3, 4])); // 10
+console.log(sumNested([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])); // 55
+console.log(sumNested([])); // 0
+console.log(sumNested([[1], []])); // 1
+console.log(sumNested([[1, 2, 3, 4]])); // 10
+console.log(sumNested([1, [1], [[1]], [[[1]]]])); // 4
+console.log(sumNested([1, [1], [1, [1]], [1, [1], [1, [1]]]])); // 8
+console.log(
+  sumNested([[[[], [], [[[[[[[[[[]]]]]]]]]]], [], [], [[[], [[]]]]], []])
+); // 0

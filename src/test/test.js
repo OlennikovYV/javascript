@@ -1,6 +1,6 @@
 mocha.setup('bdd');
 
-describe(`isEven? - Bitwise Series`, function () {
+describe(`Sum of a nested list`, function () {
   const equal = chai.assert.equal;
   const notEqual = chai.assert.notEqual;
   const deepEqual = chai.assert.deepEqual;
@@ -13,14 +13,27 @@ describe(`isEven? - Bitwise Series`, function () {
   const isNotEmpty = chai.assert.isNotEmpty;
   const lengthOf = chai.assert.lengthOf;
 
-  it('It should handle manual tests', function () {
-    equal(isEven('%'), false);
-    equal(isEven(2), true);
-    equal(isEven(3), false);
-    equal(isEven(14), true);
-    equal(isEven(15), false);
-    equal(isEven(26), true);
-    equal(isEven(27), false);
+  it('should handle non-nested lists', function () {
+    equal(sumNested([1]), 1);
+    equal(sumNested([1, 2, 3, 4]), 10);
+    equal(sumNested([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]), 55);
+  });
+  it('non-nested edge case', function () {
+    equal(sumNested([]), 0);
+  });
+  it('should handle simple nestings', function () {
+    equal(sumNested([[1], []]), 1);
+    equal(sumNested([[1, 2, 3, 4]]), 10);
+  });
+  it('should handle more complex nestings', function () {
+    equal(sumNested([1, [1], [[1]], [[[1]]]]), 4);
+    equal(sumNested([1, [1], [1, [1]], [1, [1], [1, [1]]]]), 8);
+  });
+  it('complex nesting edge case', function () {
+    equal(
+      sumNested([[[[], [], [[[[[[[[[[]]]]]]]]]]], [], [], [[[], [[]]]]], []]),
+      0
+    );
   });
 });
 

@@ -1,10 +1,5 @@
 function mainDiagonalProduct(mat) {
-  let mulDiagonal = 1;
-  const maxLengthSide = Math.max(mat.length, mat[0].length);
-
-  for (let i = 0; i < maxLengthSide; i++) mulDiagonal *= mat[i][i];
-
-  return mulDiagonal;
+  return mat.reduce((mulDiagonal, row, index) => mulDiagonal * row[index], 1);
 }
 
 const arr1 = [

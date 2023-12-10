@@ -1,6 +1,6 @@
 mocha.setup('bdd');
 
-describe(`Sum of a nested list`, function () {
+describe(`Product of the main diagonal of a square matrix`, function () {
   const equal = chai.assert.equal;
   const notEqual = chai.assert.notEqual;
   const deepEqual = chai.assert.deepEqual;
@@ -13,27 +13,21 @@ describe(`Sum of a nested list`, function () {
   const isNotEmpty = chai.assert.isNotEmpty;
   const lengthOf = chai.assert.lengthOf;
 
-  it('should handle non-nested lists', function () {
-    equal(sumNested([1]), 1);
-    equal(sumNested([1, 2, 3, 4]), 10);
-    equal(sumNested([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]), 55);
+  const arr1 = [
+    [1, 0],
+    [0, 1],
+  ];
+  it(`mat = ${JSON.stringify(arr1)}`, () => {
+    equal(mainDiagonalProduct(arr1), 1);
   });
-  it('non-nested edge case', function () {
-    equal(sumNested([]), 0);
-  });
-  it('should handle simple nestings', function () {
-    equal(sumNested([[1], []]), 1);
-    equal(sumNested([[1, 2, 3, 4]]), 10);
-  });
-  it('should handle more complex nestings', function () {
-    equal(sumNested([1, [1], [[1]], [[[1]]]]), 4);
-    equal(sumNested([1, [1], [1, [1]], [1, [1], [1, [1]]]]), 8);
-  });
-  it('complex nesting edge case', function () {
-    equal(
-      sumNested([[[[], [], [[[[[[[[[[]]]]]]]]]]], [], [], [[[], [[]]]]], []]),
-      0
-    );
+
+  const arr2 = [
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9],
+  ];
+  it(`mat = ${JSON.stringify(arr2)}`, () => {
+    equal(mainDiagonalProduct(arr2), 45);
   });
 });
 

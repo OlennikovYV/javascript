@@ -1,16 +1,20 @@
-function mainDiagonalProduct(mat) {
-  return mat.reduce((mulDiagonal, row, index) => mulDiagonal * row[index], 1);
+function collatz(n) {
+  let numberCollatz = n;
+  let lengthCollatzConjecture = 1;
+
+  while (numberCollatz > 1) {
+    if (numberCollatz % 2 === 0) {
+      numberCollatz /= 2;
+    } else {
+      numberCollatz *= 3;
+      numberCollatz += 1;
+    }
+
+    lengthCollatzConjecture++;
+  }
+
+  return lengthCollatzConjecture;
 }
 
-const arr1 = [
-  [1, 0],
-  [0, 1],
-];
-console.log(mainDiagonalProduct(arr1)); // 1
-
-const arr2 = [
-  [1, 2, 3],
-  [4, 5, 6],
-  [7, 8, 9],
-];
-console.log(mainDiagonalProduct(arr2)); // 45
+console.log(collatz(20)); // 8
+console.log(collatz(15)); // 18

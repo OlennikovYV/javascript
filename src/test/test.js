@@ -1,6 +1,6 @@
 mocha.setup('bdd');
 
-describe(`Product of the main diagonal of a square matrix`, function () {
+describe(`Collatz Conjecture Length`, function () {
   const equal = chai.assert.equal;
   const notEqual = chai.assert.notEqual;
   const deepEqual = chai.assert.deepEqual;
@@ -13,21 +13,9 @@ describe(`Product of the main diagonal of a square matrix`, function () {
   const isNotEmpty = chai.assert.isNotEmpty;
   const lengthOf = chai.assert.lengthOf;
 
-  const arr1 = [
-    [1, 0],
-    [0, 1],
-  ];
-  it(`mat = ${JSON.stringify(arr1)}`, () => {
-    equal(mainDiagonalProduct(arr1), 1);
-  });
-
-  const arr2 = [
-    [1, 2, 3],
-    [4, 5, 6],
-    [7, 8, 9],
-  ];
-  it(`mat = ${JSON.stringify(arr2)}`, () => {
-    equal(mainDiagonalProduct(arr2), 45);
+  it('test', () => {
+    equal(collatz(20), 8);
+    equal(collatz(15), 18);
   });
 });
 

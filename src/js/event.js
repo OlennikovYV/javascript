@@ -3,14 +3,10 @@ function collatz(n) {
   let lengthCollatzConjecture = 1;
 
   while (numberCollatz > 1) {
-    if (numberCollatz % 2 === 0) {
-      numberCollatz /= 2;
-    } else {
-      numberCollatz *= 3;
-      numberCollatz += 1;
-    }
-
     lengthCollatzConjecture++;
+
+    numberCollatz =
+      numberCollatz % 2 ? numberCollatz * 3 + 1 : numberCollatz / 2;
   }
 
   return lengthCollatzConjecture;

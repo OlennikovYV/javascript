@@ -1,6 +1,6 @@
 mocha.setup('bdd');
 
-describe(`Collatz Conjecture Length`, function () {
+describe(`A bugs trilogy: Episode 1 - "Let Math.Random(); decide your future"`, function () {
   const equal = chai.assert.equal;
   const notEqual = chai.assert.notEqual;
   const deepEqual = chai.assert.deepEqual;
@@ -13,9 +13,14 @@ describe(`Collatz Conjecture Length`, function () {
   const isNotEmpty = chai.assert.isNotEmpty;
   const lengthOf = chai.assert.lengthOf;
 
-  it('test', () => {
-    equal(collatz(20), 8);
-    equal(collatz(15), 18);
+  const listCareer = [
+    `FrontEnd Developer`,
+    `BackEnd Developer`,
+    `Full-Stack Developer`,
+  ];
+
+  it('test', function () {
+    oneOf(yourFutureCareer(), listCareer, 'Not found in list');
   });
 });
 

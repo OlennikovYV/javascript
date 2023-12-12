@@ -1,16 +1,17 @@
-function collatz(n) {
-  let numberCollatz = n;
-  let lengthCollatzConjecture = 1;
+function yourFutureCareer() {
+  const career = Math.random();
 
-  while (numberCollatz > 1) {
-    lengthCollatzConjecture++;
-
-    numberCollatz =
-      numberCollatz % 2 ? numberCollatz * 3 + 1 : numberCollatz / 2;
+  if (career <= 0.32) {
+    return `FrontEnd Developer`;
+  } else if (career <= 0.65) {
+    return `BackEnd Developer`;
+  } else {
+    return `Full-Stack Developer`;
   }
-
-  return lengthCollatzConjecture;
 }
 
-console.log(collatz(20)); // 8
-console.log(collatz(15)); // 18
+yourFutureCareer();
+
+console.log(yourFutureCareer());
+console.log(yourFutureCareer());
+console.log(yourFutureCareer());

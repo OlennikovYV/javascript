@@ -12,6 +12,12 @@ function yourFutureCareer() {
 
 yourFutureCareer();
 
-console.log(yourFutureCareer());
-console.log(yourFutureCareer());
-console.log(yourFutureCareer());
+const listCareer = [
+  `FrontEnd Developer`,
+  `BackEnd Developer`,
+  `Full-Stack Developer`,
+];
+
+for (let i = 0; i < 9; i++) {
+  console.log(`Test ${i + 1} ${listCareer.includes(yourFutureCareer())}`); // True
+}

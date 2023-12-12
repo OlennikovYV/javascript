@@ -19,9 +19,11 @@ describe(`A bugs trilogy: Episode 1 - "Let Math.Random(); decide your future"`, 
     `Full-Stack Developer`,
   ];
 
-  it('test', function () {
-    oneOf(yourFutureCareer(), listCareer, 'Not found in list');
-  });
+  for (let i = 0; i < 9; i++) {
+    it(`Test ${i + 1}`, function () {
+      oneOf(yourFutureCareer(), listCareer, 'Not found in list');
+    });
+  }
 });
 
 mocha.run();

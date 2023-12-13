@@ -1,19 +1,21 @@
+function getAverageSpeed(beginDistance, endDistance, seconds) {
+  return Math.floor((3600 * (endDistance - beginDistance)) / seconds);
+}
+
+function getArrayAverageSpeed(s, x) {
+  return x.reduce(
+    (arrayAverageSpeed, distance, index, array) =>
+      index === 0
+        ? arrayAverageSpeed
+        : arrayAverageSpeed.concat(
+            getAverageSpeed(array[index - 1], distance, s)
+          ),
+    []
+  );
+}
+
 function gps(s, x) {
-  const averageDistance = [];
-
-  if (x.length <= 1) return 0;
-
-  for (let i = 0; i < x.length - 1; i++) {
-    const beginDistance = x[i];
-    const endDistance = x[i + 1];
-    const deltaDistance = endDistance - beginDistance;
-
-    const averageSpeed = (3600 * deltaDistance) / s;
-
-    averageDistance.push(averageSpeed);
-  }
-
-  return Math.floor(Math.max(...averageDistance));
+  return x.length < 2 ? 0 : Math.max(...getArrayAverageSpeed(s, x));
 }
 
 let x = [0.0, 0.19, 0.5, 0.75, 1.0, 1.25, 1.5, 1.75, 2.0, 2.25];

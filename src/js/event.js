@@ -1,18 +1,22 @@
 const fibsFizzBuzz = function (n) {
-  const arrayFibonacci = [1];
+  const arrayFibonacci = [];
+  let [prev, next] = [0, 1];
 
-  for (let i = 1; i < n; i++) {
-    arrayFibonacci[i] = (arrayFibonacci[i - 2] || 0) + arrayFibonacci[i - 1];
+  for (let i = 1; i <= n; i++) {
+    [prev, next] = [next, prev + next];
+
+    arrayFibonacci.push(
+      prev % 15 == 0
+        ? 'FizzBuzz'
+        : prev % 3 == 0
+        ? 'Fizz'
+        : prev % 5 == 0
+        ? 'Buzz'
+        : prev
+    );
   }
 
-  return arrayFibonacci.map(numberFibonacci => {
-    let fizzBuzzString = '';
-
-    if (numberFibonacci % 3 === 0) fizzBuzzString += `Fizz`;
-    if (numberFibonacci % 5 === 0) fizzBuzzString += `Buzz`;
-
-    return fizzBuzzString ? fizzBuzzString : numberFibonacci;
-  });
+  return arrayFibonacci;
 };
 
 console.log(fibsFizzBuzz(2));

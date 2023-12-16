@@ -1,21 +1,5 @@
 function validateWord(s) {
-  let repeatChar;
-  const countChars = {};
-
-  s.toLowerCase()
-    .split('')
-    .forEach(char => (countChars[char] = (countChars[char] || 0) + 1));
-
-  for (let key in countChars) {
-    if (!repeatChar) {
-      repeatChar = countChars[key];
-      continue;
-    }
-
-    if (countChars[key] !== repeatChar) return false;
-  }
-
-  return true;
+  return s.length % new Set(s.toLowerCase()).size === 0;
 }
 
 console.log(validateWord('abcabc')); // true

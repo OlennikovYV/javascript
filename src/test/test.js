@@ -1,6 +1,6 @@
 mocha.setup('bdd');
 
-describe(`The Ladies of ENIAC`, function () {
+describe(`CompoundArray`, function () {
   const equal = chai.assert.equal;
   const notEqual = chai.assert.notEqual;
   const deepEqual = chai.assert.deepEqual;
@@ -13,36 +13,25 @@ describe(`The Ladies of ENIAC`, function () {
   const isNotEmpty = chai.assert.isNotEmpty;
   const lengthOf = chai.assert.lengthOf;
 
-  it('Tests', function () {
-    equal(
-      radLadies(
-        'k?%35a&&/y@@@£5599 m93753&$$$c$n///79u??@@%l?975$t?%5y%&$3$1!'
-      ),
-      'KAY MCNULTY!'
+  it('test', () => {
+    deepEqual(
+      compoundArray([11, 12], [21, 22, 23, 24]),
+      [11, 21, 12, 22, 23, 24]
     );
-    equal(
-      radLadies(
-        '9?9?9?m335%$£@a791%&$r$$$l£@53$&y&n%$5@ $£5577w&7e931%s$£c$o%%%f351f??%!%%'
+    deepEqual(
+      compoundArray(
+        [2147483647, 2147483646, 2147483645, 2147483644, 2147483643],
+        [9]
       ),
-      'MARLYN WESCOFF!'
+      [2147483647, 9, 2147483646, 2147483645, 2147483644, 2147483643]
     );
-    equal(
-      radLadies(
-        '%&$557f953//1/$£@%r%935$$£a@£3111$@???%n???5 $%157b%///$i%55&31£@l?%&$$a%@£$s5757!$$%%%%53'
-      ),
-      'FRAN BILAS!'
+    deepEqual(
+      compoundArray([214, 215, 216, 217, 218], []),
+      [214, 215, 216, 217, 218]
     );
-    equal(
-      radLadies(
-        '///$%&£$553791£r357%??@$%u?$%@7993111£@$%t£$h3% 3$£l$311i3%@?&c3£h%&t&&?%11e%$?@11957r79%£&£m$$a55n1!111%%'
-      ),
-      'RUTH LICHTERMAN!'
-    );
-    equal(
-      radLadies(
-        '??£@%&a5d15??e599713%l%%e%75913 1£$%&@g@£%o&$@13l5d11s$%&t15i9n&5%%@%e@£$!£%$£'
-      ),
-      'ADELE GOLDSTINE!'
+    deepEqual(
+      compoundArray([], [314, 315, 316, 317, 318]),
+      [314, 315, 316, 317, 318]
     );
   });
 });

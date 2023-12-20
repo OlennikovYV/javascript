@@ -1,6 +1,6 @@
 mocha.setup('bdd');
 
-describe(`CompoundArray`, function () {
+describe(`Help the bookseller !`, function () {
   const equal = chai.assert.equal;
   const notEqual = chai.assert.notEqual;
   const deepEqual = chai.assert.deepEqual;
@@ -14,25 +14,16 @@ describe(`CompoundArray`, function () {
   const lengthOf = chai.assert.lengthOf;
 
   it('test', () => {
-    deepEqual(
-      compoundArray([11, 12], [21, 22, 23, 24]),
-      [11, 21, 12, 22, 23, 24]
-    );
-    deepEqual(
-      compoundArray(
-        [2147483647, 2147483646, 2147483645, 2147483644, 2147483643],
-        [9]
-      ),
-      [2147483647, 9, 2147483646, 2147483645, 2147483644, 2147483643]
-    );
-    deepEqual(
-      compoundArray([214, 215, 216, 217, 218], []),
-      [214, 215, 216, 217, 218]
-    );
-    deepEqual(
-      compoundArray([], [314, 315, 316, 317, 318]),
-      [314, 315, 316, 317, 318]
-    );
+    let b, c, res;
+    b = ['BBAR 150', 'CDXE 515', 'BKWR 250', 'BTSQ 890', 'DRTY 600'];
+    c = ['A', 'B', 'C', 'D'];
+    res = '(A : 0) - (B : 1290) - (C : 515) - (D : 600)';
+    equal(stockList(b, c), res);
+
+    b = ['ABAR 200', 'CDXE 500', 'BKWR 250', 'BTSQ 890', 'DRTY 600'];
+    c = ['A', 'B'];
+    res = '(A : 200) - (B : 1140)';
+    equal(stockList(b, c), res);
   });
 });
 

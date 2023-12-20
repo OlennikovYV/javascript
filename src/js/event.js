@@ -1,24 +1,25 @@
-function compoundArray(a, b) {
-  const result = [];
+function stockList(listOfArt, listOfCat) {
+  if (listOfArt.length === 0 || listOfCat.length === 0) return '';
 
-  (a.length < b.length ? b : a).map((_, i) => {
-    if (Number.isInteger(a[i])) result.push(a[i]);
-    if (Number.isInteger(b[i])) result.push(b[i]);
-  });
-
-  return result;
+  return listOfCat
+    .map(categoryBook => {
+      return `(${categoryBook} : ${listOfArt
+        .filter(code => code[0] === categoryBook)
+        .reduce(
+          (sumBooks, countBooks) => sumBooks + Number(countBooks.split(' ')[1]),
+          0
+        )})`;
+    })
+    .join(' - ');
 }
 
-console.log(compoundArray([11, 12], [21, 22, 23, 24]));
-// [11, 21, 12, 22, 23, 24]
-console.log(
-  compoundArray(
-    [2147483647, 2147483646, 2147483645, 2147483644, 2147483643],
-    [9]
-  )
-);
-// [2147483647, 9, 2147483646, 2147483645, 2147483644, 2147483643]
-console.log(compoundArray([214, 215, 216, 217, 218], []));
-// [214, 215, 216, 217, 218]
-console.log(compoundArray([], [314, 315, 316, 317, 318]));
-// [314, 315, 316, 317, 318]
+let b, c, res;
+b = ['BBAR 150', 'CDXE 515', 'BKWR 250', 'BTSQ 890', 'DRTY 600'];
+c = ['A', 'B', 'C', 'D'];
+console.log(stockList(b, c));
+// '(A : 0) - (B : 1290) - (C : 515) - (D : 600)'
+
+b = ['ABAR 200', 'CDXE 500', 'BKWR 250', 'BTSQ 890', 'DRTY 600'];
+c = ['A', 'B'];
+console.log(stockList(b, c));
+// '(A : 200) - (B : 1140)'

@@ -1,6 +1,6 @@
 mocha.setup('bdd');
 
-describe(`Help the bookseller !`, function () {
+describe(`Convert Integer to Binary`, function () {
   const equal = chai.assert.equal;
   const notEqual = chai.assert.notEqual;
   const deepEqual = chai.assert.deepEqual;
@@ -14,16 +14,11 @@ describe(`Help the bookseller !`, function () {
   const lengthOf = chai.assert.lengthOf;
 
   it('test', () => {
-    let b, c, res;
-    b = ['BBAR 150', 'CDXE 515', 'BKWR 250', 'BTSQ 890', 'DRTY 600'];
-    c = ['A', 'B', 'C', 'D'];
-    res = '(A : 0) - (B : 1290) - (C : 515) - (D : 600)';
-    equal(stockList(b, c), res);
-
-    b = ['ABAR 200', 'CDXE 500', 'BKWR 250', 'BTSQ 890', 'DRTY 600'];
-    c = ['A', 'B'];
-    res = '(A : 200) - (B : 1140)';
-    equal(stockList(b, c), res);
+    equal(toBinary(2), '10');
+    equal(toBinary(3), '11');
+    equal(toBinary(-3), '11111111111111111111111111111101');
+    equal(toBinary(4), '100');
+    equal(toBinary(5), '101');
   });
 });
 

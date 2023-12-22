@@ -1,6 +1,6 @@
 mocha.setup('bdd');
 
-describe(`Convert Integer to Binary`, function () {
+describe(`Absent vowel`, function () {
   const equal = chai.assert.equal;
   const notEqual = chai.assert.notEqual;
   const deepEqual = chai.assert.deepEqual;
@@ -14,11 +14,11 @@ describe(`Convert Integer to Binary`, function () {
   const lengthOf = chai.assert.lengthOf;
 
   it('test', () => {
-    equal(toBinary(2), '10');
-    equal(toBinary(3), '11');
-    equal(toBinary(-3), '11111111111111111111111111111101');
-    equal(toBinary(4), '100');
-    equal(toBinary(5), '101');
+    equal(absentVowel('John Doe hs seven red pples under his bsket'), 0);
+    equal(
+      absentVowel('Bb Smith sent us six neatly arranged range bicycles'),
+      3
+    );
   });
 });
 

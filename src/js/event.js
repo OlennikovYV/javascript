@@ -1,9 +1,18 @@
-function toBinary(n) {
-  return (n >>> 0).toString(2);
+function absentVowel(x) {
+  const vowels = {
+    A: 0,
+    E: 1,
+    I: 2,
+    O: 3,
+    U: 4,
+  };
+
+  for (let key of Object.keys(vowels)) {
+    if (!x.includes(key.toLocaleLowerCase())) return vowels[key];
+  }
 }
 
-console.log(toBinary(2)); // '10'
-console.log(toBinary(3)); // '11'
-console.log(toBinary(-3)); // '11111111111111111111111111111101'
-console.log(toBinary(4)); // '100'
-console.log(toBinary(5)); // '101'
+console.log(absentVowel('John Doe hs seven red pples under his bsket'));
+// 0
+console.log(absentVowel('Bb Smith sent us six neatly arranged range bicycles'));
+// 3

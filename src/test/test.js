@@ -1,6 +1,6 @@
 mocha.setup('bdd');
 
-describe(`Absent vowel`, function () {
+describe(`Is this working?`, function () {
   const equal = chai.assert.equal;
   const notEqual = chai.assert.notEqual;
   const deepEqual = chai.assert.deepEqual;
@@ -14,11 +14,16 @@ describe(`Absent vowel`, function () {
   const lengthOf = chai.assert.lengthOf;
 
   it('test', () => {
-    equal(absentVowel('John Doe hs seven red pples under his bsket'), 0);
-    equal(
-      absentVowel('Bb Smith sent us six neatly arranged range bicycles'),
-      3
-    );
+    const counter = new Counter();
+    equal(counter.count, 0, 'Counter should be reset');
+
+    counter.updateCount();
+    equal(counter.count, 1, 'Counter should have been updated');
+
+    const counter2 = new Counter();
+    equal(counter2.count, 0, 'New counter should use different value');
+
+    equal(counter.count, 1, 'Old counter should have preserved its value');
   });
 });
 

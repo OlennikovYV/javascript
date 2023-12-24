@@ -1,8 +1,16 @@
-function absentVowel(x) {
-  return [...'aeiou'].findIndex(letter => !x.includes(letter));
+function Counter() {
+  this.count = 0;
+
+  this.updateCount = () => this.count++;
 }
 
-console.log(absentVowel('John Doe hs seven red pples under his bsket'));
-// 0
-console.log(absentVowel('Bb Smith sent us six neatly arranged range bicycles'));
-// 3
+const counter = new Counter();
+console.log(counter.count); // 0
+
+counter.updateCount();
+console.log(counter.count); // 1
+
+const counter2 = new Counter();
+console.log(counter2.count); // 0
+
+console.log(counter.count); // 1

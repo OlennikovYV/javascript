@@ -1,6 +1,6 @@
 mocha.setup('bdd');
 
-describe(`Is this working?`, function () {
+describe(`Train to remove duplicates from an array with filter()`, function () {
   const equal = chai.assert.equal;
   const notEqual = chai.assert.notEqual;
   const deepEqual = chai.assert.deepEqual;
@@ -14,16 +14,13 @@ describe(`Is this working?`, function () {
   const lengthOf = chai.assert.lengthOf;
 
   it('test', () => {
-    const counter = new Counter();
-    equal(counter.count, 0, 'Counter should be reset');
-
-    counter.updateCount();
-    equal(counter.count, 1, 'Counter should have been updated');
-
-    const counter2 = new Counter();
-    equal(counter2.count, 0, 'New counter should use different value');
-
-    equal(counter.count, 1, 'Old counter should have preserved its value');
+    deepEqual(unique([4]), [4], 'should return [4]');
+    deepEqual(unique([1, 2, 2, 3]), [1, 2, 3], 'should return [1,2,3]');
+    deepEqual(
+      unique([3, 6, 3, 7, 7, 5, 2, 6, 3, 2]),
+      [3, 6, 7, 5, 2],
+      'should return [3, 6, 7, 5, 2]'
+    );
   });
 });
 

@@ -1,7 +1,17 @@
-function unique(arr) {
-  return arr.filter((digit, index) => index === arr.indexOf(digit));
+function shiftedDiff(first, second) {
+  if (first.length !== second.length) return -1;
+
+  for (let i = 0; i < first.length; i++) {
+    if (second.slice(i) + second.slice(0, i) === first) return i;
+  }
+
+  return -1;
 }
 
-console.log(unique([4])); // [4]
-console.log(unique([1, 2, 2, 3])); // [1, 2, 3]
-console.log(unique([3, 6, 3, 7, 7, 5, 2, 6, 3, 2])); // [3, 6, 7, 5, 2]
+console.log(shiftedDiff('eecoff', 'coffee')); // 4
+console.log(shiftedDiff('Moose', 'moose')); // -1
+console.log(shiftedDiff("isn't", "'tisn")); // 2
+console.log(shiftedDiff('Esham', 'Esham')); // 0
+console.log(shiftedDiff(' ', ' ')); // 0
+console.log(shiftedDiff('hoop', 'pooh')); // -1
+console.log(shiftedDiff('  ', ' ')); // -1

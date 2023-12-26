@@ -1,6 +1,6 @@
 mocha.setup('bdd');
 
-describe(`Train to remove duplicates from an array with filter()`, function () {
+describe(`Calculate String Rotation`, function () {
   const equal = chai.assert.equal;
   const notEqual = chai.assert.notEqual;
   const deepEqual = chai.assert.deepEqual;
@@ -13,14 +13,14 @@ describe(`Train to remove duplicates from an array with filter()`, function () {
   const isNotEmpty = chai.assert.isNotEmpty;
   const lengthOf = chai.assert.lengthOf;
 
-  it('test', () => {
-    deepEqual(unique([4]), [4], 'should return [4]');
-    deepEqual(unique([1, 2, 2, 3]), [1, 2, 3], 'should return [1,2,3]');
-    deepEqual(
-      unique([3, 6, 3, 7, 7, 5, 2, 6, 3, 2]),
-      [3, 6, 7, 5, 2],
-      'should return [3, 6, 7, 5, 2]'
-    );
+  it('sample tests', () => {
+    equal(shiftedDiff('eecoff', 'coffee'), 4);
+    equal(shiftedDiff('Moose', 'moose'), -1);
+    equal(shiftedDiff("isn't", "'tisn"), 2);
+    equal(shiftedDiff('Esham', 'Esham'), 0);
+    equal(shiftedDiff(' ', ' '), 0);
+    equal(shiftedDiff('hoop', 'pooh'), -1);
+    equal(shiftedDiff('  ', ' '), -1);
   });
 });
 

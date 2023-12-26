@@ -1,11 +1,7 @@
 function shiftedDiff(first, second) {
   if (first.length !== second.length) return -1;
 
-  for (let i = 0; i < first.length; i++) {
-    if (second.slice(i) + second.slice(0, i) === first) return i;
-  }
-
-  return -1;
+  return (second + second).indexOf(first);
 }
 
 console.log(shiftedDiff('eecoff', 'coffee')); // 4

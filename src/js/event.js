@@ -1,14 +1,16 @@
 function strToHash(str) {
-  if (str.length === 0) return {};
+  const hash = {};
 
-  return str.split(', ').reduce((hash, el) => {
-    const newObject = {};
-    const entries = el.split('=');
+  if (str.length) {
+    const items = str.split(', ');
+    items.forEach(el => {
+      const [key, value] = el.split('=');
 
-    newObject[entries[0]] = Number(entries[1]);
+      hash[key] = Number(value);
+    });
+  }
 
-    return Object.assign(hash, newObject);
-  }, {});
+  return hash;
 }
 
 console.log(strToHash('a=1, b=2, c=3, d=4')); //

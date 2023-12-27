@@ -1,13 +1,17 @@
-function shiftedDiff(first, second) {
-  if (first.length !== second.length) return -1;
+function strToHash(str) {
+  if (str.length === 0) return {};
 
-  return (second + second).indexOf(first);
+  return str.split(', ').reduce((hash, el) => {
+    const newObject = {};
+    const entries = el.split('=');
+
+    newObject[entries[0]] = Number(entries[1]);
+
+    return Object.assign(hash, newObject);
+  }, {});
 }
 
-console.log(shiftedDiff('eecoff', 'coffee')); // 4
-console.log(shiftedDiff('Moose', 'moose')); // -1
-console.log(shiftedDiff("isn't", "'tisn")); // 2
-console.log(shiftedDiff('Esham', 'Esham')); // 0
-console.log(shiftedDiff(' ', ' ')); // 0
-console.log(shiftedDiff('hoop', 'pooh')); // -1
-console.log(shiftedDiff('  ', ' ')); // -1
+console.log(strToHash('a=1, b=2, c=3, d=4')); //
+// {a: 1, b: 2, c: 3, d: 4}
+console.log(strToHash(''));
+// {}

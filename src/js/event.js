@@ -1,34 +1,22 @@
-function calculateString(st) {
-  let result;
-  const expression = st.replaceAll(/[^0-9\.+\-\*\/]/gi, '');
-  const operator = [...expression]
-    .filter(char => ['+', '-', '*', '/'].includes(char))
-    .join('');
-  let [value1, value2] = expression.split(operator);
+function Warrior(n) {
+  let name = n;
 
-  value1 = Number(value1);
-  value2 = Number(value2);
-
-  switch (operator) {
-    case '+':
-      result = Math.round(value1 + value2);
-      break;
-    case '-':
-      result = Math.round(value1 - value2);
-      break;
-    case '*':
-      result = Math.round(value1 * value2);
-      break;
-    case '/':
-      result = Math.round(value1 / value2);
-      break;
-  }
-
-  return result.toString();
+  this.name = function (n) {
+    if (n) name = n;
+    return name;
+  };
 }
 
-console.log(calculateString(';$%§fsdfsd235??df/sdfgf5gh.000kk0000')); // '47'
-console.log(calculateString('sdfsd23454sdf*2342')); // '54929268'
-console.log(calculateString('fsdfsd235???34.4554s4234df-sdfgf2g3h4j442')); // '-210908'
-console.log(calculateString('fsdfsd234.4554s4234df+sf234442')); // '234676'
-console.log(calculateString('a1a2b3c.c0c/a1a0b.cc00c')); // '12'
+Warrior.prototype.toString = function () {
+  return "Hi! my name's " + this.name();
+};
+
+let albert = new Warrior('Albert');
+let boris = new Warrior('Boris');
+
+console.log(albert.toString()); // "Hi! my name's Albert"
+console.log(albert.name()); // 'Albert'
+console.log(boris.name()); // 'Boris'
+
+boris.name('Bobo');
+console.log(boris.name()); // 'Bobo'

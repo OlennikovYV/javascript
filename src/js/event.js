@@ -1,27 +1,21 @@
 Array.prototype.even = function () {
-  return this.filter(el => Number.isInteger(el)).filter(
-    number => number % 2 === 0
-  );
+  return this.filter(el => Number.isInteger(el) && el % 2 === 0);
 };
 
 Array.prototype.odd = function () {
-  return this.filter(el => Number.isInteger(el)).filter(
-    number => number % 2 !== 0
-  );
+  return this.filter(el => Number.isInteger(el) && el % 2 !== 0);
 };
 
 Array.prototype.under = function (x) {
-  return this.filter(el => Number.isInteger(el)).filter(number => number < x);
+  return this.filter(el => Number.isInteger(el) && el < x);
 };
 
 Array.prototype.over = function (x) {
-  return this.filter(el => Number.isInteger(el)).filter(number => number > x);
+  return this.filter(el => Number.isInteger(el) && el > x);
 };
 
 Array.prototype.inRange = function (min, max) {
-  return this.filter(el => Number.isInteger(el)).filter(
-    number => number >= min && number <= max
-  );
+  return this.filter(el => Number.isInteger(el) && el >= min && el <= max);
 };
 
 console.log([1, 2, 3, 4, 5].even());

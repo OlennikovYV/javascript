@@ -1,22 +1,41 @@
-function Warrior(n) {
-  let name = n;
-
-  this.name = function (n) {
-    if (n) name = n;
-    return name;
-  };
-}
-
-Warrior.prototype.toString = function () {
-  return "Hi! my name's " + this.name();
+Array.prototype.even = function () {
+  return this.filter(el => Number.isInteger(el)).filter(
+    number => number % 2 === 0
+  );
 };
 
-let albert = new Warrior('Albert');
-let boris = new Warrior('Boris');
+Array.prototype.odd = function () {
+  return this.filter(el => Number.isInteger(el)).filter(
+    number => number % 2 !== 0
+  );
+};
 
-console.log(albert.toString()); // "Hi! my name's Albert"
-console.log(albert.name()); // 'Albert'
-console.log(boris.name()); // 'Boris'
+Array.prototype.under = function (x) {
+  return this.filter(el => Number.isInteger(el)).filter(number => number < x);
+};
 
-boris.name('Bobo');
-console.log(boris.name()); // 'Bobo'
+Array.prototype.over = function (x) {
+  return this.filter(el => Number.isInteger(el)).filter(number => number > x);
+};
+
+Array.prototype.inRange = function (min, max) {
+  return this.filter(el => Number.isInteger(el)).filter(
+    number => number >= min && number <= max
+  );
+};
+
+console.log([1, 2, 3, 4, 5].even());
+// [2, 4]);
+console.log([1, 2, 3, 4, 5].odd());
+// [1, 3, 5]);
+console.log([1, 2, 3, 4, 5].under(4));
+// [1, 2, 3]);
+console.log([1, 2, 3, 4, 5].over(4));
+// [5]);
+console.log([1, 2, 3, 4, 5].inRange(1, 3));
+// [1, 2, 3]);
+
+console.log([1, 2, 18, 19, 20, 21, 22, 30, 40, 50, 100].even().inRange(18, 30));
+// [18, 20, 22, 30]
+console.log(['a', 1, 'b', 300, 'x', 'q', 63, 122, 181, 'z', 0.83, 0.11].even());
+// [300, 122]

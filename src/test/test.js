@@ -1,6 +1,6 @@
 mocha.setup('bdd');
 
-describe(`Hello Happy Codevarrior!`, function () {
+describe(`Custom Array Filters`, function () {
   const equal = chai.assert.equal;
   const strictEqual = chai.assert.strictEqual;
   const notEqual = chai.assert.notEqual;
@@ -15,15 +15,20 @@ describe(`Hello Happy Codevarrior!`, function () {
   const lengthOf = chai.assert.lengthOf;
 
   it('test', () => {
-    let albert = new Warrior('Albert');
-    let boris = new Warrior('Boris');
+    deepEqual([1, 2, 3, 4, 5].even(), [2, 4]);
+    deepEqual([1, 2, 3, 4, 5].odd(), [1, 3, 5]);
+    deepEqual([1, 2, 3, 4, 5].under(4), [1, 2, 3]);
+    deepEqual([1, 2, 3, 4, 5].over(4), [5]);
+    deepEqual([1, 2, 3, 4, 5].inRange(1, 3), [1, 2, 3]);
 
-    equal(albert.toString(), "Hi! my name's Albert");
-    equal(albert.name(), 'Albert');
-    equal(boris.name(), 'Boris');
-
-    boris.name('Bobo');
-    equal(boris.name(), 'Bobo');
+    deepEqual(
+      [1, 2, 18, 19, 20, 21, 22, 30, 40, 50, 100].even().inRange(18, 30),
+      [18, 20, 22, 30]
+    );
+    deepEqual(
+      ['a', 1, 'b', 300, 'x', 'q', 63, 122, 181, 'z', 0.83, 0.11].even(),
+      [300, 122]
+    );
   });
 });
 

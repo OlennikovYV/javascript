@@ -1,35 +1,36 @@
-Array.prototype.even = function () {
-  return this.filter(el => Number.isInteger(el) && el % 2 === 0);
-};
+const BARK = 'woof woof';
+const SLEEP = 'zzzzzzzzz....';
 
-Array.prototype.odd = function () {
-  return this.filter(el => Number.isInteger(el) && el % 2 !== 0);
-};
+function dog_bark_by_default(bark) {
+  bark = bark && undefined;
+  return bark === undefined ? BARK : SLEEP;
+}
 
-Array.prototype.under = function (x) {
-  return this.filter(el => Number.isInteger(el) && el < x);
-};
+function dog_bark_only_if_told_so(bark) {
+  bark = bark || false;
+  return bark ? BARK : SLEEP;
+}
 
-Array.prototype.over = function (x) {
-  return this.filter(el => Number.isInteger(el) && el > x);
-};
+function dog_dont_bark_by_default(dont_bark) {
+  dont_bark = dont_bark && undefined;
+  return dont_bark !== undefined ? BARK : SLEEP;
+}
 
-Array.prototype.inRange = function (min, max) {
-  return this.filter(el => Number.isInteger(el) && el >= min && el <= max);
-};
+function dog_dont_bark_only_if_told_so(dont_bark) {
+  dont_bark = dont_bark || false;
+  return !dont_bark ? BARK : SLEEP;
+}
 
-console.log([1, 2, 3, 4, 5].even());
-// [2, 4]);
-console.log([1, 2, 3, 4, 5].odd());
-// [1, 3, 5]);
-console.log([1, 2, 3, 4, 5].under(4));
-// [1, 2, 3]);
-console.log([1, 2, 3, 4, 5].over(4));
-// [5]);
-console.log([1, 2, 3, 4, 5].inRange(1, 3));
-// [1, 2, 3]);
-
-console.log([1, 2, 18, 19, 20, 21, 22, 30, 40, 50, 100].even().inRange(18, 30));
-// [18, 20, 22, 30]
-console.log(['a', 1, 'b', 300, 'x', 'q', 63, 122, 181, 'z', 0.83, 0.11].even());
-// [300, 122]
+console.log(dog_bark_only_if_told_so(true)); // 'woof woof'
+console.log(dog_bark_only_if_told_so(false)); // 'zzzzzzzzz....'
+console.log(dog_bark_only_if_told_so()); // 'zzzzzzzzz....'
+console.log('<---------------------------->');
+console.log(dog_dont_bark_only_if_told_so(true)); // 'zzzzzzzzz....'
+console.log(dog_dont_bark_only_if_told_so(false)); // 'woof woof'
+console.log(dog_dont_bark_only_if_told_so()); // 'woof woof'
+console.log('<---------------------------->');
+console.log(dog_dont_bark_by_default()); // 'zzzzzzzzz....'
+console.log(dog_dont_bark_by_default(false)); // 'woof woof'
+console.log('<---------------------------->');
+console.log(dog_bark_by_default()); // 'woof woof'
+console.log(dog_bark_by_default(false)); // 'zzzzzzzzz....'

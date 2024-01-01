@@ -1,6 +1,6 @@
 mocha.setup('bdd');
 
-describe(`Who let the dogs out?`, function () {
+describe(`Greed`, function () {
   const equal = chai.assert.equal;
   const strictEqual = chai.assert.strictEqual;
   const notEqual = chai.assert.notEqual;
@@ -15,35 +15,15 @@ describe(`Who let the dogs out?`, function () {
   const lengthOf = chai.assert.lengthOf;
 
   it('test', () => {
-    equal(dog_bark_only_if_told_so(true), BARK, 'Should bark only if told so');
-    equal(
-      dog_bark_only_if_told_so(false),
-      SLEEP,
-      'Should bark only if told so'
+    deepEqual(
+      getQuotes(
+        '"Winners never quit and quitters never win." - Vince Lombardi, "My motto is, \'Never quit.\'" - Henry Rollins'
+      ),
+      [
+        '"Winners never quit and quitters never win."',
+        '"My motto is, \'Never quit.\'"',
+      ]
     );
-    equal(dog_bark_only_if_told_so(), SLEEP, 'Should bark only if told so');
-
-    equal(
-      dog_dont_bark_only_if_told_so(true),
-      SLEEP,
-      'Should NOT bark only if told so'
-    );
-    equal(
-      dog_dont_bark_only_if_told_so(false),
-      BARK,
-      'Should NOT bark only if told so'
-    );
-    equal(
-      dog_dont_bark_only_if_told_so(),
-      BARK,
-      'Should NOT bark only if told so'
-    );
-
-    equal(dog_dont_bark_by_default(), SLEEP, 'Should NOT bark by default');
-    equal(dog_dont_bark_by_default(false), BARK, 'Should NOT bark if told so');
-
-    equal(dog_bark_by_default(), BARK, 'Should bark by default');
-    equal(dog_bark_by_default(false), SLEEP, 'Should NOT bark if told so');
   });
 });
 

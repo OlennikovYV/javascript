@@ -1,4 +1,4 @@
-const reg = /(["])(.+?)\1/g;
+const reg = /".+?"/g;
 function getQuotes(string) {
   return string.match(reg);
 }

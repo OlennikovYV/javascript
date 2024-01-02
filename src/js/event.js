@@ -1,12 +1,5 @@
 String.prototype.toCents = function () {
-  const isMoney = /^\$\d+(?:\.\d{1,2})$/.test(this);
-
-  if (isMoney === false) return null;
-
-  const money = this.replace(/[$]/, '');
-  const [dollar, cents] = money.split('.');
-
-  return cents ? Number(dollar.concat(cents)) : null;
+  return /^\$\d+\.\d\d$/.test(this) ? Number(this.replace(/[$.]/g, '')) : null;
 };
 
 console.log(''.toCents()); // null

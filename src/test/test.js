@@ -1,6 +1,6 @@
 mocha.setup('bdd');
 
-describe(`Greed`, function () {
+describe(`Regexp basics - parsing prices`, function () {
   const equal = chai.assert.equal;
   const strictEqual = chai.assert.strictEqual;
   const notEqual = chai.assert.notEqual;
@@ -14,16 +14,22 @@ describe(`Greed`, function () {
   const isNotEmpty = chai.assert.isNotEmpty;
   const lengthOf = chai.assert.lengthOf;
 
-  it('test', () => {
-    deepEqual(
-      getQuotes(
-        '"Winners never quit and quitters never win." - Vince Lombardi, "My motto is, \'Never quit.\'" - Henry Rollins'
-      ),
-      [
-        '"Winners never quit and quitters never win."',
-        '"My motto is, \'Never quit.\'"',
-      ]
-    );
+  it('Testing for fixed tests', () => {
+    strictEqual(''.toCents(), null);
+    strictEqual('1'.toCents(), null);
+    strictEqual('1.23'.toCents(), null);
+    strictEqual('$1'.toCents(), null);
+    strictEqual('$1.23'.toCents(), 123);
+    strictEqual('$99.99'.toCents(), 9999);
+    strictEqual('$12345678.90'.toCents(), 1234567890);
+    strictEqual('$9.69'.toCents(), 969);
+    strictEqual('$9.70'.toCents(), 970);
+    strictEqual('$9.71'.toCents(), 971);
+    strictEqual('$1.23\n'.toCents(), null);
+    strictEqual('\n$1.23'.toCents(), null);
+    strictEqual('$0.69'.toCents(), 69);
+    strictEqual('$9.69$4.3.7'.toCents(), null);
+    strictEqual('$9.692'.toCents(), null);
   });
 });
 

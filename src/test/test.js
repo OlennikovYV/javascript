@@ -1,6 +1,6 @@
 mocha.setup('bdd');
 
-describe(`How sexy is your name?`, function () {
+describe(`Loose Change!`, function () {
   const equal = chai.assert.equal;
   const strictEqual = chai.assert.strictEqual;
   const notEqual = chai.assert.notEqual;
@@ -14,36 +14,17 @@ describe(`How sexy is your name?`, function () {
   const isNotEmpty = chai.assert.isNotEmpty;
   const lengthOf = chai.assert.lengthOf;
 
-  it('Not too sexy!', () => {
-    equal(sexyName('GUV'), 'NOT TOO SEXY');
-    equal(sexyName('PHUG'), 'NOT TOO SEXY');
-    equal(sexyName('FFFFF'), 'NOT TOO SEXY');
-    equal(sexyName(''), 'NOT TOO SEXY');
-    equal(sexyName('PHUG'), 'NOT TOO SEXY');
-  });
-  it('Pretty sexy!', () => {
-    equal(sexyName('BOB'), 'PRETTY SEXY');
-    equal(sexyName('JLJ'), 'PRETTY SEXY');
-    equal(sexyName('HHHHHU'), 'PRETTY SEXY');
-    equal(sexyName('BOB'), 'PRETTY SEXY');
-    equal(sexyName('WWWWWU'), 'PRETTY SEXY');
-  });
-  it('Very sexy!', () => {
-    equal(sexyName('YOU'), 'VERY SEXY');
-    equal(sexyName('FABIO'), 'VERY SEXY');
-    equal(sexyName('ARUUUUUUUUU'), 'VERY SEXY');
-  });
-  it('The utlimate sexiest!', () => {
-    equal(sexyName('ROBBY'), 'THE ULTIMATE SEXIEST');
-    equal(sexyName('SAMANTHA'), 'THE ULTIMATE SEXIEST');
-    equal(sexyName('DONALD TRUMP'), 'THE ULTIMATE SEXIEST');
-    equal(sexyName('BILL GATES'), 'THE ULTIMATE SEXIEST');
-    equal(sexyName('SCARLETT JOHANSSON'), 'THE ULTIMATE SEXIEST');
-    equal(sexyName('CODEWARS'), 'THE ULTIMATE SEXIEST');
-    equal(sexyName('PAMELA ANDERSON'), 'THE ULTIMATE SEXIEST');
-  });
-  it('Different case', () => {
-    equal(sexyName('Lxu'), 'PRETTY SEXY');
+  it('test', () => {
+    equal(changeCount('dime penny dollar'), '$1.11');
+    equal(changeCount('dime penny nickel'), '$0.16');
+    equal(changeCount('quarter quarter'), '$0.50');
+    equal(changeCount('dollar penny dollar'), '$2.01');
+    equal(
+      changeCount(
+        'dollar dollar dollar dollar dollar dollar dollar dollar dollar dollar penny'
+      ),
+      '$10.01'
+    );
   });
 });
 

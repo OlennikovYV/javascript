@@ -1,10 +1,7 @@
-function compose(...listFunc) {
-  listFunc.reverse();
-
-  return function (init) {
-    return listFunc.reduce((result, func) => func(result), init);
-  };
-}
+const compose =
+  (...listFunc) =>
+  init =>
+    listFunc.reduceRight((result, func) => func(result), init);
 
 const addOne = a => a + 1;
 const multTwo = b => b * 2;

@@ -14,17 +14,15 @@ describe(`Loose Change!`, function () {
   const isNotEmpty = chai.assert.isNotEmpty;
   const lengthOf = chai.assert.lengthOf;
 
-  it('test', () => {
-    equal(changeCount('dime penny dollar'), '$1.11');
-    equal(changeCount('dime penny nickel'), '$0.16');
-    equal(changeCount('quarter quarter'), '$0.50');
-    equal(changeCount('dollar penny dollar'), '$2.01');
+  it('example tests', () => {
+    equal(compose(multTwo, addOne)(5), 12, 'compose two functions');
     equal(
-      changeCount(
-        'dollar dollar dollar dollar dollar dollar dollar dollar dollar dollar penny'
-      ),
-      '$10.01'
+      compose(addOne, multTwo, addOne, addOne)(2),
+      9,
+      'compose four functions'
     );
+    equal(compose(addOne)(3), 4, 'compose one function');
+    equal(compose()(10), 10, 'compose no functions');
   });
 });
 

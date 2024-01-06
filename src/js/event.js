@@ -1,12 +1,16 @@
-const compose =
-  (...listFunc) =>
-  init =>
-    listFunc.reduceRight((result, func) => func(result), init);
+function pattern(n) {
+  let output = [];
 
-const addOne = a => a + 1;
-const multTwo = b => b * 2;
+  for (let i = 0; i < n; i++) {
+    const string = Array.from({ length: n - i }, (_, index) => n - index)
+      .join``;
 
-console.log(compose(multTwo, addOne)(5)); // 12
-console.log(compose(addOne, multTwo, addOne, addOne)(2)); // 9
-console.log(compose(addOne)(3)); // 4
-console.log(compose()(10)); // 10
+    output.push(string);
+  }
+
+  return output.join('\n');
+}
+
+console.log(pattern(1)); // '1'
+console.log(pattern(2)); // '21\n2'
+console.log(pattern(5)); // '54321\n5432\n543\n54\n5'

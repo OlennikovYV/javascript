@@ -1,6 +1,6 @@
 mocha.setup('bdd');
 
-describe(`Loose Change!`, function () {
+describe(`Complete The Pattern #2`, function () {
   const equal = chai.assert.equal;
   const strictEqual = chai.assert.strictEqual;
   const notEqual = chai.assert.notEqual;
@@ -14,15 +14,10 @@ describe(`Loose Change!`, function () {
   const isNotEmpty = chai.assert.isNotEmpty;
   const lengthOf = chai.assert.lengthOf;
 
-  it('example tests', () => {
-    equal(compose(multTwo, addOne)(5), 12, 'compose two functions');
-    equal(
-      compose(addOne, multTwo, addOne, addOne)(2),
-      9,
-      'compose four functions'
-    );
-    equal(compose(addOne)(3), 4, 'compose one function');
-    equal(compose()(10), 10, 'compose no functions');
+  it('test', () => {
+    equal(pattern(1), '1');
+    equal(pattern(2), '21\n2');
+    equal(pattern(5), '54321\n5432\n543\n54\n5');
   });
 });
 

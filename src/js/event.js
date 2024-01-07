@@ -1,16 +1,22 @@
-function pattern(n) {
-  let output = [];
+function isOpposite(s1, s2) {
+  const convertCase = string =>
+    string
+      .split('')
+      .map(el =>
+        el === el.toUpperCase() ? el.toLowerCase() : el.toUpperCase()
+      )
+      .join('');
 
-  for (let i = 0; i < n; i++) {
-    const string = Array.from({ length: n - i }, (_, index) => n - index)
-      .join``;
-
-    output.push(string);
-  }
-
-  return output.join('\n');
+  return s1.length === 0 && s1.length === 0
+    ? false
+    : s1 === convertCase(s2)
+    ? true
+    : false;
 }
 
-console.log(pattern(1)); // '1'
-console.log(pattern(2)); // '21\n2'
-console.log(pattern(5)); // '54321\n5432\n543\n54\n5'
+console.log(isOpposite('ab', 'AB')); // true
+console.log(isOpposite('aB', 'Ab')); // true
+console.log(isOpposite('aBcd', 'AbCD')); // true
+console.log(isOpposite('aBcde', 'AbCD')); // false
+console.log(isOpposite('AB', 'Ab')); // false
+console.log(isOpposite('', '')); // false

@@ -1,10 +1,5 @@
 function mygcd(x, y) {
-  if (y > 0) {
-    let k = x % y;
-    return mygcd(y, k);
-  } else {
-    return Math.abs(x);
-  }
+  return y === 0 ? x : mygcd(y, x % y);
 }
 
 console.log(mygcd(30, 12)); // 6

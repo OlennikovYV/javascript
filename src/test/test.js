@@ -1,6 +1,6 @@
 mocha.setup('bdd');
 
-describe(`Greatest common divisor`, function () {
+describe(`Number Zoo Patrol`, function () {
   const equal = chai.assert.equal;
   const strictEqual = chai.assert.strictEqual;
   const notEqual = chai.assert.notEqual;
@@ -14,11 +14,14 @@ describe(`Greatest common divisor`, function () {
   const isNotEmpty = chai.assert.isNotEmpty;
   const lengthOf = chai.assert.lengthOf;
 
-  it('Example tests', () => {
-    strictEqual(mygcd(30, 12), 6);
-    strictEqual(mygcd(36, 12), 12);
-    strictEqual(mygcd(8, 9), 1);
-    strictEqual(mygcd(1, 1), 1);
+  it('Tests', () => {
+    equal(findNumber([1, 3, 4, 5, 6, 7, 8]), 2);
+    equal(findNumber([7, 8, 1, 2, 4, 5, 6]), 3);
+    equal(findNumber([1, 2, 3, 5]), 4);
+    equal(findNumber([1, 3]), 2);
+    equal(findNumber([2, 3, 4]), 1);
+    equal(findNumber([13, 11, 10, 3, 2, 1, 4, 5, 6, 9, 7, 8]), 12);
+    equal(findNumber([1, 2, 3]), 4);
   });
 });
 

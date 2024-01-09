@@ -1,13 +1,9 @@
 function findNumber(array) {
-  let sumSource = 0;
-  let sumTotal = 0;
+  let totalLength = array.length + 1;
+  let sumSource = array.reduce((sum, number) => sum + number, 0);
+  let sumTotal = (totalLength * (totalLength + 1)) / 2;
 
-  for (let i = 0; i < array.length; i++) {
-    sumSource += array[i];
-    sumTotal += i + 1;
-  }
-
-  return sumTotal + array.length + 1 - sumSource;
+  return sumTotal - sumSource;
 }
 
 console.log(findNumber([1, 3, 4, 5, 6, 7, 8])); // 2

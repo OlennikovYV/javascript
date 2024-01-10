@@ -1,7 +1,5 @@
 function age(x, y) {
-  const ageBrother = Math.abs(x / (y - 1));
-
-  return x > 0 ? ageBrother + x : Math.round(ageBrother * y);
+  return (x * y) / (y - 1);
 }
 
 console.log(age(-15, 0.25)); // 5

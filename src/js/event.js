@@ -1,6 +1,22 @@
-function age(x, y) {
-  return (x * y) / (y - 1);
+function createFunctions(n) {
+  const callbacks = [];
+
+  for (let i = 0; i < n; i++) {
+    callbacks.push(function () {
+      return i;
+    });
+  }
+
+  return callbacks;
 }
 
-console.log(age(-15, 0.25)); // 5
-console.log(age(6, 3)); // 9
+const callbacks = createFunctions(5);
+
+for (var i = 0; i < callbacks.length; i++) {
+  console.log(callbacks[i]());
+  // 0
+  // 1
+  // 2
+  // 3
+  // 4
+}

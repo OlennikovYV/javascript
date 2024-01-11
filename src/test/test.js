@@ -1,6 +1,6 @@
 mocha.setup('bdd');
 
-describe(`Calculate Julie's Age`, function () {
+describe(`Closures and Scopes`, function () {
   const equal = chai.assert.equal;
   const strictEqual = chai.assert.strictEqual;
   const notEqual = chai.assert.notEqual;
@@ -14,9 +14,12 @@ describe(`Calculate Julie's Age`, function () {
   const isNotEmpty = chai.assert.isNotEmpty;
   const lengthOf = chai.assert.lengthOf;
 
-  it('test', () => {
-    isTrue(age(-15, 0.25) === 5);
-    isTrue(age(6, 3) === 9);
+  it('functions must return correct number', function () {
+    var callbacks = createFunctions(5);
+
+    for (var i = 0; i < callbacks.length; i++) {
+      equal(callbacks[i](), i, 'Function with index ' + i);
+    }
   });
 });
 

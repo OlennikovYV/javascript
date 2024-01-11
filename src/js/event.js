@@ -1,10 +1,14 @@
 function createFunctions(n) {
   const callbacks = [];
 
-  for (let i = 0; i < n; i++) {
-    callbacks.push(function () {
+  function getIndex(i) {
+    return function () {
       return i;
-    });
+    };
+  }
+
+  for (let i = 0; i < n; i++) {
+    callbacks.push(getIndex(i));
   }
 
   return callbacks;

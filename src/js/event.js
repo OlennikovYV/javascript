@@ -1,26 +1,20 @@
-function createFunctions(n) {
-  const callbacks = [];
+function twistedSum(n) {
+  let sum = 0;
 
-  function getIndex(i) {
-    return function () {
-      return i;
-    };
+  const sumDigits = number =>
+    number
+      .toFixed()
+      .split('')
+      .reduce((sum, digit) => sum + Number(digit), 0);
+
+  for (let i = 1; i <= n; i++) {
+    sum += sumDigits(i);
   }
 
-  for (let i = 0; i < n; i++) {
-    callbacks.push(getIndex(i));
-  }
-
-  return callbacks;
+  return sum;
 }
 
-const callbacks = createFunctions(5);
-
-for (var i = 0; i < callbacks.length; i++) {
-  console.log(callbacks[i]());
-  // 0
-  // 1
-  // 2
-  // 3
-  // 4
-}
+console.log(twistedSum(3)); // 6
+console.log(twistedSum(10)); // 46
+console.log(twistedSum(11)); // 48
+console.log(twistedSum(12)); // 51

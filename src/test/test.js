@@ -1,6 +1,6 @@
 mocha.setup('bdd');
 
-describe(`Closures and Scopes`, function () {
+describe(`Twisted Sum`, function () {
   const equal = chai.assert.equal;
   const strictEqual = chai.assert.strictEqual;
   const notEqual = chai.assert.notEqual;
@@ -14,12 +14,17 @@ describe(`Closures and Scopes`, function () {
   const isNotEmpty = chai.assert.isNotEmpty;
   const lengthOf = chai.assert.lengthOf;
 
-  it('functions must return correct number', function () {
-    var callbacks = createFunctions(5);
-
-    for (var i = 0; i < callbacks.length; i++) {
-      equal(callbacks[i](), i, 'Function with index ' + i);
-    }
+  it('Sample test 1', () => {
+    equal(twistedSum(3), 6, 'n = 3');
+  });
+  it('Sample test 2', () => {
+    equal(twistedSum(10), 46, 'n = 10');
+  });
+  it('Sample test 3', () => {
+    equal(twistedSum(11), 48, 'n = 11');
+  });
+  it('Sample test 4', () => {
+    equal(twistedSum(12), 51, 'n = 12');
   });
 });
 

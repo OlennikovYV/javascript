@@ -1,9 +1,7 @@
 function addProperty(obj, prop, value) {
-  if (obj.hasOwnProperty(prop)) {
-    throw Error('Error');
-  } else {
-    obj[prop] = value;
-  }
+  if (obj.hasOwnProperty(prop)) throw new Error('Error');
+
+  obj[prop] = value;
 }
 
 const obj = {};

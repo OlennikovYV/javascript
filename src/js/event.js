@@ -1,20 +1,21 @@
-function twistedSum(n) {
-  let sum = 0;
-
-  const sumDigits = number =>
-    number
-      .toFixed()
-      .split('')
-      .reduce((sum, digit) => sum + Number(digit), 0);
-
-  for (let i = 1; i <= n; i++) {
-    sum += sumDigits(i);
+function addProperty(obj, prop, value) {
+  if (obj.hasOwnProperty(prop)) {
+    throw Error('Error');
+  } else {
+    obj[prop] = value;
   }
-
-  return sum;
 }
 
-console.log(twistedSum(3)); // 6
-console.log(twistedSum(10)); // 46
-console.log(twistedSum(11)); // 48
-console.log(twistedSum(12)); // 51
+const obj = {};
+
+addProperty(obj, 'name', 'Palle');
+console.log(obj.name === 'Palle'); // True
+
+obj.name = 'Dylan';
+console.log(obj.name === 'Dylan'); // True
+
+try {
+  addProperty(obj, 'name', 'Palle');
+} catch (error) {
+  console.log(error.message);
+}

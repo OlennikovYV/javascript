@@ -1,6 +1,6 @@
 mocha.setup('bdd');
 
-describe(`Twisted Sum`, function () {
+describe(`Add a property to an object`, function () {
   const equal = chai.assert.equal;
   const strictEqual = chai.assert.strictEqual;
   const notEqual = chai.assert.notEqual;
@@ -13,18 +13,28 @@ describe(`Twisted Sum`, function () {
   const oneOf = chai.assert.oneOf;
   const isNotEmpty = chai.assert.isNotEmpty;
   const lengthOf = chai.assert.lengthOf;
+  const error = chai.assert.throws;
 
-  it('Sample test 1', () => {
-    equal(twistedSum(3), 6, 'n = 3');
+  let obj = {};
+
+  before(function () {
+    obj = {};
+    addProperty(obj, 'name', 'Palle');
   });
-  it('Sample test 2', () => {
-    equal(twistedSum(10), 46, 'n = 10');
+
+  it('Should set the value of the property', function () {
+    isTrue(obj.name === 'Palle');
   });
-  it('Sample test 3', () => {
-    equal(twistedSum(11), 48, 'n = 11');
+
+  it('Should allow setting the new property to another value', function () {
+    obj.name = 'Dylan';
+    isTrue(obj.name === 'Dylan');
   });
-  it('Sample test 4', () => {
-    equal(twistedSum(12), 51, 'n = 12');
+
+  it('Should throw an error if the property already exists', function () {
+    error(function () {
+      addProperty(obj, 'name', 'Palle');
+    }, 'Error');
   });
 });
 

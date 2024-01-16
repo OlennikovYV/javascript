@@ -1,6 +1,6 @@
 mocha.setup('bdd');
 
-describe(`Round by 0.5 steps`, function () {
+describe(`Tic-Tac-Toe Checker`, function () {
   const equal = chai.assert.equal;
   const strictEqual = chai.assert.strictEqual;
   const notEqual = chai.assert.notEqual;
@@ -15,11 +15,44 @@ describe(`Round by 0.5 steps`, function () {
   const lengthOf = chai.assert.lengthOf;
   const error = chai.assert.throws;
 
-  it('test', () => {
-    equal(solution(4.2), 4);
-    equal(solution(4.4), 4.5);
-    equal(solution(4.6), 4.5);
-    equal(solution(4.8), 5);
+  it('Not finished - returned -1', () => {
+    isTrue(
+      isSolved([
+        [0, 0, 1],
+        [0, 1, 2],
+        [2, 1, 0],
+      ]) === -1
+    );
+  });
+
+  it('Draw - returned 0', () => {
+    isTrue(
+      isSolved([
+        [1, 2, 1],
+        [2, 2, 1],
+        [1, 1, 2],
+      ]) === 0
+    );
+  });
+
+  it('Winner 1 player - returned 1', () => {
+    isTrue(
+      isSolved([
+        [0, 0, 1],
+        [0, 1, 2],
+        [1, 2, 0],
+      ]) === 1
+    );
+  });
+
+  it('Winner 2 player - returned 2', () => {
+    isTrue(
+      isSolved([
+        [0, 2, 1],
+        [0, 2, 1],
+        [1, 2, 0],
+      ]) === 2
+    );
   });
 });
 

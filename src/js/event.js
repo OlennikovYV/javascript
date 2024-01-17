@@ -1,42 +1,13 @@
-function isSolved(board) {
-  board = board.join('-').replace(/,/g, '');
+var solution = function (firstArray, secondArray) {
+  return (
+    firstArray.reduce(
+      (sum, _, index) =>
+        sum + Math.pow(firstArray[index] - secondArray[index], 2),
+      0
+    ) / firstArray.length
+  );
+};
 
-  if (/222|2...2...2|2....2....2|2..2..2/.test(board)) return 2;
-  if (/111|1...1...1|1....1....1|1..1..1/.test(board)) return 1;
-
-  if (/0/.test(board)) return -1;
-
-  return 0;
-}
-
-console.log(
-  isSolved([
-    [0, 0, 1],
-    [0, 1, 2],
-    [2, 1, 0],
-  ])
-); // -1 (Not finished)
-
-console.log(
-  isSolved([
-    [1, 2, 1],
-    [2, 2, 1],
-    [1, 1, 2],
-  ])
-); // 0 (Draw)
-
-console.log(
-  isSolved([
-    [0, 0, 1],
-    [0, 1, 2],
-    [1, 2, 0],
-  ])
-); // 1 (Winner "player 1")
-
-console.log(
-  isSolved([
-    [0, 2, 1],
-    [0, 2, 1],
-    [1, 2, 0],
-  ])
-); // 2 (Winner "player 2")
+console.log(solution([1, 2, 3], [4, 5, 6])); // 9
+console.log(solution([10, 20, 10, 2], [10, 25, 5, -2])); // 16.5
+console.log(solution([0, -1], [-1, 0])); // 1

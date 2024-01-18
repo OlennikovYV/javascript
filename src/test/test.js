@@ -1,6 +1,6 @@
 mocha.setup('bdd');
 
-describe(`Mean Square Error`, function () {
+describe(`Return the closest number multiple of 10`, function () {
   const equal = chai.assert.equal;
   const strictEqual = chai.assert.strictEqual;
   const notEqual = chai.assert.notEqual;
@@ -15,10 +15,16 @@ describe(`Mean Square Error`, function () {
   const lengthOf = chai.assert.lengthOf;
   const error = chai.assert.throws;
 
-  it('test', () => {
-    equal(solution([1, 2, 3], [4, 5, 6]), 9);
-    equal(solution([10, 20, 10, 2], [10, 25, 5, -2]), 16.5);
-    equal(solution([0, -1], [-1, 0]), 1);
+  it('should return 10 for numbers from 10 to 14', function () {
+    for (let i = 10; i <= 14; ++i) {
+      equal(closestMultiple10(i), 10);
+    }
+  });
+
+  it('should return 20 for numbers from 15 to 20', function () {
+    for (let i = 15; i <= 20; ++i) {
+      equal(closestMultiple10(i), 20);
+    }
   });
 });
 

@@ -1,6 +1,6 @@
 mocha.setup('bdd');
 
-describe(`Return the closest number multiple of 10`, function () {
+describe(`Pairs of integers from m to n`, function () {
   const equal = chai.assert.equal;
   const strictEqual = chai.assert.strictEqual;
   const notEqual = chai.assert.notEqual;
@@ -15,16 +15,15 @@ describe(`Return the closest number multiple of 10`, function () {
   const lengthOf = chai.assert.lengthOf;
   const error = chai.assert.throws;
 
-  it('should return 10 for numbers from 10 to 14', function () {
-    for (let i = 10; i <= 14; ++i) {
-      equal(closestMultiple10(i), 10);
-    }
-  });
-
-  it('should return 20 for numbers from 15 to 20', function () {
-    for (let i = 15; i <= 20; ++i) {
-      equal(closestMultiple10(i), 20);
-    }
+  it('test', () => {
+    deepEqual(generatePairs(2, 4), [
+      [2, 2],
+      [2, 3],
+      [2, 4],
+      [3, 3],
+      [3, 4],
+      [4, 4],
+    ]);
   });
 });
 

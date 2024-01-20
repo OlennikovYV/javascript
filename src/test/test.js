@@ -1,6 +1,6 @@
 mocha.setup('bdd');
 
-describe(`Pairs of integers from m to n`, function () {
+describe(`Ones' Complement`, function () {
   const equal = chai.assert.equal;
   const strictEqual = chai.assert.strictEqual;
   const notEqual = chai.assert.notEqual;
@@ -16,14 +16,11 @@ describe(`Pairs of integers from m to n`, function () {
   const error = chai.assert.throws;
 
   it('test', () => {
-    deepEqual(generatePairs(2, 4), [
-      [2, 2],
-      [2, 3],
-      [2, 4],
-      [3, 3],
-      [3, 4],
-      [4, 4],
-    ]);
+    strictEqual(onesComplement('0'), '1');
+    strictEqual(onesComplement('1'), '0');
+    strictEqual(onesComplement('01'), '10');
+    strictEqual(onesComplement('10'), '01');
+    strictEqual(onesComplement('1101'), '0010');
   });
 });
 

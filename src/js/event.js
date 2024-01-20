@@ -1,20 +1,12 @@
-function generatePairs(m, n) {
-  const pairs = [];
-
-  for (let i = m; i <= n; i++)
-    for (let j = i; j <= n; j++) {
-      pairs.push([i, j]);
-    }
-
-  return pairs;
+function onesComplement(n) {
+  return n
+    .split('')
+    .map(el => (el === '1' ? '0' : '1'))
+    .join('');
 }
 
-console.log(generatePairs(2, 4));
-// [
-//   [2, 2],
-//   [2, 3],
-//   [2, 4],
-//   [3, 3],
-//   [3, 4],
-//   [4, 4],
-// ]
+console.log(onesComplement('0')); // '1'
+console.log(onesComplement('1')); // '0'
+console.log(onesComplement('01')); // '10'
+console.log(onesComplement('10')); // '01'
+console.log(onesComplement('1101')); // '0010'

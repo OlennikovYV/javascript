@@ -1,8 +1,5 @@
 function firstDup(s) {
-  for (let i = 0; i < s.length; i++) {
-    const lastIndex = s.lastIndexOf(s[i]);
-    if (lastIndex > i) return s[i];
-  }
+  return s.split('').find((char, index) => s.lastIndexOf(char) > index);
 }
 
 console.log(firstDup('tweet')); // 't'

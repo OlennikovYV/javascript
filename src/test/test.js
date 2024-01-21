@@ -1,6 +1,6 @@
 mocha.setup('bdd');
 
-describe(`Ones' Complement`, function () {
+describe(`first character that repeats`, function () {
   const equal = chai.assert.equal;
   const strictEqual = chai.assert.strictEqual;
   const notEqual = chai.assert.notEqual;
@@ -16,11 +16,12 @@ describe(`Ones' Complement`, function () {
   const error = chai.assert.throws;
 
   it('test', () => {
-    strictEqual(onesComplement('0'), '1');
-    strictEqual(onesComplement('1'), '0');
-    strictEqual(onesComplement('01'), '10');
-    strictEqual(onesComplement('10'), '01');
-    strictEqual(onesComplement('1101'), '0010');
+    equal(firstDup('tweet'), 't');
+    equal(firstDup('Ode to Joy'), ' ');
+    equal(firstDup('ode to joy'), 'o');
+    equal(firstDup('bar'), undefined);
+    equal(firstDup('123123'), '1');
+    equal(firstDup('!@#$!@#$'), '!');
   });
 });
 

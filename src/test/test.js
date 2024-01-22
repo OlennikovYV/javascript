@@ -1,6 +1,6 @@
 mocha.setup('bdd');
 
-describe(`first character that repeats`, function () {
+describe(`Counting in the Amazon`, function () {
   const equal = chai.assert.equal;
   const strictEqual = chai.assert.strictEqual;
   const notEqual = chai.assert.notEqual;
@@ -16,12 +16,9 @@ describe(`first character that repeats`, function () {
   const error = chai.assert.throws;
 
   it('test', () => {
-    equal(firstDup('tweet'), 't');
-    equal(firstDup('Ode to Joy'), ' ');
-    equal(firstDup('ode to joy'), 'o');
-    equal(firstDup('bar'), undefined);
-    equal(firstDup('123123'), '1');
-    equal(firstDup('!@#$!@#$'), '!');
+    equal(countArara(1), 'anane');
+    equal(countArara(3), 'adak anane');
+    equal(countArara(8), 'adak adak adak adak');
   });
 });
 

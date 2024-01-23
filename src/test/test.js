@@ -1,6 +1,6 @@
 mocha.setup('bdd');
 
-describe(`Counting in the Amazon`, function () {
+describe(`Rock Paper Scissors Lizard Spock`, function () {
   const equal = chai.assert.equal;
   const strictEqual = chai.assert.strictEqual;
   const notEqual = chai.assert.notEqual;
@@ -15,10 +15,25 @@ describe(`Counting in the Amazon`, function () {
   const lengthOf = chai.assert.lengthOf;
   const error = chai.assert.throws;
 
-  it('test', () => {
-    equal(countArara(1), 'anane');
-    equal(countArara(3), 'adak anane');
-    equal(countArara(8), 'adak adak adak adak');
+  it('player 1 Wins', function () {
+    equal(rpsls('rock', 'lizard'), 'Player 1 Won!');
+    equal(rpsls('paper', 'rock'), 'Player 1 Won!');
+    equal(rpsls('scissors', 'lizard'), 'Player 1 Won!');
+    equal(rpsls('lizard', 'paper'), 'Player 1 Won!');
+    equal(rpsls('spock', 'rock'), 'Player 1 Won!');
+  });
+
+  it('player 2 wins', function () {
+    equal(rpsls('lizard', 'scissors'), 'Player 2 Won!');
+    equal(rpsls('spock', 'lizard'), 'Player 2 Won!');
+    equal(rpsls('paper', 'lizard'), 'Player 2 Won!');
+    equal(rpsls('scissors', 'spock'), 'Player 2 Won!');
+    equal(rpsls('rock', 'spock'), 'Player 2 Won!');
+  });
+
+  it('draw', function () {
+    equal(rpsls('rock', 'rock'), 'Draw!');
+    equal(rpsls('spock', 'spock'), 'Draw!');
   });
 });
 

@@ -1,9 +1,8 @@
 function arrayMash(array1, array2) {
-  const joinArray = [];
-
-  array1.map((el, index) => joinArray.push(el, array2[index]));
-
-  return joinArray;
+  return array1.reduce(
+    (resultArray, el, index) => resultArray.concat(el).concat(array2[index]),
+    []
+  );
 }
 
 console.log(arrayMash([1, 2, 3], ['a', 'b', 'c']));

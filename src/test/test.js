@@ -1,6 +1,6 @@
 mocha.setup('bdd');
 
-describe(`Rock Paper Scissors Lizard Spock`, function () {
+describe(`Array Mash`, function () {
   const equal = chai.assert.equal;
   const strictEqual = chai.assert.strictEqual;
   const notEqual = chai.assert.notEqual;
@@ -15,25 +15,52 @@ describe(`Rock Paper Scissors Lizard Spock`, function () {
   const lengthOf = chai.assert.lengthOf;
   const error = chai.assert.throws;
 
-  it('player 1 Wins', function () {
-    equal(rpsls('rock', 'lizard'), 'Player 1 Won!');
-    equal(rpsls('paper', 'rock'), 'Player 1 Won!');
-    equal(rpsls('scissors', 'lizard'), 'Player 1 Won!');
-    equal(rpsls('lizard', 'paper'), 'Player 1 Won!');
-    equal(rpsls('spock', 'rock'), 'Player 1 Won!');
-  });
-
-  it('player 2 wins', function () {
-    equal(rpsls('lizard', 'scissors'), 'Player 2 Won!');
-    equal(rpsls('spock', 'lizard'), 'Player 2 Won!');
-    equal(rpsls('paper', 'lizard'), 'Player 2 Won!');
-    equal(rpsls('scissors', 'spock'), 'Player 2 Won!');
-    equal(rpsls('rock', 'spock'), 'Player 2 Won!');
-  });
-
-  it('draw', function () {
-    equal(rpsls('rock', 'rock'), 'Draw!');
-    equal(rpsls('spock', 'spock'), 'Draw!');
+  it('Fixed tests', () => {
+    deepEqual(arrayMash([1, 2, 3], ['a', 'b', 'c']), [1, 'a', 2, 'b', 3, 'c']);
+    deepEqual(arrayMash([1, 2, 3, 4, 5], ['a', 'b', 'c', 'd', 'e']), [
+      1,
+      'a',
+      2,
+      'b',
+      3,
+      'c',
+      4,
+      'd',
+      5,
+      'e',
+    ]);
+    deepEqual(arrayMash([1, 1, 1, 1], [2, 2, 2, 2]), [1, 2, 1, 2, 1, 2, 1, 2]);
+    deepEqual(arrayMash([1, 8, 'hello', 'dog'], ['fish', '2', 9, 10]), [
+      1,
+      'fish',
+      8,
+      '2',
+      'hello',
+      9,
+      'dog',
+      10,
+    ]);
+    deepEqual(arrayMash([null, null, 4], [NaN, null, 'hello']), [
+      null,
+      NaN,
+      null,
+      null,
+      4,
+      'hello',
+    ]);
+    deepEqual(arrayMash([1], [2]), [1, 2]);
+    deepEqual(arrayMash(['h', 'l', 'o', 'o', 'l'], ['e', 'l', 'w', 'r', 'd']), [
+      'h',
+      'e',
+      'l',
+      'l',
+      'o',
+      'w',
+      'o',
+      'r',
+      'l',
+      'd',
+    ]);
   });
 });
 

@@ -1,28 +1,21 @@
-function rpsls(pl1, pl2) {
-  const wins = {
-    scissors: ['paper', 'lizard'],
-    paper: ['rock', 'spock'],
-    rock: ['lizard', 'scissors'],
-    lizard: ['spock', 'paper'],
-    spock: ['scissors', 'rock'],
-  };
+function arrayMash(array1, array2) {
+  const joinArray = [];
 
-  if (pl1 === pl2) return 'Draw!';
+  array1.map((el, index) => joinArray.push(el, array2[index]));
 
-  return wins[pl1].includes(pl2) ? 'Player 1 Won!' : 'Player 2 Won!';
+  return joinArray;
 }
 
-console.log(rpsls('rock', 'lizard')); // 'Player 1 Won!'
-console.log(rpsls('paper', 'rock')); // 'Player 1 Won!'
-console.log(rpsls('scissors', 'lizard')); // 'Player 1 Won!'
-console.log(rpsls('lizard', 'paper')); // 'Player 1 Won!'
-console.log(rpsls('spock', 'rock')); // 'Player 1 Won!'
-
-console.log(rpsls('lizard', 'scissors')); // 'Player 2 Won!'
-console.log(rpsls('spock', 'lizard')); // 'Player 2 Won!'
-console.log(rpsls('paper', 'lizard')); // 'Player 2 Won!'
-console.log(rpsls('scissors', 'spock')); // 'Player 2 Won!'
-console.log(rpsls('rock', 'spock')); // 'Player 2 Won!'
-
-console.log(rpsls('rock', 'rock')); // 'Draw!'
-console.log(rpsls('spock', 'spock')); // 'Draw!'
+console.log(arrayMash([1, 2, 3], ['a', 'b', 'c']));
+// [1, 'a', 2, 'b', 3, 'c']
+console.log(arrayMash([1, 2, 3, 4, 5], ['a', 'b', 'c', 'd', 'e']));
+// [1, 'a', 2, 'b', 3, 'c', 4, 'd', 5, 'e',]
+console.log(arrayMash([1, 1, 1, 1], [2, 2, 2, 2]));
+// [1, 2, 1, 2, 1, 2, 1, 2]
+console.log(arrayMash([1, 8, 'hello', 'dog'], ['fish', '2', 9, 10]));
+// [1, 'fish', 8, '2', 'hello', 9, 'dog', 10,]
+console.log(arrayMash([null, null, 4], [NaN, null, 'hello']));
+//  [null, NaN, null, null, 4, 'hello']
+console.log(arrayMash([1], [2])); // [1, 2]
+console.log(arrayMash(['h', 'l', 'o', 'o', 'l'], ['e', 'l', 'w', 'r', 'd']));
+//  ['h', 'e', 'l', 'l', 'o', 'w', 'o', 'r', 'l', 'd']

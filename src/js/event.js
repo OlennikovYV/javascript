@@ -1,6 +1,6 @@
 function arrayMash(array1, array2) {
   return array1.reduce(
-    (resultArray, el, index) => resultArray.concat(el).concat(array2[index]),
+    (resultArray, el, index) => resultArray.concat([el, array2[index]]),
     []
   );
 }

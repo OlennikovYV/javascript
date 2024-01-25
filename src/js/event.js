@@ -1,9 +1,5 @@
 function checkAlive(health) {
-  if (health <= 0) {
-    return false;
-  } else {
-    return true;
-  }
+  return health > 0;
 }
 
 console.log(checkAlive(5)); // true

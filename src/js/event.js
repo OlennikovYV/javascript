@@ -1,9 +1,7 @@
 String.prototype.contains = function (string, caseInsensitive = false) {
-  if (caseInsensitive) {
-    return this.includes(string);
-  }
-
-  return this.toLowerCase().includes(string.toLowerCase());
+  return caseInsensitive
+    ? this.includes(string)
+    : this.toLowerCase().includes(string.toLowerCase());
 };
 
 console.log('Hello, World!'.contains('Hel')); // true

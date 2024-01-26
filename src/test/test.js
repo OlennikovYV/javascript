@@ -1,6 +1,6 @@
 mocha.setup('bdd');
 
-describe(`Grasshopper - If/else syntax debug`, function () {
+describe(`Extending JavaScript Objects: Contains Method`, function () {
   const equal = chai.assert.equal;
   const strictEqual = chai.assert.strictEqual;
   const notEqual = chai.assert.notEqual;
@@ -16,8 +16,10 @@ describe(`Grasshopper - If/else syntax debug`, function () {
   const error = chai.assert.throws;
 
   it('test', () => {
-    equal(checkAlive(5), true);
-    equal(checkAlive(0), false);
+    equal('Hello, World!'.contains('Hel'), true);
+    equal('Hello, World!'.contains('wor'), true);
+    equal('Hello, World!'.contains('wor', true), false);
+    equal('Hello, World!'.contains('a'), false);
   });
 });
 

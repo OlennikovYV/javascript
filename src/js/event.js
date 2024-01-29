@@ -1,14 +1,19 @@
-function addArrays(array1, array2) {
-  if (array1.length !== array2.length) throw new Error('Error');
+function sortVowels(s) {
+  const result = [];
 
-  return array1.map((el, index) => el + array2[index]);
+  if (typeof s !== 'string') return '';
+
+  s.split('').forEach(char => {
+    const vowels = 'aeiouAEIOU';
+    let sortChar = vowels.includes(char) ? '|' + char : char + '|';
+
+    result.push(sortChar);
+  });
+
+  return result.join('\n');
 }
 
-console.log(addArrays([1, 2], [4, 5])); // [5, 7]
-console.log(addArrays(['a'], ['b'])); // ['ab']
-
-try {
-  addArrays([1, 2, 3], [4, 5]);
-} catch (error) {
-  console.log(error.message); // Error
-}
+console.log(sortVowels('Codewars')); // 'C|\n|o\nd|\n|e\nw|\n|a\nr|\ns|'
+console.log(sortVowels('Rnd Te5T')); // 'R|\nn|\nd|\n |\nT|\n|e\n5|\nT|'
+console.log(sortVowels(1337)); // ''
+console.log(sortVowels(undefined)); // ''

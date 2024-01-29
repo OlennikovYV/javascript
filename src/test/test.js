@@ -1,6 +1,6 @@
 mocha.setup('bdd');
 
-describe(`All Star Code Challenge #20`, function () {
+describe(`Sort the Vowels!`, function () {
   const equal = chai.assert.equal;
   const strictEqual = chai.assert.strictEqual;
   const notEqual = chai.assert.notEqual;
@@ -16,15 +16,10 @@ describe(`All Star Code Challenge #20`, function () {
   const error = chai.assert.throws;
 
   it('test', () => {
-    deepEqual(addArrays([1, 2], [4, 5]), [5, 7]);
-    deepEqual(
-      addArrays(['a'], ['b']),
-      ['ab'],
-      'Should work with strings as well'
-    );
-    error(function () {
-      addArrays([1, 2, 3], [4, 5]);
-    }, 'Error');
+    equal(sortVowels('Codewars'), 'C|\n|o\nd|\n|e\nw|\n|a\nr|\ns|');
+    equal(sortVowels('Rnd Te5T'), 'R|\nn|\nd|\n |\nT|\n|e\n5|\nT|');
+    equal(sortVowels(1337), '');
+    equal(sortVowels(undefined), '');
   });
 });
 

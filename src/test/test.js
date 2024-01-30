@@ -1,6 +1,6 @@
 mocha.setup('bdd');
 
-describe(`Sort the Vowels!`, function () {
+describe(`Number Format`, function () {
   const equal = chai.assert.equal;
   const strictEqual = chai.assert.strictEqual;
   const notEqual = chai.assert.notEqual;
@@ -16,10 +16,8 @@ describe(`Sort the Vowels!`, function () {
   const error = chai.assert.throws;
 
   it('test', () => {
-    equal(sortVowels('Codewars'), 'C|\n|o\nd|\n|e\nw|\n|a\nr|\ns|');
-    equal(sortVowels('Rnd Te5T'), 'R|\nn|\nd|\n |\nT|\n|e\n5|\nT|');
-    equal(sortVowels(1337), '');
-    equal(sortVowels(undefined), '');
+    equal(numberFormat(100000), '100,000');
+    equal(numberFormat(5678545), '5,678,545');
   });
 });
 

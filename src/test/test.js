@@ -1,6 +1,6 @@
 mocha.setup('bdd');
 
-describe(`Number Format`, function () {
+describe(`Difference of 2`, function () {
   const equal = chai.assert.equal;
   const strictEqual = chai.assert.strictEqual;
   const notEqual = chai.assert.notEqual;
@@ -15,9 +15,16 @@ describe(`Number Format`, function () {
   const lengthOf = chai.assert.lengthOf;
   const error = chai.assert.throws;
 
-  it('test', () => {
-    equal(numberFormat(100000), '100,000');
-    equal(numberFormat(5678545), '5,678,545');
+  it('Tests', function () {
+    deepEqual(twosDifference([1, 2, 3, 4]), [
+      [1, 3],
+      [2, 4],
+    ]);
+    deepEqual(twosDifference([1, 3, 4, 6]), [
+      [1, 3],
+      [4, 6],
+    ]);
+    deepEqual(twosDifference([0, 3, 1, 4]), [[1, 3]]);
   });
 });
 

@@ -1,21 +1,8 @@
-function twosDifference(input) {
-  return input
-    .sort((a, b) => a - b)
-    .filter((digit, _, arr) => arr.indexOf(digit + 2) !== -1)
-    .map(digit => [digit, digit + 2]);
+function solution() {
+  return arguments.length !== new Set(arguments).size;
 }
 
-console.log(twosDifference([1, 2, 3, 4]));
-// [
-//   [1, 3],
-//   [2, 4]
-// ]
-console.log(twosDifference([1, 3, 4, 6]));
-// [
-//   [1, 3],
-//   [4, 6]
-// ]
-console.log(twosDifference([0, 3, 1, 4]));
-// [
-//   [1, 3]
-// ]
+console.log(solution(1, 2, 3)); // false
+console.log(solution(1, 2, 3, 6, 5, 6)); // true
+console.log(solution('a', 'b', 'c', 'a')); // true
+console.log(solution(1, 2, 3, 'a', 'b')); // false

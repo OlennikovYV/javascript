@@ -1,18 +1,11 @@
 function matrixMultiplication(a, b) {
-  const lengthMatrix = a.length;
-  const resultMulMatrix = new Array(lengthMatrix);
-
-  for (let i = 0; i < lengthMatrix; i++) {
-    resultMulMatrix[i] = new Array(lengthMatrix);
-    for (let j = 0; j < lengthMatrix; j++) {
-      resultMulMatrix[i][j] = 0;
-      for (let k = 0; k < lengthMatrix; k++) {
-        resultMulMatrix[i][j] += a[i][k] * b[k][j];
-      }
-    }
-  }
-
-  return resultMulMatrix;
+  return a.map(i => {
+    return i.map((_, j) => {
+      return i.reduce((sum, cellA, k) => {
+        return sum + cellA * b[k][j];
+      }, 0);
+    });
+  });
 }
 
 console.log(

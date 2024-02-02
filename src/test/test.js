@@ -1,6 +1,6 @@
 mocha.setup('bdd');
 
-describe(`Duplicate Arguments`, function () {
+describe(`Square Matrix Multiplication`, function () {
   const equal = chai.assert.equal;
   const strictEqual = chai.assert.strictEqual;
   const notEqual = chai.assert.notEqual;
@@ -16,10 +16,22 @@ describe(`Duplicate Arguments`, function () {
   const error = chai.assert.throws;
 
   it('test', () => {
-    equal(solution(1, 2, 3), false);
-    equal(solution(1, 2, 3, 6, 5, 6), true);
-    equal(solution('a', 'b', 'c', 'a'), true);
-    equal(solution(1, 2, 3, 'a', 'b'), false);
+    deepEqual(
+      matrixMultiplication(
+        [
+          [1, 2],
+          [3, 2],
+        ],
+        [
+          [3, 2],
+          [1, 1],
+        ]
+      ),
+      [
+        [5, 4],
+        [11, 8],
+      ]
+    );
   });
 });
 

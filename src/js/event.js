@@ -1,13 +1,9 @@
 function type(value) {
   if (Array.isArray(value)) return 'array';
-  if (typeof value === 'function') return 'function';
   if (value instanceof Date) return 'date';
   if (value === null) return 'null';
-  if (value === undefined) return 'undefined';
-  if (typeof value === 'object') return 'object';
-  if (typeof value === 'string') return 'string';
-  if (typeof value === 'number') return 'number';
-  if (typeof value === 'boolean') return 'boolean';
+
+  return typeof value;
 }
 
 console.log(type([])); // 'array'

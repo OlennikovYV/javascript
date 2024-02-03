@@ -1,9 +1,5 @@
 function type(value) {
-  if (Array.isArray(value)) return 'array';
-  if (value instanceof Date) return 'date';
-  if (value === null) return 'null';
-
-  return typeof value;
+  return {}.toString.call(value).slice(8, -1).toLowerCase();
 }
 
 console.log(type([])); // 'array'

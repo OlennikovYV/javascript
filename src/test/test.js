@@ -1,6 +1,6 @@
 mocha.setup('bdd');
 
-describe(`Square Matrix Multiplication`, function () {
+describe(`What is type of variable?`, function () {
   const equal = chai.assert.equal;
   const strictEqual = chai.assert.strictEqual;
   const notEqual = chai.assert.notEqual;
@@ -16,22 +16,19 @@ describe(`Square Matrix Multiplication`, function () {
   const error = chai.assert.throws;
 
   it('test', () => {
-    deepEqual(
-      matrixMultiplication(
-        [
-          [1, 2],
-          [3, 2],
-        ],
-        [
-          [3, 2],
-          [1, 1],
-        ]
-      ),
-      [
-        [5, 4],
-        [11, 8],
-      ]
+    equal(type([]), 'array');
+    equal(type({}), 'object');
+    equal(type(''), 'string');
+    equal(type([].join()), 'string');
+    equal(type(new Date()), 'date');
+    equal(
+      type(() => {}),
+      'function'
     );
+    equal(type(NaN), 'number');
+    equal(type(true), 'boolean');
+    equal(type(null), 'null');
+    equal(type(undefined), 'undefined');
   });
 });
 

@@ -1,8 +1,8 @@
 String.prototype.isAudio = function () {
-  return /^([a-z|A-Z]+)\.(mp3|flac|alac|aac)/g.test(this);
+  return /^([a-z|A-Z]+)\.(mp3|flac|al?ac)/g.test(this);
 };
 String.prototype.isImage = function () {
-  return /^([a-z|A-Z]+)\.(jpg|jpeg|png|bmp|gif)/g.test(this);
+  return /^([a-z|A-Z]+)\.(jpe?g|png|bmp|gif)/g.test(this);
 };
 
 console.log('Nothing Else Matters.mp3'.isAudio()); // false

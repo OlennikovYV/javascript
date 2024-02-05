@@ -1,6 +1,6 @@
 mocha.setup('bdd');
 
-describe(`Master of Files`, function () {
+describe(`'x' marks the spot.`, function () {
   const equal = chai.assert.equal;
   const strictEqual = chai.assert.strictEqual;
   const notEqual = chai.assert.notEqual;
@@ -15,29 +15,46 @@ describe(`Master of Files`, function () {
   const lengthOf = chai.assert.lengthOf;
   const error = chai.assert.throws;
 
-  it('Tests', () => {
-    equal(
-      'Nothing Else Matters.mp3'.isAudio(),
-      false,
-      'Filename contains spaces'
+  it('Return an empty array if x is an empty array', () => {
+    deepEqual(xMarksTheSpot([]), []);
+  });
+  it('Return an empty array if no x found', () => {
+    deepEqual(
+      xMarksTheSpot([
+        ['o', 'o'],
+        ['o', 'o'],
+      ]),
+      []
     );
-    equal('NothingElseMatters.mp3'.isAudio(), true);
-    equal('DaftPunk.FLAC'.isAudio(), false, 'Extension may only be lower case');
-    equal('DaftPunk.flac'.isAudio(), true);
-    equal('AmonTobin.aac'.isAudio(), true);
-    equal(' Amon Tobin.alac'.isAudio(), false, 'Filename contains spaces');
-    equal('tobin.alac'.isAudio(), true);
-    equal('Home.jpg'.isImage(), true);
-    equal('flat.jpeg'.isImage(), true);
-    equal('icon.bmp'.isImage(), true);
-    equal(
-      'icon2.jpg'.isImage(),
-      false,
-      'Filename contains a non-letter character'
+  });
+  it('Return an empty array if more than one x found', () => {
+    deepEqual(
+      xMarksTheSpot([
+        ['x', 'o'],
+        ['o', 'x'],
+      ]),
+      []
     );
-    equal('bounce.gif'.isImage(), true);
-    equal('animate bounce.GIF'.isImage(), false, 'Extension not lower case');
-    equal('transparency.png'.isImage(), true);
+  });
+  it('Return [0,0] when x at top left', () => {
+    deepEqual(
+      xMarksTheSpot([
+        ['x', 'o'],
+        ['o', 'o'],
+      ]),
+      [0, 0]
+    );
+  });
+  it('Return [4,6] when x at position [4,6]', () => {
+    let input = [
+      ['o', 'o', 'o', 'o', 'o', 'o', 'o', 'o'],
+      ['o', 'o', 'o', 'o', 'o', 'o', 'o', 'o'],
+      ['o', 'o', 'o', 'o', 'o', 'o', 'o', 'o'],
+      ['o', 'o', 'o', 'o', 'o', 'o', 'o', 'o'],
+      ['o', 'o', 'o', 'o', 'o', 'o', 'x', 'o'],
+      ['o', 'o', 'o', 'o', 'o', 'o', 'o', 'o'],
+    ];
+    deepEqual(xMarksTheSpot(input), [4, 6]);
   });
 });
 

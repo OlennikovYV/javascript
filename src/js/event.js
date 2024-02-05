@@ -1,21 +1,15 @@
 const xMarksTheSpot = input => {
-  let xIsAlready = false;
   let xCoord = [];
 
   input.forEach((array, i) => {
     array.forEach((value, j) => {
       if (value === 'x') {
-        if (xCoord.length > 0 || xIsAlready) {
-          xCoord = [];
-        } else {
-          xCoord = [i, j];
-          xIsAlready = true;
-        }
+        xCoord.push([i, j]);
       }
     });
   });
 
-  return xCoord;
+  return xCoord.length === 1 ? xCoord[0] : [];
 };
 
 console.log(xMarksTheSpot([])); // []

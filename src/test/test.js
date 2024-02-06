@@ -1,6 +1,6 @@
 mocha.setup('bdd');
 
-describe(`'x' marks the spot.`, function () {
+describe(`Alphabet war - airstrike - letters massacre`, function () {
   const equal = chai.assert.equal;
   const strictEqual = chai.assert.strictEqual;
   const notEqual = chai.assert.notEqual;
@@ -15,46 +15,15 @@ describe(`'x' marks the spot.`, function () {
   const lengthOf = chai.assert.lengthOf;
   const error = chai.assert.throws;
 
-  it('Return an empty array if x is an empty array', () => {
-    deepEqual(xMarksTheSpot([]), []);
-  });
-  it('Return an empty array if no x found', () => {
-    deepEqual(
-      xMarksTheSpot([
-        ['o', 'o'],
-        ['o', 'o'],
-      ]),
-      []
-    );
-  });
-  it('Return an empty array if more than one x found', () => {
-    deepEqual(
-      xMarksTheSpot([
-        ['x', 'o'],
-        ['o', 'x'],
-      ]),
-      []
-    );
-  });
-  it('Return [0,0] when x at top left', () => {
-    deepEqual(
-      xMarksTheSpot([
-        ['x', 'o'],
-        ['o', 'o'],
-      ]),
-      [0, 0]
-    );
-  });
-  it('Return [4,6] when x at position [4,6]', () => {
-    let input = [
-      ['o', 'o', 'o', 'o', 'o', 'o', 'o', 'o'],
-      ['o', 'o', 'o', 'o', 'o', 'o', 'o', 'o'],
-      ['o', 'o', 'o', 'o', 'o', 'o', 'o', 'o'],
-      ['o', 'o', 'o', 'o', 'o', 'o', 'o', 'o'],
-      ['o', 'o', 'o', 'o', 'o', 'o', 'x', 'o'],
-      ['o', 'o', 'o', 'o', 'o', 'o', 'o', 'o'],
-    ];
-    deepEqual(xMarksTheSpot(input), [4, 6]);
+  it('test', () => {
+    equal(alphabetWar('z'), 'Right side wins!');
+    equal(alphabetWar('****'), "Let's fight again!");
+    equal(alphabetWar('z*dq*mw*pb*s'), "Let's fight again!");
+    equal(alphabetWar('zdqmwpbs'), "Let's fight again!");
+    equal(alphabetWar('zz*zzs'), 'Right side wins!');
+    equal(alphabetWar('sz**z**zs'), 'Left side wins!');
+    equal(alphabetWar('z*z*z*zs'), 'Left side wins!');
+    equal(alphabetWar('*wwwwww*z*'), 'Left side wins!');
   });
 });
 

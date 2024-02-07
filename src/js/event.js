@@ -1,35 +1,68 @@
-function alphabetWar(fight) {
-  const sideScores = {
-    w: -4,
-    p: -3,
-    b: -2,
-    s: -1,
-    m: 4,
-    q: 3,
-    d: 2,
-    z: 1,
-  };
-  let score = 0;
-  const explosedBomb = fight.replace(/\w?\*+\w?/g, '');
+class Cuboid {
+  constructor(length, width, height) {
+    this.length = length;
+    this.width = width;
+    this.height = height;
+  }
 
-  explosedBomb.split('').forEach(letter => {
-    const letterPower = sideScores[letter];
+  get volume() {
+    return this.length * this.width * this.height;
+  }
 
-    score += letterPower ? letterPower : 0;
-  });
+  get surfaceArea() {
+    return (
+      2 *
+      (this.length * this.width +
+        this.length * this.height +
+        this.width * this.height)
+    );
+  }
+}
+class Cube extends Cuboid {
+  constructor(length) {
+    super(length, length, length);
+    this.length = length;
+  }
 
-  return score === 0
-    ? "Let's fight again!"
-    : score < 0
-    ? 'Left side wins!'
-    : 'Right side wins!';
+  get surfaceArea() {
+    return 6 * this.length ** 2;
+  }
 }
 
-console.log(alphabetWar('z')); // 'Right side wins!'
-console.log(alphabetWar('****')); // "Let's fight again!"
-console.log(alphabetWar('z*dq*mw*pb*s')); // "Let's fight again!"
-console.log(alphabetWar('zdqmwpbs')); // "Let's fight again!"
-console.log(alphabetWar('zz*zzs')); // 'Right side wins!'
-console.log(alphabetWar('sz**z**zs')); // 'Left side wins!'
-console.log(alphabetWar('z*z*z*zs')); // 'Left side wins!'
-console.log(alphabetWar('*wwwwww*z*')); // 'Left side wins!'
+const cuboid = new Cuboid(1, 2, 3);
+console.log(cuboid.length); // 1
+console.log(cuboid.width); // 2
+console.log(cuboid.height); // 3
+console.log(cuboid.volume); // 6
+console.log(cuboid.surfaceArea); // 22
+cuboid.length = 4;
+console.log(cuboid.volume); // 24
+console.log(cuboid.surfaceArea); // 52
+cuboid.width = 5;
+console.log(cuboid.volume); // 60
+console.log(cuboid.surfaceArea); // 94
+cuboid.height = 6;
+console.log(cuboid.volume); // 120
+console.log(cuboid.surfaceArea); // 148
+[cuboid.length, cuboid.width, cuboid.height] = [7, 8, 9];
+console.log(cuboid.volume); // 504
+console.log(cuboid.surfaceArea); // 382
+
+const cube = new Cube(1);
+console.log(cube.length); // 1
+console.log(cube.width); // 1
+console.log(cube.height); // 1
+console.log(cube.volume); // 1
+console.log(cube.surfaceArea); // 6
+cube.length = cube.width = cube.height = 2;
+console.log(cube.volume); // 8
+console.log(cube.surfaceArea); // 24
+cube.length = cube.width = cube.height = 3;
+console.log(cube.volume); // 27
+console.log(cube.surfaceArea); // 54
+cube.length = cube.width = cube.height = 5;
+console.log(cube.volume); // 125
+console.log(cube.surfaceArea); // 150
+cube.length = cube.width = cube.height = 10;
+console.log(cube.volume); // 1000
+console.log(cube.surfaceArea); // 600

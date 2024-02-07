@@ -1,8 +1,6 @@
 class Cuboid {
   constructor(length, width, height) {
-    this.length = length;
-    this.width = width;
-    this.height = height;
+    Object.assign(this, { length, width, height });
   }
 
   get volume() {
@@ -21,11 +19,6 @@ class Cuboid {
 class Cube extends Cuboid {
   constructor(length) {
     super(length, length, length);
-    this.length = length;
-  }
-
-  get surfaceArea() {
-    return 6 * this.length ** 2;
   }
 }
 

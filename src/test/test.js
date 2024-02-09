@@ -1,6 +1,6 @@
 mocha.setup('bdd');
 
-describe(`Sort My Textbooks`, function () {
+describe(`How many are smaller than me?`, function () {
   const equal = chai.assert.equal;
   const strictEqual = chai.assert.strictEqual;
   const notEqual = chai.assert.notEqual;
@@ -15,29 +15,21 @@ describe(`Sort My Textbooks`, function () {
   const lengthOf = chai.assert.lengthOf;
   const error = chai.assert.throws;
 
-  it('Basic', () => {
-    deepEqual(sorter(['Algebra', 'History', 'Geometry', 'English']), [
-      'Algebra',
-      'English',
-      'Geometry',
-      'History',
-    ]);
-  });
-  it('Capitalization', () => {
-    deepEqual(sorter(['Algebra', 'history', 'Geometry', 'english']), [
-      'Algebra',
-      'english',
-      'Geometry',
-      'history',
-    ]);
-  });
-  it('Symbols', () => {
-    deepEqual(sorter(['Alg#bra', '$istory', 'Geom^try', '**english']), [
-      '$istory',
-      '**english',
-      'Alg#bra',
-      'Geom^try',
-    ]);
+  it('Sample tests', function () {
+    deepEqual(smaller([5, 4, 3, 2, -1]), [4, 3, 2, 1, 0]);
+    deepEqual(smaller([5, 4, 3, 2, 1]), [4, 3, 2, 1, 0]);
+    deepEqual(smaller([1, 2, 3]), [0, 0, 0]);
+    deepEqual(smaller([1, 2, 0]), [1, 1, 0]);
+    deepEqual(smaller([1, 2, 1]), [0, 1, 0]);
+    deepEqual(smaller([1, 1, -1, 0, 0]), [3, 3, 0, 0, 0]);
+    deepEqual(
+      smaller([5, 4, 7, 9, 2, 4, 4, 5, 6]),
+      [4, 1, 5, 5, 0, 0, 0, 0, 0]
+    );
+    deepEqual(
+      smaller([5, 4, 7, 9, 2, 4, 1, 4, 5, 6]),
+      [5, 2, 6, 6, 1, 1, 0, 0, 0, 0]
+    );
   });
 });
 

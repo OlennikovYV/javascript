@@ -1,39 +1,15 @@
-const convertPhoneBook = string =>
-  string
-    .trim()
-    .split('\n')
-    .map(record => {
-      let phone, name, adress;
-
-      record = record.replace(/\+\d{1,2}-\d{3}-\d{3}-\d{4}/g, x => {
-        phone = x.slice(1);
-        return '';
-      });
-
-      record = record.replace(/\<[a-zA-Z \']+\>/g, x => {
-        name = x.replace(/[\<\>]/g, '');
-        return '';
-      });
-
-      adress = record
-        .replace(/[\/_\?\!,;:$*]/g, ' ')
-        .replace(/[ ]+/g, ' ')
-        .trim();
-
-      return { phone, name, adress };
-    });
-
 function phone(strng, num) {
-  const phoneBook = convertPhoneBook(strng);
-  const countPhone = phoneBook.filter(record => record.phone === num);
+  strng = strng.split('\n').filter(record => record.includes(num));
 
-  const printRecord = record =>
-    `Phone => ${record.phone}, Name => ${record.name}, Address => ${record.adress}`;
+  if (strng.length > 1) return `Error => Too many people: ${num}`;
+  if (strng.length === 0) return `Error => Not found: ${num}`;
 
-  if (countPhone.length === 0) return `Error => Not found: ${num}`;
-  if (countPhone.length > 1) return `Error => Too many people: ${num}`;
+  let name = strng[0].match(/<.+>/)[0].slice(1, -1);
+  let address = strng[0]
+    .replace(/<.+>|\+\d\d?-(\d{3}-){2}\d{4}|[;$*/?,:!]/g, '')
+    .replace(/_| +/g, ' ');
 
-  return printRecord(countPhone[0]);
+  return `Phone => ${num}, Name => ${name}, Address => ${address.trim()}`;
 }
 
 const dr =

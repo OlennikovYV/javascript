@@ -1,9 +1,5 @@
 function rotate(str) {
-  return str.split('').reduce((arrSum, el, i, arr) => {
-    const string = arr.slice(i + 1).concat(arr.slice(0, i + 1));
-    arrSum.push(string.join(''));
-    return arrSum;
-  }, []);
+  return str.split('').map(e => (str = str.slice(1) + str.slice(0, 1)));
 }
 
 const testOut = rotate('Hello');

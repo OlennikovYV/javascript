@@ -1,12 +1,21 @@
-function rotate(str) {
-  return str.split('').map(e => (str = str.slice(1) + str.slice(0, 1)));
+function sentence(list) {
+  return list
+    .sort((a, b) => Object.keys(a)[0] - Object.keys(b)[0])
+    .reduce((string, word) => {
+      string.push(Object.values(word)[0]);
+      return string;
+    }, [])
+    .join(' ');
 }
 
-const testOut = rotate('Hello');
-console.log(testOut);
+const List = [
+  { 4: 'dog' },
+  { 2: 'took' },
+  { 3: 'his' },
+  { '-2': 'Vatsan' },
+  { 5: 'for' },
+  { 6: 'a' },
+  { 12: 'spin' },
+];
 
-console.log(testOut.includes('elloH')); // true
-console.log(testOut.includes('lloHe')); // true
-console.log(testOut.includes('loHel')); // true
-console.log(testOut.includes('oHell')); // true
-console.log(testOut.includes('Hello')); // true
+console.log(sentence(List)); // 'Vatsan took his dog for a spin'

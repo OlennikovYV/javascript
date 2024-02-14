@@ -1,6 +1,6 @@
 mocha.setup('bdd');
 
-describe(`All Star Code Challenge #15`, function () {
+describe(`String Reordering`, function () {
   const equal = chai.assert.equal;
   const strictEqual = chai.assert.strictEqual;
   const notEqual = chai.assert.notEqual;
@@ -17,16 +17,17 @@ describe(`All Star Code Challenge #15`, function () {
   const include = chai.assert.include;
 
   it('test', () => {
-    const resultArray = ['elloH', 'lloHe', 'loHel', 'oHell', 'Hello'];
-    const testOut = rotate('Hello');
+    const List = [
+      { 4: 'dog' },
+      { 2: 'took' },
+      { 3: 'his' },
+      { '-2': 'Vatsan' },
+      { 5: 'for' },
+      { 6: 'a' },
+      { 12: 'spin' },
+    ];
 
-    deepEqual(testOut, resultArray);
-
-    include(testOut, 'elloH', 'Array does not contain elloH');
-    include(testOut, 'lloHe', 'Array does not contain lloHe');
-    include(testOut, 'loHel', 'Array does not contain loHel');
-    include(testOut, 'oHell', 'Array does not contain oHell');
-    include(testOut, 'Hello', 'Array does not contain Hello');
+    equal(sentence(List), 'Vatsan took his dog for a spin');
   });
 });
 

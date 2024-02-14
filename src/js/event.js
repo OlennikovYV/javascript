@@ -1,10 +1,8 @@
 function sentence(list) {
   return list
-    .sort((a, b) => Object.keys(a)[0] - Object.keys(b)[0])
-    .reduce((string, word) => {
-      string.push(Object.values(word)[0]);
-      return string;
-    }, [])
+    .map(el => Object.entries(el)[0])
+    .sort(([a], [b]) => a - b)
+    .map(([key, word]) => word)
     .join(' ');
 }
 

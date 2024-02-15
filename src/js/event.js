@@ -1,19 +1,25 @@
-function sentence(list) {
-  return list
-    .map(el => Object.entries(el)[0])
-    .sort(([a], [b]) => a - b)
-    .map(([key, word]) => word)
-    .join(' ');
+function wordPattern(word) {
+  let count = 0;
+  const guide = [];
+
+  return word
+    .split('')
+    .map(alpa => {
+      alpa = alpa.toLowerCase();
+
+      if (guide.includes(alpa) === false) {
+        guide[count] = alpa;
+        return count++;
+      } else {
+        const index = guide.indexOf(alpa);
+        return index;
+      }
+    })
+    .join('.');
 }
 
-const List = [
-  { 4: 'dog' },
-  { 2: 'took' },
-  { 3: 'his' },
-  { '-2': 'Vatsan' },
-  { 5: 'for' },
-  { 6: 'a' },
-  { 12: 'spin' },
-];
-
-console.log(sentence(List)); // 'Vatsan took his dog for a spin'
+console.log(wordPattern('hello')); // '0.1.2.2.3'
+console.log(wordPattern('heLlo')); // '0.1.2.2.3'
+console.log(wordPattern('helLo')); // '0.1.2.2.3'
+console.log(wordPattern('Hippopotomonstrosesquippedaliophobia'));
+// '0.1.2.2.3.2.3.4.3.5.3.6.7.4.8.3.7.9.7.10.11.1.2.2.9.12.13.14.1.3.2.0.3.15.1.13'

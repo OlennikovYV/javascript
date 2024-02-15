@@ -1,6 +1,6 @@
 mocha.setup('bdd');
 
-describe(`String Reordering`, function () {
+describe(`Cryptanalysis Word Patterns`, function () {
   const equal = chai.assert.equal;
   const strictEqual = chai.assert.strictEqual;
   const notEqual = chai.assert.notEqual;
@@ -16,18 +16,14 @@ describe(`String Reordering`, function () {
   const error = chai.assert.throws;
   const include = chai.assert.include;
 
-  it('test', () => {
-    const List = [
-      { 4: 'dog' },
-      { 2: 'took' },
-      { 3: 'his' },
-      { '-2': 'Vatsan' },
-      { 5: 'for' },
-      { 6: 'a' },
-      { 12: 'spin' },
-    ];
-
-    equal(sentence(List), 'Vatsan took his dog for a spin');
+  it('should pass fixed tests', function () {
+    equal(wordPattern('hello'), '0.1.2.2.3');
+    equal(wordPattern('heLlo'), '0.1.2.2.3');
+    equal(wordPattern('helLo'), '0.1.2.2.3');
+    equal(
+      wordPattern('Hippopotomonstrosesquippedaliophobia'),
+      '0.1.2.2.3.2.3.4.3.5.3.6.7.4.8.3.7.9.7.10.11.1.2.2.9.12.13.14.1.3.2.0.3.15.1.13'
+    );
   });
 });
 

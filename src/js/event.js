@@ -1,20 +1,12 @@
 function wordPattern(word) {
-  let count = 0;
-  const guide = [];
+  let guide;
+
+  word = word.toLowerCase();
+  guide = [...new Set(word)];
 
   return word
     .split('')
-    .map(alpa => {
-      alpa = alpa.toLowerCase();
-
-      if (guide.includes(alpa) === false) {
-        guide[count] = alpa;
-        return count++;
-      } else {
-        const index = guide.indexOf(alpa);
-        return index;
-      }
-    })
+    .map(alpha => guide.indexOf(alpha))
     .join('.');
 }
 

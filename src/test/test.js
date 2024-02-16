@@ -1,6 +1,6 @@
 mocha.setup('bdd');
 
-describe(`Cryptanalysis Word Patterns`, function () {
+describe(`The Book of Mormon`, function () {
   const equal = chai.assert.equal;
   const strictEqual = chai.assert.strictEqual;
   const notEqual = chai.assert.notEqual;
@@ -16,14 +16,21 @@ describe(`Cryptanalysis Word Patterns`, function () {
   const error = chai.assert.throws;
   const include = chai.assert.include;
 
-  it('should pass fixed tests', function () {
-    equal(wordPattern('hello'), '0.1.2.2.3');
-    equal(wordPattern('heLlo'), '0.1.2.2.3');
-    equal(wordPattern('helLo'), '0.1.2.2.3');
-    equal(
-      wordPattern('Hippopotomonstrosesquippedaliophobia'),
-      '0.1.2.2.3.2.3.4.3.5.3.6.7.4.8.3.7.9.7.10.11.1.2.2.9.12.13.14.1.3.2.0.3.15.1.13'
-    );
+  it('Sample Tests', () => {
+    const tests = [
+      [[10, 3, 9], 0],
+      [[40, 2, 120], 1],
+      [[40, 2, 121], 2],
+      [[20000, 2, 7000000000], 12],
+    ];
+
+    const test = (input, expected) => {
+      equal(mormons(...input), expected, `Test failed for mormons(${input})`);
+    };
+
+    for (const [input, expected] of tests) {
+      test(input, expected);
+    }
   });
 });
 

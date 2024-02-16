@@ -1,17 +1,26 @@
-function wordPattern(word) {
-  let guide;
+function mormons(startingNumber, reach, target) {
+  let counts = 0;
+  let converts = startingNumber;
 
-  word = word.toLowerCase();
-  guide = [...new Set(word)];
+  while (converts < target) {
+    counts++;
+    converts = converts + startingNumber * reach;
+    startingNumber = converts;
+  }
 
-  return word
-    .split('')
-    .map(alpha => guide.indexOf(alpha))
-    .join('.');
+  return counts;
 }
 
-console.log(wordPattern('hello')); // '0.1.2.2.3'
-console.log(wordPattern('heLlo')); // '0.1.2.2.3'
-console.log(wordPattern('helLo')); // '0.1.2.2.3'
-console.log(wordPattern('Hippopotomonstrosesquippedaliophobia'));
-// '0.1.2.2.3.2.3.4.3.5.3.6.7.4.8.3.7.9.7.10.11.1.2.2.9.12.13.14.1.3.2.0.3.15.1.13'
+const tests = [
+  [[10, 3, 9], 0],
+  [[40, 2, 120], 1],
+  [[40, 2, 121], 2],
+  [[20000, 2, 7000000000], 12],
+];
+
+// debugger;
+
+for (const [input, expected] of tests) {
+  const result = mormons(...input);
+  console.log(`mormons([${input}], ${expected}) = ${result === expected}`);
+}

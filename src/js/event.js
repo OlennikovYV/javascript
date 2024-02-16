@@ -1,12 +1,7 @@
 function mormons(startingNumber, reach, target) {
-  let mission = 0;
+  if (startingNumber >= target) return 0;
 
-  while (startingNumber < target) {
-    startingNumber += startingNumber * reach;
-    mission++;
-  }
-
-  return mission;
+  return 1 + mormons(startingNumber + startingNumber * reach, reach, target);
 }
 
 const tests = [

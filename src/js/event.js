@@ -1,7 +1,5 @@
 function processData(data) {
-  return data
-    .map(list => list[0] - list[1])
-    .reduce((mul, digit) => mul * digit, 1);
+  return data.reduce((mul, [a, b]) => mul * (a - b), 1);
 }
 
 console.log(

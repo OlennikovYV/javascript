@@ -1,6 +1,6 @@
 mocha.setup('bdd');
 
-describe(`The Book of Mormon`, function () {
+describe(`Thinkful - List and Loop Drills: Lists of lists`, function () {
   const equal = chai.assert.equal;
   const strictEqual = chai.assert.strictEqual;
   const notEqual = chai.assert.notEqual;
@@ -16,21 +16,25 @@ describe(`The Book of Mormon`, function () {
   const error = chai.assert.throws;
   const include = chai.assert.include;
 
-  it('Sample Tests', () => {
-    const tests = [
-      [[10, 3, 9], 0],
-      [[40, 2, 120], 1],
-      [[40, 2, 121], 2],
-      [[20000, 2, 7000000000], 12],
-    ];
-
-    const test = (input, expected) => {
-      equal(mormons(...input), expected, `Test failed for mormons(${input})`);
-    };
-
-    for (const [input, expected] of tests) {
-      test(input, expected);
-    }
+  it('Basic tests', function () {
+    equal(
+      processData([
+        [2, 5],
+        [3, 4],
+        [8, 7],
+      ]),
+      3,
+      `For [[2, 5], [3, 4], [8, 7]]`
+    );
+    equal(
+      processData([
+        [2, 9],
+        [2, 4],
+        [7, 5],
+      ]),
+      28,
+      `For [[2, 9], [2, 4], [7, 5]]`
+    );
   });
 });
 

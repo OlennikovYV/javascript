@@ -1,11 +1,5 @@
 function convert(number) {
-  let codesASCII = [];
-
-  for (let i = 0; i < number.length; i += 2) {
-    codesASCII.push(number.slice(i, i + 2));
-  }
-
-  return String.fromCharCode(...codesASCII);
+  return String.fromCharCode(...number.match(/../g));
 }
 
 console.log(convert('65')); // 'A'

@@ -1,6 +1,6 @@
 mocha.setup('bdd');
 
-describe(`Thinkful - List and Loop Drills: Lists of lists`, function () {
+describe(`ASCII letters from Number`, function () {
   const equal = chai.assert.equal;
   const strictEqual = chai.assert.strictEqual;
   const notEqual = chai.assert.notEqual;
@@ -16,25 +16,11 @@ describe(`Thinkful - List and Loop Drills: Lists of lists`, function () {
   const error = chai.assert.throws;
   const include = chai.assert.include;
 
-  it('Basic tests', function () {
-    equal(
-      processData([
-        [2, 5],
-        [3, 4],
-        [8, 7],
-      ]),
-      3,
-      `For [[2, 5], [3, 4], [8, 7]]`
-    );
-    equal(
-      processData([
-        [2, 9],
-        [2, 4],
-        [7, 5],
-      ]),
-      28,
-      `For [[2, 9], [2, 4], [7, 5]]`
-    );
+  it('tests', () => {
+    equal(convert('65'), 'A');
+    equal(convert('656667'), 'ABC');
+    equal(convert('676584'), 'CAT');
+    equal(convert('73327673756932858080698267658369'), 'I LIKE UPPERCASE');
   });
 });
 

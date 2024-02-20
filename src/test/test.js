@@ -1,6 +1,6 @@
 mocha.setup('bdd');
 
-describe(`ASCII letters from Number`, function () {
+describe(`Identical Elements`, function () {
   const equal = chai.assert.equal;
   const strictEqual = chai.assert.strictEqual;
   const notEqual = chai.assert.notEqual;
@@ -16,11 +16,9 @@ describe(`ASCII letters from Number`, function () {
   const error = chai.assert.throws;
   const include = chai.assert.include;
 
-  it('tests', () => {
-    equal(convert('65'), 'A');
-    equal(convert('656667'), 'ABC');
-    equal(convert('676584'), 'CAT');
-    equal(convert('73327673756932858080698267658369'), 'I LIKE UPPERCASE');
+  it('It should handle positive duplicates', function () {
+    equal(duplicateElements([1, 2, 3, 4, 5], [1, 6, 7, 8, 9]), true);
+    equal(duplicateElements([9, 8, 7], [8, 1, 3]), true);
   });
 });
 

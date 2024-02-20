@@ -1,8 +1,6 @@
-function convert(number) {
-  return String.fromCharCode(...number.match(/../g));
+function duplicateElements(m, n) {
+  return m.some(el => n.includes(el));
 }
 
-console.log(convert('65')); // 'A'
-console.log(convert('656667')); // 'ABC'
-console.log(convert('676584')); // 'CAT'
-console.log(convert('73327673756932858080698267658369')); // 'I LIKE UPPERCASE'
+console.log(duplicateElements([1, 2, 3, 4, 5], [1, 6, 7, 8, 9])); // true
+console.log(duplicateElements([9, 8, 7], [8, 1, 3])); // true

@@ -1,15 +1,11 @@
 function median(array) {
-  const halfLengthList = Math.floor(array.length / 2);
+  const halfLength = Math.floor(array.length / 2);
   const sortList = [...array].sort((a, b) => a - b);
 
-  if (array.length % 2 === 0) {
-    const firstNumber = sortList[halfLengthList - 1];
-    const secondNumber = sortList[halfLengthList];
+  if (array.length % 2 === 0)
+    return (sortList[halfLength - 1] + sortList[halfLength]) / 2;
 
-    return (firstNumber + secondNumber) / 2;
-  } else {
-    return sortList[halfLengthList];
-  }
+  return sortList[halfLength];
 }
 
 console.log(median([3, 50])); // 26.5

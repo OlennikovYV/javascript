@@ -1,6 +1,6 @@
 mocha.setup('bdd');
 
-describe(`Identical Elements`, function () {
+describe(`All Star Code Challenge #14 - Find the median`, function () {
   const equal = chai.assert.equal;
   const strictEqual = chai.assert.strictEqual;
   const notEqual = chai.assert.notEqual;
@@ -16,9 +16,9 @@ describe(`Identical Elements`, function () {
   const error = chai.assert.throws;
   const include = chai.assert.include;
 
-  it('It should handle positive duplicates', function () {
-    equal(duplicateElements([1, 2, 3, 4, 5], [1, 6, 7, 8, 9]), true);
-    equal(duplicateElements([9, 8, 7], [8, 1, 3]), true);
+  it('Fixed tests', () => {
+    equal(median([3, 2, 1]), 2);
+    equal(median([33, 99, 100, 30, 29, 50]), 41.5);
   });
 });
 

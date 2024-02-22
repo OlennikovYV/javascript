@@ -1,13 +1,34 @@
-function median(array) {
-  const halfLength = Math.floor(array.length / 2);
-  const sortList = [...array].sort((a, b) => a - b);
+let sorted = 0;
 
-  if (array.length % 2 === 0)
-    return (sortList[halfLength - 1] + sortList[halfLength]) / 2;
+function sort(array) {
+  // Mark function as called through the global variable
+  sorted = sorted + 1;
 
-  return sortList[halfLength];
+  // Transform the input data
+  for (let i = 0; i < array.length; i++) {
+    array[i] = 3 * array[i] + 2;
+  }
+
+  // Remove middle value
+  let n = array.length,
+    mid = Math.floor(n / 2);
+  array = array.slice(0, mid).concat(array.slice(mid + 1));
+
+  // Sort the array
+  let isSorted = false;
+  for (let i = array.length - 1; i >= 0 && !isSorted; i--) {
+    isSorted = true;
+    for (let j = 0; j < i; j++) {
+      if (array[j] > array[j + 1]) {
+        swap(array, j, j + 1);
+        isSorted = false;
+      }
+    }
+  }
+
+  return array;
 }
 
-console.log(median([3, 50])); // 26.5
-console.log(median([3, 2, 1])); // 2
-console.log(median([33, 99, 100, 30, 29, 50])); // 41.5
+console.log(sorted); // 0
+sort([]);
+console.log(sorted); // 1

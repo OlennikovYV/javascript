@@ -1,6 +1,6 @@
 mocha.setup('bdd');
 
-describe(`All Star Code Challenge #14 - Find the median`, function () {
+describe(`Hoisting`, function () {
   const equal = chai.assert.equal;
   const strictEqual = chai.assert.strictEqual;
   const notEqual = chai.assert.notEqual;
@@ -16,9 +16,12 @@ describe(`All Star Code Challenge #14 - Find the median`, function () {
   const error = chai.assert.throws;
   const include = chai.assert.include;
 
-  it('Fixed tests', () => {
-    equal(median([3, 2, 1]), 2);
-    equal(median([33, 99, 100, 30, 29, 50]), 41.5);
+  it('should have the flag set to 0 before running sort', function () {
+    equal(sorted, 1);
+  });
+  it('should have the flag set to 1 after running sort', function () {
+    sort([]);
+    equal(sorted, 2);
   });
 });
 

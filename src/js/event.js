@@ -1,14 +1,7 @@
 function testit(s) {
-  let result = '';
-
-  for (let i = 0; i < s.length; i += 2) {
-    const code1 = s.charCodeAt(i);
-    const code2 = s.charCodeAt(i + 1) || code1;
-    const number = (code1 + code2) / 2;
-    result += String.fromCharCode(Math.floor(number));
-  }
-
-  return result;
+  return s.replace(/(..)/g, s =>
+    String.fromCharCode((s.charCodeAt(0) + s.charCodeAt(1)) / 2)
+  );
 }
 
 //return s ?

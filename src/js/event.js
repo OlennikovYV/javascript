@@ -1,21 +1,20 @@
-function testit(s) {
-  return s.replace(/(..)/g, s =>
-    String.fromCharCode((s.charCodeAt(0) + s.charCodeAt(1)) / 2)
-  );
+function scoreThrows(radii) {
+  let isAllPointsLessFive = true;
+  const sumPoints = radii.reduce((sum, point) => {
+    if (point >= 5) isAllPointsLessFive = false;
+
+    if (point >= 5 && point <= 10) sum += 5;
+    if (point >= 0 && point < 5) sum += 10;
+
+    return sum;
+  }, 0);
+
+  return sumPoints + Number(isAllPointsLessFive && radii.length > 0) * 100;
 }
 
-//return s ?
-console.log(testit('')); // ""
-console.log(testit('a')); // "a"
-console.log(testit('b')); // "b"
-//return s.substr(0,1) ?
-console.log(testit('aa')); // "a"
-console.log(testit('ab')); // "a"
-console.log(testit('bc')); // "b"
-//return s.substr(0,s.length/2) ?
-console.log(testit('aaaa')); // "aa"
-console.log(testit('aaaaaa')); // "aaa"
-//click "Submit" try more testcase...
-console.log(testit('lwtflr')); // 'qmo'
-console.log(testit('hheelllloo')); // 'hello'
-console.log(testit('hheellllo')); // 'hello'
+console.log(scoreThrows([1, 5, 11])); // 15
+console.log(scoreThrows([15, 20, 30, 31, 32, 44, 100])); // 0
+console.log(scoreThrows([1, 2, 3, 4])); // 140
+console.log(scoreThrows([])); // 0, 'Empty list'
+console.log(scoreThrows([1, 2, 3, 4, 5, 6, 7, 8, 9])); // 65
+console.log(scoreThrows([0, 5, 10, 10.5, 4.5])); // 30

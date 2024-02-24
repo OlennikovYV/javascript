@@ -1,6 +1,6 @@
 mocha.setup('bdd');
 
-describe(`Thinking & Testing : Incomplete string`, function () {
+describe(`Throwing Darts`, function () {
   const equal = chai.assert.equal;
   const strictEqual = chai.assert.strictEqual;
   const notEqual = chai.assert.notEqual;
@@ -16,22 +16,13 @@ describe(`Thinking & Testing : Incomplete string`, function () {
   const error = chai.assert.throws;
   const include = chai.assert.include;
 
-  it('Fixed tests', () => {
-    //return s ?
-    equal(testit(''), '', '');
-    equal(testit('a'), 'a', '');
-    equal(testit('b'), 'b', '');
-    //return s.substr(0,1) ?
-    equal(testit('aa'), 'a', '');
-    equal(testit('ab'), 'a', '');
-    equal(testit('bc'), 'b', '');
-    //return s.substr(0,s.length/2) ?
-    equal(testit('aaaa'), 'aa', '');
-    equal(testit('aaaaaa'), 'aaa', '');
-    //click "Submit" try more testcase...
-    equal(testit('lwtflr'), 'qmo', '');
-    equal(testit('hheelllloo'), 'hello', '');
-    equal(testit('hheellllo'), 'hello', '');
+  it('test', () => {
+    equal(scoreThrows([1, 5, 11]), 15);
+    equal(scoreThrows([15, 20, 30, 31, 32, 44, 100]), 0);
+    equal(scoreThrows([1, 2, 3, 4]), 140);
+    equal(scoreThrows([]), 0, 'Empty list');
+    equal(scoreThrows([1, 2, 3, 4, 5, 6, 7, 8, 9]), 65);
+    equal(scoreThrows([0, 5, 10, 10.5, 4.5]), 30);
   });
 });
 

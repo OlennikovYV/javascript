@@ -1,10 +1,21 @@
-function isNice(arr) {
-  return (
-    Boolean(arr.length) &&
-    arr.every(el => arr.includes(el - 1) || arr.includes(el + 1))
-  );
+function isNegativeZero(n) {
+  return 1 / n === -Infinity && n === 0;
 }
 
-console.log(isNice([2, 10, 9, 3])); // true
-console.log(isNice([3, 4, 5, 7])); // false
-console.log(isNice([])); // false
+console.log(isNegativeZero(-0)); // true
+
+console.log(isNegativeZero(-Infinity)); // false
+console.log(isNegativeZero(-5)); // false
+console.log(isNegativeZero(-4)); // false
+console.log(isNegativeZero(-3)); // false
+console.log(isNegativeZero(-2)); // false
+console.log(isNegativeZero(-1)); // false
+console.log(isNegativeZero(-Number.MIN_VALUE)); // false
+console.log(isNegativeZero(0)); // false
+console.log(isNegativeZero(Number.MIN_VALUE)); // false
+console.log(isNegativeZero(1)); // false
+console.log(isNegativeZero(2)); // false
+console.log(isNegativeZero(3)); // false
+console.log(isNegativeZero(4)); // false
+console.log(isNegativeZero(5)); // false
+console.log(isNegativeZero(Infinity)); // false

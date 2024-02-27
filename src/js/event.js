@@ -1,21 +1,27 @@
-function isNegativeZero(n) {
-  return Object.is(n, -0);
+function mirror(text) {
+  const arrayWords = text.split(' ');
+  const width = Math.max.apply(
+    null,
+    arrayWords.map(word => word.length)
+  );
+  const lineBorder = ['*'.repeat(width + 4)];
+  const wordsReverse = arrayWords
+    .map(word => {
+      return (
+        '* ' +
+        word.split('').reverse().join('') +
+        ' '.repeat(width - word.length) +
+        ' *'
+      );
+    })
+    .join('\n');
+
+  return `${lineBorder}\n${wordsReverse}\n${lineBorder}`;
 }
 
-console.log(isNegativeZero(-0)); // true
-
-console.log(isNegativeZero(-Infinity)); // false
-console.log(isNegativeZero(-5)); // false
-console.log(isNegativeZero(-4)); // false
-console.log(isNegativeZero(-3)); // false
-console.log(isNegativeZero(-2)); // false
-console.log(isNegativeZero(-1)); // false
-console.log(isNegativeZero(-Number.MIN_VALUE)); // false
-console.log(isNegativeZero(0)); // false
-console.log(isNegativeZero(Number.MIN_VALUE)); // false
-console.log(isNegativeZero(1)); // false
-console.log(isNegativeZero(2)); // false
-console.log(isNegativeZero(3)); // false
-console.log(isNegativeZero(4)); // false
-console.log(isNegativeZero(5)); // false
-console.log(isNegativeZero(Infinity)); // false
+console.log(mirror('Hello World'));
+// '*********\n* olleH *\n* dlroW *\n*********'
+console.log(mirror('Codewars'));
+// '************\n* srawedoC *\n************'
+console.log(mirror('sgwgy mwit bfc'));
+// '*********\n* ygwgs *\n* tiwm  *\n* cfb   *\n*********'

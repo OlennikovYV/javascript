@@ -1,6 +1,6 @@
 mocha.setup('bdd');
 
-describe(`Is It Negative Zero (-0)?`, function () {
+describe(`Framed Reflection`, function () {
   const equal = chai.assert.equal;
   const strictEqual = chai.assert.strictEqual;
   const notEqual = chai.assert.notEqual;
@@ -16,26 +16,13 @@ describe(`Is It Negative Zero (-0)?`, function () {
   const error = chai.assert.throws;
   const include = chai.assert.include;
 
-  it('should return true for -0', function () {
-    equal(isNegativeZero(-0), true);
-  });
-
-  it('should return false for non-negative-zero numbers', function () {
-    equal(isNegativeZero(-Infinity), false);
-    equal(isNegativeZero(-5), false);
-    equal(isNegativeZero(-4), false);
-    equal(isNegativeZero(-3), false);
-    equal(isNegativeZero(-2), false);
-    equal(isNegativeZero(-1), false);
-    equal(isNegativeZero(-Number.MIN_VALUE), false);
-    equal(isNegativeZero(0), false);
-    equal(isNegativeZero(Number.MIN_VALUE), false);
-    equal(isNegativeZero(1), false);
-    equal(isNegativeZero(2), false);
-    equal(isNegativeZero(3), false);
-    equal(isNegativeZero(4), false);
-    equal(isNegativeZero(5), false);
-    equal(isNegativeZero(Infinity), false);
+  it('Fixed tests', () => {
+    equal(mirror('Hello World'), '*********\n* olleH *\n* dlroW *\n*********');
+    equal(mirror('Codewars'), '************\n* srawedoC *\n************');
+    equal(
+      mirror('sgwgy mwit bfc'),
+      '*********\n* ygwgs *\n* tiwm  *\n* cfb   *\n*********'
+    );
   });
 });
 

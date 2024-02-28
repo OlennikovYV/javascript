@@ -1,6 +1,6 @@
 mocha.setup('bdd');
 
-describe(`Framed Reflection`, function () {
+describe(`Is Undefined?`, function () {
   const equal = chai.assert.equal;
   const strictEqual = chai.assert.strictEqual;
   const notEqual = chai.assert.notEqual;
@@ -16,13 +16,12 @@ describe(`Framed Reflection`, function () {
   const error = chai.assert.throws;
   const include = chai.assert.include;
 
-  it('Fixed tests', () => {
-    equal(mirror('Hello World'), '*********\n* olleH *\n* dlroW *\n*********');
-    equal(mirror('Codewars'), '************\n* srawedoC *\n************');
-    equal(
-      mirror('sgwgy mwit bfc'),
-      '*********\n* ygwgs *\n* tiwm  *\n* cfb   *\n*********'
-    );
+  it('Tests', () => {
+    equal(isUndefined(1), false);
+    equal(isUndefined(2), false);
+    equal(isUndefined(undefined), true);
+    equal(isUndefined(3), false);
+    equal(isUndefined(4), false);
   });
 });
 

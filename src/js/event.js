@@ -1,27 +1,9 @@
-function mirror(text) {
-  const arrayWords = text.split(' ');
-  const width = Math.max.apply(
-    null,
-    arrayWords.map(word => word.length)
-  );
-  const lineBorder = ['*'.repeat(width + 4)];
-  const wordsReverse = arrayWords
-    .map(word => {
-      return (
-        '* ' +
-        word.split('').reverse().join('') +
-        ' '.repeat(width - word.length) +
-        ' *'
-      );
-    })
-    .join('\n');
-
-  return `${lineBorder}\n${wordsReverse}\n${lineBorder}`;
+function isUndefined(value) {
+  return value === undefined;
 }
 
-console.log(mirror('Hello World'));
-// '*********\n* olleH *\n* dlroW *\n*********'
-console.log(mirror('Codewars'));
-// '************\n* srawedoC *\n************'
-console.log(mirror('sgwgy mwit bfc'));
-// '*********\n* ygwgs *\n* tiwm  *\n* cfb   *\n*********'
+console.log(isUndefined(1)); // false
+console.log(isUndefined(2)); // false
+console.log(isUndefined(undefined)); // true
+console.log(isUndefined(3)); // false
+console.log(isUndefined(4)); // false

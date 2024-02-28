@@ -1,5 +1,5 @@
 function isUndefined(value) {
-  return value === void 0;
+  return typeof value === 'undefined';
 }
 
 console.log(isUndefined(1)); // false

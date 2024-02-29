@@ -1,6 +1,6 @@
 mocha.setup('bdd');
 
-describe(`Is Undefined?`, function () {
+describe(`Count the days!`, function () {
   const equal = chai.assert.equal;
   const strictEqual = chai.assert.strictEqual;
   const notEqual = chai.assert.notEqual;
@@ -16,12 +16,11 @@ describe(`Is Undefined?`, function () {
   const error = chai.assert.throws;
   const include = chai.assert.include;
 
-  it('Tests', () => {
-    equal(isUndefined(1), false);
-    equal(isUndefined(2), false);
-    equal(isUndefined(undefined), true);
-    equal(isUndefined(3), false);
-    equal(isUndefined(4), false);
+  it('Some example tests', function () {
+    equal(countDays(new Date('February 28, 2016')), 'The day is in the past!');
+    equal(countDays(new Date()), 'Today is the day!');
+    equal(countDays(new Date('2511-12-31T00:00:00.000Z')), '178178 days');
+    equal(countDays(new Date('2024-03-01T00:00:00.000Z')), '1 days');
   });
 });
 

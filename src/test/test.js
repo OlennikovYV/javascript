@@ -1,6 +1,6 @@
 mocha.setup('bdd');
 
-describe(`Count the days!`, function () {
+describe(`The maximum and minimum difference -- Simple version`, function () {
   const equal = chai.assert.equal;
   const strictEqual = chai.assert.strictEqual;
   const notEqual = chai.assert.notEqual;
@@ -16,11 +16,11 @@ describe(`Count the days!`, function () {
   const error = chai.assert.throws;
   const include = chai.assert.include;
 
-  it('Some example tests', function () {
-    equal(countDays(new Date('February 28, 2016')), 'The day is in the past!');
-    equal(countDays(new Date()), 'Today is the day!');
-    equal(countDays(new Date('2511-12-31T00:00:00.000Z')), '178178 days');
-    equal(countDays(new Date('2024-03-01T00:00:00.000Z')), '1 days');
+  it('It should works for basic tests', function () {
+    deepEqual(maxAndMin([3, 10, 5], [20, 7, 15, 8]), [17, 2]);
+    deepEqual(maxAndMin([3], [20]), [17, 17]);
+    deepEqual(maxAndMin([3, 10, 5], [3, 10, 5]), [7, 0]);
+    deepEqual(maxAndMin([1, 2, 3, 4, 5], [6, 7, 8, 9, 10]), [9, 1]);
   });
 });
 

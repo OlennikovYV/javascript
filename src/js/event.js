@@ -1,16 +1,20 @@
-function countDays(d) {
-  const day = 1000 * 60 * 60 * 24;
-  const nowDate = new Date();
-  const differenceInTime = d - nowDate;
-  const differenceInDays = Math.round(differenceInTime / day);
+function maxAndMin(arr1, arr2) {
+  let maxDiff = Number.MIN_SAFE_INTEGER;
+  let minDiff = Number.MAX_SAFE_INTEGER;
 
-  if (differenceInDays < 0) return 'The day is in the past!';
-  if (differenceInDays > 0) return `${differenceInDays} days`;
+  for (let i = 0; i < arr1.length; i++) {
+    for (let j = 0; j < arr2.length; j++) {
+      const diff = Math.abs(arr1[i] - arr2[j]);
 
-  return 'Today is the day!';
+      if (diff > maxDiff) maxDiff = diff;
+      if (diff < minDiff) minDiff = diff;
+    }
+  }
+
+  return [maxDiff, minDiff];
 }
 
-console.log(countDays(new Date('February 28, 2016'))); // 'The day is in the past!'
-console.log(countDays(new Date())); // 'Today is the day!'
-console.log(countDays(new Date('2511-12-31T00:00:00.000Z'))); // '178178 days'
-console.log(countDays(new Date('2024-03-01T00:00:00.000Z'))); // '1 days'
+console.log(maxAndMin([3, 10, 5], [20, 7, 15, 8])); // [17, 2]
+console.log(maxAndMin([3], [20])); // [17, 17]
+console.log(maxAndMin([3, 10, 5], [3, 10, 5])); // [7, 0]
+console.log(maxAndMin([1, 2, 3, 4, 5], [6, 7, 8, 9, 10])); // [9, 1]

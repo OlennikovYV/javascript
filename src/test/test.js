@@ -1,6 +1,6 @@
 mocha.setup('bdd');
 
-describe(`The maximum and minimum difference -- Simple version`, function () {
+describe(`Lowercase strings in array`, function () {
   const equal = chai.assert.equal;
   const strictEqual = chai.assert.strictEqual;
   const notEqual = chai.assert.notEqual;
@@ -16,11 +16,9 @@ describe(`The maximum and minimum difference -- Simple version`, function () {
   const error = chai.assert.throws;
   const include = chai.assert.include;
 
-  it('It should works for basic tests', function () {
-    deepEqual(maxAndMin([3, 10, 5], [20, 7, 15, 8]), [17, 2]);
-    deepEqual(maxAndMin([3], [20]), [17, 17]);
-    deepEqual(maxAndMin([3, 10, 5], [3, 10, 5]), [7, 0]);
-    deepEqual(maxAndMin([1, 2, 3, 4, 5], [6, 7, 8, 9, 10]), [9, 1]);
+  it('test', () => {
+    deepEqual(arrayLowerCase(['Red', 'Green']), ['red', 'green']);
+    deepEqual(arrayLowerCase([1, 'Green']), [1, 'green']);
   });
 });
 

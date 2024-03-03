@@ -1,6 +1,6 @@
 mocha.setup('bdd');
 
-describe(`Lowercase strings in array`, function () {
+describe(`Get decimal part of the given number`, function () {
   const equal = chai.assert.equal;
   const strictEqual = chai.assert.strictEqual;
   const notEqual = chai.assert.notEqual;
@@ -16,9 +16,19 @@ describe(`Lowercase strings in array`, function () {
   const error = chai.assert.throws;
   const include = chai.assert.include;
 
-  it('test', () => {
-    deepEqual(arrayLowerCase(['Red', 'Green']), ['red', 'green']);
-    deepEqual(arrayLowerCase([1, 'Green']), [1, 'green']);
+  it('returns decimal part from 10 as 0', function () {
+    equal(getDecimal(10), 0);
+  });
+
+  it('returns decimal part from -1.2 as 0.2', function () {
+    equal(getDecimal(-1.2), 0.2);
+  });
+
+  it('returns decimal part from 4.5 as 0.5', function () {
+    equal(getDecimal(4.5), 0.5);
+  });
+  it('returns decimal part from 9.908687e-1 as 0.9908687', function () {
+    equal(getDecimal(9.908687e-1), 0.9908687);
   });
 });
 

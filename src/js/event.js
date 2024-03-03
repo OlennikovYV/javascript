@@ -1,6 +1,12 @@
-function arrayLowerCase(arr) {
-  return arr.map(el => (typeof el === 'string' ? el.toLowerCase() : el));
+function getDecimal(n) {
+  let decimal = String(n).split('.')[1];
+
+  decimal = decimal ? decimal : 0;
+
+  return Number('0.' + decimal);
 }
 
-console.log(arrayLowerCase(['Red', 'Green'])); // ['red', 'green']
-console.log(arrayLowerCase([1, 'Green'])); // [1, 'green']
+console.log(getDecimal(10)); // 0
+console.log(getDecimal(-1.2)); // 0.2
+console.log(getDecimal(4.5)); // 0.5
+console.log(getDecimal(9.908687e-1)); // 0.9908687

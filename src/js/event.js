@@ -1,5 +1,5 @@
 function isAllPossibilities(x) {
-  return x.length > 0 ? x.every((_, i) => x.includes(i)) : false;
+  return x.length > 0 && x.every((_, i) => x.includes(i));
 }
 
 console.log(isAllPossibilities([0, 1, 2, 3])); // true

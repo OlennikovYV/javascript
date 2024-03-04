@@ -1,12 +1,8 @@
-function getDecimal(n) {
-  let decimal = String(n).split('.')[1];
+function isAllPossibilities(x) {
+  const arr = [...x].sort((a, b) => a - b);
 
-  decimal = decimal ? decimal : 0;
-
-  return Number('0.' + decimal);
+  return arr.every((el, i) => el === i);
 }
 
-console.log(getDecimal(10)); // 0
-console.log(getDecimal(-1.2)); // 0.2
-console.log(getDecimal(4.5)); // 0.5
-console.log(getDecimal(9.908687e-1)); // 0.9908687
+console.log(isAllPossibilities([0, 1, 2, 3])); // true
+console.log(isAllPossibilities([1, 2, 3, 4])); // false

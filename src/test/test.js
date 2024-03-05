@@ -1,6 +1,6 @@
 mocha.setup('bdd');
 
-describe(`Possibilities Array`, function () {
+describe(`Sum - Square Even, Root Odd`, function () {
   const equal = chai.assert.equal;
   const strictEqual = chai.assert.strictEqual;
   const notEqual = chai.assert.notEqual;
@@ -16,9 +16,17 @@ describe(`Possibilities Array`, function () {
   const error = chai.assert.throws;
   const include = chai.assert.include;
 
-  it('Sample tests', () => {
-    equal(isAllPossibilities([0, 1, 2, 3]), true);
-    equal(isAllPossibilities([1, 2, 3, 4]), false);
+  it('does the thing', () => {
+    approximately(
+      sumSquareEvenRootOdd([4, 5, 7, 8, 1, 2, 3, 0]),
+      91.61,
+      Number.EPSILON
+    );
+    approximately(
+      sumSquareEvenRootOdd([1, 14, 9, 8, 17, 21]),
+      272.71,
+      Number.EPSILON
+    );
   });
 });
 

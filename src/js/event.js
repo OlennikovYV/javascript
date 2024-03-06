@@ -1,4 +1,7 @@
-const find = (a, e) => (a.indexOf(e) == -1 ? 'Not found' : a.indexOf(e));
+const find = (a, e) => {
+  i = a.indexOf(e);
+  return i < 0 ? 'Not found' : a.indexOf(e);
+};
 
 let array = [2, 3, 5, 7, 11];
 

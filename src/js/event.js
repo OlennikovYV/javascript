@@ -1,10 +1,22 @@
-const sumSquareEvenRootOdd = ns => {
-  return Number(
-    ns
-      .reduce((sum, el) => sum + (el % 2 ? Math.sqrt(el) : Math.pow(el, 2)), 0)
-      .toFixed(2)
-  );
-};
+const find = (a, e) => (a.indexOf(e) == -1 ? 'Not found' : a.indexOf(e));
 
-console.log(sumSquareEvenRootOdd([4, 5, 7, 8, 1, 2, 3, 0])); // 91.61
-console.log(sumSquareEvenRootOdd([1, 14, 9, 8, 17, 21])); // 272.71
+let array = [2, 3, 5, 7, 11];
+
+console.log(find(array, 5)); // 2
+console.log(find(array, 11)); // 4
+console.log(find(array, 3)); // 1
+console.log(find(array, 2)); // 0
+console.log(find(array, 7)); // 3
+console.log(find(array, 1)); // 'Not found'
+console.log(find(array, 8)); // 'Not found'
+
+array = [true, 'Hello World', false, 'Lorem Ipsum', 6, Math.PI];
+
+console.log(find(array, 'Hello World')); // 1
+console.log(find(array, 'lorem ipsum')); // 'Not found'
+console.log(find(array, 'Lorem Ipsum')); // 3
+console.log(find(array, false)); // 2
+console.log(find(array, true)); // 0
+console.log(find(array, Math.PI)); // 5
+console.log(find(array, 3.14)); // 'Not found'
+console.log(find(array, 6)); // 4

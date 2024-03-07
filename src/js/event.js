@@ -1,11 +1,8 @@
 function explode(x) {
-  const isIncludesNumber = x.some(el => typeof el == 'number');
-  const sumNumber = x.reduce(
-    (sum, el) => (typeof el == 'number' ? sum + el : sum),
-    0
-  );
-
-  return isIncludesNumber ? Array(sumNumber).fill(x) : 'Void!';
+  const filteredArr = x.filter(foo => typeof foo === 'number');
+  return filteredArr.length
+    ? Array(filteredArr.reduce((sum, number) => sum + number, 0)).fill(x)
+    : 'Void!';
 }
 
 console.log(explode([9, 3]));

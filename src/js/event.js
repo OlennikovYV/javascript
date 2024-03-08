@@ -1,39 +1,18 @@
-function explode(x) {
-  const filteredArr = x.filter(foo => typeof foo === 'number');
-  return filteredArr.length
-    ? Array(filteredArr.reduce((sum, number) => sum + number, 0)).fill(x)
-    : 'Void!';
+function sharedBits(a, b) {
+  return (a & b).toString(2).replace(/0/g, '').length > 1;
 }
 
-console.log(explode([9, 3]));
-// [
-//   [9, 3],
-//   [9, 3],
-//   [9, 3],
-//   [9, 3],
-//   [9, 3],
-//   [9, 3],
-//   [9, 3],
-//   [9, 3],
-//   [9, 3],
-//   [9, 3],
-//   [9, 3],
-//   [9, 3],
-// ]
-console.log(explode(['a', 3]));
-// [
-//   ['a', 3],
-//   ['a', 3],
-//   ['a', 3],
-// ]
-console.log(explode([6, 'c']));
-// [
-//   [6, 'c'],
-//   [6, 'c'],
-//   [6, 'c'],
-//   [6, 'c'],
-//   [6, 'c'],
-//   [6, 'c'],
-// ]
-console.log(explode(['a', 'b'])); // 'Void!'
-console.log(explode(['a', 0])); // []
+const TESTS = [
+  [1, 2],
+  [16, 8],
+  [1, 1],
+  [2, 3],
+  [7, 10],
+  [43, 77],
+  [7, 15],
+  [23, 7],
+];
+
+TESTS.forEach(([a, b]) =>
+  console.log(`a=${a} and b=${b} equal ${sharedBits(a, b)}`)
+);

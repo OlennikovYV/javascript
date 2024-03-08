@@ -1,6 +1,6 @@
 mocha.setup('bdd');
 
-describe(`Array Array Array`, function () {
+describe(`Shared Bit Counter`, function () {
   const equal = chai.assert.equal;
   const strictEqual = chai.assert.strictEqual;
   const notEqual = chai.assert.notEqual;
@@ -16,37 +16,21 @@ describe(`Array Array Array`, function () {
   const error = chai.assert.throws;
   const include = chai.assert.include;
 
-  it('Testing for fixed tests', () => {
-    deepEqual(explode([9, 3]), [
-      [9, 3],
-      [9, 3],
-      [9, 3],
-      [9, 3],
-      [9, 3],
-      [9, 3],
-      [9, 3],
-      [9, 3],
-      [9, 3],
-      [9, 3],
-      [9, 3],
-      [9, 3],
-    ]);
-    deepEqual(explode(['a', 3]), [
-      ['a', 3],
-      ['a', 3],
-      ['a', 3],
-    ]);
-    deepEqual(explode([6, 'c']), [
-      [6, 'c'],
-      [6, 'c'],
-      [6, 'c'],
-      [6, 'c'],
-      [6, 'c'],
-      [6, 'c'],
-    ]);
-    deepEqual(explode(['a', 'b']), 'Void!');
-    deepEqual(explode(['a', 0]), []);
-  });
+  const test = [
+    [1, 2, false],
+    [16, 8, false],
+    [1, 1, false],
+    [2, 3, false],
+    [7, 10, false],
+    [43, 77, true],
+    [7, 15, true],
+    [23, 7, true],
+  ];
+
+  it(`${test.length} fixed tests`, () =>
+    test.forEach(([a, b, c]) =>
+      equal(sharedBits(a, b), c, `sharedBits(${a}, ${b}) should be equal ${c}`)
+    ));
 });
 
 mocha.run();

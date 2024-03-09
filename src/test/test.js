@@ -1,6 +1,6 @@
 mocha.setup('bdd');
 
-describe(`Shared Bit Counter`, function () {
+describe(`Sushi-go-round (Beginner's)`, function () {
   const equal = chai.assert.equal;
   const strictEqual = chai.assert.strictEqual;
   const notEqual = chai.assert.notEqual;
@@ -16,21 +16,31 @@ describe(`Shared Bit Counter`, function () {
   const error = chai.assert.throws;
   const include = chai.assert.include;
 
-  const test = [
-    [1, 2, false],
-    [16, 8, false],
-    [1, 1, false],
-    [2, 3, false],
-    [7, 10, false],
-    [43, 77, true],
-    [7, 15, true],
-    [23, 7, true],
-  ];
-
-  it(`${test.length} fixed tests`, () =>
-    test.forEach(([a, b, c]) =>
-      equal(sharedBits(a, b), c, `sharedBits(${a}, ${b}) should be equal ${c}`)
-    ));
+  it('test', () => {
+    equal(
+      totalBill('rr'),
+      4,
+      `Input:'rr' Expect ${totalBill('rr')} to equal 4`
+    );
+    equal(
+      totalBill('rr rrr'),
+      8,
+      `Input:'rr rrr' Expect ${totalBill('rr rrr')} to equal 8`
+    );
+    equal(
+      totalBill('rr rrr rrr rr'),
+      16,
+      `Input:'rr rrr rrr rr' Expect ${totalBill('rr rrr rrr rr')}  to equal 16`
+    );
+    equal(
+      totalBill('rrrrrrrrrrrrrrrrrr   rr r'),
+      34,
+      `Input:'rrrrrrrrrrrrrrrrrr   rr r' Expect ${totalBill(
+        'rrrrrrrrrrrrrrrrrr   rr r'
+      )} to equal 34`
+    );
+    equal(totalBill(''), 0, `Input:'' Expect ${totalBill('')} to equal 0`);
+  });
 });
 
 mocha.run();

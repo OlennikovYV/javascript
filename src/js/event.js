@@ -1,21 +1,5 @@
 function totalBill(str) {
-  let currentCount = 0;
-
-  return (
-    2 *
-    str.split('').reduce((count, el) => {
-      if (el === ' ') return count;
-
-      currentCount++;
-
-      if (currentCount === 5) {
-        currentCount = 0;
-        return count;
-      }
-
-      return count + 1;
-    }, 0)
-  );
+  return 2 * str.replace(/ /g, '').replace(/r{5}/g, 'rrrr').length;
 }
 
 console.log(totalBill('rr')); // 4

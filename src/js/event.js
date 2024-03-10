@@ -1,9 +1,10 @@
-function totalBill(str) {
-  return 2 * str.replace(/ /g, '').replace(/r{5}/g, 'rrrr').length;
+function findMissingNumbers(arr) {
+  return Array.from(
+    { length: arr[arr.length - 1] - arr[0] },
+    (_, i) => arr[0] + i
+  ).filter(el => !arr.includes(el));
 }
 
-console.log(totalBill('rr')); // 4
-console.log(totalBill('rr rrr')); // 8
-console.log(totalBill('rr rrr rrr rr')); // 16
-console.log(totalBill('rrrrrrrrrrrrrrrrrr   rr r')); //34
-console.log(totalBill('')); // 0
+console.log(findMissingNumbers([-3, -2, 1, 4])); // [-1, 0, 2, 3]
+console.log(findMissingNumbers([-1, 0, 1, 2, 3, 4])); // []
+console.log(findMissingNumbers([])); // []

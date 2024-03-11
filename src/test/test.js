@@ -1,6 +1,6 @@
 mocha.setup('bdd');
 
-describe(`Find missing numbers`, function () {
+describe(`Count the Ones`, function () {
   const equal = chai.assert.equal;
   const strictEqual = chai.assert.strictEqual;
   const notEqual = chai.assert.notEqual;
@@ -16,10 +16,12 @@ describe(`Find missing numbers`, function () {
   const error = chai.assert.throws;
   const include = chai.assert.include;
 
-  it('Example tests', function () {
-    deepEqual(findMissingNumbers([-3, -2, 1, 4]), [-1, 0, 2, 3]);
-    deepEqual(findMissingNumbers([-1, 0, 1, 2, 3, 4]), []);
-    deepEqual(findMissingNumbers([]), []);
+  it('should return 2 for binary number 10', () => {
+    equal(hammingWeight(10), 2);
+  });
+
+  it('should return 3 for binary number 21', () => {
+    equal(hammingWeight(21), 3);
   });
 });
 

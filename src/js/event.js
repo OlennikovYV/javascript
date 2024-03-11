@@ -1,10 +1,14 @@
-function findMissingNumbers(arr) {
-  return Array.from(
-    { length: arr[arr.length - 1] - arr[0] },
-    (_, i) => arr[0] + i
-  ).filter(el => !arr.includes(el));
+function hammingWeight(x) {
+  const binArray = [];
+
+  while (x > 0) {
+    binArray.unshift(x % 2);
+    x >>= 1;
+  }
+
+  return binArray.filter(el => el === 1).length;
 }
 
-console.log(findMissingNumbers([-3, -2, 1, 4])); // [-1, 0, 2, 3]
-console.log(findMissingNumbers([-1, 0, 1, 2, 3, 4])); // []
-console.log(findMissingNumbers([])); // []
+console.log(hammingWeight(10)); // 2
+
+console.log(hammingWeight(21)); // 3

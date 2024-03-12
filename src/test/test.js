@@ -1,6 +1,6 @@
 mocha.setup('bdd');
 
-describe(`Count the Ones`, function () {
+describe(`Mean vs. Median`, function () {
   const equal = chai.assert.equal;
   const strictEqual = chai.assert.strictEqual;
   const notEqual = chai.assert.notEqual;
@@ -16,12 +16,16 @@ describe(`Count the Ones`, function () {
   const error = chai.assert.throws;
   const include = chai.assert.include;
 
-  it('should return 2 for binary number 10', () => {
-    equal(hammingWeight(10), 2);
+  it('[1, 1, 1]', function () {
+    equal(meanVsMedian([1, 1, 1]), 'same');
   });
 
-  it('should return 3 for binary number 21', () => {
-    equal(hammingWeight(21), 3);
+  it('[1, 2, 37]', function () {
+    equal(meanVsMedian([1, 2, 37]), 'mean');
+  });
+
+  it('[7, 14, -70]', function () {
+    equal(meanVsMedian([7, 14, -70]), 'median');
   });
 });
 

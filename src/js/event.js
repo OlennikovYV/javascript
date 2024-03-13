@@ -1,13 +1,15 @@
-function meanVsMedian(numbers) {
-  const mean = numbers.reduce((sum, el) => sum + el, 0) / numbers.length;
-  const median = numbers.sort((a, b) => a - b)[Math.floor(numbers.length / 2)];
+function missingWord(nums, str) {
+  const stringFind = str.replace(/ /g, '').toLowerCase();
+  const arrayFounded = nums
+    .sort((a, b) => a - b)
+    .map(index => stringFind[index]);
+  const isAllFounded = arrayFounded.every(el => el);
 
-  if (mean > median) return 'mean';
-  if (mean < median) return 'median';
-
-  return 'same';
+  return isAllFounded ? arrayFounded.join('') : 'No mission today';
 }
 
-console.log(meanVsMedian([1, 1, 1])); // 'same'
-console.log(meanVsMedian([1, 2, 37])); // 'mean'
-console.log(meanVsMedian([7, 14, -70])); // 'median'
+console.log(missingWord([5, 0, 3], 'I love you')); // 'ivy'
+console.log(
+  missingWord([29, 31, 8], 'The quick brown fox jumps over the lazy dog')
+); // 'bay'
+console.log(missingWord([12, 4, 6], 'Good Morning')); // 'No mission today'

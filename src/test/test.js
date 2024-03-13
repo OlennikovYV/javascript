@@ -1,6 +1,6 @@
 mocha.setup('bdd');
 
-describe(`Mean vs. Median`, function () {
+describe(`Jenny the youngest detective`, function () {
   const equal = chai.assert.equal;
   const strictEqual = chai.assert.strictEqual;
   const notEqual = chai.assert.notEqual;
@@ -16,16 +16,13 @@ describe(`Mean vs. Median`, function () {
   const error = chai.assert.throws;
   const include = chai.assert.include;
 
-  it('[1, 1, 1]', function () {
-    equal(meanVsMedian([1, 1, 1]), 'same');
-  });
-
-  it('[1, 2, 37]', function () {
-    equal(meanVsMedian([1, 2, 37]), 'mean');
-  });
-
-  it('[7, 14, -70]', function () {
-    equal(meanVsMedian([7, 14, -70]), 'median');
+  it('test', () => {
+    equal(missingWord([5, 0, 3], 'I love you'), 'ivy');
+    equal(
+      missingWord([29, 31, 8], 'The quick brown fox jumps over the lazy dog'),
+      'bay'
+    );
+    equal(missingWord([12, 4, 6], 'Good Morning'), 'No mission today');
   });
 });
 

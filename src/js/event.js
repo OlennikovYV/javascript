@@ -1,11 +1,11 @@
 function missingWord(nums, str) {
   const stringFind = str.replace(/ /g, '').toLowerCase();
-  const arrayFounded = nums
-    .sort((a, b) => a - b)
-    .map(index => stringFind[index]);
-  const isAllFounded = arrayFounded.every(el => el);
+  const ascSorting = (a, b) => a - b;
+  const arrayFounded = nums.sort(ascSorting).map(index => stringFind[index]);
 
-  return isAllFounded ? arrayFounded.join('') : 'No mission today';
+  if (Math.max(...nums) > stringFind.length) return 'No mission today';
+
+  return arrayFounded.join('');
 }
 
 console.log(missingWord([5, 0, 3], 'I love you')); // 'ivy'

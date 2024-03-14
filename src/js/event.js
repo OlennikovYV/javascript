@@ -1,15 +1,17 @@
-function missingWord(nums, str) {
-  const stringFind = str.replace(/ /g, '').toLowerCase();
-  const ascSorting = (a, b) => a - b;
-  const arrayFounded = nums.sort(ascSorting).map(index => stringFind[index]);
+Array.range = function (start, count) {
+  return Array.from({ length: count }, (_, i) => start + i);
+};
 
-  if (Math.max(...nums) > stringFind.length) return 'No mission today';
+Array.prototype.sum = function () {
+  return this.reduce((sum, num) => sum + num, 0);
+};
 
-  return arrayFounded.join('');
-}
+console.log(Array.range(1, 3)); // [1, 2, 3]
+console.log(Array.range(-1, 1)); // [-1]
+console.log(Array.range(-3, 5)); // [-3, -2, -1, 0, 1]
+console.log(Array.range(0, 0)); // []
+console.log(Array.range(1, 0)); // []
 
-console.log(missingWord([5, 0, 3], 'I love you')); // 'ivy'
-console.log(
-  missingWord([29, 31, 8], 'The quick brown fox jumps over the lazy dog')
-); // 'bay'
-console.log(missingWord([12, 4, 6], 'Good Morning')); // 'No mission today'
+console.log([].sum()); // 0
+console.log([-2, -1, -5].sum()); // -8
+console.log([-3, -2, -1, 0, 1, 2, 3].sum()); // 0

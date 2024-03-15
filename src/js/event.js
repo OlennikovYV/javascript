@@ -1,17 +1,27 @@
-Array.range = function (start, count) {
-  return Array.from({ length: count }, (_, i) => start + i);
-};
+function getIssuer(number) {
+  let card = String(number);
+  const length = card.length;
 
-Array.prototype.sum = function () {
-  return this.reduce((sum, num) => sum + num, 0);
-};
+  if (['4'].includes(...card.match(/^\d/g)) && (length == 13 || length == 16))
+    return 'VISA';
 
-console.log(Array.range(1, 3)); // [1, 2, 3]
-console.log(Array.range(-1, 1)); // [-1]
-console.log(Array.range(-3, 5)); // [-3, -2, -1, 0, 1]
-console.log(Array.range(0, 0)); // []
-console.log(Array.range(1, 0)); // []
+  if (['34', '37'].includes(...card.match(/^\d\d/g)) && length == 15)
+    return 'AMEX';
 
-console.log([].sum()); // 0
-console.log([-2, -1, -5].sum()); // -8
-console.log([-3, -2, -1, 0, 1, 2, 3].sum()); // 0
+  if (['6011'].includes(...card.match(/^\d\d\d\d/g)) && length == 16)
+    return 'Discover';
+
+  if (
+    ['51', '52', '53', '54', '55'].includes(...card.match(/^\d\d/g)) &&
+    length == 16
+  )
+    return 'Mastercard';
+
+  return 'Unknown';
+}
+
+console.log(getIssuer(4111111111111111)); // 'VISA'
+console.log(getIssuer(378282246310005)); // 'AMEX'
+console.log(getIssuer(9111111111111111)); // 'Unknown'
+console.log(getIssuer(6011111111111117)); // 'Discover';
+console.log(getIssuer(5105105105105100)); // 'Mastercard';

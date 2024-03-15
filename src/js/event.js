@@ -1,21 +1,10 @@
 function getIssuer(number) {
-  let card = String(number);
-  const length = card.length;
+  const card = number.toString();
 
-  if (['4'].includes(...card.match(/^\d/g)) && (length == 13 || length == 16))
-    return 'VISA';
-
-  if (['34', '37'].includes(...card.match(/^\d\d/g)) && length == 15)
-    return 'AMEX';
-
-  if (['6011'].includes(...card.match(/^\d\d\d\d/g)) && length == 16)
-    return 'Discover';
-
-  if (
-    ['51', '52', '53', '54', '55'].includes(...card.match(/^\d\d/g)) &&
-    length == 16
-  )
-    return 'Mastercard';
+  if (/^3[4|7]\d{13}$/.test(card)) return 'AMEX';
+  if (/^6011\d{12}$/.test(card)) return 'Discover';
+  if (/^5[1-5]\d{14}$/.test(card)) return 'Mastercard';
+  if (/^4(\d{12}|\d{15})$/.test(card)) return 'VISA';
 
   return 'Unknown';
 }

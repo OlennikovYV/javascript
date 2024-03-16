@@ -1,8 +1,5 @@
 function missingNo(nums) {
-  const sumAllNumber = 5050;
-  const sunWithoutOne = nums.reduce((sum, num) => sum + num, 0);
-
-  return sumAllNumber - sunWithoutOne;
+  return 5050 - nums.reduce((sum, num) => sum + num, 0);
 }
 
 let arr1 = [

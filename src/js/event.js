@@ -1,5 +1,5 @@
 function missingNo(nums) {
-  return 5050 - nums.reduce((sum, num) => sum + num, 0);
+  for (i = 0; i <= 100; i++) if (!nums.includes(i)) return i;
 }
 
 let arr1 = [

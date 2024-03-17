@@ -5,16 +5,10 @@ function sort(items) {
 
   for (let i = 0; i < length - 1; i++)
     for (let j = i + 1; j < length; j++) {
-      let sorting;
       const a = items[i];
       const b = items[j];
 
-      if (typeof a === 'string') sorting = a.localeCompare(b);
-      if (typeof a === 'number') sorting = a > b;
-
-      if (sorting > 0) {
-        [items[i], items[j]] = [items[j], items[i]];
-      }
+      if (a > b) [items[i], items[j]] = [items[j], items[i]];
     }
 
   return items;

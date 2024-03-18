@@ -1,11 +1,13 @@
-const Warrior = function (name) {
-  this.name = name;
-  this.health = 100;
-};
+class Warrior {
+  constructor(name) {
+    this.name = name;
+    this.health = 100;
+  }
 
-Warrior.prototype.strike = function (enemy, swings) {
-  enemy.health = Math.max(0, enemy.health - swings * 10);
-};
+  strike(enemy, swings) {
+    enemy.health = Math.max(0, enemy.health - swings * 10);
+  }
+}
 
 const ninja = new Warrior('Ninja');
 const samurai = new Warrior('Samurai');

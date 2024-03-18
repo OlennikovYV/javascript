@@ -1,6 +1,6 @@
 mocha.setup('bdd');
 
-describe(`Custom sort function`, function () {
+describe(`Ninja vs Samurai: Strike`, function () {
   const equal = chai.assert.equal;
   const strictEqual = chai.assert.strictEqual;
   const notEqual = chai.assert.notEqual;
@@ -17,12 +17,11 @@ describe(`Custom sort function`, function () {
   const include = chai.assert.include;
 
   it('Basic tests', () => {
-    deepEqual(sort([1, 3, 2]), [1, 2, 3]);
-    deepEqual(sort([1, 3, 2, 3, 4, 1]), [1, 1, 2, 3, 3, 4]);
-    deepEqual(sort([4, 1, 3, 2, 2, 3, 4, 1]), [1, 1, 2, 2, 3, 3, 4, 4]);
-    deepEqual(sort([1]), [1]);
-    deepEqual(sort([10, 11, 9]), [9, 10, 11]);
-    deepEqual(sort(['abc', 'adc', 'acc']), ['abc', 'acc', 'adc']);
+    const ninja = new Warrior('Ninja');
+    const samurai = new Warrior('Samurai');
+
+    samurai.strike(ninja, 3);
+    equal(ninja.health, 70); // ninja.health should == 70
   });
 });
 

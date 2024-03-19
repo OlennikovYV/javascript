@@ -1,6 +1,6 @@
 mocha.setup('bdd');
 
-describe(`Ninja vs Samurai: Strike`, function () {
+describe(`Holiday VII - Local Talk`, function () {
   const equal = chai.assert.equal;
   const strictEqual = chai.assert.strictEqual;
   const notEqual = chai.assert.notEqual;
@@ -16,12 +16,17 @@ describe(`Ninja vs Samurai: Strike`, function () {
   const error = chai.assert.throws;
   const include = chai.assert.include;
 
-  it('Basic tests', () => {
-    const ninja = new Warrior('Ninja');
-    const samurai = new Warrior('Samurai');
-
-    samurai.strike(ninja, 3);
-    equal(ninja.health, 70); // ninja.health should == 70
+  it('Fixed tests', () => {
+    equal(pak('   '), '');
+    equal(
+      pak('Man I need a taxi up to Ubud'),
+      'Man pak I pak need pak a pak taxi pak up pak to pak Ubud'
+    );
+    equal(
+      pak('What time are we climbing up the volcano?'),
+      'What pak time pak are pak we pak climbing pak up pak the pak volcano?'
+    );
+    equal(pak('Take me to Semynak!'), 'Take pak me pak to pak Semynak!');
   });
 });
 

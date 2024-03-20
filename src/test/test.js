@@ -1,6 +1,6 @@
 mocha.setup('bdd');
 
-describe(`Holiday VII - Local Talk`, function () {
+describe(`Who Took The Car Key?`, function () {
   const equal = chai.assert.equal;
   const strictEqual = chai.assert.strictEqual;
   const notEqual = chai.assert.notEqual;
@@ -16,17 +16,21 @@ describe(`Holiday VII - Local Talk`, function () {
   const error = chai.assert.throws;
   const include = chai.assert.include;
 
-  it('Fixed tests', () => {
-    equal(pak('   '), '');
-    equal(
-      pak('Man I need a taxi up to Ubud'),
-      'Man pak I pak need pak a pak taxi pak up pak to pak Ubud'
+  it('test', () => {
+    strictEqual(
+      whoTookTheCarKey([
+        '01000001',
+        '01101100',
+        '01100101',
+        '01111000',
+        '01100001',
+        '01101110',
+        '01100100',
+        '01100101',
+        '01110010',
+      ]),
+      'Alexander'
     );
-    equal(
-      pak('What time are we climbing up the volcano?'),
-      'What pak time pak are pak we pak climbing pak up pak the pak volcano?'
-    );
-    equal(pak('Take me to Semynak!'), 'Take pak me pak to pak Semynak!');
   });
 });
 

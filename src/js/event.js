@@ -1,5 +1,9 @@
 function whoTookTheCarKey(message) {
-  return String.fromCharCode(...message.map(el => parseInt(Number(el), 2)));
+  return message.reduce(
+    (codeString, charBin) =>
+      codeString + String.fromCodePoint(parseInt(charBin, 2)),
+    ''
+  );
 }
 
 console.log(

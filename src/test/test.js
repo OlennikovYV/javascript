@@ -1,6 +1,6 @@
 mocha.setup('bdd');
 
-describe(`Who Took The Car Key?`, function () {
+describe(`Complete The Pattern #7 - Cyclical Permutation`, function () {
   const equal = chai.assert.equal;
   const strictEqual = chai.assert.strictEqual;
   const notEqual = chai.assert.notEqual;
@@ -17,20 +17,14 @@ describe(`Who Took The Car Key?`, function () {
   const include = chai.assert.include;
 
   it('test', () => {
-    strictEqual(
-      whoTookTheCarKey([
-        '01000001',
-        '01101100',
-        '01100101',
-        '01111000',
-        '01100001',
-        '01101110',
-        '01100100',
-        '01100101',
-        '01110010',
-      ]),
-      'Alexander'
+    equal(
+      pattern(7),
+      '1234567\n2345671\n3456712\n4567123\n5671234\n6712345\n7123456'
     );
+    equal(pattern(1), '1');
+    equal(pattern(4), '1234\n2341\n3412\n4123');
+    equal(pattern(0), '');
+    equal(pattern(-25), '');
   });
 });
 

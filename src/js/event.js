@@ -1,21 +1,7 @@
 function pattern(n) {
-  let output = [];
-
-  for (let i = 0; i < n; i++) {
-    let line = '';
-    for (let j = 1; j <= n; j++) {
-      const sum = i + j;
-
-      if (sum <= n) {
-        line += sum;
-      } else {
-        line += sum - n;
-      }
-    }
-    output.push(line);
-  }
-
-  return output.join('\n');
+  return Array.from({ length: n }, (_, i) =>
+    Array.from({ length: n }, (_, j) => ((i + j) % n) + 1).join('')
+  ).join('\n');
 }
 
 console.log(pattern(7));

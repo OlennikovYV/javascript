@@ -1,6 +1,6 @@
 mocha.setup('bdd');
 
-describe(`Complete The Pattern #7 - Cyclical Permutation`, function () {
+describe(`ReOrdering`, function () {
   const equal = chai.assert.equal;
   const strictEqual = chai.assert.strictEqual;
   const notEqual = chai.assert.notEqual;
@@ -17,14 +17,35 @@ describe(`Complete The Pattern #7 - Cyclical Permutation`, function () {
   const include = chai.assert.include;
 
   it('test', () => {
+    equal(reOrdering('ming Yao'), 'Yao ming');
+    equal(reOrdering('Mano donowana'), 'Mano donowana');
+    equal(reOrdering('wario LoBan hello'), 'LoBan wario hello');
+    equal(reOrdering('bull color pig Patrick'), 'Patrick bull color pig');
     equal(
-      pattern(7),
-      '1234567\n2345671\n3456712\n4567123\n5671234\n6712345\n7123456'
+      reOrdering('jojo ddjajdiojdwo ana G nnibiial'),
+      'G jojo ddjajdiojdwo ana nnibiial'
     );
-    equal(pattern(1), '1');
-    equal(pattern(4), '1234\n2341\n3412\n4123');
-    equal(pattern(0), '');
-    equal(pattern(-25), '');
+    equal(
+      reOrdering(
+        'is one of those rare names that s both exotic and simple Adira'
+      ),
+      'Adira is one of those rare names that s both exotic and simple'
+    );
+    equal(
+      reOrdering(
+        'is an older name than annabel Amabel and a lot more distinctive'
+      ),
+      'Amabel is an older name than annabel and a lot more distinctive'
+    );
+    equal(reOrdering('JoJo'), 'JoJo');
+    equal(
+      reOrdering('a b c d e f g h i j k l m n o p q r s t u v w x y Z'),
+      'Z a b c d e f g h i j k l m n o p q r s t u v w x y'
+    );
+    equal(
+      reOrdering('a b c d e f g h i j k l m N o p q r s t u v w x y z'),
+      'N a b c d e f g h i j k l m o p q r s t u v w x y z'
+    );
   });
 });
 

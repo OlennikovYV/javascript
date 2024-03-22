@@ -1,16 +1,15 @@
 function reOrdering(text) {
-  const arrayText = text.split(' ');
+  const resultArray = [];
 
-  for (let i = 0; i < arrayText.length; i++) {
-    if (arrayText[i][0] == arrayText[i][0].toUpperCase()) {
-      const currentElement = arrayText[i];
-
-      arrayText.splice(i, 1);
-      arrayText.unshift(currentElement);
+  for (let word of text.split(' ')) {
+    if (word[0] == word[0].toUpperCase()) {
+      resultArray.unshift(word);
+    } else {
+      resultArray.push(word);
     }
   }
 
-  return arrayText.join(' ');
+  return resultArray.join(' ');
 }
 
 console.log(reOrdering('ming Yao')); // 'Yao ming'

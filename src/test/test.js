@@ -1,6 +1,6 @@
 mocha.setup('bdd');
 
-describe(`ReOrdering`, function () {
+describe(`Inside Out Strings`, function () {
   const equal = chai.assert.equal;
   const strictEqual = chai.assert.strictEqual;
   const notEqual = chai.assert.notEqual;
@@ -16,36 +16,16 @@ describe(`ReOrdering`, function () {
   const error = chai.assert.throws;
   const include = chai.assert.include;
 
-  it('test', () => {
-    equal(reOrdering('ming Yao'), 'Yao ming');
-    equal(reOrdering('Mano donowana'), 'Mano donowana');
-    equal(reOrdering('wario LoBan hello'), 'LoBan wario hello');
-    equal(reOrdering('bull color pig Patrick'), 'Patrick bull color pig');
-    equal(
-      reOrdering('jojo ddjajdiojdwo ana G nnibiial'),
-      'G jojo ddjajdiojdwo ana nnibiial'
+  it('Testing for fixed tests', () => {
+    strictEqual(
+      insideOut('man i need a taxi up to ubud'),
+      'man i ende a atix up to budu'
     );
-    equal(
-      reOrdering(
-        'is one of those rare names that s both exotic and simple Adira'
-      ),
-      'Adira is one of those rare names that s both exotic and simple'
+    strictEqual(
+      insideOut('what time are we climbing up the volcano'),
+      'hwta item are we milcgnib up the lovcona'
     );
-    equal(
-      reOrdering(
-        'is an older name than annabel Amabel and a lot more distinctive'
-      ),
-      'Amabel is an older name than annabel and a lot more distinctive'
-    );
-    equal(reOrdering('JoJo'), 'JoJo');
-    equal(
-      reOrdering('a b c d e f g h i j k l m n o p q r s t u v w x y Z'),
-      'Z a b c d e f g h i j k l m n o p q r s t u v w x y'
-    );
-    equal(
-      reOrdering('a b c d e f g h i j k l m N o p q r s t u v w x y z'),
-      'N a b c d e f g h i j k l m o p q r s t u v w x y z'
-    );
+    strictEqual(insideOut('take me to semynak'), 'atek me to mesykan');
   });
 });
 

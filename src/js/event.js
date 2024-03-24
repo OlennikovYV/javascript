@@ -1,30 +1,30 @@
-function insideOut(x) {
-  const charInside = word => {
-    const halfLength = Math.floor(word.length / 2);
-    let left, center, right;
-
-    if (word.length % 2 == 0) {
-      left = word.slice(0, halfLength);
-      center = '';
-      right = word.slice(halfLength);
-    } else {
-      left = word.slice(0, halfLength);
-      center = word[Math.floor(halfLength)];
-      right = word.slice(halfLength + 1);
-    }
-
-    left = left.split('').reverse().join('');
-    right = right.split('').reverse().join('');
-
-    return [left, center, right].join('');
-  };
-
-  return x
-    .split(' ')
-    .map(el => charInside(el))
-    .join(' ');
+function ipToNum(ip) {
+  return ip.split('.').reduce(function (int, value) {
+    return int * 256 + +value;
+  });
 }
 
-console.log(insideOut('man i need a taxi up to ubud')); // 'man i ende a atix up to budu'
-console.log(insideOut('what time are we climbing up the volcano')); // 'hwta item are we milcgnib up the lovcona'
-console.log(insideOut('take me to semynak')); // 'atek me to mesykan'
+function numToIp(num) {
+  const part1 = num & 255;
+  const part2 = (num >> 8) & 255;
+  const part3 = (num >> 16) & 255;
+  const part4 = (num >> 24) & 255;
+
+  return part4 + '.' + part3 + '.' + part2 + '.' + part1;
+}
+
+// 'ipToNum'
+console.log(ipToNum('192.168.1.1')); // 3232235777
+console.log(ipToNum('10.0.0.0')); // 167772160
+console.log(ipToNum('176.16.0.1')); // 2953838593
+// 'numToIp'
+console.log(numToIp(3232235777)); // '192.168.1.1'
+console.log(numToIp(167772160)); // '10.0.0.0'
+console.log(numToIp(2953838593)); // '176.16.0.1'
+// 'Combined'
+console.log(numToIp(ipToNum('192.168.1.1'))); // '192.168.1.1'
+console.log(numToIp(ipToNum('10.0.0.0'))); // '10.0.0.0'
+console.log(numToIp(ipToNum('176.16.0.1'))); // '176.16.0.1'
+console.log(ipToNum(numToIp(3232235777))); // 3232235777
+console.log(ipToNum(numToIp(167772160))); // 167772160
+console.log(ipToNum(numToIp(2953838593))); // 2953838593

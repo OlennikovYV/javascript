@@ -1,6 +1,6 @@
 class Lamp {
   constructor(color) {
-    this.colorValue = color;
+    this.color = color;
     this.on = false;
   }
 
@@ -10,14 +10,6 @@ class Lamp {
 
   state() {
     return this.on ? 'The lamp is on.' : 'The lamp is off.';
-  }
-
-  set color(color) {
-    this.colorValue = color;
-  }
-
-  get color() {
-    return this.colorValue;
   }
 }
 

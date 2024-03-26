@@ -1,6 +1,6 @@
 mocha.setup('bdd');
 
-describe(`The Lamp: Revisited`, function () {
+describe(`EAN Validation`, function () {
   const equal = chai.assert.equal;
   const strictEqual = chai.assert.strictEqual;
   const notEqual = chai.assert.notEqual;
@@ -16,15 +16,33 @@ describe(`The Lamp: Revisited`, function () {
   const error = chai.assert.throws;
   const include = chai.assert.include;
 
-  it('Lamp', function () {
-    const myLamp = new Lamp('Blue');
-
-    equal(myLamp.color, 'Blue');
-    equal(myLamp.on, false);
-    equal(myLamp.state(), 'The lamp is off.');
-    // now switch it on
-    myLamp.toggleSwitch();
-    equal(myLamp.state(), 'The lamp is on.');
+  it('Test 4003301018398', function () {
+    isTrue(
+      validateEAN('4003301018398'),
+      true,
+      'Check EAN-Code "4003301018398"'
+    );
+  });
+  it('Test 9783815820865', function () {
+    isTrue(
+      validateEAN('9783815820865'),
+      true,
+      'Check EAN-Code "9783815820865"'
+    );
+  });
+  it('Test 9783815820864', function () {
+    isFalse(
+      validateEAN('9783815820864'),
+      false,
+      'Check EAN-Code "9783815820864"'
+    );
+  });
+  it('Test 9783827317100', function () {
+    isTrue(
+      validateEAN('9783827317100'),
+      true,
+      'Check EAN-Code "9783827317100"'
+    );
   });
 });
 

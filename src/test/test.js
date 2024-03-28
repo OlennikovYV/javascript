@@ -1,6 +1,6 @@
 mocha.setup('bdd');
 
-describe(`Is it a letter?`, function () {
+describe(`Breaking search bad`, function () {
   const equal = chai.assert.equal;
   const strictEqual = chai.assert.strictEqual;
   const notEqual = chai.assert.notEqual;
@@ -17,9 +17,27 @@ describe(`Is it a letter?`, function () {
   const include = chai.assert.include;
 
   it('example tests', function () {
-    equal(isItLetter('Z'), true, `'Z' is a letter`);
-    equal(isItLetter('a'), true, `'a' is a letter`);
-    equal(isItLetter('1'), false, `'1' is not a letter`);
+    const TITLES = [
+      'The Big Bang Theory',
+      'How I Met Your Mother',
+      'Dexter',
+      'Breaking Bad',
+      'Doctor Who',
+      'The Hobbit',
+      'Pacific Rim',
+      'Pulp Fiction',
+      'The Avengers',
+      'Shining',
+    ];
+
+    result = search('ho');
+
+    equal(result.length, 3, 'on search term "ho"');
+    deepEqual(
+      result,
+      ['How I Met Your Mother', 'Doctor Who', 'The Hobbit'],
+      'on search term "ho"'
+    );
   });
 });
 

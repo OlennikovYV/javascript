@@ -1,10 +1,8 @@
 function search(searchTerm) {
-  const searchTermLowerCase = searchTerm.toLowerCase();
+  const search = new RegExp(searchTerm, 'i');
 
-  return TITLES.filter(title => {
-    const string = title.toLowerCase();
-
-    return string.includes(searchTermLowerCase);
+  return TITLES.filter(function (title) {
+    return search.test(title);
   });
 }
 

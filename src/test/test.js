@@ -1,6 +1,6 @@
 mocha.setup('bdd');
 
-describe(`Breaking search bad`, function () {
+describe(`Is valid identifier?`, function () {
   const equal = chai.assert.equal;
   const strictEqual = chai.assert.strictEqual;
   const notEqual = chai.assert.notEqual;
@@ -16,28 +16,20 @@ describe(`Breaking search bad`, function () {
   const error = chai.assert.throws;
   const include = chai.assert.include;
 
-  it('example tests', function () {
-    const TITLES = [
-      'The Big Bang Theory',
-      'How I Met Your Mother',
-      'Dexter',
-      'Breaking Bad',
-      'Doctor Who',
-      'The Hobbit',
-      'Pacific Rim',
-      'Pulp Fiction',
-      'The Avengers',
-      'Shining',
-    ];
+  it('should return true for valid identifiers', function () {
+    equal(isValid('okay_ok1'), true, "Wrong result for 'okay_ok1'");
+    equal(isValid('$ok'), true, "Wrong result for '$ok'");
+    equal(isValid('___'), true, "Wrong result for '___'");
+    equal(isValid('str_STR'), true, "Wrong result for 'str_STR'");
+    equal(isValid('myIdentf'), true, "Wrong result for 'myIdentf'");
+  });
 
-    result = search('ho');
-
-    equal(result.length, 3, 'on search term "ho"');
-    deepEqual(
-      result,
-      ['How I Met Your Mother', 'Doctor Who', 'The Hobbit'],
-      'on search term "ho"'
-    );
+  it('should return false for invalid identifiers', function () {
+    equal(isValid('1ok0okay'), false, "Wrong result for '1ok0okay'");
+    equal(isValid('!Ok'), false, "Wrong result for '!Ok'");
+    equal(isValid(''), false, 'Wrong result for an empty string');
+    equal(isValid('str-str'), false, "Wrong result for 'str-str'");
+    equal(isValid('no no'), false, "Wrong result for 'no no'");
   });
 });
 

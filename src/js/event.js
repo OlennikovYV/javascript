@@ -1,25 +1,15 @@
-function search(searchTerm) {
-  const search = new RegExp(searchTerm, 'i');
-
-  return TITLES.filter(function (title) {
-    return search.test(title);
-  });
+function isValid(idn) {
+  return /^[a-z$_]{1}[\w]*$/gi.test(idn);
 }
 
-const TITLES = [
-  'The Big Bang Theory',
-  'How I Met Your Mother',
-  'Dexter',
-  'Breaking Bad',
-  'Doctor Who',
-  'The Hobbit',
-  'Pacific Rim',
-  'Pulp Fiction',
-  'The Avengers',
-  'Shining',
-];
+console.log(isValid('okay_ok1')); // true
+console.log(isValid('$ok')); // true
+console.log(isValid('___')); // true
+console.log(isValid('str_STR')); // true
+console.log(isValid('myIdentf')); // true
 
-result = search('ho');
-
-console.log(result.length); // 3
-console.log(result); //  ['How I Met Your Mother', 'Doctor Who', 'The Hobbit'],
+console.log(isValid('1ok0okay')); // false
+console.log(isValid('!Ok')); // false
+console.log(isValid('')); // false
+console.log(isValid('str-str')); // false
+console.log(isValid('no no')); // false

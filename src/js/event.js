@@ -1,8 +1,7 @@
 function maxTriSum(numbers) {
-  return [...new Set(numbers)]
-    .sort((a, b) => b - a)
-    .slice(0, 3)
-    .reduce((sum, el) => sum + el, 0);
+  const [a, b, c] = [...new Set(numbers)].sort((a, b) => b - a);
+
+  return a + b + c;
 }
 
 console.log(maxTriSum([3, 2, 6, 8, 2, 3])); // 17

@@ -1,6 +1,6 @@
 mocha.setup('bdd');
 
-describe(`Zebulan's Nightmare`, function () {
+describe(`World Bits War`, function () {
   const equal = chai.assert.equal;
   const strictEqual = chai.assert.strictEqual;
   const notEqual = chai.assert.notEqual;
@@ -17,14 +17,11 @@ describe(`Zebulan's Nightmare`, function () {
   const include = chai.assert.include;
 
   it('Testing for fixed tests', () => {
-    equal(zebulansNightmare('camel_case'), 'camelCase');
-    equal(zebulansNightmare('mark_as_issue'), 'markAsIssue');
-    equal(zebulansNightmare('copy_paste_pep8'), 'copyPastePep8');
-    equal(zebulansNightmare('goto_next_kata'), 'gotoNextKata');
-    equal(zebulansNightmare('repeat'), 'repeat');
-    equal(zebulansNightmare('trolling_is_fun'), 'trollingIsFun');
-    equal(zebulansNightmare('why'), 'why');
-    equal(zebulansNightmare('123_abc_def'), '123AbcDef');
+    strictEqual(bitsWar([1, 5, 12]), 'odds win');
+    strictEqual(bitsWar([7, -3, 20]), 'evens win');
+    strictEqual(bitsWar([7, -3, -2, 6]), 'tie');
+    strictEqual(bitsWar([-3, -5]), 'evens win');
+    strictEqual(bitsWar([]), 'tie');
   });
 });
 

@@ -1,12 +1,28 @@
-function zebulansNightmare(functionName) {
-  return functionName.replace(/_[a-z]/g, el => el[1].toUpperCase());
+function bitsWar(numbers) {
+  let sumEven = 0;
+  let sumOdd = 0;
+
+  const sumOnes = number =>
+    Math.abs(number).toString(2).replace(/0/g, '').length;
+
+  numbers.map(number => {
+    const sign = Math.sign(number);
+    const count = sumOnes(number);
+
+    if (number % 2) {
+      sumOdd += sign * count;
+    } else {
+      sumEven += sign * count;
+    }
+  });
+
+  if (sumEven == sumOdd) return 'tie';
+
+  return sumEven > sumOdd ? 'evens win' : 'odds win';
 }
 
-console.log(zebulansNightmare('camel_case')); // 'camelCase'
-console.log(zebulansNightmare('mark_as_issue')); // 'markAsIssue'
-console.log(zebulansNightmare('copy_paste_pep8')); // 'copyPastePep8'
-console.log(zebulansNightmare('goto_next_kata')); // 'gotoNextKata'
-console.log(zebulansNightmare('repeat')); // 'repeat'
-console.log(zebulansNightmare('trolling_is_fun')); // 'trollingIsFun'
-console.log(zebulansNightmare('why')); // 'why'
-console.log(zebulansNightmare('123_abc_def')); // '123AbcDef'
+console.log(bitsWar([1, 5, 12])); // 'odds win'
+console.log(bitsWar([7, -3, 20])); // 'evens win'
+console.log(bitsWar([7, -3, -2, 6])); // 'tie'
+console.log(bitsWar([-3, -5])); // 'evens win'
+console.log(bitsWar([])); // 'tie'

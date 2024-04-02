@@ -1,6 +1,6 @@
 mocha.setup('bdd');
 
-describe(`World Bits War`, function () {
+describe(`Sorting Arrays ... wait, what?!`, function () {
   const equal = chai.assert.equal;
   const strictEqual = chai.assert.strictEqual;
   const notEqual = chai.assert.notEqual;
@@ -16,12 +16,8 @@ describe(`World Bits War`, function () {
   const error = chai.assert.throws;
   const include = chai.assert.include;
 
-  it('Testing for fixed tests', () => {
-    strictEqual(bitsWar([1, 5, 12]), 'odds win');
-    strictEqual(bitsWar([7, -3, 20]), 'evens win');
-    strictEqual(bitsWar([7, -3, -2, 6]), 'tie');
-    strictEqual(bitsWar([-3, -5]), 'evens win');
-    strictEqual(bitsWar([]), 'tie');
+  it('test', () => {
+    deepEqual([9, 7, 2, 4, 5, 3, 6, 8, 1].sort(), [1, 2, 3, 4, 5, 6, 7, 8, 9]);
   });
 });
 

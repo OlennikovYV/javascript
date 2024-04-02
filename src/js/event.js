@@ -1,28 +1,16 @@
-function bitsWar(numbers) {
-  let sumEven = 0;
-  let sumOdd = 0;
+Array.prototype.sort = function () {
+  if (this.length < 2) return this;
 
-  const sumOnes = number =>
-    Math.abs(number).toString(2).replace(/0/g, '').length;
+  for (let i = 0; i < this.length - 1; i++)
+    for (let j = i + 1; j < this.length; j++) {
+      const a = this[i];
+      const b = this[j];
 
-  numbers.map(number => {
-    const sign = Math.sign(number);
-    const count = sumOnes(number);
-
-    if (number % 2) {
-      sumOdd += sign * count;
-    } else {
-      sumEven += sign * count;
+      if (a > b) [this[i], this[j]] = [this[j], this[i]];
     }
-  });
 
-  if (sumEven == sumOdd) return 'tie';
+  return this;
+};
 
-  return sumEven > sumOdd ? 'evens win' : 'odds win';
-}
-
-console.log(bitsWar([1, 5, 12])); // 'odds win'
-console.log(bitsWar([7, -3, 20])); // 'evens win'
-console.log(bitsWar([7, -3, -2, 6])); // 'tie'
-console.log(bitsWar([-3, -5])); // 'evens win'
-console.log(bitsWar([])); // 'tie'
+console.log([9, 7, 2, 4, 5, 3, 6, 8, 1].sort());
+// [1, 2, 3, 4, 5, 6, 7, 8, 9]

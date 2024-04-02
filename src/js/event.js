@@ -1,12 +1,9 @@
 Array.prototype.sort = function () {
-  if (this.length < 2) return this;
+  for (let i = 0; i < this.length - 1; i++)
+    for (let j = i + 1; j < this.length; j++)
+      this[i] > this[j] && ([this[i], this[j]] = [this[j], this[i]]);
 
-  const first = this[0];
-  const rest = this.slice(1);
-  const lte = rest.filter(x => x <= first).sort();
-  const gt = rest.filter(x => x > first).sort();
-
-  return lte.concat([first]).concat(gt);
+  return this;
 };
 
 console.log([9, 7, 2, 4, 5, 3, 6, 8, 1].sort());

@@ -1,10 +1,28 @@
-Array.prototype.sort = function () {
-  for (let i = 0; i < this.length - 1; i++)
-    for (let j = i + 1; j < this.length; j++)
-      this[i] > this[j] && ([this[i], this[j]] = [this[j], this[i]]);
+function stringExpansion(s) {
+  let arrayCountChar = s.match(/(\d?[a-z]+)/gi);
 
-  return this;
-};
+  const convertString = str => {
+    const count = str.match(/\d/g) || 1;
+    const arrayChar = str.match(/[a-z]/gi);
+    let outputString = '';
 
-console.log([9, 7, 2, 4, 5, 3, 6, 8, 1].sort());
-// [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    for (let i = 0; i < arrayChar.length; i++) {
+      outputString += arrayChar[i].repeat(count);
+    }
+
+    return outputString;
+  };
+
+  return arrayCountChar
+    ? arrayCountChar.map(el => convertString(el)).join('')
+    : '';
+}
+
+console.log(stringExpansion('1111')); // ''
+console.log(stringExpansion('')); // ''
+console.log(stringExpansion('3abc')); // 'aaabbbccc'
+console.log(stringExpansion('3D2a5d2f')); // 'DDDaadddddff'
+console.log(stringExpansion('0d0a0v0t0y')); // ''
+console.log(stringExpansion('3d332f2a')); // 'dddffaa'
+console.log(stringExpansion('abcde')); // 'abcde'
+console.log(stringExpansion('a2bcde')); // 'abbccddee'

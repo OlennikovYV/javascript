@@ -1,21 +1,7 @@
 function stringExpansion(s) {
-  let arrayCountChar = s.match(/(\d?[a-z]+)/gi);
-
-  const convertString = str => {
-    const count = str.match(/\d/g) || 1;
-    const arrayChar = str.match(/[a-z]/gi);
-    let outputString = '';
-
-    for (let i = 0; i < arrayChar.length; i++) {
-      outputString += arrayChar[i].repeat(count);
-    }
-
-    return outputString;
-  };
-
-  return arrayCountChar
-    ? arrayCountChar.map(el => convertString(el)).join('')
-    : '';
+  return s.replace(/\d\D*/g, m =>
+    m.slice(1).replace(/./g, n => n.repeat(m[0]))
+  );
 }
 
 console.log(stringExpansion('1111')); // ''

@@ -1,11 +1,6 @@
 function catchSignChange(arr) {
-  let count = 0;
-  for (let i = 0; i < arr.length; i++) {
-    if ((arr[i] < 0 && arr[i + 1] >= 0) || (arr[i] >= 0 && arr[i + 1] < 0))
-      count++;
-  }
-
-  return count;
+  return arr.slice(1).filter((number, index) => number < 0 !== arr[index] < 0)
+    .length;
 }
 
 const tests = [

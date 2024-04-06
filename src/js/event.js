@@ -1,18 +1,17 @@
-function catchSignChange(arr) {
-  return arr.slice(1).filter((number, index) => number < 0 !== arr[index] < 0)
-    .length;
+function once(fn) {
+  let executed = false;
+
+  return function (...param) {
+    if (!executed) {
+      executed = true;
+      return fn(...param);
+    }
+  };
 }
 
-const tests = [
-  [[], 0],
-  [[0], 0],
-  [[-7, -7, 7, 0], 1],
-  [[1, 3, 4, 5], 0],
-  [[-1, -3, -4, -5], 0],
-  [[1, -3, -4, 0, 5], 2],
-  [[-47, 84, -30, -11, -5, 74, 77], 3],
-];
+let logOnce = once(function (x) {
+  return x;
+});
 
-for (let [input, expected] of tests) {
-  console.log(catchSignChange(input), expected);
-}
+console.log(logOnce(1)); // -> 1
+console.log(logOnce(2)); // -> no effect

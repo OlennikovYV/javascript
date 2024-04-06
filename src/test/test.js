@@ -1,11 +1,12 @@
 mocha.setup('bdd');
 
-describe(`Plus - minus - plus - plus - ... - Count`, function () {
+describe(`Once`, function () {
   const equal = chai.assert.equal;
   const strictEqual = chai.assert.strictEqual;
   const notEqual = chai.assert.notEqual;
   const deepEqual = chai.assert.deepEqual;
   const isDefined = chai.assert.isDefined;
+  const isUndefined = chai.assert.isUndefined;
   const isNull = chai.assert.isNull;
   const isTrue = chai.assert.isTrue;
   const isFalse = chai.assert.isFalse;
@@ -16,21 +17,17 @@ describe(`Plus - minus - plus - plus - ... - Count`, function () {
   const error = chai.assert.throws;
   const include = chai.assert.include;
 
-  const tests = [
-    [[], 0],
-    [[0], 0],
-    [[-7, -7, 7, 0], 1],
-    [[1, 3, 4, 5], 0],
-    [[-1, -3, -4, -5], 0],
-    [[1, -3, -4, 0, 5], 2],
-    [[-47, 84, -30, -11, -5, 74, 77], 3],
-  ];
+  let logOnce = once(function (x) {
+    return x;
+  });
 
-  for (let [input, expected] of tests) {
-    it(`[${input}]`, function () {
-      strictEqual(catchSignChange(input), expected);
-    });
-  }
+  it(`First run`, function () {
+    equal(logOnce(1), 1);
+  });
+
+  it(`Second NOT run`, function () {
+    equal(logOnce(2), undefined);
+  });
 });
 
 mocha.run();

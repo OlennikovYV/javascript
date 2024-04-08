@@ -1,6 +1,6 @@
 mocha.setup('bdd');
 
-describe(`Thinking & Testing: A and B?`, function () {
+describe(`Sort deck of cards`, function () {
   const equal = chai.assert.equal;
   const strictEqual = chai.assert.strictEqual;
   const notEqual = chai.assert.notEqual;
@@ -17,12 +17,39 @@ describe(`Thinking & Testing: A and B?`, function () {
   const error = chai.assert.throws;
   const include = chai.assert.include;
 
-  it('Test', () => {
-    strictEqual(testit(0, 1), 1, '');
-    strictEqual(testit(1, 2), 3, '');
-    strictEqual(testit(10, 20), 30, '');
-    strictEqual(testit(1, 1), 1, '');
-    strictEqual(testit(1, 3), 3, '');
+  it('test', () => {
+    deepEqual(sortCards([3, 9, 'A', 5, 'T', 8, 2, 4, 'Q', 7, 'J', 6, 'K']), [
+      'A',
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      'T',
+      'J',
+      'Q',
+      'K',
+    ]);
+    deepEqual(sortCards(['J', 'J', 2, 'T', 9, 6]), [2, 6, 9, 'T', 'J', 'J']);
+    deepEqual(sortCards(['A', 2, 3, 4, 5, 6, 6, 7, 8, 9, 'T', 'J', 'Q', 'A']), [
+      'A',
+      'A',
+      2,
+      3,
+      4,
+      5,
+      6,
+      6,
+      7,
+      8,
+      9,
+      'T',
+      'J',
+      'Q',
+    ]);
   });
 });
 

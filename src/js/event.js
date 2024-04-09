@@ -1,12 +1,60 @@
-function sortCards(array) {
-  const weightCards = 'A23456789TJQK';
-
-  return array.sort((a, b) => weightCards.indexOf(a) - weightCards.indexOf(b));
+function isSameLanguage(list) {
+  return list.every(el => el.language === list[0].language);
 }
 
-console.log(sortCards([3, 9, 'A', 5, 'T', 8, 2, 4, 'Q', 7, 'J', 6, 'K']));
-// ['A', 2, 3, 4, 5, 6, 7, 8, 9, 'T', 'J', 'Q', 'K']
-console.log(sortCards(['J', 'J', 2, 'T', 9, 6]));
-// [2, 6, 9, 'T', 'J', 'J']
-console.log(sortCards(['A', 2, 3, 4, 5, 6, 6, 7, 8, 9, 'T', 'J', 'Q', 'A']));
-// ['A', 'A', 2, 3, 4, 5, 6, 6, 7, 8, 9, 'T', 'J', 'Q']
+const list1 = [
+  {
+    firstName: 'Daniel',
+    lastName: 'J.',
+    country: 'Aruba',
+    continent: 'Americas',
+    age: 42,
+    language: 'JavaScript',
+  },
+  {
+    firstName: 'Kseniya',
+    lastName: 'T.',
+    country: 'Belarus',
+    continent: 'Europe',
+    age: 22,
+    language: 'JavaScript',
+  },
+  {
+    firstName: 'Hanna',
+    lastName: 'L.',
+    country: 'Hungary',
+    continent: 'Europe',
+    age: 65,
+    language: 'JavaScript',
+  },
+];
+
+const list2 = [
+  {
+    firstName: 'Mariami',
+    lastName: 'G.',
+    country: 'Georgia',
+    continent: 'Europe',
+    age: 29,
+    language: 'Python',
+  },
+  {
+    firstName: 'Mia',
+    lastName: 'H.',
+    country: 'Germany',
+    continent: 'Europe',
+    age: 39,
+    language: 'Ruby',
+  },
+  {
+    firstName: 'Maria',
+    lastName: 'I.',
+    country: 'Greece',
+    continent: 'Europe',
+    age: 32,
+    language: 'C',
+  },
+];
+
+console.log(isSameLanguage(list1)); // true
+console.log(isSameLanguage(list2)); // false

@@ -1,16 +1,9 @@
 function getUsersIds(str) {
-  return str.split(', ').map(word => {
-    let result = word;
-
-    result = result.trim();
-
-    result = result.replace(/#/g, '');
-    if (result.startsWith('uid')) result = result.substring(3).toLowerCase();
-
-    result = result.trim();
-
-    return result;
-  });
+  return str
+    .split(',')
+    .map(word =>
+      word.replace(/#/g, '').replace(/uid/, '').trim().toLowerCase()
+    );
 }
 
 console.log(getUsersIds('uid12345')); // ['12345']

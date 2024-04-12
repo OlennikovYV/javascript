@@ -1,18 +1,5 @@
 function compareVersions(version1, version2) {
-  const arrVer1 = version1.split('.');
-  const arrVer2 = version2.split('.');
-  const minLength = Math.max(arrVer1.length, arrVer2.length);
-
-  for (let i = 0; i < minLength; i++) {
-    const minorVer1 = Number(arrVer1[i]) || 0;
-    const minorVer2 = Number(arrVer2[i]) || 0;
-
-    if (minorVer1 === minorVer2) continue;
-
-    return minorVer1 > minorVer2 ? true : false;
-  }
-
-  return true;
+  return version1.localeCompare(version2, undefined, { numeric: true }) >= 0;
 }
 
 console.log(compareVersions('11', '10')); // True

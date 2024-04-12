@@ -1,6 +1,6 @@
 mocha.setup('bdd');
 
-describe(`Replace every nth`, function () {
+describe(`Compare Versions`, function () {
   const equal = chai.assert.equal;
   const strictEqual = chai.assert.strictEqual;
   const notEqual = chai.assert.notEqual;
@@ -17,37 +17,22 @@ describe(`Replace every nth`, function () {
   const error = chai.assert.throws;
   const include = chai.assert.include;
 
-  it('test', () => {
-    equal(
-      replaceNth('Vader said: No, I am your father!', 2, 'a', 'o'),
-      'Vader soid: No, I am your fother!'
-    );
-    equal(
-      replaceNth('Vader said: No, I am your father!', 4, 'a', 'o'),
-      'Vader said: No, I am your fother!'
-    );
-    equal(
-      replaceNth('Vader said: No, I am your father!', 6, 'a', 'o'),
-      'Vader said: No, I am your father!'
-    );
-    equal(
-      replaceNth('Vader said: No, I am your father!', 0, 'a', 'o'),
-      'Vader said: No, I am your father!'
-    );
-    equal(
-      replaceNth('Vader said: No, I am your father!', -2, 'a', 'o'),
-      'Vader said: No, I am your father!'
-    );
-    equal(
-      replaceNth('Vader said: No, I am your father!', 1, 'i', 'y'),
-      'Vader sayd: No, I am your father!'
-    );
+  it('Testing versions without subversion', () =>
+    isTrue(compareVersions('11', '10')));
 
-    equal(
-      replaceNth('Luke cries: Noooooooooooooooo!', 6, 'o', 'i'),
-      'Luke cries: Noooooioooooioooo!'
-    );
-  });
+  it('Test equal versions', () => isTrue(compareVersions('11', '11')));
+
+  it('Adding a subversion should make this version "larger"', () =>
+    isTrue(compareVersions('10.4.6', '10.4')));
+
+  it('Subversion precedence is smaller than Version', () =>
+    isFalse(compareVersions('10.4', '11')));
+
+  it('Version value is not the same as its decimal value', () =>
+    isFalse(compareVersions('10.4', '10.10')));
+
+  it('Adding subversion does not make it larger than a greater version', () =>
+    isFalse(compareVersions('10.4.9', '10.5')));
 });
 
 mocha.run();

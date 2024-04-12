@@ -7,8 +7,9 @@ function compareVersions(version1, version2) {
     const minorVer1 = Number(arrVer1[i]) || 0;
     const minorVer2 = Number(arrVer2[i]) || 0;
 
-    if (minorVer1 > minorVer2) return true;
-    if (minorVer1 < minorVer2) return false;
+    if (minorVer1 === minorVer2) continue;
+
+    return minorVer1 > minorVer2 ? true : false;
   }
 
   return true;

@@ -1,11 +1,58 @@
-function compareVersions(version1, version2) {
-  return version1.localeCompare(version2, undefined, { numeric: true }) >= 0;
+function getFirstPython(list) {
+  const pythonDevelopers = list.filter(
+    developer => developer.language === 'Python'
+  );
+
+  return pythonDevelopers.length > 0
+    ? `${pythonDevelopers[0].firstName}, ${pythonDevelopers[0].country}`
+    : 'There will be no Python developers';
 }
 
-console.log(compareVersions('11', '10')); // True
-console.log(compareVersions('11', '11')); // True
-console.log(compareVersions('10.4.6', '10.4')); // True
-console.log(compareVersions('10.4', '11')); // False
-console.log(compareVersions('10.4', '10.10')); // False
-console.log(compareVersions('10.4.9', '10.5')); // False
-console.log(compareVersions('10.4', '10.4.8')); // False
+const list1 = [
+  {
+    firstName: 'Mark',
+    lastName: 'G.',
+    country: 'Scotland',
+    continent: 'Europe',
+    age: 22,
+    language: 'JavaScript',
+  },
+  {
+    firstName: 'Victoria',
+    lastName: 'T.',
+    country: 'Puerto Rico',
+    continent: 'Americas',
+    age: 30,
+    language: 'Python',
+  },
+  {
+    firstName: 'Emma',
+    lastName: 'B.',
+    country: 'Norway',
+    continent: 'Europe',
+    age: 19,
+    language: 'Clojure',
+  },
+];
+
+const list2 = [
+  {
+    firstName: 'Kseniya',
+    lastName: 'T.',
+    country: 'Belarus',
+    continent: 'Europe',
+    age: 29,
+    language: 'JavaScript',
+  },
+  {
+    firstName: 'Amar',
+    lastName: 'V.',
+    country: 'Bosnia and Herzegovina',
+    continent: 'Europe',
+    age: 32,
+    language: 'Ruby',
+  },
+];
+
+console.log(getFirstPython(list1)); // 'Victoria, Puerto Rico'
+console.log(getFirstPython(list2)); // 'There will be no Python developers'

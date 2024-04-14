@@ -1,58 +1,13 @@
-function getFirstPython(list) {
-  const pythonDevelopers = list.filter(
-    developer => developer.language === 'Python'
-  );
+function arr2bin(arr) {
+  const onlyInt = arr.filter(el => Number.isInteger(el));
 
-  return pythonDevelopers.length > 0
-    ? `${pythonDevelopers[0].firstName}, ${pythonDevelopers[0].country}`
-    : 'There will be no Python developers';
+  if (onlyInt.length < arr.length) return false;
+
+  return onlyInt.reduce((sum, number) => sum + number, 0).toString(2);
 }
 
-const list1 = [
-  {
-    firstName: 'Mark',
-    lastName: 'G.',
-    country: 'Scotland',
-    continent: 'Europe',
-    age: 22,
-    language: 'JavaScript',
-  },
-  {
-    firstName: 'Victoria',
-    lastName: 'T.',
-    country: 'Puerto Rico',
-    continent: 'Americas',
-    age: 30,
-    language: 'Python',
-  },
-  {
-    firstName: 'Emma',
-    lastName: 'B.',
-    country: 'Norway',
-    continent: 'Europe',
-    age: 19,
-    language: 'Clojure',
-  },
-];
-
-const list2 = [
-  {
-    firstName: 'Kseniya',
-    lastName: 'T.',
-    country: 'Belarus',
-    continent: 'Europe',
-    age: 29,
-    language: 'JavaScript',
-  },
-  {
-    firstName: 'Amar',
-    lastName: 'V.',
-    country: 'Bosnia and Herzegovina',
-    continent: 'Europe',
-    age: 32,
-    language: 'Ruby',
-  },
-];
-
-console.log(getFirstPython(list1)); // 'Victoria, Puerto Rico'
-console.log(getFirstPython(list2)); // 'There will be no Python developers'
+console.log(arr2bin([1, 2])); // '11'
+console.log(arr2bin([1, 2, 3, 4, 5])); // '1111'
+console.log(arr2bin([1, 10, 100, 1000])); // '10001010111'
+console.log(arr2bin([1, 2, 'a'])); // false
+console.log(arr2bin([1, 2, 1.2])); // false

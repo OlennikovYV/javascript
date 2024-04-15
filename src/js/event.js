@@ -1,12 +1,10 @@
-function arr2bin(arr) {
-  return (
-    arr.every(Number.isInteger) &&
-    arr.reduce((sum, number) => sum + number, 0).toString(2)
-  );
+function areaCode(text) {
+  return text.match(/\(\d+\)/)[0].substring(1, 4);
 }
 
-console.log(arr2bin([1, 2])); // '11'
-console.log(arr2bin([1, 2, 3, 4, 5])); // '1111'
-console.log(arr2bin([1, 10, 100, 1000])); // '10001010111'
-console.log(arr2bin([1, 2, 'a'])); // false
-console.log(arr2bin([1, 2, 1.2])); // false
+console.log(areaCode("The supplier's phone number is (555) 867-5309"));
+// '555'
+console.log(areaCode("Grae's cell number used to be (123) 456-7890"));
+// '123'
+console.log(areaCode("The 102nd district court's fax line is (124) 816-3264"));
+// '124'

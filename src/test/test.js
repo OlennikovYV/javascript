@@ -1,6 +1,6 @@
 mocha.setup('bdd');
 
-describe(`Array2Binary addition`, function () {
+describe(`Thinkful - String Drills: Areacode extractor`, function () {
   const equal = chai.assert.equal;
   const strictEqual = chai.assert.strictEqual;
   const notEqual = chai.assert.notEqual;
@@ -17,12 +17,19 @@ describe(`Array2Binary addition`, function () {
   const error = chai.assert.throws;
   const include = chai.assert.include;
 
-  it('test', () => {
-    equal(arr2bin([1, 2]), '11');
-    equal(arr2bin([1, 2, 3, 4, 5]), '1111');
-    equal(arr2bin([1, 10, 100, 1000]), '10001010111');
-    isFalse(arr2bin([1, 2, 'a']), false);
-    isFalse(arr2bin([1, 2, 1.2]), false);
+  it('Basic tests', function () {
+    strictEqual(
+      areaCode("The supplier's phone number is (555) 867-5309"),
+      '555'
+    );
+    strictEqual(
+      areaCode("Grae's cell number used to be (123) 456-7890"),
+      '123'
+    );
+    strictEqual(
+      areaCode("The 102nd district court's fax line is (124) 816-3264"),
+      '124'
+    );
   });
 });
 

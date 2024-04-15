@@ -1,5 +1,5 @@
 function areaCode(text) {
-  return text.match(/\(\d+\)/)[0].substring(1, 4);
+  return text.match(/\((\d{3})\)/)[1];
 }
 
 console.log(areaCode("The supplier's phone number is (555) 867-5309"));

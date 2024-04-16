@@ -1,26 +1,7 @@
 function reverseVowels(str) {
-  const vowels = ['a', 'e', 'i', 'o', 'u'];
-  const arrStr = [...str];
-  const arrVowels = [];
-  const countVowels = arrStr.filter((char, index) => {
-    if (vowels.includes(char.toLowerCase())) {
-      arrVowels.push({ index, char });
-      return true;
-    } else {
-      return false;
-    }
-  }).length;
-  const halfVowels = Math.floor(countVowels / 2);
+  let arrVowels = str.replace(/[^aeiou]/gi, '').split('');
 
-  for (let i = 0; i < halfVowels; i++) {
-    const leftVowel = arrVowels[i];
-    const rightVowel = arrVowels[arrVowels.length - i - 1];
-
-    arrStr[leftVowel.index] = rightVowel.char;
-    arrStr[rightVowel.index] = leftVowel.char;
-  }
-
-  return arrStr.join('');
+  return str.replace(/[aeiou]/gi, _ => arrVowels.pop());
 }
 
 console.log(reverseVowels('Apache')); // 'epachA'

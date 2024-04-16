@@ -1,6 +1,6 @@
 mocha.setup('bdd');
 
-describe(`Thinkful - String Drills: Areacode extractor`, function () {
+describe(`Reverse Vowels In A String`, function () {
   const equal = chai.assert.equal;
   const strictEqual = chai.assert.strictEqual;
   const notEqual = chai.assert.notEqual;
@@ -17,18 +17,18 @@ describe(`Thinkful - String Drills: Areacode extractor`, function () {
   const error = chai.assert.throws;
   const include = chai.assert.include;
 
-  it('Basic tests', function () {
+  it('test', () => {
+    strictEqual(reverseVowels('Apache'), 'epachA');
+    strictEqual(reverseVowels('Hello!'), 'Holle!');
+    strictEqual(reverseVowels('Tomatoes'), 'Temotaos');
     strictEqual(
-      areaCode("The supplier's phone number is (555) 867-5309"),
-      '555'
+      reverseVowels('Reverse Vowels In A String'),
+      'RivArsI Vewols en e Streng'
     );
+    strictEqual(reverseVowels('Oh my goodness'), 'eh my goodnOss');
     strictEqual(
-      areaCode("Grae's cell number used to be (123) 456-7890"),
-      '123'
-    );
-    strictEqual(
-      areaCode("The 102nd district court's fax line is (124) 816-3264"),
-      '124'
+      reverseVowels('The quick brown fox jumped over the lazy dog'),
+      'Tho qaeck brewn fox jempud ovor thi luzy deg'
     );
   });
 });

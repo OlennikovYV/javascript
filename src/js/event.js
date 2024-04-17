@@ -1,14 +1,11 @@
 const findMissing = function (list) {
-  const firstDiff = list[1] - list[0];
-  const twoDiff = list[2] - list[1];
-  const diff = Math.abs(firstDiff) <= Math.abs(twoDiff) ? firstDiff : twoDiff;
-  let lost;
+  const step = (list[list.length - 1] - list[0]) / list.length;
 
-  for (let i = 0; i < list.length; i++) {
-    const currentDiff = list[i + 1] - list[i];
-
-    if (currentDiff !== diff) return list[i] + diff;
-  }
+  return (
+    list.filter(function (val, index) {
+      return val !== list[0] + index * step;
+    })[0] - step
+  );
 };
 
 console.log(findMissing([0, -2, -3])); // -1

@@ -17,7 +17,9 @@ describe(`Find the missing term in an Arithmetic Progression`, function () {
   const error = chai.assert.throws;
   const include = chai.assert.include;
 
-  it('Testing with [1, 3, 4]', () => {
+  it('Testing', () => {
+    equal(findMissing([0, -2, -3]), -1);
+    equal(findMissing([-7, -9, -10]), -8);
     equal(findMissing([1, 3, 4]), 2);
   });
 });

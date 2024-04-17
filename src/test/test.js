@@ -1,6 +1,6 @@
 mocha.setup('bdd');
 
-describe(`Reverse Vowels In A String`, function () {
+describe(`Find the missing term in an Arithmetic Progression`, function () {
   const equal = chai.assert.equal;
   const strictEqual = chai.assert.strictEqual;
   const notEqual = chai.assert.notEqual;
@@ -17,19 +17,8 @@ describe(`Reverse Vowels In A String`, function () {
   const error = chai.assert.throws;
   const include = chai.assert.include;
 
-  it('test', () => {
-    strictEqual(reverseVowels('Apache'), 'epachA');
-    strictEqual(reverseVowels('Hello!'), 'Holle!');
-    strictEqual(reverseVowels('Tomatoes'), 'Temotaos');
-    strictEqual(
-      reverseVowels('Reverse Vowels In A String'),
-      'RivArsI Vewols en e Streng'
-    );
-    strictEqual(reverseVowels('Oh my goodness'), 'eh my goodnOss');
-    strictEqual(
-      reverseVowels('The quick brown fox jumped over the lazy dog'),
-      'Tho qaeck brewn fox jempud ovor thi luzy deg'
-    );
+  it('Testing with [1, 3, 4]', () => {
+    equal(findMissing([1, 3, 4]), 2);
   });
 });
 

@@ -1,12 +1,16 @@
-function reverseVowels(str) {
-  let arrVowels = str.replace(/[^aeiou]/gi, '').split('');
+const findMissing = function (list) {
+  const firstDiff = list[1] - list[0];
+  const twoDiff = list[2] - list[1];
+  const diff = Math.abs(firstDiff) <= Math.abs(twoDiff) ? firstDiff : twoDiff;
+  let lost;
 
-  return str.replace(/[aeiou]/gi, _ => arrVowels.pop());
-}
+  for (let i = 0; i < list.length; i++) {
+    const currentDiff = list[i + 1] - list[i];
 
-console.log(reverseVowels('Apache')); // 'epachA'
-console.log(reverseVowels('Hello!')); // 'Holle!'
-console.log(reverseVowels('Tomatoes')); // 'Temotaos'
-console.log(reverseVowels('Reverse Vowels In A String')); // 'RivArsI Vewols en e Streng'
-console.log(reverseVowels('Oh my goodness')); // 'eh my goodnOss'
-console.log(reverseVowels('The quick brown fox jumped over the lazy dog')); // 'Tho qaeck brewn fox jempud ovor thi luzy deg'
+    if (currentDiff !== diff) return list[i] + diff;
+  }
+};
+
+console.log(findMissing([0, -2, -3])); // -1
+console.log(findMissing([-7, -9, -10])); // -8
+console.log(findMissing([1, 3, 4])); // 2

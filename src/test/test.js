@@ -1,6 +1,6 @@
 mocha.setup('bdd');
 
-describe(`Find the missing term in an Arithmetic Progression`, function () {
+describe(`TV channels`, function () {
   const equal = chai.assert.equal;
   const strictEqual = chai.assert.strictEqual;
   const notEqual = chai.assert.notEqual;
@@ -18,9 +18,50 @@ describe(`Find the missing term in an Arithmetic Progression`, function () {
   const include = chai.assert.include;
 
   it('Testing', () => {
-    equal(findMissing([0, -2, -3]), -1);
-    equal(findMissing([-7, -9, -10]), -8);
-    equal(findMissing([1, 3, 4]), 2);
+    deepEqual(
+      redarr(['BBC1', 'BBC2', 'MTV']),
+      { 0: 'BBC1', 1: 'BBC2', 2: 'MTV' },
+      "should return {'0': 'BBC1','1': 'BBC2','2': 'MTV'}"
+    );
+    deepEqual(
+      redarr(['BBC1', 'BBC1', 'BBC2', 'MTV']),
+      { 0: 'BBC1', 1: 'BBC2', 2: 'MTV' },
+      "should return {'0': 'BBC1','1': 'BBC2','2': 'MTV'}"
+    );
+    deepEqual(
+      redarr([
+        'Channel 5',
+        'CNN',
+        'Discovery',
+        'SkyNews',
+        'National Geographic',
+        'CNBC',
+        'Food Network',
+        'CNBC',
+        'Discovery',
+        'Bloomberg TV',
+        'SkyNews',
+        'MTV',
+        'BBC1',
+        'SyFy',
+        'BBC1',
+        'BBC Sport',
+      ]),
+      {
+        0: 'BBC Sport',
+        1: 'BBC1',
+        2: 'Bloomberg TV',
+        3: 'CNBC',
+        4: 'CNN',
+        5: 'Channel 5',
+        6: 'Discovery',
+        7: 'Food Network',
+        8: 'MTV',
+        9: 'National Geographic',
+        10: 'SkyNews',
+        11: 'SyFy',
+      }
+    );
   });
 });
 

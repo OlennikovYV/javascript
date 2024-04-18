@@ -1,8 +1,5 @@
 function redarr(arr) {
-  return [...new Set(arr)].sort().reduce((obj, el, index) => {
-    obj[index] = el;
-    return obj;
-  }, {});
+  return Object.assign({}, [...new Set(arr)].sort());
 }
 
 console.log(redarr(['BBC1', 'BBC2', 'MTV']));

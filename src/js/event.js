@@ -1,14 +1,11 @@
 function getCount(words) {
-  let wordsOnlyChar;
-  let countVowels, countConsonants;
-
-  if (typeof words !== 'string') return { vowels: 0, consonants: 0 };
-
-  wordsOnlyChar = words.replace(/[^a-z]/gi, '');
-  countVowels = wordsOnlyChar.replace(/[^aeiou]/gi, '').length;
-  countConsonants = wordsOnlyChar.replace(/[aeiou]/gi, '').length;
-
-  return { vowels: countVowels, consonants: countConsonants };
+  let isString = typeof words === 'string';
+  return {
+    vowels: isString ? words.replace(/[^aeiou]/gi, '').length : 0,
+    consonants: isString
+      ? words.replace(/[^bcdfghjklmnpqrstvwxyz]/gi, '').length
+      : 0,
+  };
 }
 
 console.log(getCount('Test'));

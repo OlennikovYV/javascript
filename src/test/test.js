@@ -1,6 +1,6 @@
 mocha.setup('bdd');
 
-describe(`TV channels`, function () {
+describe(`Invalid Input - Error Handling #1`, function () {
   const equal = chai.assert.equal;
   const strictEqual = chai.assert.strictEqual;
   const notEqual = chai.assert.notEqual;
@@ -17,50 +17,59 @@ describe(`TV channels`, function () {
   const error = chai.assert.throws;
   const include = chai.assert.include;
 
-  it('Testing', () => {
+  it('Happy Tests', () => {
     deepEqual(
-      redarr(['BBC1', 'BBC2', 'MTV']),
-      { 0: 'BBC1', 1: 'BBC2', 2: 'MTV' },
-      "should return {'0': 'BBC1','1': 'BBC2','2': 'MTV'}"
+      getCount('Test'),
+      { vowels: 1, consonants: 3 },
+      'Should return 1 vowel and 3 consonants'
     );
     deepEqual(
-      redarr(['BBC1', 'BBC1', 'BBC2', 'MTV']),
-      { 0: 'BBC1', 1: 'BBC2', 2: 'MTV' },
-      "should return {'0': 'BBC1','1': 'BBC2','2': 'MTV'}"
+      getCount('Here is some text'),
+      { vowels: 6, consonants: 8 },
+      'Should return 6 vowel and 8 consonants'
     );
     deepEqual(
-      redarr([
-        'Channel 5',
-        'CNN',
-        'Discovery',
-        'SkyNews',
-        'National Geographic',
-        'CNBC',
-        'Food Network',
-        'CNBC',
-        'Discovery',
-        'Bloomberg TV',
-        'SkyNews',
-        'MTV',
-        'BBC1',
-        'SyFy',
-        'BBC1',
-        'BBC Sport',
-      ]),
-      {
-        0: 'BBC Sport',
-        1: 'BBC1',
-        2: 'Bloomberg TV',
-        3: 'CNBC',
-        4: 'CNN',
-        5: 'Channel 5',
-        6: 'Discovery',
-        7: 'Food Network',
-        8: 'MTV',
-        9: 'National Geographic',
-        10: 'SkyNews',
-        11: 'SyFy',
-      }
+      getCount('To be a Codewarrior or not to be'),
+      { vowels: 12, consonants: 13 },
+      'Should return 12 vowel and 13 consonants'
+    );
+    deepEqual(
+      getCount('To Kata or not to Kata'),
+      { vowels: 8, consonants: 9 },
+      'Should return 8 vowel and 9 consonants'
+    );
+    deepEqual(
+      getCount('aeiou'),
+      { vowels: 5, consonants: 0 },
+      'Should return 5 vowel and 0 consonants'
+    );
+  });
+
+  it('Unhappy Tests', () => {
+    deepEqual(
+      getCount('TEst'),
+      { vowels: 1, consonants: 3 },
+      'Should return 1 vowel and 3 consonants'
+    );
+    deepEqual(
+      getCount('HEre Is sOme text   '),
+      { vowels: 6, consonants: 8 },
+      'Should return 6 vowel and 8 consonants'
+    );
+    deepEqual(
+      getCount(),
+      { vowels: 0, consonants: 0 },
+      'Should return 0 vowel and 0 consonants'
+    );
+    deepEqual(
+      getCount(['To Kata or not to Kata']),
+      { vowels: 0, consonants: 0 },
+      'Should return 0 vowel and 0 consonants'
+    );
+    deepEqual(
+      getCount(undefined),
+      { vowels: 0, consonants: 0 },
+      'Should return 0 vowel and 0 consonants'
     );
   });
 });

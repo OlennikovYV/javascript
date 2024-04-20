@@ -1,31 +1,17 @@
-function getCount(words) {
-  let isString = typeof words === 'string';
-  return {
-    vowels: isString ? words.replace(/[^aeiou]/gi, '').length : 0,
-    consonants: isString
-      ? words.replace(/[^bcdfghjklmnpqrstvwxyz]/gi, '').length
-      : 0,
-  };
+function findUnique(numbers) {
+  const countNumber = {};
+
+  numbers.forEach(
+    number => (countNumber[number] = (countNumber[number] || 0) + 1)
+  );
+
+  for (let key in countNumber) {
+    if (countNumber[key] === 1) return Number(key);
+  }
 }
 
-console.log(getCount('Test'));
-// { vowels: 1, consonants: 3 });
-console.log(getCount('Here is some text'));
-// { vowels: 6, consonants: 8 });
-console.log(getCount('To be a Codewarrior or not to be'));
-// { vowels: 12, consonants: 13 });
-console.log(getCount('To Kata or not to Kata'));
-// { vowels: 8, consonants: 9 });
-console.log(getCount('aeiou'));
-// { vowels: 5, consonants: 0 });
-
-console.log(getCount('TEst'));
-// { vowels: 1, consonants: 3 });
-console.log(getCount('HEre Is sOme text   '));
-// { vowels: 6, consonants: 8 });
-console.log(getCount());
-// { vowels: 0, consonants: 0 });
-console.log(getCount(['To Kata or not to Kata']));
-// { vowels: 0, consonants: 0 });
-console.log(getCount(undefined));
-// { vowels: 0, consonants: 0 });
+console.log(findUnique([1, 8, 4, 4, 6, 1, 8])); // 6
+console.log(findUnique([1234567])); // 1234567
+console.log(findUnique([1, 4, 4, 5, 5, 3, 3, 2, 2])); // 1
+console.log(findUnique([2, 2, 5, 5, 4, 3, 3, 1, 1])); // 4
+console.log(findUnique([3, 5, 5, 4, 4, 3, 2, 2, 9])); // 9

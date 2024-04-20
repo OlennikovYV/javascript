@@ -1,13 +1,5 @@
 function findUnique(numbers) {
-  const countNumber = {};
-
-  numbers.forEach(
-    number => (countNumber[number] = (countNumber[number] || 0) + 1)
-  );
-
-  for (let key in countNumber) {
-    if (countNumber[key] === 1) return Number(key);
-  }
+  return numbers.reduce((a, b) => a ^ b);
 }
 
 console.log(findUnique([1, 8, 4, 4, 6, 1, 8])); // 6

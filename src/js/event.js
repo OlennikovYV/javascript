@@ -1,9 +1,23 @@
-function findUnique(numbers) {
-  return numbers.reduce((a, b) => a ^ b);
-}
+const sumAverage = arr => {
+  return Math.floor(
+    arr.reduce(
+      (sumAverage, arr) =>
+        sumAverage + arr.reduce((sum, number) => sum + number, 0) / arr.length,
+      0
+    )
+  );
+};
 
-console.log(findUnique([1, 8, 4, 4, 6, 1, 8])); // 6
-console.log(findUnique([1234567])); // 1234567
-console.log(findUnique([1, 4, 4, 5, 5, 3, 3, 2, 2])); // 1
-console.log(findUnique([2, 2, 5, 5, 4, 3, 3, 1, 1])); // 4
-console.log(findUnique([3, 5, 5, 4, 4, 3, 2, 2, 9])); // 9
+console.log(
+  sumAverage([
+    [3, 4, 1, 3, 5, 1, 4],
+    [21, 54, 33, 21, 77],
+  ])
+); // 44
+console.log(
+  sumAverage([
+    [-4, 3, -8, -2],
+    [2, 9, 1, -5],
+    [-7, -2, -6, -4],
+  ])
+); // -6

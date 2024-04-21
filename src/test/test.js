@@ -1,6 +1,6 @@
 mocha.setup('bdd');
 
-describe(`Find the unique number`, function () {
+describe(`Sum of Array Averages`, function () {
   const equal = chai.assert.equal;
   const strictEqual = chai.assert.strictEqual;
   const notEqual = chai.assert.notEqual;
@@ -18,11 +18,21 @@ describe(`Find the unique number`, function () {
   const include = chai.assert.include;
 
   it('test', () => {
-    equal(findUnique([1, 8, 4, 4, 6, 1, 8]), 6);
-    equal(findUnique([1234567]), 1234567);
-    equal(findUnique([1, 4, 4, 5, 5, 3, 3, 2, 2]), 1);
-    equal(findUnique([2, 2, 5, 5, 4, 3, 3, 1, 1]), 4);
-    equal(findUnique([3, 5, 5, 4, 4, 3, 2, 2, 9]), 9);
+    equal(
+      sumAverage([
+        [3, 4, 1, 3, 5, 1, 4],
+        [21, 54, 33, 21, 77],
+      ]),
+      44
+    );
+    equal(
+      sumAverage([
+        [-4, 3, -8, -2],
+        [2, 9, 1, -5],
+        [-7, -2, -6, -4],
+      ]),
+      -6
+    );
   });
 });
 

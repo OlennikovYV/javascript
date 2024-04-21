@@ -1,11 +1,10 @@
 const sumAverage = arr => {
-  return Math.floor(
-    arr.reduce(
-      (sumAverage, arr) =>
-        sumAverage + arr.reduce((sum, number) => sum + number, 0) / arr.length,
-      0
-    )
-  );
+  const sum = (a, b) => a + b;
+  const sumOfArrayAverages = arr
+    .map(array => array.reduce(sum) / array.length)
+    .reduce(sum);
+
+  return Math.floor(sumOfArrayAverages);
 };
 
 console.log(

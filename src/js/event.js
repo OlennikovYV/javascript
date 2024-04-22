@@ -1,22 +1,14 @@
-const sumAverage = arr => {
-  const sum = (a, b) => a + b;
-  const sumOfArrayAverages = arr
-    .map(array => array.reduce(sum) / array.length)
-    .reduce(sum);
+function minMinMax(array) {
+  const smallest = Math.min.apply(null, array);
+  const largest = Math.max.apply(null, array);
+  let minimumAbsent = smallest;
 
-  return Math.floor(sumOfArrayAverages);
-};
+  while (++minimumAbsent < largest)
+    if (array.includes(minimumAbsent) === false) break;
 
-console.log(
-  sumAverage([
-    [3, 4, 1, 3, 5, 1, 4],
-    [21, 54, 33, 21, 77],
-  ])
-); // 44
-console.log(
-  sumAverage([
-    [-4, 3, -8, -2],
-    [2, 9, 1, -5],
-    [-7, -2, -6, -4],
-  ])
-); // -6
+  return [smallest, minimumAbsent, largest];
+}
+
+console.log(minMinMax([-1, 4, 5, -23, 24])); // [-23, -22, 24],
+console.log(minMinMax([1, 3, -3, -2, 8, -1])); // [-3, 0, 8],
+console.log(minMinMax([2, -4, 8, -5, 9, 7])); // [-5, -3, 9],

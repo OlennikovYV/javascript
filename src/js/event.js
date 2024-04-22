@@ -3,8 +3,7 @@ function minMinMax(array) {
   const largest = Math.max.apply(null, array);
   let minimumAbsent = smallest;
 
-  while (++minimumAbsent < largest)
-    if (array.includes(minimumAbsent) === false) break;
+  while (array.includes(++minimumAbsent) === true) {}
 
   return [smallest, minimumAbsent, largest];
 }

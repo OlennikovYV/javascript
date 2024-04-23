@@ -1,6 +1,6 @@
 mocha.setup('bdd');
 
-describe(`MinMaxMin: Bounded Nums`, function () {
+describe(`Alphabetized`, function () {
   const equal = chai.assert.equal;
   const strictEqual = chai.assert.strictEqual;
   const notEqual = chai.assert.notEqual;
@@ -17,10 +17,8 @@ describe(`MinMaxMin: Bounded Nums`, function () {
   const error = chai.assert.throws;
   const include = chai.assert.include;
 
-  it('test', () => {
-    deepEqual(minMinMax([-1, 4, 5, -23, 24]), [-23, -22, 24], 'Test Failed');
-    deepEqual(minMinMax([1, 3, -3, -2, 8, -1]), [-3, 0, 8], 'Test Failed');
-    deepEqual(minMinMax([2, -4, 8, -5, 9, 7]), [-5, -3, 9], 'Test Failed');
+  it('should handle "The Holy Bible"', function () {
+    equal(alphabetized('The Holy Bible'), 'BbeehHilloTy');
   });
 });
 

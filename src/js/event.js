@@ -1,13 +1,9 @@
-function minMinMax(array) {
-  const smallest = Math.min.apply(null, array);
-  const largest = Math.max.apply(null, array);
-  let minimumAbsent = smallest;
+function alphabetized(s) {
+  const onlyAlpha = s.replace(/[^a-z]/gi, '');
 
-  while (array.includes(++minimumAbsent) === true) {}
-
-  return [smallest, minimumAbsent, largest];
+  return Array.from(onlyAlpha)
+    .sort((a, b) => a.toLowerCase().localeCompare(b.toLowerCase()))
+    .join('');
 }
 
-console.log(minMinMax([-1, 4, 5, -23, 24])); // [-23, -22, 24],
-console.log(minMinMax([1, 3, -3, -2, 8, -1])); // [-3, 0, 8],
-console.log(minMinMax([2, -4, 8, -5, 9, 7])); // [-5, -3, 9],
+console.log(alphabetized('The Holy Bible')); // 'BbeehHilloTy'

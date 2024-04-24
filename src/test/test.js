@@ -1,6 +1,6 @@
 mocha.setup('bdd');
 
-describe(`Alphabetized`, function () {
+describe(`What's A Name In?`, function () {
   const equal = chai.assert.equal;
   const strictEqual = chai.assert.strictEqual;
   const notEqual = chai.assert.notEqual;
@@ -17,8 +17,12 @@ describe(`Alphabetized`, function () {
   const error = chai.assert.throws;
   const include = chai.assert.include;
 
-  it('should handle "The Holy Bible"', function () {
-    equal(alphabetized('The Holy Bible'), 'BbeehHilloTy');
+  it('test', () => {
+    // equal(nameInStr('Across the rivers', 'chris'), true);
+    // equal(nameInStr('Next to a lake', 'chris'), false);
+    // equal(nameInStr('Under a sea', 'chris'), false);
+    // equal(nameInStr('A crew that boards the ship', 'chris'), false);
+    // equal(nameInStr('A live son', 'Allison'), false);
   });
 });
 

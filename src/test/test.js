@@ -1,6 +1,6 @@
 mocha.setup('bdd');
 
-describe(`What's A Name In?`, function () {
+describe(`Sorting by bits`, function () {
   const equal = chai.assert.equal;
   const strictEqual = chai.assert.strictEqual;
   const notEqual = chai.assert.notEqual;
@@ -17,12 +17,15 @@ describe(`What's A Name In?`, function () {
   const error = chai.assert.throws;
   const include = chai.assert.include;
 
-  it('test', () => {
-    // equal(nameInStr('Across the rivers', 'chris'), true);
-    // equal(nameInStr('Next to a lake', 'chris'), false);
-    // equal(nameInStr('Under a sea', 'chris'), false);
-    // equal(nameInStr('A crew that boards the ship', 'chris'), false);
-    // equal(nameInStr('A live son', 'Allison'), false);
+  it('Basic Tests', function () {
+    let a = [3, 8, 3, 6, 5, 7, 9, 1];
+    let b = [9, 4, 5, 3, 5, 7, 2, 56, 8, 2, 6, 8, 0];
+
+    sortByBit(a);
+    deepEqual(a, [1, 8, 3, 3, 5, 6, 9, 7]);
+
+    sortByBit(b);
+    deepEqual(b, [0, 2, 2, 4, 8, 8, 3, 5, 5, 6, 9, 7, 56]);
   });
 });
 

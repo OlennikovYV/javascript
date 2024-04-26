@@ -1,4 +1,4 @@
-const pointInCircle = (x, y) => Math.pow(x, 2) + Math.pow(y, 2) < 1;
+const pointInCircle = (x, y) => Math.hypot(x, y) < 1;
 
 console.log(pointInCircle(0, 0)); // True
 console.log(pointInCircle(2, 0)); // False

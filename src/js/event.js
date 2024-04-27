@@ -1,7 +1,13 @@
-const pointInCircle = (x, y) => Math.hypot(x, y) < 1;
+function hiddenWord(num) {
+  const code = 'oblietadnm';
 
-console.log(pointInCircle(0, 0)); // True
-console.log(pointInCircle(2, 0)); // False
-console.log(pointInCircle(0, 0.9)); // True
-console.log(pointInCircle(0.5, 0.5)); // True
-console.log(pointInCircle(1, 0)); // False
+  return String(num)
+    .split('')
+    .map(digit => code[digit])
+    .join('');
+}
+
+console.log(hiddenWord(637)); // 'aid'
+console.log(hiddenWord(7415)); // 'debt'
+console.log(hiddenWord(49632)); // 'email'
+console.log(hiddenWord(942547)); // 'melted'

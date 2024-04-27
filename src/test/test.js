@@ -1,6 +1,6 @@
 mocha.setup('bdd');
 
-describe(`Point in a unit circle`, function () {
+describe(`The Hidden Word`, function () {
   const equal = chai.assert.equal;
   const strictEqual = chai.assert.strictEqual;
   const notEqual = chai.assert.notEqual;
@@ -18,11 +18,10 @@ describe(`Point in a unit circle`, function () {
   const include = chai.assert.include;
 
   it('test', () => {
-    isTrue(pointInCircle(0, 0), 'Origin is inside');
-    isFalse(pointInCircle(2, 0), '(2, 0) is outside');
-    isTrue(pointInCircle(0, 0.9), '(0, 0.9) is inside');
-    isTrue(pointInCircle(0.5, 0.5), '(0.5, 0.5) is inside');
-    isFalse(pointInCircle(1, 0), '(1, 0) is on border and thus outside');
+    equal(hiddenWord(637), 'aid');
+    equal(hiddenWord(7415), 'debt');
+    equal(hiddenWord(49632), 'email');
+    equal(hiddenWord(942547), 'melted');
   });
 });
 

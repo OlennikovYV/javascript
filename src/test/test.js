@@ -1,6 +1,6 @@
 mocha.setup('bdd');
 
-describe(`The Hidden Word`, function () {
+describe(`Max-min arrays`, function () {
   const equal = chai.assert.equal;
   const strictEqual = chai.assert.strictEqual;
   const notEqual = chai.assert.notEqual;
@@ -18,10 +18,18 @@ describe(`The Hidden Word`, function () {
   const include = chai.assert.include;
 
   it('test', () => {
-    equal(hiddenWord(637), 'aid');
-    equal(hiddenWord(7415), 'debt');
-    equal(hiddenWord(49632), 'email');
-    equal(hiddenWord(942547), 'melted');
+    deepEqual(solve([15, 11, 10, 7, 12]), [15, 7, 12, 10, 11]);
+    deepEqual(solve([91, 75, 86, 14, 82]), [91, 14, 86, 75, 82]);
+    deepEqual(solve([84, 79, 76, 61, 78]), [84, 61, 79, 76, 78]);
+    deepEqual(
+      solve([52, 77, 72, 44, 74, 76, 40]),
+      [77, 40, 76, 44, 74, 52, 72]
+    );
+    deepEqual(solve([1, 6, 9, 4, 3, 7, 8, 2]), [9, 1, 8, 2, 7, 3, 6, 4]);
+    deepEqual(
+      solve([78, 79, 52, 87, 16, 74, 31, 63, 80]),
+      [87, 16, 80, 31, 79, 52, 78, 63, 74]
+    );
   });
 });
 

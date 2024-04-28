@@ -1,20 +1,13 @@
 function solve(arr) {
-  const maxsMinsArray = [];
-  const array = [...arr];
+  const maxMins = [];
+  const list = [...arr].sort((a, b) => a - b);
 
-  while (array.length > 0) {
-    const max = Math.max(...array);
-    maxsMinsArray.push(max);
-    array.splice(array.indexOf(max), 1);
-
-    if (array.length > 0) {
-      const min = Math.min(...array);
-      maxsMinsArray.push(min);
-      array.splice(array.indexOf(min), 1);
-    }
+  while (list.length > 0) {
+    maxMins.push(...list.splice(list.length - 1, 1));
+    maxMins.push(...list.splice(0, 1));
   }
 
-  return maxsMinsArray;
+  return maxMins;
 }
 
 console.log(solve([15, 11, 10, 7, 12])); // [15, 7, 12, 10, 11]

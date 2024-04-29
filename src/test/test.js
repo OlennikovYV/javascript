@@ -1,6 +1,6 @@
 mocha.setup('bdd');
 
-describe(`Max-min arrays`, function () {
+describe(`Rock Off!`, function () {
   const equal = chai.assert.equal;
   const strictEqual = chai.assert.strictEqual;
   const notEqual = chai.assert.notEqual;
@@ -18,18 +18,12 @@ describe(`Max-min arrays`, function () {
   const include = chai.assert.include;
 
   it('test', () => {
-    deepEqual(solve([15, 11, 10, 7, 12]), [15, 7, 12, 10, 11]);
-    deepEqual(solve([91, 75, 86, 14, 82]), [91, 14, 86, 75, 82]);
-    deepEqual(solve([84, 79, 76, 61, 78]), [84, 61, 79, 76, 78]);
-    deepEqual(
-      solve([52, 77, 72, 44, 74, 76, 40]),
-      [77, 40, 76, 44, 74, 52, 72]
+    equal(
+      solve([47, 7, 2], [47, 7, 2]),
+      '0, 0: that looks like a "draw"! Rock on!'
     );
-    deepEqual(solve([1, 6, 9, 4, 3, 7, 8, 2]), [9, 1, 8, 2, 7, 3, 6, 4]);
-    deepEqual(
-      solve([78, 79, 52, 87, 16, 74, 31, 63, 80]),
-      [87, 16, 80, 31, 79, 52, 78, 63, 74]
-    );
+    equal(solve([47, 67, 22], [26, 47, 12]), '3, 0: Alice made "Kurt" proud!');
+    equal(solve([25, 50, 22], [34, 49, 50]), '1, 2: Bob made "Jeff" proud!');
   });
 });
 

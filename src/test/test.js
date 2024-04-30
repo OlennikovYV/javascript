@@ -1,6 +1,6 @@
 mocha.setup('bdd');
 
-describe(`Rock Off!`, function () {
+describe(`ASCII hex converter`, function () {
   const equal = chai.assert.equal;
   const strictEqual = chai.assert.strictEqual;
   const notEqual = chai.assert.notEqual;
@@ -18,12 +18,14 @@ describe(`Rock Off!`, function () {
   const include = chai.assert.include;
 
   it('test', () => {
-    equal(
-      solve([47, 7, 2], [47, 7, 2]),
-      '0, 0: that looks like a "draw"! Rock on!'
-    );
-    equal(solve([47, 67, 22], [26, 47, 12]), '3, 0: Alice made "Kurt" proud!');
-    equal(solve([25, 50, 22], [34, 49, 50]), '1, 2: Bob made "Jeff" proud!');
+    str = 'Look mom, no hands';
+    hex = '4c6f6f6b206d6f6d2c206e6f2068616e6473';
+
+    equal(Converter.toHex(str), hex);
+    equal(Converter.toAscii(hex), str);
+
+    equal(Converter.toHex(Converter.toAscii(hex)), hex);
+    equal(Converter.toAscii(Converter.toHex(str)), str);
   });
 });
 

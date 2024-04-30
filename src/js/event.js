@@ -1,27 +1,23 @@
-function solve(a, b) {
-  const results = a.reduce(
-    (wins, _, index) => {
-      if (a[index] === b[index]) return wins;
+const Converter = {
+  toAscii: function (hex) {
+    return hex
+      .match(/[\S]{2}/g)
+      .map(el => String.fromCharCode(parseInt('0x' + el, 16)))
+      .join('');
+  },
+  toHex: function (ascii) {
+    return ascii
+      .split('')
+      .map(el => el.charCodeAt(0).toString(16))
+      .join('');
+  },
+};
 
-      a[index] > b[index] ? (wins[0] += 1) : (wins[1] += 1);
+str = 'Look mom, no hands';
+hex = '4c6f6f6b206d6f6d2c206e6f2068616e6473';
 
-      return wins;
-    },
-    [0, 0]
-  );
-  const check = results.join(', ');
+console.log(Converter.toHex(str)); // '4c6f6f6b206d6f6d2c206e6f2068616e6473'
+console.log(Converter.toAscii(hex)); // 'Look mom, no hands'
 
-  if (results[0] === results[1])
-    return check + ': that looks like a "draw"! Rock on!';
-
-  if (results[0] > results[1]) return check + ': Alice made "Kurt" proud!';
-
-  if (results[0] < results[1]) return check + ': Bob made "Jeff" proud!';
-}
-
-console.log(solve([47, 7, 2], [47, 7, 2]));
-// '0, 0: that looks like a "draw"! Rock on!'
-console.log(solve([47, 67, 22], [26, 47, 12]));
-// '3, 0: Alice made "Kurt" proud!'
-console.log(solve([25, 50, 22], [34, 49, 50]));
-// '1, 2: Bob made "Jeff" proud!'
+console.log(Converter.toHex(Converter.toAscii(hex))); // '4c6f6f6b206d6f6d2c206e6f2068616e6473'
+console.log(Converter.toAscii(Converter.toHex(str))); // 'Look mom, no hands'

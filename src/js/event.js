@@ -1,15 +1,13 @@
 const Converter = {
   toAscii: function (hex) {
-    return hex
-      .match(/[\S]{2}/g)
-      .map(el => String.fromCharCode(parseInt('0x' + el, 16)))
-      .join('');
+    return hex.replace(/../g, function (el) {
+      return String.fromCharCode(parseInt(el, 16));
+    });
   },
   toHex: function (ascii) {
-    return ascii
-      .split('')
-      .map(el => el.charCodeAt(0).toString(16))
-      .join('');
+    return ascii.replace(/./g, function (el) {
+      return el.charCodeAt().toString(16);
+    });
   },
 };
 

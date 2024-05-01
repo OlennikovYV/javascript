@@ -1,21 +1,22 @@
-const Converter = {
-  toAscii: function (hex) {
-    return hex.replace(/../g, function (el) {
-      return String.fromCharCode(parseInt(el, 16));
-    });
-  },
-  toHex: function (ascii) {
-    return ascii.replace(/./g, function (el) {
-      return el.charCodeAt().toString(16);
-    });
-  },
-};
+function checkName() {
+  const listNames = [];
 
-str = 'Look mom, no hands';
-hex = '4c6f6f6b206d6f6d2c206e6f2068616e6473';
+  return function (name) {
+    if (listNames.includes(name)) throw Error('Error');
 
-console.log(Converter.toHex(str)); // '4c6f6f6b206d6f6d2c206e6f2068616e6473'
-console.log(Converter.toAscii(hex)); // 'Look mom, no hands'
+    listNames.push(name);
+  };
+}
 
-console.log(Converter.toHex(Converter.toAscii(hex))); // '4c6f6f6b206d6f6d2c206e6f2068616e6473'
-console.log(Converter.toAscii(Converter.toHex(str))); // 'Look mom, no hands'
+const handOutGift = checkName();
+
+console.log(handOutGift('Peter')); // no error
+console.log(handOutGift('Alison')); // no error
+console.log(handOutGift('John')); // no error
+console.log(handOutGift('Maria')); // no error
+
+try {
+  handOutGift('Peter');
+} catch (error) {
+  console.log('Error');
+}

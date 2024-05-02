@@ -1,6 +1,6 @@
 mocha.setup('bdd');
 
-describe(`Only One Gift Per Child`, function () {
+describe(`Secret knock`, function () {
   const equal = chai.assert.equal;
   const strictEqual = chai.assert.strictEqual;
   const notEqual = chai.assert.notEqual;
@@ -18,17 +18,15 @@ describe(`Only One Gift Per Child`, function () {
   const noError = chai.assert.doesNotThrow;
   const include = chai.assert.include;
 
-  it('must not throw an error', function () {
-    noError(() => handOutGift('Peter'));
-    noError(() => handOutGift('Alison'));
-    noError(() => handOutGift('John'));
-    noError(() => handOutGift('Maria'));
+  it('this.hasOwnProperty("success")', () => {
+    isTrue(
+      globalThis.hasOwnProperty('success'),
+      "Sorry, that's not the secret knock."
+    );
   });
 
-  it('must throw an error', function () {
-    error(function () {
-      handOutGift('Peter');
-    });
+  it('this[success]', () => {
+    isDefined(globalThis[success], "Sorry, that's not the secret knock.");
   });
 });
 

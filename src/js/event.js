@@ -23,9 +23,7 @@ class Database {
 function validate(username, password) {
   var database = new Database();
 
-  if (/[^a-z0-9]/gi.test(password)) return 'Wrong username or password!';
-
-  return database.login(username, password);
+  return database.login(username, encodeURI(password));
 }
 
 console.log(validate('Timmy', 'password'));

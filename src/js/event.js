@@ -1,38 +1,16 @@
-const USER_LIST = [
-  { username: 'Timmy', password: 'password' },
-  { username: 'Johny', password: 'Hf7FAbf6' },
-  { username: 'Alice', password: 'alice' },
-  { username: 'Roger', password: 'pass' },
-  { username: 'Simon', password: 'says' },
-  { username: 'Admin', password: 'ads78adsg7dasga' },
-];
-
-class Database {
-  login(u, p) {
-    for (var i = 0; i < USER_LIST.length; i++) {
-      var user = USER_LIST[i];
-      if (user.username == u)
-        if (eval(`'${user.password}'=="${p}"`))
-          return 'Successfully Logged in!';
-        else return 'Wrong username or password!';
-    }
-    return 'Wrong username or password!';
-  }
+function alphabetic(s) {
+  return (
+    s ===
+    s
+      .split('')
+      .sort((a, b) => a.localeCompare(b))
+      .join('')
+  );
 }
 
-function validate(username, password) {
-  var database = new Database();
-
-  return database.login(username, encodeURI(password));
-}
-
-console.log(validate('Timmy', 'password'));
-// 'Successfully Logged in!',
-console.log(validate('Alice', 'alice'));
-// 'Successfully Logged in!',
-console.log(validate('Timmy', 'h4x0r'));
-// 'Wrong username or password!',
-console.log(validate('Timmy', 'password"||""=="'));
-// 'Wrong username or password!',
-console.log(validate('Admin', 'gs5bw"||1==1//'));
-// 'Wrong username or password!',
+console.log(alphabetic('asd')); // false
+console.log(alphabetic('codewars')); // false
+console.log(alphabetic('door')); // true
+console.log(alphabetic('cell')); // true
+console.log(alphabetic('z')); // true
+console.log(alphabetic('')); // true

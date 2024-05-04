@@ -1,6 +1,6 @@
 mocha.setup('bdd');
 
-describe(`Invalid Login - Bug Fixing #11`, function () {
+describe(`Alphabetically ordered`, function () {
   const equal = chai.assert.equal;
   const strictEqual = chai.assert.strictEqual;
   const notEqual = chai.assert.notEqual;
@@ -18,34 +18,15 @@ describe(`Invalid Login - Bug Fixing #11`, function () {
   const noError = chai.assert.doesNotThrow;
   const include = chai.assert.include;
 
-  it('Successfully Logged in!', function () {
-    equal(
-      validate('Timmy', 'password'),
-      'Successfully Logged in!',
-      'Should successfully login!'
-    );
-    equal(
-      validate('Alice', 'alice'),
-      'Successfully Logged in!',
-      'Should successfully login!'
-    );
+  it('Example tests', function () {
+    equal(alphabetic('asd'), false);
+    equal(alphabetic('codewars'), false);
   });
-  it('The password was wrong', function () {
-    equal(
-      validate('Timmy', 'h4x0r'),
-      'Wrong username or password!',
-      'The password was wrong'
-    );
-    equal(
-      validate('Timmy', 'password"||""=="'),
-      'Wrong username or password!',
-      'Should fail to login because of injected code'
-    );
-    equal(
-      validate('Admin', 'gs5bw"||1==1//'),
-      'Wrong username or password!',
-      'Should fail to login because of injected code'
-    );
+  it('Example tests', function () {
+    equal(alphabetic('door'), true);
+    equal(alphabetic('cell'), true);
+    equal(alphabetic('z'), true);
+    equal(alphabetic(''), true);
   });
 });
 

@@ -1,6 +1,6 @@
 mocha.setup('bdd');
 
-describe(`Alphabetically ordered`, function () {
+describe(`Srot the inner ctonnet in dsnnieedcg oredr`, function () {
   const equal = chai.assert.equal;
   const strictEqual = chai.assert.strictEqual;
   const notEqual = chai.assert.notEqual;
@@ -19,14 +19,16 @@ describe(`Alphabetically ordered`, function () {
   const include = chai.assert.include;
 
   it('Example tests', function () {
-    equal(alphabetic('asd'), false);
-    equal(alphabetic('codewars'), false);
-  });
-  it('Example tests', function () {
-    equal(alphabetic('door'), true);
-    equal(alphabetic('cell'), true);
-    equal(alphabetic('z'), true);
-    equal(alphabetic(''), true);
+    equal(
+      sortTheInnerContent('sort the inner content in descending order'),
+      'srot the inner ctonnet in dsnnieedcg oredr'
+    );
+    equal(sortTheInnerContent('wait for me'), 'wiat for me');
+    equal(sortTheInnerContent('this kata is easy'), 'tihs ktaa is esay');
+    equal(
+      sortTheInnerContent('wccuvg ds s kkbzuhz yyccdkxcpx'),
+      'wvuccg ds s kzukhbz yyxpkdcccx'
+    );
   });
 });
 

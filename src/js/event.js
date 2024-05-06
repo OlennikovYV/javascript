@@ -1,28 +1,47 @@
-function sortTheInnerContent(words) {
-  const sortInnerChars = str => {
-    const firstChar = str[0];
-    const lastChar = str[str.length - 1];
-    let innerChars = str.slice(1, str.length - 1);
-
-    innerChars = innerChars
-      .split('')
-      .sort((a, b) => b.localeCompare(a))
-      .join('');
-
-    return str.length > 2 ? firstChar + innerChars + lastChar : str;
-  };
-
-  return words
-    .split(' ')
-    .map(word => sortInnerChars(word))
-    .join(' ');
+function getAverageAge(list) {
+  return Math.round(
+    list.reduce((sum, person) => sum + person.age, 0) / list.length
+  );
 }
 
-console.log(sortTheInnerContent('sort the inner content in descending order'));
-// 'srot the inner ctonnet in dsnnieedcg oredr'
-console.log(sortTheInnerContent('wait for me'));
-// 'wiat for me');
-console.log(sortTheInnerContent('this kata is easy'));
-// 'tihs ktaa is esay'
-console.log(sortTheInnerContent('wccuvg ds s kkbzuhz yyccdkxcpx'));
-// 'wvuccg ds s kzukhbz yyxpkdcccx'
+const list1 = [
+  {
+    firstName: 'Maria',
+    lastName: 'Y.',
+    country: 'Cyprus',
+    continent: 'Europe',
+    age: 30,
+    language: 'Java',
+  },
+  {
+    firstName: 'Victoria',
+    lastName: 'T.',
+    country: 'Puerto Rico',
+    continent: 'Americas',
+    age: 70,
+    language: 'Python',
+  },
+];
+
+console.log(getAverageAge(list1)); // 50
+
+const list2 = [
+  {
+    firstName: 'Noa',
+    lastName: 'A.',
+    country: 'Israel',
+    continent: 'Asia',
+    age: 20,
+    language: 'Ruby',
+  },
+  {
+    firstName: 'Andrei',
+    lastName: 'E.',
+    country: 'Romania',
+    continent: 'Europe',
+    age: 21,
+    language: 'C',
+  },
+];
+
+console.log(getAverageAge(list2)); // 21

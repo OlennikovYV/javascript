@@ -1,47 +1,7 @@
-function getAverageAge(list) {
-  return Math.round(
-    list.reduce((sum, person) => sum + person.age, 0) / list.length
-  );
+function arrowArea(a, b) {
+  return (a * b) / 4;
 }
 
-const list1 = [
-  {
-    firstName: 'Maria',
-    lastName: 'Y.',
-    country: 'Cyprus',
-    continent: 'Europe',
-    age: 30,
-    language: 'Java',
-  },
-  {
-    firstName: 'Victoria',
-    lastName: 'T.',
-    country: 'Puerto Rico',
-    continent: 'Americas',
-    age: 70,
-    language: 'Python',
-  },
-];
-
-console.log(getAverageAge(list1)); // 50
-
-const list2 = [
-  {
-    firstName: 'Noa',
-    lastName: 'A.',
-    country: 'Israel',
-    continent: 'Asia',
-    age: 20,
-    language: 'Ruby',
-  },
-  {
-    firstName: 'Andrei',
-    lastName: 'E.',
-    country: 'Romania',
-    continent: 'Europe',
-    age: 21,
-    language: 'C',
-  },
-];
-
-console.log(getAverageAge(list2)); // 21
+console.log(arrowArea(4, 2)); // 2
+console.log(arrowArea(7, 6)); // 10.5
+console.log(arrowArea(25, 25)); // 156.25

@@ -1,6 +1,6 @@
 mocha.setup('bdd');
 
-describe(`Area of an arrow`, function () {
+describe(`Nth power rules them all!`, function () {
   const equal = chai.assert.equal;
   const strictEqual = chai.assert.strictEqual;
   const notEqual = chai.assert.notEqual;
@@ -18,10 +18,9 @@ describe(`Area of an arrow`, function () {
   const noError = chai.assert.doesNotThrow;
   const include = chai.assert.include;
 
-  it('test', () => {
-    equal(arrowArea(4, 2), 2);
-    equal(arrowArea(7, 6), 10.5);
-    equal(arrowArea(25, 25), 156.25);
+  it('should work for the examples provided in the Description', function () {
+    equal(modifiedSum([1, 2, 3], 3), 30);
+    equal(modifiedSum([1, 2], 5), 30);
   });
 });
 

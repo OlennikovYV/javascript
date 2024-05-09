@@ -1,6 +1,6 @@
 mocha.setup('bdd');
 
-describe(`Nth power rules them all!`, function () {
+describe(`Array Appender`, function () {
   const equal = chai.assert.equal;
   const strictEqual = chai.assert.strictEqual;
   const notEqual = chai.assert.notEqual;
@@ -18,9 +18,12 @@ describe(`Nth power rules them all!`, function () {
   const noError = chai.assert.doesNotThrow;
   const include = chai.assert.include;
 
-  it('should work for the examples provided in the Description', function () {
-    equal(modifiedSum([1, 2, 3], 3), 30);
-    equal(modifiedSum([1, 2], 5), 30);
+  it('test', () => {
+    deepEqual(appendArrays([1, 2], [2, 4]), [1, 2, 2, 4]);
+    deepEqual(appendArrays([1, 2], [3, 4]), [1, 2, 3, 4]);
+    deepEqual(appendArrays(['this'], ['that']), ['this', 'that']);
+    deepEqual(appendArrays(['a', 'B'], ['c', 'D']), ['a', 'B', 'c', 'D']);
+    deepEqual(appendArrays([1, 2], [1]), [1, 2, 1]);
   });
 });
 

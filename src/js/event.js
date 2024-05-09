@@ -1,6 +1,14 @@
-function modifiedSum(a, n) {
-  return a.reduce((sum, number) => sum + Math.pow(number, n) - number, 0);
+function appendArrays(arr1, arr2) {
+  return arr1.concat(arr2);
 }
 
-console.log(modifiedSum([1, 2, 3], 3)); // 30
-console.log(modifiedSum([1, 2], 5)); // 30
+console.log(appendArrays([1, 2], [2, 4]));
+// [1, 2, 2, 4]
+console.log(appendArrays([1, 2], [3, 4]));
+// [1, 2, 3, 4]
+console.log(appendArrays(['this'], ['that']));
+// ['this', 'that']
+console.log(appendArrays(['a', 'B'], ['c', 'D']));
+//'a', 'B', 'c', 'D']
+console.log(appendArrays([1, 2], [1]));
+// [1, 2, 1]

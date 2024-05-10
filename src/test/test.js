@@ -1,6 +1,6 @@
 mocha.setup('bdd');
 
-describe(`Array Appender`, function () {
+describe(`Regexp Basics - is it all whitespace?`, function () {
   const equal = chai.assert.equal;
   const strictEqual = chai.assert.strictEqual;
   const notEqual = chai.assert.notEqual;
@@ -18,12 +18,17 @@ describe(`Array Appender`, function () {
   const noError = chai.assert.doesNotThrow;
   const include = chai.assert.include;
 
-  it('test', () => {
-    deepEqual(appendArrays([1, 2], [2, 4]), [1, 2, 2, 4]);
-    deepEqual(appendArrays([1, 2], [3, 4]), [1, 2, 3, 4]);
-    deepEqual(appendArrays(['this'], ['that']), ['this', 'that']);
-    deepEqual(appendArrays(['a', 'B'], ['c', 'D']), ['a', 'B', 'c', 'D']);
-    deepEqual(appendArrays([1, 2], [1]), [1, 2, 1]);
+  it('Testing for fixed tests', () => {
+    equal(''.whitespace(), true);
+    equal(' '.whitespace(), true);
+    equal('\n\r\n\r'.whitespace(), true);
+    equal('a'.whitespace(), false);
+    equal('w\n'.whitespace(), false);
+    equal('\t'.whitespace(), true);
+    equal(' a\n'.whitespace(), false);
+    equal('\t \n\r\n  '.whitespace(), true);
+    equal('\n\r\n\r '.whitespace(), true);
+    equal('\n\r\n\r 3'.whitespace(), false);
   });
 });
 

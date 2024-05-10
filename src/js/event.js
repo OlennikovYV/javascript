@@ -1,14 +1,14 @@
-function appendArrays(arr1, arr2) {
-  return arr1.concat(arr2);
-}
+String.prototype.whitespace = function () {
+  return /^\s*$/gi.test(this);
+};
 
-console.log(appendArrays([1, 2], [2, 4]));
-// [1, 2, 2, 4]
-console.log(appendArrays([1, 2], [3, 4]));
-// [1, 2, 3, 4]
-console.log(appendArrays(['this'], ['that']));
-// ['this', 'that']
-console.log(appendArrays(['a', 'B'], ['c', 'D']));
-//'a', 'B', 'c', 'D']
-console.log(appendArrays([1, 2], [1]));
-// [1, 2, 1]
+console.log(''.whitespace()); // true
+console.log(' '.whitespace()); // true
+console.log('\n\r\n\r'.whitespace()); // true
+console.log('a'.whitespace()); // false
+console.log('w\n'.whitespace()); // false
+console.log('\t'.whitespace()); // true
+console.log(' a\n'.whitespace()); // false
+console.log('\t \n\r\n  '.whitespace()); // true
+console.log('\n\r\n\r '.whitespace()); // true
+console.log('\n\r\n\r 3'.whitespace()); // false

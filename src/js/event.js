@@ -1,7 +1,5 @@
-function makeLazy(fn, ...args) {
-  return function () {
-    return fn(...args);
-  };
+function makeLazy(fn) {
+  return fn.bind.apply(fn, arguments);
 }
 
 function add(a, b) {

@@ -1,6 +1,6 @@
 mocha.setup('bdd');
 
-describe(`Regexp Basics - is it all whitespace?`, function () {
+describe(`Lazily executing a function`, function () {
   const equal = chai.assert.equal;
   const strictEqual = chai.assert.strictEqual;
   const notEqual = chai.assert.notEqual;
@@ -18,17 +18,25 @@ describe(`Regexp Basics - is it all whitespace?`, function () {
   const noError = chai.assert.doesNotThrow;
   const include = chai.assert.include;
 
-  it('Testing for fixed tests', () => {
-    equal(''.whitespace(), true);
-    equal(' '.whitespace(), true);
-    equal('\n\r\n\r'.whitespace(), true);
-    equal('a'.whitespace(), false);
-    equal('w\n'.whitespace(), false);
-    equal('\t'.whitespace(), true);
-    equal(' a\n'.whitespace(), false);
-    equal('\t \n\r\n  '.whitespace(), true);
-    equal('\n\r\n\r '.whitespace(), true);
-    equal('\n\r\n\r 3'.whitespace(), false);
+  it('sample tests', () => {
+    function add(a, b) {
+      return a + b;
+    }
+
+    function double(n) {
+      return n * 2;
+    }
+
+    function superAdd(...args) {
+      return args.reduce((sum, x) => sum + x, 0);
+    }
+
+    let lazy_value = makeLazy(add, 2, 3);
+    equal(lazy_value(), 5);
+    lazy_value = makeLazy(double, 5);
+    equal(lazy_value(), 10);
+    lazy_value = makeLazy(superAdd, 1, 2, 3, 4, 5);
+    equal(lazy_value(), 15);
   });
 });
 

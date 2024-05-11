@@ -1,14 +1,24 @@
-String.prototype.whitespace = function () {
-  return /^\s*$/gi.test(this);
-};
+function makeLazy(fn, ...args) {
+  return function () {
+    return fn(...args);
+  };
+}
 
-console.log(''.whitespace()); // true
-console.log(' '.whitespace()); // true
-console.log('\n\r\n\r'.whitespace()); // true
-console.log('a'.whitespace()); // false
-console.log('w\n'.whitespace()); // false
-console.log('\t'.whitespace()); // true
-console.log(' a\n'.whitespace()); // false
-console.log('\t \n\r\n  '.whitespace()); // true
-console.log('\n\r\n\r '.whitespace()); // true
-console.log('\n\r\n\r 3'.whitespace()); // false
+function add(a, b) {
+  return a + b;
+}
+
+function double(n) {
+  return n * 2;
+}
+
+function superAdd(...args) {
+  return args.reduce((sum, x) => sum + x, 0);
+}
+
+let lazy_value = makeLazy(add, 2, 3);
+console.log(lazy_value()); // 5
+lazy_value = makeLazy(double, 5);
+console.log(lazy_value()); // 10
+lazy_value = makeLazy(superAdd, 1, 2, 3, 4, 5);
+console.log(lazy_value()); // 15

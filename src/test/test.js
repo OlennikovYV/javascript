@@ -1,6 +1,6 @@
 mocha.setup('bdd');
 
-describe(`Lazily executing a function`, function () {
+describe(`Negation of a Value`, function () {
   const equal = chai.assert.equal;
   const strictEqual = chai.assert.strictEqual;
   const notEqual = chai.assert.notEqual;
@@ -19,24 +19,10 @@ describe(`Lazily executing a function`, function () {
   const include = chai.assert.include;
 
   it('sample tests', () => {
-    function add(a, b) {
-      return a + b;
-    }
-
-    function double(n) {
-      return n * 2;
-    }
-
-    function superAdd(...args) {
-      return args.reduce((sum, x) => sum + x, 0);
-    }
-
-    let lazy_value = makeLazy(add, 2, 3);
-    equal(lazy_value(), 5);
-    lazy_value = makeLazy(double, 5);
-    equal(lazy_value(), 10);
-    lazy_value = makeLazy(superAdd, 1, 2, 3, 4, 5);
-    equal(lazy_value(), 15);
+    equal(negationValue('!', false), true, 'Wrong!');
+    equal(negationValue('!', true), false, 'Wrong!');
+    equal(negationValue('!!!', []), false, 'Wrong!');
+    equal(negationValue('!!!', -1), false);
   });
 });
 

@@ -1,28 +1,11 @@
 function permuteAPalindrome(input) {
-  const arrayChar = input.split('');
-  const lengthOdd = arrayChar.length % 2;
-  let countChar = {};
-  const convertObjToArr = obj =>
-    Object.keys(obj).map(key => ({ key: key, count: obj[key] }));
-
-  arrayChar.reduce((counts, char) => {
-    counts[char] = (counts[char] || 0) + 1;
-
-    return counts;
-  }, countChar);
-
-  if (input.length < 2) return true;
-
-  if (lengthOdd) {
-    const array = convertObjToArr(countChar);
-
-    return array.filter(el => el.count % 2 === 1).length < 2;
-  } else {
-    const array = convertObjToArr(countChar);
-    const length = array.length;
-
-    return length === array.filter(el => el.count % 2 === 0).length;
-  }
+  return (
+    input
+      .split('')
+      .sort((a, b) => a.charCodeAt() - b.charCodeAt())
+      .join('')
+      .replace(/(.)\1/g, '').length <= 1
+  );
 }
 
 console.log(permuteAPalindrome('a')); // true

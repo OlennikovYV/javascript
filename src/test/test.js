@@ -1,6 +1,6 @@
 mocha.setup('bdd');
 
-describe(`Largest Square Inside A Circle`, function () {
+describe(`Permute a Palindrome`, function () {
   const equal = chai.assert.equal;
   const strictEqual = chai.assert.strictEqual;
   const notEqual = chai.assert.notEqual;
@@ -18,10 +18,40 @@ describe(`Largest Square Inside A Circle`, function () {
   const noError = chai.assert.doesNotThrow;
   const include = chai.assert.include;
 
-  it('Basic tests', () => {
-    equal(areaLargestSquare(5), 50);
-    equal(areaLargestSquare(7), 98);
-    equal(areaLargestSquare(15), 450);
+  it(`input = "a"`, () => {
+    equal(permuteAPalindrome('a'), true);
+  });
+
+  it(`input = "aa"`, () => {
+    equal(permuteAPalindrome('aa'), true);
+  });
+
+  it(`input = "aaa"`, () => {
+    equal(permuteAPalindrome('aaa'), true);
+  });
+
+  it(`input = "baa"`, () => {
+    equal(permuteAPalindrome('baa'), true);
+  });
+
+  it(`input = "aab"`, () => {
+    equal(permuteAPalindrome('aab'), true);
+  });
+
+  it(`input = "baabcd"`, () => {
+    equal(permuteAPalindrome('baabcd'), false);
+  });
+
+  it(`input = "racecars"`, () => {
+    equal(permuteAPalindrome('racecars'), false);
+  });
+
+  it(`input = "abcdefghba"`, () => {
+    equal(permuteAPalindrome('abcdefghba'), false);
+  });
+
+  it(`input is an empty string`, () => {
+    equal(permuteAPalindrome(''), true);
   });
 });
 

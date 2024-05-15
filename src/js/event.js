@@ -2,7 +2,7 @@ function permuteAPalindrome(input) {
   return (
     input
       .split('')
-      .sort((a, b) => a.charCodeAt() - b.charCodeAt())
+      .sort((a, b) => a.localeCompare(b))
       .join('')
       .replace(/(.)\1/g, '').length <= 1
   );

@@ -1,19 +1,13 @@
-function permuteAPalindrome(input) {
-  return (
-    input
-      .split('')
-      .sort((a, b) => a.localeCompare(b))
-      .join('')
-      .replace(/(.)\1/g, '').length <= 1
-  );
-}
+Array.prototype.map = function (fn) {
+  const newArray = [];
 
-console.log(permuteAPalindrome('a')); // true
-console.log(permuteAPalindrome('aa')); // true
-console.log(permuteAPalindrome('aaa')); // true
-console.log(permuteAPalindrome('baa')); // true
-console.log(permuteAPalindrome('aab')); // true
-console.log(permuteAPalindrome('baabcd')); // false
-console.log(permuteAPalindrome('racecars')); // false
-console.log(permuteAPalindrome('abcdefghba')); // false
-console.log(permuteAPalindrome('')); // true
+  for (let value of this) newArray.push(fn(value));
+
+  return newArray;
+};
+
+console.log([1, 2, 3].map(x => x ** 2)); // [1, 4, 9]
+console.log([1, 2, 3].map(x => 2 * x)); // [2, 4, 6]
+console.log([1, 2, 3].map(x => 2 ** x)); // [2, 4, 8]
+console.log([1, 2, 3].map(x => x.toString())); // ['1', '2', '3']
+console.log(['1', '2', '3'].map(x => parseInt(x))); // [1, 2, 3]

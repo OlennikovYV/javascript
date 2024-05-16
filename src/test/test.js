@@ -1,6 +1,6 @@
 mocha.setup('bdd');
 
-describe(`Permute a Palindrome`, function () {
+describe(`Array Mappings`, function () {
   const equal = chai.assert.equal;
   const strictEqual = chai.assert.strictEqual;
   const notEqual = chai.assert.notEqual;
@@ -18,40 +18,27 @@ describe(`Permute a Palindrome`, function () {
   const noError = chai.assert.doesNotThrow;
   const include = chai.assert.include;
 
-  it(`input = "a"`, () => {
-    equal(permuteAPalindrome('a'), true);
-  });
-
-  it(`input = "aa"`, () => {
-    equal(permuteAPalindrome('aa'), true);
-  });
-
-  it(`input = "aaa"`, () => {
-    equal(permuteAPalindrome('aaa'), true);
-  });
-
-  it(`input = "baa"`, () => {
-    equal(permuteAPalindrome('baa'), true);
-  });
-
-  it(`input = "aab"`, () => {
-    equal(permuteAPalindrome('aab'), true);
-  });
-
-  it(`input = "baabcd"`, () => {
-    equal(permuteAPalindrome('baabcd'), false);
-  });
-
-  it(`input = "racecars"`, () => {
-    equal(permuteAPalindrome('racecars'), false);
-  });
-
-  it(`input = "abcdefghba"`, () => {
-    equal(permuteAPalindrome('abcdefghba'), false);
-  });
-
-  it(`input is an empty string`, () => {
-    equal(permuteAPalindrome(''), true);
+  it('should work for the examples shown in the description', () => {
+    deepEqual(
+      [1, 2, 3].map(x => x ** 2),
+      [1, 4, 9]
+    );
+    deepEqual(
+      [1, 2, 3].map(x => 2 * x),
+      [2, 4, 6]
+    );
+    deepEqual(
+      [1, 2, 3].map(x => 2 ** x),
+      [2, 4, 8]
+    );
+    deepEqual(
+      [1, 2, 3].map(x => x.toString()),
+      ['1', '2', '3']
+    );
+    deepEqual(
+      ['1', '2', '3'].map(x => parseInt(x)),
+      [1, 2, 3]
+    );
   });
 });
 

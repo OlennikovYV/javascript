@@ -1,7 +1,8 @@
 function args(cmd) {
-  const injectOtherCmd = cmd.trim().replace(/[ ]*[&|;|>|\|].*/, '');
-
-  return injectOtherCmd.split(' ');
+  return cmd
+    .replace(/[&;>|].*$/, '')
+    .trim()
+    .split(' ');
 }
 
 console.log(args('ls -R /'));

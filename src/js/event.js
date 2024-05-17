@@ -1,13 +1,10 @@
-Array.prototype.map = function (fn) {
-  const newArray = [];
+function args(cmd) {
+  const injectOtherCmd = cmd.trim().replace(/[ ]*[&|;|>|\|].*/, '');
 
-  for (let value of this) newArray.push(fn(value));
+  return injectOtherCmd.split(' ');
+}
 
-  return newArray;
-};
-
-console.log([1, 2, 3].map(x => x ** 2)); // [1, 4, 9]
-console.log([1, 2, 3].map(x => 2 * x)); // [2, 4, 6]
-console.log([1, 2, 3].map(x => 2 ** x)); // [2, 4, 8]
-console.log([1, 2, 3].map(x => x.toString())); // ['1', '2', '3']
-console.log(['1', '2', '3'].map(x => parseInt(x))); // [1, 2, 3]
+console.log(args('ls -R /'));
+// ['ls', '-R', '/']
+console.log(args('cat /tmp/data.txt | less'));
+// ['cat', '/tmp/data.txt']

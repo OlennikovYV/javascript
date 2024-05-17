@@ -1,6 +1,6 @@
 mocha.setup('bdd');
 
-describe(`Array Mappings`, function () {
+describe(`Parsing Commandline Arguments`, function () {
   const equal = chai.assert.equal;
   const strictEqual = chai.assert.strictEqual;
   const notEqual = chai.assert.notEqual;
@@ -18,26 +18,12 @@ describe(`Array Mappings`, function () {
   const noError = chai.assert.doesNotThrow;
   const include = chai.assert.include;
 
-  it('should work for the examples shown in the description', () => {
+  it('test', () => {
+    deepEqual(args('ls -R /'), ['ls', '-R', '/'], 'failed parsing "ls -R /"');
     deepEqual(
-      [1, 2, 3].map(x => x ** 2),
-      [1, 4, 9]
-    );
-    deepEqual(
-      [1, 2, 3].map(x => 2 * x),
-      [2, 4, 6]
-    );
-    deepEqual(
-      [1, 2, 3].map(x => 2 ** x),
-      [2, 4, 8]
-    );
-    deepEqual(
-      [1, 2, 3].map(x => x.toString()),
-      ['1', '2', '3']
-    );
-    deepEqual(
-      ['1', '2', '3'].map(x => parseInt(x)),
-      [1, 2, 3]
+      args('cat /tmp/data.txt | less'),
+      ['cat', '/tmp/data.txt'],
+      'failed parsing command with pipe (|) operator'
     );
   });
 });

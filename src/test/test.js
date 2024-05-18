@@ -1,6 +1,6 @@
 mocha.setup('bdd');
 
-describe(`Parsing Commandline Arguments`, function () {
+describe(`Partition On`, function () {
   const equal = chai.assert.equal;
   const strictEqual = chai.assert.strictEqual;
   const notEqual = chai.assert.notEqual;
@@ -19,12 +19,17 @@ describe(`Parsing Commandline Arguments`, function () {
   const include = chai.assert.include;
 
   it('test', () => {
-    deepEqual(args('ls -R /'), ['ls', '-R', '/'], 'failed parsing "ls -R /"');
-    deepEqual(
-      args('cat /tmp/data.txt | less'),
-      ['cat', '/tmp/data.txt'],
-      'failed parsing command with pipe (|) operator'
-    );
+    const items = [1, 2, 3, 4, 5, 6];
+
+    function isEven(n) {
+      return n % 2 == 0;
+    }
+
+    const i = partitionOn(isEven, items);
+
+    equal(i, 3, 'partioned at 3');
+    deepEqual(items.slice(0, i), [1, 3, 5]);
+    deepEqual(items.slice(i), [2, 4, 6]);
   });
 });
 

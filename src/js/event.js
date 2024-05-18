@@ -1,14 +1,13 @@
 function partitionOn(pred, items) {
-  let trueItems = [];
-  let falseItems = [];
+  let matchItems = [];
+  let mismatchItems = [];
 
-  falseItems = items.filter(el => !pred(el));
-  trueItems = items.filter(el => pred(el));
+  mismatchItems = items.filter(el => !pred(el));
+  matchItems = items.filter(pred);
 
-  items.length = 0;
-  items.push(...falseItems.concat(trueItems));
+  items.splice(0, items.length, ...mismatchItems, ...matchItems);
 
-  return falseItems.length;
+  return mismatchItems.length;
 }
 
 const items = [1, 3, 2, 4, 5, 6];

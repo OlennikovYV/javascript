@@ -1,23 +1,14 @@
-function partitionOn(pred, items) {
-  let matchItems = [];
-  let mismatchItems = [];
+function sumCircles(...diameters) {
+  const pi = Math.PI;
+  const areas = diameters.reduce((sumAreas, diameter) => {
+    const radius = diameter / 2;
+    return sumAreas + pi * Math.pow(radius, 2);
+  }, 0);
 
-  mismatchItems = items.filter(el => !pred(el));
-  matchItems = items.filter(pred);
-
-  items.splice(0, items.length, ...mismatchItems, ...matchItems);
-
-  return mismatchItems.length;
+  return `We have this much circle: ${Math.round(areas)}`;
 }
 
-const items = [1, 3, 2, 4, 5, 6];
-
-function isEven(n) {
-  return n % 2 == 0;
-}
-
-const i = partitionOn(isEven, items);
-
-console.log(i); // 3
-console.log(items.slice(0, i)); // [1, 3, 5]
-console.log(items.slice(i)); // [2, 4, 6]
+console.log(sumCircles(2)); // 'We have this much circle: 3'
+console.log(sumCircles(2, 3, 4)); // 'We have this much circle: 23'
+console.log(sumCircles(1, 1, 1)); // 'We have this much circle: 2'
+console.log(sumCircles(13.58, 14.9, 56.99, 107.321)); // 'We have this much circle: 11916'

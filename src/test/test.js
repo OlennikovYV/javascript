@@ -1,6 +1,6 @@
 mocha.setup('bdd');
 
-describe(`Partition On`, function () {
+describe(`Some Circles`, function () {
   const equal = chai.assert.equal;
   const strictEqual = chai.assert.strictEqual;
   const notEqual = chai.assert.notEqual;
@@ -19,17 +19,13 @@ describe(`Partition On`, function () {
   const include = chai.assert.include;
 
   it('test', () => {
-    const items = [1, 2, 3, 4, 5, 6];
-
-    function isEven(n) {
-      return n % 2 == 0;
-    }
-
-    const i = partitionOn(isEven, items);
-
-    equal(i, 3, 'partioned at 3');
-    deepEqual(items.slice(0, i), [1, 3, 5]);
-    deepEqual(items.slice(i), [2, 4, 6]);
+    equal(sumCircles(2), 'We have this much circle: 3');
+    equal(sumCircles(2, 3, 4), 'We have this much circle: 23');
+    equal(sumCircles(1, 1, 1), 'We have this much circle: 2');
+    equal(
+      sumCircles(13.58, 14.9, 56.99, 107.321),
+      'We have this much circle: 11916'
+    );
   });
 });
 

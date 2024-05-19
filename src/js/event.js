@@ -1,9 +1,9 @@
 function sumCircles(...diameters) {
   const pi = Math.PI;
-  const areas = diameters.reduce((sumAreas, diameter) => {
-    const radius = diameter / 2;
-    return sumAreas + pi * Math.pow(radius, 2);
-  }, 0);
+  const circleArea = diameter => pi * Math.pow(diameter / 2, 2);
+  const sum = (a, b) => a + b;
+
+  const areas = diameters.map(circleArea).reduce(sum, 0);
 
   return `We have this much circle: ${Math.round(areas)}`;
 }

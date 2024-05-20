@@ -1,9 +1,8 @@
 obfuscate = function (email) {
-  return email.replace(/[\@\.]/g, el => {
-    if (el === '@') return ' [at] ';
+  const regex = new RegExp(/[.@]/g);
+  const replacers = { '@': 'at', '.': 'dot' };
 
-    return ' [dot] ';
-  });
+  return email.replace(regex, el => ` [${replacers[el]}] `);
 };
 
 console.log(obfuscate('test@123.com'));

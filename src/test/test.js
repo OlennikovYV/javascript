@@ -1,6 +1,6 @@
 mocha.setup('bdd');
 
-describe(`Some Circles`, function () {
+describe(`Email Address Obfuscator`, function () {
   const equal = chai.assert.equal;
   const strictEqual = chai.assert.strictEqual;
   const notEqual = chai.assert.notEqual;
@@ -19,12 +19,10 @@ describe(`Some Circles`, function () {
   const include = chai.assert.include;
 
   it('test', () => {
-    equal(sumCircles(2), 'We have this much circle: 3');
-    equal(sumCircles(2, 3, 4), 'We have this much circle: 23');
-    equal(sumCircles(1, 1, 1), 'We have this much circle: 2');
+    equal(obfuscate('test@123.com'), 'test [at] 123 [dot] com');
     equal(
-      sumCircles(13.58, 14.9, 56.99, 107.321),
-      'We have this much circle: 11916'
+      obfuscate('Code_warrior@foo.ac.uk'),
+      'Code_warrior [at] foo [dot] ac [dot] uk'
     );
   });
 });

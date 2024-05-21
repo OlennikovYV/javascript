@@ -1,6 +1,6 @@
 mocha.setup('bdd');
 
-describe(`Email Address Obfuscator`, function () {
+describe(`Array Exchange`, function () {
   const equal = chai.assert.equal;
   const strictEqual = chai.assert.strictEqual;
   const notEqual = chai.assert.notEqual;
@@ -18,12 +18,14 @@ describe(`Email Address Obfuscator`, function () {
   const noError = chai.assert.doesNotThrow;
   const include = chai.assert.include;
 
-  it('test', () => {
-    equal(obfuscate('test@123.com'), 'test [at] 123 [dot] com');
-    equal(
-      obfuscate('Code_warrior@foo.ac.uk'),
-      'Code_warrior [at] foo [dot] ac [dot] uk'
-    );
+  it('Tests', () => {
+    const a = ['1', '2', '3', '4', '5', '6', '7'];
+    const b = ['a', 'b', 'c'];
+
+    exchangeWith(a, b);
+
+    deepEqual(a, ['c', 'b', 'a']);
+    deepEqual(b, ['7', '6', '5', '4', '3', '2', '1']);
   });
 });
 

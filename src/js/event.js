@@ -1,11 +1,14 @@
-obfuscate = function (email) {
-  const regex = new RegExp(/[.@]/g);
-  const replacers = { '@': 'at', '.': 'dot' };
+function exchangeWith(a, b) {
+  const tempA = [...a];
 
-  return email.replace(regex, el => ` [${replacers[el]}] `);
-};
+  a.splice(0, a.length, ...b.reverse());
+  b.splice(0, b.length, ...tempA.reverse());
+}
 
-console.log(obfuscate('test@123.com'));
-// 'test [at] 123 [dot] com'
-console.log(obfuscate('Code_warrior@foo.ac.uk'));
-// 'Code_warrior [at] foo [dot] ac [dot] uk'
+const a = ['1', '2', '3', '4', '5', '6', '7'];
+const b = ['a', 'b', 'c'];
+
+exchangeWith(a, b);
+
+console.log(a); // ['c', 'b', 'a']
+console.log(b); // ['7', '6', '5', '4', '3', '2', '1']

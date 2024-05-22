@@ -1,14 +1,136 @@
-function exchangeWith(a, b) {
-  const tempA = [...a];
+function sortByLanguage(list) {
+  return list.sort((a, b) => {
+    const sortLanguages = a.language.localeCompare(b.language);
+    const sortNames = a.firstName.localeCompare(b.firstName);
 
-  a.splice(0, a.length, ...b.reverse());
-  b.splice(0, b.length, ...tempA.reverse());
+    return sortLanguages || sortNames;
+  });
 }
 
-const a = ['1', '2', '3', '4', '5', '6', '7'];
-const b = ['a', 'b', 'c'];
+const list1 = [
+  {
+    firstName: 'Nikau',
+    lastName: 'R.',
+    country: 'New Zealand',
+    continent: 'Oceania',
+    age: 39,
+    language: 'Ruby',
+  },
+  {
+    firstName: 'Precious',
+    lastName: 'G.',
+    country: 'South Africa',
+    continent: 'Africa',
+    age: 22,
+    language: 'JavaScript',
+  },
+  {
+    firstName: 'Maria',
+    lastName: 'S.',
+    country: 'Peru',
+    continent: 'Americas',
+    age: 30,
+    language: 'C',
+  },
+  {
+    firstName: 'Agustin',
+    lastName: 'V.',
+    country: 'Uruguay',
+    continent: 'Americas',
+    age: 19,
+    language: 'JavaScript',
+  },
+];
 
-exchangeWith(a, b);
+const answer1 = [
+  {
+    firstName: 'Maria',
+    lastName: 'S.',
+    country: 'Peru',
+    continent: 'Americas',
+    age: 30,
+    language: 'C',
+  },
+  {
+    firstName: 'Agustin',
+    lastName: 'V.',
+    country: 'Uruguay',
+    continent: 'Americas',
+    age: 19,
+    language: 'JavaScript',
+  },
+  {
+    firstName: 'Precious',
+    lastName: 'G.',
+    country: 'South Africa',
+    continent: 'Africa',
+    age: 22,
+    language: 'JavaScript',
+  },
+  {
+    firstName: 'Nikau',
+    lastName: 'R.',
+    country: 'New Zealand',
+    continent: 'Oceania',
+    age: 39,
+    language: 'Ruby',
+  },
+];
 
-console.log(a); // ['c', 'b', 'a']
-console.log(b); // ['7', '6', '5', '4', '3', '2', '1']
+console.log(sortByLanguage(list1)); // answer1
+
+const list2 = [
+  {
+    firstName: 'Nikau',
+    lastName: 'R.',
+    country: 'New Zealand',
+    continent: 'Oceania',
+    age: 39,
+    language: 'Ruby',
+  },
+  {
+    firstName: 'Maria',
+    lastName: 'S.',
+    country: 'Peru',
+    continent: 'Americas',
+    age: 30,
+    language: 'C',
+  },
+  {
+    firstName: 'Agustin',
+    lastName: 'V.',
+    country: 'Uruguay',
+    continent: 'Americas',
+    age: 19,
+    language: 'JavaScript',
+  },
+];
+
+const answer2 = [
+  {
+    firstName: 'Maria',
+    lastName: 'S.',
+    country: 'Peru',
+    continent: 'Americas',
+    age: 30,
+    language: 'C',
+  },
+  {
+    firstName: 'Agustin',
+    lastName: 'V.',
+    country: 'Uruguay',
+    continent: 'Americas',
+    age: 19,
+    language: 'JavaScript',
+  },
+  {
+    firstName: 'Nikau',
+    lastName: 'R.',
+    country: 'New Zealand',
+    continent: 'Oceania',
+    age: 39,
+    language: 'Ruby',
+  },
+];
+
+// console.log(sortByLanguage(list2)); // answer2

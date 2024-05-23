@@ -1,136 +1,46 @@
-function sortByLanguage(list) {
-  return list.sort((a, b) => {
-    const sortLanguages = a.language.localeCompare(b.language);
-    const sortNames = a.firstName.localeCompare(b.firstName);
-
-    return sortLanguages || sortNames;
-  });
+class nameManager {
+  listFiles = [];
+  nameExists(name) {
+    return this.listFiles.includes(name);
+  }
+  addName(name) {
+    this.listFiles.push(name);
+  }
+  nameWasUnique(name) {
+    return !this.listFiles.includes(name);
+  }
 }
 
-const list1 = [
-  {
-    firstName: 'Nikau',
-    lastName: 'R.',
-    country: 'New Zealand',
-    continent: 'Oceania',
-    age: 39,
-    language: 'Ruby',
-  },
-  {
-    firstName: 'Precious',
-    lastName: 'G.',
-    country: 'South Africa',
-    continent: 'Africa',
-    age: 22,
-    language: 'JavaScript',
-  },
-  {
-    firstName: 'Maria',
-    lastName: 'S.',
-    country: 'Peru',
-    continent: 'Americas',
-    age: 30,
-    language: 'C',
-  },
-  {
-    firstName: 'Agustin',
-    lastName: 'V.',
-    country: 'Uruguay',
-    continent: 'Americas',
-    age: 19,
-    language: 'JavaScript',
-  },
-];
+const photoManager = new nameManager();
 
-const answer1 = [
-  {
-    firstName: 'Maria',
-    lastName: 'S.',
-    country: 'Peru',
-    continent: 'Americas',
-    age: 30,
-    language: 'C',
-  },
-  {
-    firstName: 'Agustin',
-    lastName: 'V.',
-    country: 'Uruguay',
-    continent: 'Americas',
-    age: 19,
-    language: 'JavaScript',
-  },
-  {
-    firstName: 'Precious',
-    lastName: 'G.',
-    country: 'South Africa',
-    continent: 'Africa',
-    age: 22,
-    language: 'JavaScript',
-  },
-  {
-    firstName: 'Nikau',
-    lastName: 'R.',
-    country: 'New Zealand',
-    continent: 'Oceania',
-    age: 39,
-    language: 'Ruby',
-  },
-];
+function generateName() {
+  let randString = '';
 
-console.log(sortByLanguage(list1)); // answer1
+  const generate = length => {
+    let str = '';
+    const chrs = 'abdehkmnpswxzABDEFGHKMNPQRSTWXZ123456789';
 
-const list2 = [
-  {
-    firstName: 'Nikau',
-    lastName: 'R.',
-    country: 'New Zealand',
-    continent: 'Oceania',
-    age: 39,
-    language: 'Ruby',
-  },
-  {
-    firstName: 'Maria',
-    lastName: 'S.',
-    country: 'Peru',
-    continent: 'Americas',
-    age: 30,
-    language: 'C',
-  },
-  {
-    firstName: 'Agustin',
-    lastName: 'V.',
-    country: 'Uruguay',
-    continent: 'Americas',
-    age: 19,
-    language: 'JavaScript',
-  },
-];
+    for (let i = 0; i < length; i++) {
+      const pos = Math.floor(Math.random() * chrs.length);
+      str += chrs[pos];
+    }
 
-const answer2 = [
-  {
-    firstName: 'Maria',
-    lastName: 'S.',
-    country: 'Peru',
-    continent: 'Americas',
-    age: 30,
-    language: 'C',
-  },
-  {
-    firstName: 'Agustin',
-    lastName: 'V.',
-    country: 'Uruguay',
-    continent: 'Americas',
-    age: 19,
-    language: 'JavaScript',
-  },
-  {
-    firstName: 'Nikau',
-    lastName: 'R.',
-    country: 'New Zealand',
-    continent: 'Oceania',
-    age: 39,
-    language: 'Ruby',
-  },
-];
+    return str;
+  };
 
-// console.log(sortByLanguage(list2)); // answer2
+  do {
+    randString = generate(6);
+  } while (photoManager.nameExists(randString));
+
+  return randString;
+}
+
+for (let i = 0; i < 10; i++) {
+  const name = generateName();
+  console.group(name);
+  console.log(name);
+  console.log(typeof name); // 'string'
+  console.log(photoManager.nameWasUnique(name)); // true
+  console.log(name.length); // 6
+  console.groupEnd();
+}

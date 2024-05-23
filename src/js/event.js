@@ -32,6 +32,8 @@ function generateName() {
     randString = generate(6);
   } while (photoManager.nameExists(randString));
 
+  photoManager.addName(randString);
+
   return randString;
 }
 

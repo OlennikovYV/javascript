@@ -7,42 +7,38 @@ class nameManager {
     this.listFiles.push(name);
   }
   nameWasUnique(name) {
-    return !this.listFiles.includes(name);
+    return this.listFiles.filter(el => el == name).length < 1;
   }
 }
 
 const photoManager = new nameManager();
 
 function generateName() {
-  let randString = '';
+  function* randomNames() {
+    const chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    const charsLength = chars.length;
 
-  const generate = length => {
-    let str = '';
-    const chrs = 'abdehkmnpswxzABDEFGHKMNPQRSTWXZ123456789';
-
-    for (let i = 0; i < length; i++) {
-      const pos = Math.floor(Math.random() * chrs.length);
-      str += chrs[pos];
+    while (true) {
+      yield Array(6)
+        .fill(0)
+        .map(ch => chars[Math.floor(Math.random() * charsLength)])
+        .join('');
     }
+  }
 
-    return str;
-  };
+  let name = randomNames().next().value;
 
-  do {
-    randString = generate(6);
-  } while (photoManager.nameExists(randString));
-
-  photoManager.addName(randString);
-
-  return randString;
+  return photoManager.nameExists(name) ? generateName() : name;
 }
 
 for (let i = 0; i < 10; i++) {
   const name = generateName();
-  console.group(name);
+
+  console.groupCollapsed(name);
   console.log(name);
   console.log(typeof name); // 'string'
   console.log(photoManager.nameWasUnique(name)); // true
   console.log(name.length); // 6
+  photoManager.addName(name);
   console.groupEnd();
 }

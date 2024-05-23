@@ -26,9 +26,24 @@ describe(`Image host filename generator`, function () {
   it('test', () => {
     for (let i = 0; i < 10; i++) {
       const name = generateName();
-      equal(typeof name, 'string', 'Name has to be a string.');
-      equal(photoManager.nameWasUnique(name), true, 'Name has to be unique.');
-      equal(name.length, 6, 'Name has to be 6 digits long.');
+      equal(
+        typeof name,
+        'string',
+        `'Name has to be a string. Current type: ${typeof name}'`
+      );
+      equal(
+        photoManager.nameWasUnique(name),
+        true,
+        `Name has to be unique. Name: ${name}, iteration: ${i + 1}`
+      );
+      photoManager.addName(name);
+      equal(
+        name.length,
+        6,
+        `Name has to be 6 digits long. String ${name} length ${
+          name.length
+        }, iteration: ${i + 1}`
+      );
     }
   });
 });

@@ -1,6 +1,8 @@
 mocha.setup('bdd');
 
-describe(`Image host filename generator`, function () {
+const nameTask = `You Got Change?`;
+
+describe(nameTask, function () {
   const equal = chai.assert.equal;
   const strictEqual = chai.assert.strictEqual;
   const notEqual = chai.assert.notEqual;
@@ -23,28 +25,10 @@ describe(`Image host filename generator`, function () {
     Например: [{b:1},{a:2}] === [{b:1},{a:2}] */
   const includeDeepOrderedMembers = chai.assert.includeDeepOrderedMembers;
 
-  it('test', () => {
-    for (let i = 0; i < 10; i++) {
-      const name = generateName();
-      equal(
-        typeof name,
-        'string',
-        `'Name has to be a string. Current type: ${typeof name}'`
-      );
-      equal(
-        photoManager.nameWasUnique(name),
-        true,
-        `Name has to be unique. Name: ${name}, iteration: ${i + 1}`
-      );
-      photoManager.addName(name);
-      equal(
-        name.length,
-        6,
-        `Name has to be 6 digits long. String ${name} length ${
-          name.length
-        }, iteration: ${i + 1}`
-      );
-    }
+  it('Tests the example test cases', () => {
+    deepEqual(giveChange(365), [0, 1, 1, 0, 1, 3]);
+    deepEqual(giveChange(217), [2, 1, 1, 0, 0, 2]);
+    deepEqual(giveChange(8), [3, 1, 0, 0, 0, 0]);
   });
 });
 

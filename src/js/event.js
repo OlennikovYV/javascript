@@ -1,44 +1,15 @@
-class nameManager {
-  listFiles = [];
-  nameExists(name) {
-    return this.listFiles.includes(name);
-  }
-  addName(name) {
-    this.listFiles.push(name);
-  }
-  nameWasUnique(name) {
-    return this.listFiles.filter(el => el == name).length < 1;
-  }
+function giveChange(amount) {
+  const bills = [100, 50, 20, 10, 5, 1];
+
+  return bills
+    .map(representMoney => {
+      const countRepresent = Math.trunc(amount / representMoney);
+      amount -= countRepresent * representMoney;
+      return countRepresent;
+    })
+    .reverse();
 }
 
-const photoManager = new nameManager();
-
-function generateName() {
-  function* randomNames() {
-    const chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
-    const charsLength = chars.length;
-
-    while (true) {
-      yield Array(6)
-        .fill(0)
-        .map(ch => chars[Math.floor(Math.random() * charsLength)])
-        .join('');
-    }
-  }
-
-  let name = randomNames().next().value;
-
-  return photoManager.nameExists(name) ? generateName() : name;
-}
-
-for (let i = 0; i < 10; i++) {
-  const name = generateName();
-
-  console.groupCollapsed(name);
-  console.log(name);
-  console.log(typeof name); // 'string'
-  console.log(photoManager.nameWasUnique(name)); // true
-  console.log(name.length); // 6
-  photoManager.addName(name);
-  console.groupEnd();
-}
+console.log(giveChange(365)); // [0, 1, 1, 0, 1, 3]
+console.log(giveChange(217)); // [2, 1, 1, 0, 0, 2]
+console.log(giveChange(8)); // [3, 1, 0, 0, 0, 0]

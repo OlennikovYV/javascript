@@ -1,25 +1,22 @@
+const reg = /(\d*)\.img(\d*)/;
+
+function compare(a, b) {
+  const regA = reg.exec(a);
+  const regB = reg.exec(b);
+  const year = parseInt(regA[1]) - parseInt(regB[1]);
+  if (year == 0) {
+    return parseInt(regA[2]) - parseInt(regB[2]);
+  }
+  return year;
+}
+
 function sortPhotos(pics) {
-  const splitName = str => {
-    const year = /[\d]{4}/.exec(str)[0];
-    const number = /[\d]{1,}$/.exec(str)[0];
-
-    return { year: Number(year), number: Number(number) };
-  };
-  const joinName = obj => obj.year + '.img' + obj.number;
-  const nextFile = obj => obj.year + '.img' + (obj.number + 1);
-  const lastFiveFile = list =>
-    list.length < 6 ? list : list.slice(list.length - 5);
-  const sortByField = (a, b, field) => {
-    return a[field] - b[field];
-  };
-  const sortingList = (a, b) =>
-    sortByField(a, b, 'year') || sortByField(a, b, 'number');
-
-  const sortList = pics.map(splitName).sort(sortingList);
-  const nextElement = nextFile(sortList[sortList.length - 1]);
-  const lastFiveElements = lastFiveFile(sortList);
-
-  return lastFiveElements.map(joinName).concat([nextElement]);
+  const sorted = pics.sort(compare).splice(-5);
+  const last = sorted[sorted.length - 1];
+  sorted.push(
+    last.replace(reg, (match, p1, p2) => `${p1}.img${parseInt(p2) + 1}`)
+  );
+  return sorted;
 }
 
 console.log(

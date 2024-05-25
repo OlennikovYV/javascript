@@ -1,6 +1,6 @@
 mocha.setup('bdd');
 
-const nameTask = `You Got Change?`;
+const nameTask = `Take a picture !`;
 
 describe(nameTask, function () {
   const equal = chai.assert.equal;
@@ -25,10 +25,96 @@ describe(nameTask, function () {
     Например: [{b:1},{a:2}] === [{b:1},{a:2}] */
   const includeDeepOrderedMembers = chai.assert.includeDeepOrderedMembers;
 
-  it('Tests the example test cases', () => {
-    deepEqual(giveChange(365), [0, 1, 1, 0, 1, 3]);
-    deepEqual(giveChange(217), [2, 1, 1, 0, 0, 2]);
-    deepEqual(giveChange(8), [3, 1, 0, 0, 0, 0]);
+  it('Tests', () => {
+    deepEqual(
+      sortPhotos([
+        '2016.img1',
+        '2016.img2',
+        '2016.img3',
+        '2016.img4',
+        '2016.img5',
+      ]),
+      [
+        '2016.img1',
+        '2016.img2',
+        '2016.img3',
+        '2016.img4',
+        '2016.img5',
+        '2016.img6',
+      ]
+    );
+    deepEqual(
+      sortPhotos([
+        '2016.img4',
+        '2016.img5',
+        '2016.img1',
+        '2016.img3',
+        '2016.img2',
+      ]),
+      [
+        '2016.img1',
+        '2016.img2',
+        '2016.img3',
+        '2016.img4',
+        '2016.img5',
+        '2016.img6',
+      ]
+    );
+    deepEqual(
+      sortPhotos([
+        '2012.img2',
+        '2016.img1',
+        '2016.img3',
+        '2016.img4',
+        '2016.img5',
+      ]),
+      [
+        '2012.img2',
+        '2016.img1',
+        '2016.img3',
+        '2016.img4',
+        '2016.img5',
+        '2016.img6',
+      ]
+    );
+    deepEqual(
+      sortPhotos([
+        '2016.img1',
+        '2013.img3',
+        '2016.img2',
+        '2015.img3',
+        '2012.img7',
+        '2016.img4',
+        '2013.img5',
+      ]),
+      [
+        '2013.img5',
+        '2015.img3',
+        '2016.img1',
+        '2016.img2',
+        '2016.img4',
+        '2016.img5',
+      ]
+    );
+    deepEqual(
+      sortPhotos([
+        '2016.img7',
+        '2016.img2',
+        '2016.img3',
+        '2015.img3',
+        '2012.img8',
+        '2016.img4',
+        '2016.img5',
+      ]),
+      [
+        '2016.img2',
+        '2016.img3',
+        '2016.img4',
+        '2016.img5',
+        '2016.img7',
+        '2016.img8',
+      ]
+    );
   });
 });
 

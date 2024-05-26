@@ -1,6 +1,6 @@
 mocha.setup('bdd');
 
-const nameTask = `Take a picture !`;
+const nameTask = `Chuck Norris I - Push Ups`;
 
 describe(nameTask, function () {
   const equal = chai.assert.equal;
@@ -26,94 +26,33 @@ describe(nameTask, function () {
   const includeDeepOrderedMembers = chai.assert.includeDeepOrderedMembers;
 
   it('Tests', () => {
-    deepEqual(
-      sortPhotos([
-        '2016.img1',
-        '2016.img2',
-        '2016.img3',
-        '2016.img4',
-        '2016.img5',
-      ]),
-      [
-        '2016.img1',
-        '2016.img2',
-        '2016.img3',
-        '2016.img4',
-        '2016.img5',
-        '2016.img6',
-      ]
+    equal(
+      chuckPushUps(
+        '1 "Chuck" 10 "Stop that!" 11 "Your vest looks stupid" 100 101 110'
+      ),
+      6
     );
-    deepEqual(
-      sortPhotos([
-        '2016.img4',
-        '2016.img5',
-        '2016.img1',
-        '2016.img3',
-        '2016.img2',
-      ]),
-      [
-        '2016.img1',
-        '2016.img2',
-        '2016.img3',
-        '2016.img4',
-        '2016.img5',
-        '2016.img6',
-      ]
+    equal(
+      chuckPushUps(
+        '1000 "Did you kick someone in the face today?" 1001 1010 "Will I be making dinner then?!" 1011 110'
+      ),
+      11
     );
-    deepEqual(
-      sortPhotos([
-        '2012.img2',
-        '2016.img1',
-        '2016.img3',
-        '2016.img4',
-        '2016.img5',
-      ]),
-      [
-        '2012.img2',
-        '2016.img1',
-        '2016.img3',
-        '2016.img4',
-        '2016.img5',
-        '2016.img6',
-      ]
+    equal(
+      chuckPushUps(
+        '10000 "Nice Beard" 1111 "Are you wearing denim shorts?" 1110 1101'
+      ),
+      16
     );
-    deepEqual(
-      sortPhotos([
-        '2016.img1',
-        '2013.img3',
-        '2016.img2',
-        '2015.img3',
-        '2012.img7',
-        '2016.img4',
-        '2013.img5',
-      ]),
-      [
-        '2013.img5',
-        '2015.img3',
-        '2016.img1',
-        '2016.img2',
-        '2016.img4',
-        '2016.img5',
-      ]
-    );
-    deepEqual(
-      sortPhotos([
-        '2016.img7',
-        '2016.img2',
-        '2016.img3',
-        '2015.img3',
-        '2012.img8',
-        '2016.img4',
-        '2016.img5',
-      ]),
-      [
-        '2016.img2',
-        '2016.img3',
-        '2016.img4',
-        '2016.img5',
-        '2016.img7',
-        '2016.img8',
-      ]
+    equal(chuckPushUps(''), 'FAIL!!');
+    equal(chuckPushUps([]), 'FAIL!!');
+    equal(chuckPushUps(1), 'FAIL!!');
+    equal(chuckPushUps('1000 1001 1010 1011 110'), 11);
+    equal(
+      chuckPushUps(
+        'clean house, stop being such a badass, cook dinner, buy some sleeves for that stupid denim vest!'
+      ),
+      'CHUCK SMASH!!'
     );
   });
 });

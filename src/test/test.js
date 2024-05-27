@@ -1,6 +1,6 @@
 mocha.setup('bdd');
 
-const nameTask = `Chuck Norris I - Push Ups`;
+const nameTask = `Find Added`;
 
 describe(nameTask, function () {
   const equal = chai.assert.equal;
@@ -26,33 +26,30 @@ describe(nameTask, function () {
   const includeDeepOrderedMembers = chai.assert.includeDeepOrderedMembers;
 
   it('Tests', () => {
-    equal(
-      chuckPushUps(
-        '1 "Chuck" 10 "Stop that!" 11 "Your vest looks stupid" 100 101 110'
-      ),
-      6
+    strictEqual(
+      findAdded('44554466', '447554466'),
+      '7',
+      "Expected  '7', got " + findAdded('44554466', '447554466')
     );
-    equal(
-      chuckPushUps(
-        '1000 "Did you kick someone in the face today?" 1001 1010 "Will I be making dinner then?!" 1011 110'
-      ),
-      11
+    strictEqual(
+      findAdded('9876521', '9876543211'),
+      '134',
+      "Expected  '134', got " + findAdded('9876521', '447554466')
     );
-    equal(
-      chuckPushUps(
-        '10000 "Nice Beard" 1111 "Are you wearing denim shorts?" 1110 1101'
-      ),
-      16
+    strictEqual(
+      findAdded('4455446', '447555446666'),
+      '56667',
+      "Expected  '56667', got " + findAdded('4455446', '447555446666')
     );
-    equal(chuckPushUps(''), 'FAIL!!');
-    equal(chuckPushUps([]), 'FAIL!!');
-    equal(chuckPushUps(1), 'FAIL!!');
-    equal(chuckPushUps('1000 1001 1010 1011 110'), 11);
-    equal(
-      chuckPushUps(
-        'clean house, stop being such a badass, cook dinner, buy some sleeves for that stupid denim vest!'
-      ),
-      'CHUCK SMASH!!'
+    strictEqual(
+      findAdded('678', '876'),
+      '',
+      "Expected  '', got " + findAdded('678', '876')
+    );
+    strictEqual(
+      findAdded('678', '6'),
+      '',
+      "Expected  '', got " + findAdded('678', '6')
     );
   });
 });

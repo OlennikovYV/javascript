@@ -1,41 +1,30 @@
-function chuckPushUps(string) {
-  let bin;
+function findAdded(st1, st2) {
+  const calculateCountNumber = list =>
+    list.reduce((counts, number) => {
+      counts[number] = (counts[number] || 0) + 1;
+      return counts;
+    }, {});
+  let listNumbers = '';
+  const countNumbers1 = calculateCountNumber([...st1]);
+  const countNumbers2 = calculateCountNumber([...st2]);
 
-  if (typeof string !== 'string' || string === '') return 'FAIL!!';
+  for (let key in countNumbers2) {
+    if (countNumbers1[key] == undefined) {
+      listNumbers += key.repeat(countNumbers2[key]);
+    }
+  }
 
-  bin = string.match(/[01]+/g);
+  for (let key in countNumbers1) {
+    let countNumbersFind = countNumbers2[key] - countNumbers1[key];
 
-  if (bin == null) return 'CHUCK SMASH!!';
+    if (countNumbersFind > 0) listNumbers += key.repeat(countNumbersFind);
+  }
 
-  let isQuotes = /\"/g.test(string);
-  let isOnlySpase = /^[0|1| ]+$/g.test(string);
-
-  return isQuotes || isOnlySpase
-    ? Math.max(...bin.map(el => parseInt(el, 2)))
-    : parseInt(bin.join(''), 2);
+  return [...listNumbers].sort().join('');
 }
 
-console.log(
-  chuckPushUps(
-    '1 "Chuck" 10 "Stop that!" 11 "Your vest looks stupid" 100 101 110'
-  )
-); // 6
-console.log(
-  chuckPushUps(
-    '1000 "Did you kick someone in the face today?" 1001 1010 "Will I be making dinner then?!" 1011 110'
-  )
-); // 11
-console.log(
-  chuckPushUps(
-    '10000 "Nice Beard" 1111 "Are you wearing denim shorts?" 1110 1101'
-  )
-); // 16
-console.log(chuckPushUps('')); // 'FAIL!!'
-console.log(chuckPushUps([])); // 'FAIL!!'
-console.log(chuckPushUps(1)); // 'FAIL!!'
-console.log(chuckPushUps('1000 1001 1010 1011 110')); // 11
-console.log(
-  chuckPushUps(
-    'clean house, stop being such a badass, cook dinner, buy some sleeves for that stupid denim vest!'
-  )
-); // 'CHUCK SMASH!!'
+console.log(findAdded('44554466', '447554466')); // '7'
+console.log(findAdded('9876521', '9876543211')); // '134'
+console.log(findAdded('4455446', '447555446666')); // '56667'
+console.log(findAdded('678', '876')); // ''
+console.log(findAdded('678', '6')); // ''

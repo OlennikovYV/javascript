@@ -1,6 +1,6 @@
 mocha.setup('bdd');
 
-const nameTask = `Find Added`;
+const nameTask = `Loose Change`;
 
 describe(nameTask, function () {
   const equal = chai.assert.equal;
@@ -26,30 +26,43 @@ describe(nameTask, function () {
   const includeDeepOrderedMembers = chai.assert.includeDeepOrderedMembers;
 
   it('Tests', () => {
-    strictEqual(
-      findAdded('44554466', '447554466'),
-      '7',
-      "Expected  '7', got " + findAdded('44554466', '447554466')
+    deepEqual(looseChange(56), {
+      Nickels: 1,
+      Pennies: 1,
+      Dimes: 0,
+      Quarters: 2,
+    });
+    deepEqual(looseChange(100), {
+      Nickels: 0,
+      Pennies: 0,
+      Dimes: 0,
+      Quarters: 4,
+    });
+    deepEqual(looseChange(0), {
+      Nickels: 0,
+      Pennies: 0,
+      Dimes: 0,
+      Quarters: 0,
+    });
+    deepEqual(
+      looseChange(-3),
+      {
+        Nickels: 0,
+        Pennies: 0,
+        Dimes: 0,
+        Quarters: 0,
+      },
+      'no looseChange for -3 cents'
     );
-    strictEqual(
-      findAdded('9876521', '9876543211'),
-      '134',
-      "Expected  '134', got " + findAdded('9876521', '447554466')
-    );
-    strictEqual(
-      findAdded('4455446', '447555446666'),
-      '56667',
-      "Expected  '56667', got " + findAdded('4455446', '447555446666')
-    );
-    strictEqual(
-      findAdded('678', '876'),
-      '',
-      "Expected  '', got " + findAdded('678', '876')
-    );
-    strictEqual(
-      findAdded('678', '6'),
-      '',
-      "Expected  '', got " + findAdded('678', '6')
+    deepEqual(
+      looseChange(7.9),
+      {
+        Nickels: 1,
+        Pennies: 2,
+        Dimes: 0,
+        Quarters: 0,
+      },
+      '7.9 cents should be rounded down to 7'
     );
   });
 });

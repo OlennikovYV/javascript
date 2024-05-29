@@ -1,6 +1,6 @@
 mocha.setup('bdd');
 
-const nameTask = `Loose Change`;
+const nameTask = `esreveR gnirtS`;
 
 describe(nameTask, function () {
   const equal = chai.assert.equal;
@@ -25,45 +25,9 @@ describe(nameTask, function () {
     Например: [{b:1},{a:2}] === [{b:1},{a:2}] */
   const includeDeepOrderedMembers = chai.assert.includeDeepOrderedMembers;
 
-  it('Tests', () => {
-    deepEqual(looseChange(56), {
-      Nickels: 1,
-      Pennies: 1,
-      Dimes: 0,
-      Quarters: 2,
-    });
-    deepEqual(looseChange(100), {
-      Nickels: 0,
-      Pennies: 0,
-      Dimes: 0,
-      Quarters: 4,
-    });
-    deepEqual(looseChange(0), {
-      Nickels: 0,
-      Pennies: 0,
-      Dimes: 0,
-      Quarters: 0,
-    });
-    deepEqual(
-      looseChange(-3),
-      {
-        Nickels: 0,
-        Pennies: 0,
-        Dimes: 0,
-        Quarters: 0,
-      },
-      'no looseChange for -3 cents'
-    );
-    deepEqual(
-      looseChange(7.9),
-      {
-        Nickels: 1,
-        Pennies: 2,
-        Dimes: 0,
-        Quarters: 0,
-      },
-      '7.9 cents should be rounded down to 7'
-    );
+  it('should return the reversed string', function () {
+    strictEqual('String'.reverse(), 'gnirtS');
+    strictEqual('Another string'.reverse(), 'gnirts rehtonA');
   });
 });
 

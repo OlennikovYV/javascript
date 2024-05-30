@@ -1,6 +1,6 @@
 mocha.setup('bdd');
 
-const nameTask = `esreveR gnirtS`;
+const nameTask = `"this" is an other problem`;
 
 describe(nameTask, function () {
   const equal = chai.assert.equal;
@@ -25,9 +25,36 @@ describe(nameTask, function () {
     Например: [{b:1},{a:2}] === [{b:1},{a:2}] */
   const includeDeepOrderedMembers = chai.assert.includeDeepOrderedMembers;
 
-  it('should return the reversed string', function () {
-    strictEqual('String'.reverse(), 'gnirtS');
-    strictEqual('Another string'.reverse(), 'gnirts rehtonA');
+  let n;
+
+  beforeEach(async function () {
+    n = new NamedOne('John', 'Doe');
+  });
+
+  it('1. create a NamedOne', function () {
+    strictEqual(n.firstName, 'John', 'Wrong first name');
+    strictEqual(n.lastName, 'Doe', 'Wrong last name');
+    strictEqual(n.fullName, 'John Doe', 'Wrong full name');
+  });
+
+  it('2. change firstName', function () {
+    n.firstName = 'Jane';
+    strictEqual(n.firstName, 'Jane', 'Wrong first name');
+    strictEqual(n.fullName, 'Jane Doe', 'Wrong full name');
+  });
+
+  it('3. change lastName', function () {
+    n.firstName = 'Jane';
+    n.lastName = 'Smith'; // -> n.name = "Jane Smith"
+    strictEqual(n.lastName, 'Smith', 'Wrong last name');
+    strictEqual(n.fullName, 'Jane Smith', 'Wrong full name');
+  });
+
+  it('4. change fullName', function () {
+    n.fullName = 'Juan Herrero';
+    strictEqual(n.fullName, 'Juan Herrero', 'Wrong full name');
+    strictEqual(n.lastName, 'Herrero', 'Wrong last name');
+    strictEqual(n.firstName, 'Juan', 'Wrong first name');
   });
 });
 

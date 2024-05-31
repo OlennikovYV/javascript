@@ -1,41 +1,19 @@
-function NamedOne(first, last) {
-  this.firstName = first;
-  this.lastName = last;
+function singleDigit(n) {
+  const convert = number => number.toString(2).replace(/0/g, '').length;
 
-  Object.defineProperty(this, 'fullName', {
-    get() {
-      return `${this.firstName} ${this.lastName}`;
-    },
+  if (n < 10) return n;
 
-    set(value) {
-      if (/[a-z] [a-z]/gi.test(value))
-        [this.firstName, this.lastName] = value.split(' ');
-    },
-  });
+  while (((n = convert(n)), n > 9)) {}
+
+  return n;
 }
 
-let n;
-
-n = new NamedOne('John', 'Doe');
-
-// '1. create a NamedOne'
-console.log(n.firstName); // 'John'
-console.log(n.lastName); // 'Doe'
-console.log(n.fullName); // 'John Doe'
-
-// '2. change firstName'
-n.firstName = 'Jane';
-console.log(n.firstName); // 'Jane'
-console.log(n.fullName); // 'Jane Doe'
-
-// '3. change lastName'
-n.firstName = 'Jane';
-n.lastName = 'Smith'; // -> n.name = "Jane Smith"
-console.log(n.lastName); // 'Smith'
-console.log(n.fullName); // 'Jane Smith'
-
-// '4. change fullName'
-n.fullName = 'Juan Herrero';
-console.log(n.fullName); // 'Juan Herrero'
-console.log(n.lastName); // 'Herrero'
-console.log(n.firstName); // 'Juan'
+console.log(singleDigit(5)); // 5
+console.log(singleDigit(999)); // 8
+console.log(singleDigit(1234444123)); // 1
+console.log(singleDigit(443566)); // 2
+console.log(singleDigit(565656565)); // 3
+console.log(singleDigit(4868872)); // 8
+console.log(singleDigit(234234235)); // 2
+console.log(singleDigit(567448)); // 7
+console.log(singleDigit(1000000000)); // 3

@@ -1,9 +1,7 @@
 function singleDigit(n) {
-  const convert = number => number.toString(2).replace(/0/g, '').length;
-
-  if (n < 10) return n;
-
-  while (((n = convert(n)), n > 9)) {}
+  while (n > 9) {
+    n = n.toString(2).replace(/0/g, '').length;
+  }
 
   return n;
 }

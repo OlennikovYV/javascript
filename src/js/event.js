@@ -1,5 +1,5 @@
 function testit(a, b) {
-  return [...new Set(a)].concat([...new Set(b)]).sort((a, b) => a - b);
+  return [...new Set(a), ...new Set(b)].sort((a, b) => a - b);
 }
 
 console.log(testit([0], [1])); // [0, 1]

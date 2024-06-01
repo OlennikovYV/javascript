@@ -1,6 +1,6 @@
 mocha.setup('bdd');
 
-const nameTask = `Single digit`;
+const nameTask = `Thinking & Testing : Uniq or not Uniq`;
 
 describe(nameTask, function () {
   const equal = chai.assert.equal;
@@ -25,16 +25,12 @@ describe(nameTask, function () {
     Например: [{b:1},{a:2}] === [{b:1},{a:2}] */
   const includeDeepOrderedMembers = chai.assert.includeDeepOrderedMembers;
 
-  it('Should return a single digit integer', () => {
-    strictEqual(singleDigit(5), 5);
-    strictEqual(singleDigit(999), 8);
-    strictEqual(singleDigit(1234444123), 1);
-    strictEqual(singleDigit(443566), 2);
-    strictEqual(singleDigit(565656565), 3);
-    strictEqual(singleDigit(4868872), 8);
-    strictEqual(singleDigit(234234235), 2);
-    strictEqual(singleDigit(567448), 7);
-    strictEqual(singleDigit(1000000000), 3);
+  it('Test case', () => {
+    deepEqual(testit([0], [1]), [0, 1], '');
+    deepEqual(testit([1, 2], [3, 4]), [1, 2, 3, 4], '');
+    deepEqual(testit([1], [2, 3, 4]), [1, 2, 3, 4], '');
+    deepEqual(testit([1, 2, 3], [4]), [1, 2, 3, 4], '');
+    deepEqual(testit([1, 2], [1, 2]), [1, 1, 2, 2], '');
   });
 });
 

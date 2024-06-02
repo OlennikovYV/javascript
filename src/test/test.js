@@ -1,6 +1,6 @@
 mocha.setup('bdd');
 
-const nameTask = `Thinking & Testing : Uniq or not Uniq`;
+const nameTask = `Adjacent repeated words in a string`;
 
 describe(nameTask, function () {
   const equal = chai.assert.equal;
@@ -25,12 +25,30 @@ describe(nameTask, function () {
     Например: [{b:1},{a:2}] === [{b:1},{a:2}] */
   const includeDeepOrderedMembers = chai.assert.includeDeepOrderedMembers;
 
-  it('Test case', () => {
-    deepEqual(testit([0], [1]), [0, 1], '');
-    deepEqual(testit([1, 2], [3, 4]), [1, 2, 3, 4], '');
-    deepEqual(testit([1], [2, 3, 4]), [1, 2, 3, 4], '');
-    deepEqual(testit([1, 2, 3], [4]), [1, 2, 3, 4], '');
-    deepEqual(testit([1, 2], [1, 2]), [1, 1, 2, 2], '');
+  it('test', () => {
+    equal(countAdjacentPairs(''), 0, 'An empty string should return 0.');
+    equal(
+      countAdjacentPairs('orange Orange kiwi pineapple apple'),
+      1,
+      "Case should be ignored. countAdjacentPairs('orange Orange kiwi pineapple apple')"
+    );
+    equal(
+      countAdjacentPairs('banana banana banana'),
+      1,
+      "Once a word has been paired, it is ignored. countAdjacentPairs('banana banana banana')"
+    );
+    equal(
+      countAdjacentPairs(
+        'banana banana banana terracotta banana terracotta terracotta pie!'
+      ),
+      2,
+      "Once a word has been paired, it is ignored. Grab all pairs. countAdjacentPairs('banana banana banana terracotta banana terracotta terracotta pie!')"
+    );
+    equal(
+      countAdjacentPairs('pineapple apple'),
+      0,
+      "A pineapple is not an apple. countAdjacentPairs('pineapple apple')"
+    );
   });
 });
 

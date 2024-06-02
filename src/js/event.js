@@ -1,25 +1,5 @@
 function countAdjacentPairs(searchString) {
-  let countPairs = 0;
-  let countsDuplicate = 0;
-  let currentDuplicate = '';
-  const words = searchString.match(/(\b\w+\b)/g) || [];
-
-  for (let i = 0; i < words.length; i++) {
-    let a = words[i].toLowerCase();
-    if (a == currentDuplicate) {
-      countsDuplicate++;
-    } else {
-      currentDuplicate = a;
-      if (countsDuplicate > 0) {
-        countsDuplicate = 0;
-        countPairs++;
-      }
-    }
-  }
-
-  if (countsDuplicate > 0) countPairs++;
-
-  return countPairs;
+  return (searchString.match(/(\b\w+\s*\b)\1+/gi) || []).length;
 }
 
 console.log(countAdjacentPairs('')); // 0

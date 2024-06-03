@@ -1,6 +1,6 @@
 mocha.setup('bdd');
 
-const nameTask = `Adjacent repeated words in a string`;
+const nameTask = `Making Change`;
 
 describe(nameTask, function () {
   const equal = chai.assert.equal;
@@ -25,30 +25,17 @@ describe(nameTask, function () {
     Например: [{b:1},{a:2}] === [{b:1},{a:2}] */
   const includeDeepOrderedMembers = chai.assert.includeDeepOrderedMembers;
 
-  it('test', () => {
-    equal(countAdjacentPairs(''), 0, 'An empty string should return 0.');
-    equal(
-      countAdjacentPairs('orange Orange kiwi pineapple apple'),
-      1,
-      "Case should be ignored. countAdjacentPairs('orange Orange kiwi pineapple apple')"
-    );
-    equal(
-      countAdjacentPairs('banana banana banana'),
-      1,
-      "Once a word has been paired, it is ignored. countAdjacentPairs('banana banana banana')"
-    );
-    equal(
-      countAdjacentPairs(
-        'banana banana banana terracotta banana terracotta terracotta pie!'
-      ),
-      2,
-      "Once a word has been paired, it is ignored. Grab all pairs. countAdjacentPairs('banana banana banana terracotta banana terracotta terracotta pie!')"
-    );
-    equal(
-      countAdjacentPairs('pineapple apple'),
-      0,
-      "A pineapple is not an apple. countAdjacentPairs('pineapple apple')"
-    );
+  const solutions = {
+    43: { Q: 1, D: 1, N: 1, P: 3 },
+    91: { H: 1, Q: 1, D: 1, N: 1, P: 1 },
+  };
+
+  it('should make correct change', function () {
+    for (const key in solutions) {
+      const answer = makeChange(key);
+      for (const a in answer) deepEqual(answer[a], solutions[key][a]);
+      for (const b in solutions[key]) deepEqual(answer[b], solutions[key][b]);
+    }
   });
 });
 

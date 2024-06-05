@@ -1,37 +1,118 @@
-function avgArray(arr) {
-  const lengthArrays = arr.length;
-  const lengthArray = arr[0].length;
-  const averageArray = Array.from({ length: lengthArray }, el => 0);
+function splitShoesLeftRight(list) {
+  const leftShoes = [];
+  const rightShoes = [];
 
-  for (let i = 0; i < lengthArrays; i++) {
-    for (let j = 0; j < lengthArray; j++) {
-      averageArray[j] += arr[i][j];
-    }
-  }
+  list.forEach(shoe => {
+    if (shoe[0] == 0) leftShoes.push(shoe[1]);
+    if (shoe[0] == 1) rightShoes.push(shoe[1]);
+  });
 
-  return averageArray.map(el => el / lengthArrays);
+  return [leftShoes, rightShoes];
 }
 
-console.log(
-  avgArray([
-    [1, 2, 3, 4],
-    [5, 6, 7, 8],
-  ])
+function pairOfShoes(shoes) {
+  let countShoe = shoes.length;
+  let leftShoes, rightShoes;
+
+  if (countShoe % 2 == 1 || countShoe < 1) return false;
+
+  [leftShoes, rightShoes] = splitShoesLeftRight(shoes);
+
+  if (leftShoes.length !== rightShoes.length) return false;
+
+  leftShoes.sort((a, b) => a - b);
+  rightShoes.sort((a, b) => a - b);
+
+  return leftShoes.every((size, index) => size == rightShoes[index]);
+}
+
+function doTest(shoes, expected) {
+  const log = `for shoes: ${JSON.stringify(shoes)}`;
+  const actual = pairOfShoes(shoes);
+
+  console.log(String(actual === expected) + ' ' + log);
+}
+
+doTest(
+  [
+    [0, 20],
+    [0, 21],
+    [1, 19],
+    [1, 22],
+  ],
+  false
 );
-// [3, 4, 5, 6]
-console.log(
-  avgArray([
-    [2, 3, 9, 10, 7],
-    [12, 6, 89, 45, 3],
-    [9, 12, 56, 10, 34],
-    [67, 23, 1, 88, 34],
-  ])
+doTest(
+  [
+    [0, 21],
+    [1, 23],
+    [1, 21],
+    [0, 23],
+  ],
+  true
 );
-// [22.5, 11, 38.75, 38.25, 19.5]
-console.log(
-  avgArray([
-    [1.2, 8.521, 0.4, 3.14, 1.9],
-    [2, 4.5, 3.75, 0.987, 1.0],
-  ])
+doTest(
+  [
+    [0, 23],
+    [1, 23],
+    [1, 23],
+    [0, 23],
+    [0, 23],
+    [0, 23],
+  ],
+  false
 );
-// [1.6, 6.5105, 2.075, 2.0635, 1.45]
+doTest(
+  [
+    [0, 21],
+    [1, 23],
+    [1, 21],
+    [1, 23],
+  ],
+  false
+);
+doTest(
+  [
+    [0, 23],
+    [1, 21],
+    [1, 23],
+    [0, 21],
+    [1, 22],
+    [0, 22],
+  ],
+  true
+);
+doTest(
+  [
+    [0, 23],
+    [1, 21],
+    [1, 23],
+    [0, 21],
+  ],
+  true
+);
+doTest(
+  [
+    [0, 23],
+    [1, 21],
+    [1, 23],
+    [0, 21],
+  ],
+  true
+);
+doTest([[0, 23]], false);
+doTest(
+  [
+    [0, 23],
+    [1, 23],
+  ],
+  true
+);
+doTest(
+  [
+    [0, 23],
+    [1, 22],
+  ],
+  false
+);
+doTest([[0, 23]], false);

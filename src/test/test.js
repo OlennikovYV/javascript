@@ -1,6 +1,6 @@
 mocha.setup('bdd');
 
-const nameTask = `Average Array`;
+const nameTask = `Simple Fun #52: Pair Of Shoes`;
 
 describe(nameTask, function () {
   const equal = chai.assert.equal;
@@ -25,30 +25,97 @@ describe(nameTask, function () {
     Например: [{b:1},{a:2}] === [{b:1},{a:2}] */
   const includeDeepOrderedMembers = chai.assert.includeDeepOrderedMembers;
 
-  it('should work for the examples provided in the Description', function () {
-    deepEqual(
-      avgArray([
-        [1, 2, 3, 4],
-        [5, 6, 7, 8],
-      ]),
-      [3, 4, 5, 6]
+  function doTest(shoes, expected) {
+    const log = `for shoes: ${JSON.stringify(shoes)}\n`;
+    const actual = pairOfShoes(shoes);
+
+    strictEqual(actual, expected, log);
+  }
+
+  it('It should work for basic tests.', function () {
+    doTest(
+      [
+        [0, 20],
+        [0, 21],
+        [1, 19],
+        [1, 22],
+      ],
+      false
     );
-    deepEqual(
-      avgArray([
-        [2, 3, 9, 10, 7],
-        [12, 6, 89, 45, 3],
-        [9, 12, 56, 10, 34],
-        [67, 23, 1, 88, 34],
-      ]),
-      [22.5, 11, 38.75, 38.25, 19.5]
+    doTest(
+      [
+        [0, 21],
+        [1, 23],
+        [1, 21],
+        [0, 23],
+      ],
+      true
     );
-    deepEqual(
-      avgArray([
-        [1.2, 8.521, 0.4, 3.14, 1.9],
-        [2, 4.5, 3.75, 0.987, 1.0],
-      ]),
-      [1.6, 6.5105, 2.075, 2.0635, 1.45]
+    doTest(
+      [
+        [0, 23],
+        [1, 23],
+        [1, 23],
+        [0, 23],
+        [0, 23],
+        [0, 23],
+      ],
+      false
     );
+    doTest(
+      [
+        [0, 21],
+        [1, 23],
+        [1, 21],
+        [1, 23],
+      ],
+      false
+    );
+    doTest(
+      [
+        [0, 23],
+        [1, 21],
+        [1, 23],
+        [0, 21],
+        [1, 22],
+        [0, 22],
+      ],
+      true
+    );
+    doTest(
+      [
+        [0, 23],
+        [1, 21],
+        [1, 23],
+        [0, 21],
+      ],
+      true
+    );
+    doTest(
+      [
+        [0, 23],
+        [1, 21],
+        [1, 23],
+        [0, 21],
+      ],
+      true
+    );
+    doTest([[0, 23]], false);
+    doTest(
+      [
+        [0, 23],
+        [1, 23],
+      ],
+      true
+    );
+    doTest(
+      [
+        [0, 23],
+        [1, 22],
+      ],
+      false
+    );
+    doTest([[0, 23]], false);
   });
 });
 

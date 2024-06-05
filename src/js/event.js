@@ -1,29 +1,11 @@
-function splitShoesLeftRight(list) {
-  const leftShoes = [];
-  const rightShoes = [];
-
-  list.forEach(shoe => {
-    if (shoe[0] == 0) leftShoes.push(shoe[1]);
-    if (shoe[0] == 1) rightShoes.push(shoe[1]);
-  });
-
-  return [leftShoes, rightShoes];
-}
-
 function pairOfShoes(shoes) {
-  let countShoe = shoes.length;
-  let leftShoes, rightShoes;
+  const serialize = arr => arr.sort().join();
 
-  if (countShoe % 2 == 1 || countShoe < 1) return false;
-
-  [leftShoes, rightShoes] = splitShoesLeftRight(shoes);
-
-  if (leftShoes.length !== rightShoes.length) return false;
-
-  leftShoes.sort((a, b) => a - b);
-  rightShoes.sort((a, b) => a - b);
-
-  return leftShoes.every((size, index) => size == rightShoes[index]);
+  const pairs = shoes.reduce(
+    (listSides, [side, size]) => (listSides[side].push(size), listSides),
+    [[], []]
+  );
+  return serialize(pairs[0]) === serialize(pairs[1]);
 }
 
 function doTest(shoes, expected) {

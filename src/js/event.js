@@ -5,9 +5,9 @@ function trianglePerimeter(triangle) {
   const lengthSide2 = lengthSide(triangle.b, triangle.c);
   const lengthSide3 = lengthSide(triangle.c, triangle.a);
 
-  const Perimeter = (lengthSide1 + lengthSide2 + lengthSide3).toFixed(6);
+  const Perimeter = lengthSide1 + lengthSide2 + lengthSide3;
 
-  return Number(Perimeter);
+  return Perimeter;
 }
 
 class Point {
@@ -28,12 +28,12 @@ class Triangle {
 console.log(
   +trianglePerimeter(
     new Triangle(new Point(10, 10), new Point(40, 10), new Point(10, 50))
-  )
+  ).toFixed(6)
 );
 // 120
 console.log(
   +trianglePerimeter(
     new Triangle(new Point(15, -10), new Point(40, 20), new Point(20, 50))
-  )
+  ).toFixed(6)
 );
 // 135.314734

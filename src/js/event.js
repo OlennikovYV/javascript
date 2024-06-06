@@ -1,11 +1,8 @@
+const lengthSide = (a, b) => Math.sqrt((a.x - b.x) ** 2 + (a.y - b.y) ** 2);
+
 function trianglePerimeter(triangle) {
-  const lengthSide = (a, b) => Math.sqrt((a.x - b.x) ** 2 + (a.y - b.y) ** 2);
-
-  const lengthSide1 = lengthSide(triangle.a, triangle.b);
-  const lengthSide2 = lengthSide(triangle.b, triangle.c);
-  const lengthSide3 = lengthSide(triangle.c, triangle.a);
-
-  const Perimeter = lengthSide1 + lengthSide2 + lengthSide3;
+  const { a, b, c } = triangle;
+  const Perimeter = lengthSide(a, b) + lengthSide(b, c) + lengthSide(c, a);
 
   return Perimeter;
 }

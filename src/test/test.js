@@ -1,6 +1,6 @@
 mocha.setup('bdd');
 
-const nameTask = `Simple Fun #52: Pair Of Shoes`;
+const nameTask = `Geometry Basics: Triangle Perimeter in 2D`;
 
 describe(nameTask, function () {
   const equal = chai.assert.equal;
@@ -25,97 +25,19 @@ describe(nameTask, function () {
     Например: [{b:1},{a:2}] === [{b:1},{a:2}] */
   const includeDeepOrderedMembers = chai.assert.includeDeepOrderedMembers;
 
-  function doTest(shoes, expected) {
-    const log = `for shoes: ${JSON.stringify(shoes)}\n`;
-    const actual = pairOfShoes(shoes);
-
-    strictEqual(actual, expected, log);
-  }
-
-  it('It should work for basic tests.', function () {
-    doTest(
-      [
-        [0, 20],
-        [0, 21],
-        [1, 19],
-        [1, 22],
-      ],
-      false
+  it('test', () => {
+    equal(
+      +trianglePerimeter(
+        new Triangle(new Point(10, 10), new Point(40, 10), new Point(10, 50))
+      ).toFixed(6),
+      120
     );
-    doTest(
-      [
-        [0, 21],
-        [1, 23],
-        [1, 21],
-        [0, 23],
-      ],
-      true
+    equal(
+      +trianglePerimeter(
+        new Triangle(new Point(15, -10), new Point(40, 20), new Point(20, 50))
+      ).toFixed(6),
+      135.314734
     );
-    doTest(
-      [
-        [0, 23],
-        [1, 23],
-        [1, 23],
-        [0, 23],
-        [0, 23],
-        [0, 23],
-      ],
-      false
-    );
-    doTest(
-      [
-        [0, 21],
-        [1, 23],
-        [1, 21],
-        [1, 23],
-      ],
-      false
-    );
-    doTest(
-      [
-        [0, 23],
-        [1, 21],
-        [1, 23],
-        [0, 21],
-        [1, 22],
-        [0, 22],
-      ],
-      true
-    );
-    doTest(
-      [
-        [0, 23],
-        [1, 21],
-        [1, 23],
-        [0, 21],
-      ],
-      true
-    );
-    doTest(
-      [
-        [0, 23],
-        [1, 21],
-        [1, 23],
-        [0, 21],
-      ],
-      true
-    );
-    doTest([[0, 23]], false);
-    doTest(
-      [
-        [0, 23],
-        [1, 23],
-      ],
-      true
-    );
-    doTest(
-      [
-        [0, 23],
-        [1, 22],
-      ],
-      false
-    );
-    doTest([[0, 23]], false);
   });
 });
 

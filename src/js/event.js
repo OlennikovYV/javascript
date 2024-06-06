@@ -1,100 +1,39 @@
-function pairOfShoes(shoes) {
-  const serialize = arr => arr.sort().join();
+function trianglePerimeter(triangle) {
+  const lengthSide = (a, b) => Math.sqrt((a.x - b.x) ** 2 + (a.y - b.y) ** 2);
 
-  const pairs = shoes.reduce(
-    (listSides, [side, size]) => (listSides[side].push(size), listSides),
-    [[], []]
-  );
-  return serialize(pairs[0]) === serialize(pairs[1]);
+  const lengthSide1 = lengthSide(triangle.a, triangle.b);
+  const lengthSide2 = lengthSide(triangle.b, triangle.c);
+  const lengthSide3 = lengthSide(triangle.c, triangle.a);
+
+  const Perimeter = (lengthSide1 + lengthSide2 + lengthSide3).toFixed(6);
+
+  return Number(Perimeter);
 }
 
-function doTest(shoes, expected) {
-  const log = `for shoes: ${JSON.stringify(shoes)}`;
-  const actual = pairOfShoes(shoes);
-
-  console.log(String(actual === expected) + ' ' + log);
+class Point {
+  constructor(x = 0, y = 0) {
+    this.x = x;
+    this.y = y;
+  }
 }
 
-doTest(
-  [
-    [0, 20],
-    [0, 21],
-    [1, 19],
-    [1, 22],
-  ],
-  false
+class Triangle {
+  constructor(a, b, c) {
+    this.a = a;
+    this.b = b;
+    this.c = c;
+  }
+}
+
+console.log(
+  +trianglePerimeter(
+    new Triangle(new Point(10, 10), new Point(40, 10), new Point(10, 50))
+  )
 );
-doTest(
-  [
-    [0, 21],
-    [1, 23],
-    [1, 21],
-    [0, 23],
-  ],
-  true
+// 120
+console.log(
+  +trianglePerimeter(
+    new Triangle(new Point(15, -10), new Point(40, 20), new Point(20, 50))
+  )
 );
-doTest(
-  [
-    [0, 23],
-    [1, 23],
-    [1, 23],
-    [0, 23],
-    [0, 23],
-    [0, 23],
-  ],
-  false
-);
-doTest(
-  [
-    [0, 21],
-    [1, 23],
-    [1, 21],
-    [1, 23],
-  ],
-  false
-);
-doTest(
-  [
-    [0, 23],
-    [1, 21],
-    [1, 23],
-    [0, 21],
-    [1, 22],
-    [0, 22],
-  ],
-  true
-);
-doTest(
-  [
-    [0, 23],
-    [1, 21],
-    [1, 23],
-    [0, 21],
-  ],
-  true
-);
-doTest(
-  [
-    [0, 23],
-    [1, 21],
-    [1, 23],
-    [0, 21],
-  ],
-  true
-);
-doTest([[0, 23]], false);
-doTest(
-  [
-    [0, 23],
-    [1, 23],
-  ],
-  true
-);
-doTest(
-  [
-    [0, 23],
-    [1, 22],
-  ],
-  false
-);
-doTest([[0, 23]], false);
+// 135.314734

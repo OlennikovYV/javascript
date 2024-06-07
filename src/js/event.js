@@ -1,36 +1,32 @@
-const lengthSide = (a, b) => Math.sqrt((a.x - b.x) ** 2 + (a.y - b.y) ** 2);
+function bitsBattle(numbers) {
+  let odds = numbers.filter(num => num !== 0 && num % 2 === 1);
+  let evens = numbers.filter(num => num !== 0 && num % 2 === 0);
 
-function trianglePerimeter(triangle) {
-  const { a, b, c } = triangle;
-  const Perimeter = lengthSide(a, b) + lengthSide(b, c) + lengthSide(c, a);
+  const decToBin = dec => dec.toString(2);
+  const counts = (binStr, numStr) =>
+    [...binStr].filter(num => num === numStr).length;
+  const countsBit = (list, bitStr) =>
+    list
+      .map(decToBin)
+      .map(num => counts(num, bitStr))
+      .reduce((sum, count) => sum + count, 0);
 
-  return Perimeter;
+  const oddsCounts = countsBit(odds, '1');
+  const evensCounts = countsBit(evens, '0');
+
+  if (oddsCounts == evensCounts) return 'tie';
+
+  return oddsCounts > evensCounts ? 'odds win' : 'evens win';
 }
 
-class Point {
-  constructor(x = 0, y = 0) {
-    this.x = x;
-    this.y = y;
-  }
+function doTest(array, expected) {
+  const actual = bitsBattle(array);
+  console.log(`for [${array}] expected '${expected}' got '${actual}'`);
 }
 
-class Triangle {
-  constructor(a, b, c) {
-    this.a = a;
-    this.b = b;
-    this.c = c;
-  }
-}
-
-console.log(
-  +trianglePerimeter(
-    new Triangle(new Point(10, 10), new Point(40, 10), new Point(10, 50))
-  ).toFixed(6)
-);
-// 120
-console.log(
-  +trianglePerimeter(
-    new Triangle(new Point(15, -10), new Point(40, 20), new Point(20, 50))
-  ).toFixed(6)
-);
-// 135.314734
+doTest([5, 3, 14], 'odds win');
+doTest([3, 8, 22, 15, 78], 'evens win');
+doTest([], 'tie');
+doTest([1, 13, 16], 'tie');
+doTest([0], 'tie');
+doTest([0, 1, 2], 'tie');

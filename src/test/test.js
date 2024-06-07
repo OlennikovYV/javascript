@@ -1,6 +1,6 @@
 mocha.setup('bdd');
 
-const nameTask = `Geometry Basics: Triangle Perimeter in 2D`;
+const nameTask = `Bits Battle`;
 
 describe(nameTask, function () {
   const equal = chai.assert.equal;
@@ -25,19 +25,22 @@ describe(nameTask, function () {
     Например: [{b:1},{a:2}] === [{b:1},{a:2}] */
   const includeDeepOrderedMembers = chai.assert.includeDeepOrderedMembers;
 
-  it('test', () => {
+  function doTest(array, expected) {
+    const actual = bitsBattle(array);
     equal(
-      +trianglePerimeter(
-        new Triangle(new Point(10, 10), new Point(40, 10), new Point(10, 50))
-      ).toFixed(6),
-      120
+      actual,
+      expected,
+      `for [${array}] expected '${expected}' but got '${actual}'`
     );
-    equal(
-      +trianglePerimeter(
-        new Triangle(new Point(15, -10), new Point(40, 20), new Point(20, 50))
-      ).toFixed(6),
-      135.314734
-    );
+  }
+
+  it('Basic tests', function () {
+    doTest([5, 3, 14], 'odds win');
+    doTest([3, 8, 22, 15, 78], 'evens win');
+    doTest([], 'tie');
+    doTest([1, 13, 16], 'tie');
+    doTest([0], 'tie');
+    doTest([0, 1, 2], 'tie');
   });
 });
 

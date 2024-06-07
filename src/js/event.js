@@ -1,22 +1,14 @@
+const countBits = (num, val) => num.toString('2').split(val).length - 1;
+
 function bitsBattle(numbers) {
-  let odds = numbers.filter(num => num !== 0 && num % 2 === 1);
-  let evens = numbers.filter(num => num !== 0 && num % 2 === 0);
+  let countsBits = [0, 0];
 
-  const decToBin = dec => dec.toString(2);
-  const counts = (binStr, numStr) =>
-    [...binStr].filter(num => num === numStr).length;
-  const countsBit = (list, bitStr) =>
-    list
-      .map(decToBin)
-      .map(num => counts(num, bitStr))
-      .reduce((sum, count) => sum + count, 0);
+  for (let num of numbers)
+    if (num) countsBits[num % 2] += countBits(num, num % 2);
 
-  const oddsCounts = countsBit(odds, '1');
-  const evensCounts = countsBit(evens, '0');
+  let diff = countsBits[0] - countsBits[1];
 
-  if (oddsCounts == evensCounts) return 'tie';
-
-  return oddsCounts > evensCounts ? 'odds win' : 'evens win';
+  return diff > 0 ? 'evens win' : diff < 0 ? 'odds win' : 'tie';
 }
 
 function doTest(array, expected) {

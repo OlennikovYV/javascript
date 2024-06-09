@@ -1,6 +1,6 @@
 mocha.setup('bdd');
 
-const nameTask = `Debug the functions EASY`;
+const nameTask = `Matrix Transpose`;
 
 describe(nameTask, function () {
   const equal = chai.assert.equal;
@@ -26,9 +26,18 @@ describe(nameTask, function () {
   const includeDeepOrderedMembers = chai.assert.includeDeepOrderedMembers;
 
   it('test', () => {
-    equal(multi([5, 1, 5]), 25);
-    equal(add([9, 8, 5]), 22);
-    equal(reverse('abcdefghijklmnop'), 'ponmlkjihgfedcba');
+    deepEqual(transpose([[1]]), [[1]]);
+    deepEqual(
+      transpose([
+        [1, 2, 3],
+        [4, 5, 6],
+      ]),
+      [
+        [1, 4],
+        [2, 5],
+        [3, 6],
+      ]
+    );
   });
 });
 

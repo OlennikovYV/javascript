@@ -1,16 +1,5 @@
 function transpose(matrix) {
-  const lengthX = matrix[0].length;
-  const lengthY = matrix.length;
-  const transposeMatrix = Array.from({ length: lengthX }, el =>
-    Array.from({ length: lengthY }, el => 0)
-  );
-
-  for (let i = 0; i < lengthY; i++)
-    for (let j = 0; j < lengthX; j++) {
-      transposeMatrix[j][i] = matrix[i][j];
-    }
-
-  return transposeMatrix;
+  return matrix[0].map((_, index) => matrix.map(row => row[index]));
 }
 
 console.log(transpose([[1]])); // [[1]]

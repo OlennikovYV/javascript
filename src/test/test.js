@@ -1,6 +1,6 @@
 mocha.setup('bdd');
 
-const nameTask = `Matrix Transpose`;
+const nameTask = `Find the Mine!`;
 
 describe(nameTask, function () {
   const equal = chai.assert.equal;
@@ -26,17 +26,29 @@ describe(nameTask, function () {
   const includeDeepOrderedMembers = chai.assert.includeDeepOrderedMembers;
 
   it('test', () => {
-    deepEqual(transpose([[1]]), [[1]]);
     deepEqual(
-      transpose([
-        [1, 2, 3],
-        [4, 5, 6],
+      mineLocation([
+        [1, 0],
+        [0, 0],
       ]),
-      [
-        [1, 4],
-        [2, 5],
-        [3, 6],
-      ]
+      [0, 0]
+    );
+    deepEqual(
+      mineLocation([
+        [1, 0, 0],
+        [0, 0, 0],
+        [0, 0, 0],
+      ]),
+      [0, 0]
+    );
+    deepEqual(
+      mineLocation([
+        [0, 0, 0, 0],
+        [0, 0, 0, 0],
+        [0, 0, 1, 0],
+        [0, 0, 0, 0],
+      ]),
+      [2, 2]
     );
   });
 });

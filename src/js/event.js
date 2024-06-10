@@ -1,12 +1,31 @@
-function transpose(matrix) {
-  return matrix[0].map((_, index) => matrix.map(row => row[index]));
+function mineLocation(field) {
+  for (let x = 0, lengthX = field[0].length; x < lengthX; x++)
+    for (let y = 0, lengthY = field.length; y < lengthY; y++) {
+      if (field[x][y] == 1) return [x, y];
+    }
 }
 
-console.log(transpose([[1]])); // [[1]]
 console.log(
-  transpose([
-    [1, 2, 3],
-    [4, 5, 6],
+  mineLocation([
+    [1, 0],
+    [0, 0],
   ])
 );
-// [ [1, 4], [2, 5], [3, 6] ]
+// [0, 0]
+console.log(
+  mineLocation([
+    [1, 0, 0],
+    [0, 0, 0],
+    [0, 0, 0],
+  ])
+);
+// [0, 0]
+console.log(
+  mineLocation([
+    [0, 0, 0, 0],
+    [0, 0, 0, 0],
+    [0, 0, 1, 0],
+    [0, 0, 0, 0],
+  ])
+);
+// [2, 2]

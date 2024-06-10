@@ -1,8 +1,8 @@
 function mineLocation(field) {
-  for (let x = 0, lengthX = field[0].length; x < lengthX; x++)
-    for (let y = 0, lengthY = field.length; y < lengthY; y++) {
-      if (field[x][y] == 1) return [x, y];
-    }
+  for (let y = 0, lengthY = field[0].length; y < lengthY; y++) {
+    const findX = field[y].indexOf(1);
+    if (findX != -1) return [findX, y];
+  }
 }
 
 console.log(

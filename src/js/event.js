@@ -1,28 +1,11 @@
+const sumMoney = student =>
+  student.fives * 5 + student.tens * 10 + student.twenties * 20;
+
 function mostMoney(students) {
-  const sumOfMoney = [];
-  const countsMoneyOfStudent = students.map(student => {
-    const sumFives = student.fives * 5;
-    const sumTens = student.tens * 10;
-    const sumTwenties = student.twenties * 20;
-    const sumMoney = sumFives + sumTens + sumTwenties;
-
-    sumOfMoney.push(sumMoney);
-
-    return { name: student.name, sum: sumMoney };
-  });
-  const isEverySumEqual = sumOfMoney.every(sum => sum == sumOfMoney[0]);
-  let studentOfMaxSum = { name: '', sum: 0 };
-
-  if (isEverySumEqual && sumOfMoney.length > 1) return 'all';
-
-  countsMoneyOfStudent.forEach(student => {
-    if (student.sum > studentOfMaxSum.sum) {
-      studentOfMaxSum.name = student.name;
-      studentOfMaxSum.sum = student.sum;
-    }
-  });
-
-  return studentOfMaxSum.name;
+  students.sort((a, b) => sumMoney(b) - sumMoney(a));
+  if (students.length > 1 && sumMoney(students[0]) == sumMoney(students[1]))
+    return 'all';
+  return students[0].name;
 }
 
 class Student {

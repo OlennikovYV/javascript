@@ -1,31 +1,55 @@
-function mineLocation(field) {
-  for (let y = 0, lengthY = field[0].length; y < lengthY; y++) {
-    const findX = field[y].indexOf(1);
-    if (findX != -1) return [findX, y];
+function mostMoney(students) {
+  const sumOfMoney = [];
+  const countsMoneyOfStudent = students.map(student => {
+    const sumFives = student.fives * 5;
+    const sumTens = student.tens * 10;
+    const sumTwenties = student.twenties * 20;
+    const sumMoney = sumFives + sumTens + sumTwenties;
+
+    sumOfMoney.push(sumMoney);
+
+    return { name: student.name, sum: sumMoney };
+  });
+  const isEverySumEqual = sumOfMoney.every(sum => sum == sumOfMoney[0]);
+  let studentOfMaxSum = { name: '', sum: 0 };
+
+  if (isEverySumEqual && sumOfMoney.length > 1) return 'all';
+
+  countsMoneyOfStudent.forEach(student => {
+    if (student.sum > studentOfMaxSum.sum) {
+      studentOfMaxSum.name = student.name;
+      studentOfMaxSum.sum = student.sum;
+    }
+  });
+
+  return studentOfMaxSum.name;
+}
+
+class Student {
+  constructor(name, fives, tens, twenties) {
+    this.name = name;
+    this.fives = fives;
+    this.tens = tens;
+    this.twenties = twenties;
   }
 }
 
-console.log(
-  mineLocation([
-    [1, 0],
-    [0, 0],
-  ])
-);
-// [0, 0]
-console.log(
-  mineLocation([
-    [1, 0, 0],
-    [0, 0, 0],
-    [0, 0, 0],
-  ])
-);
-// [0, 0]
-console.log(
-  mineLocation([
-    [0, 0, 0, 0],
-    [0, 0, 0, 0],
-    [0, 0, 1, 0],
-    [0, 0, 0, 0],
-  ])
-);
-// [2, 2]
+const andy = new Student('Andy', 0, 0, 2);
+const stephen = new Student('Stephen', 0, 4, 0);
+const eric = new Student('Eric', 8, 1, 0);
+const david = new Student('David', 2, 0, 1);
+const phil = new Student('Phil', 0, 2, 1);
+const cam = new Student('Cameron', 2, 2, 0);
+const geoff = new Student('Geoff', 0, 3, 0);
+
+// "What happens if one student has the most money?"
+console.log(mostMoney([andy, stephen, eric, david, phil])); // 'Eric'
+console.log(mostMoney([cam, geoff, andy, stephen, eric, david, phil])); // 'Eric'
+
+// "What happens if there is only one student?"
+console.log(mostMoney([andy])); // 'Andy'
+console.log(mostMoney([stephen])); // 'Stephen'
+
+// "What happens if all students have the same amount of money?"
+console.log(mostMoney([cam, geoff])); // 'all'
+console.log(mostMoney([david, cam, geoff])); // 'all'

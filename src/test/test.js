@@ -1,6 +1,6 @@
 mocha.setup('bdd');
 
-const nameTask = `Find the Mine!`;
+const nameTask = `Who has the most money?`;
 
 describe(nameTask, function () {
   const equal = chai.assert.equal;
@@ -25,31 +25,29 @@ describe(nameTask, function () {
     Например: [{b:1},{a:2}] === [{b:1},{a:2}] */
   const includeDeepOrderedMembers = chai.assert.includeDeepOrderedMembers;
 
-  it('test', () => {
-    deepEqual(
-      mineLocation([
-        [1, 0],
-        [0, 0],
-      ]),
-      [0, 0]
+  it('Basic tests', () => {
+    const andy = new Student('Andy', 0, 0, 2);
+    const stephen = new Student('Stephen', 0, 4, 0);
+    const eric = new Student('Eric', 8, 1, 0);
+    const david = new Student('David', 2, 0, 1);
+    const phil = new Student('Phil', 0, 2, 1);
+    const cam = new Student('Cameron', 2, 2, 0);
+    const geoff = new Student('Geoff', 0, 3, 0);
+
+    // "What happens if one student has the most money?"
+    strictEqual(mostMoney([andy, stephen, eric, david, phil]), 'Eric');
+    strictEqual(
+      mostMoney([cam, geoff, andy, stephen, eric, david, phil]),
+      'Eric'
     );
-    deepEqual(
-      mineLocation([
-        [1, 0, 0],
-        [0, 0, 0],
-        [0, 0, 0],
-      ]),
-      [0, 0]
-    );
-    deepEqual(
-      mineLocation([
-        [0, 0, 0, 0],
-        [0, 0, 0, 0],
-        [0, 0, 1, 0],
-        [0, 0, 0, 0],
-      ]),
-      [2, 2]
-    );
+
+    // "What happens if there is only one student?"
+    strictEqual(mostMoney([andy]), 'Andy');
+    strictEqual(mostMoney([stephen]), 'Stephen');
+
+    // "What happens if all students have the same amount of money?"
+    strictEqual(mostMoney([cam, geoff]), 'all');
+    strictEqual(mostMoney([david, cam, geoff]), 'all');
   });
 });
 

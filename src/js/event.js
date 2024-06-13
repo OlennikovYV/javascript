@@ -1,20 +1,14 @@
 function nextLetter(str) {
-  const lowerA = 97;
-  const upperA = 65;
-
-  return str
-    .split('')
-    .map(char => {
-      const isUpperCase = char === char.toUpperCase();
-      const nextCodeChar = char.charCodeAt(0) + 1;
-
-      if (!/\w/g.test(char)) return char;
-      if (isUpperCase)
-        return String.fromCharCode(((nextCodeChar % upperA) % 26) + upperA);
-
-      return String.fromCharCode(((nextCodeChar % lowerA) % 26) + lowerA);
-    })
-    .join('');
+  return str.replace(/[a-zA-Z]/g, function (c) {
+    switch (c) {
+      case 'z':
+        return 'a';
+      case 'Z':
+        return 'A';
+      default:
+        return String.fromCharCode(c.charCodeAt(0) + 1);
+    }
+  });
 }
 
 console.log(nextLetter('Zz'));

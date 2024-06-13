@@ -1,6 +1,6 @@
 mocha.setup('bdd');
 
-const nameTask = `Count the number of cubes with paint on`;
+const nameTask = `Weird words`;
 
 describe(nameTask, function () {
   const equal = chai.assert.equal;
@@ -25,10 +25,10 @@ describe(nameTask, function () {
     Например: [{b:1},{a:2}] === [{b:1},{a:2}] */
   const includeDeepOrderedMembers = chai.assert.includeDeepOrderedMembers;
 
-  it('Fixed tests', () => {
-    strictEqual(countSquares(5), 152);
-    strictEqual(countSquares(16), 1538);
-    strictEqual(countSquares(23), 3176);
+  it('test', () => {
+    equal(nextLetter('My Name Is Zoo'), 'Nz Obnf Jt App');
+    equal(nextLetter('What is your name'), 'Xibu jt zpvs obnf');
+    equal(nextLetter('zOo'), 'aPp');
   });
 });
 

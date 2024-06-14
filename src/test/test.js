@@ -1,6 +1,6 @@
 mocha.setup('bdd');
 
-const nameTask = `Weird words`;
+const nameTask = `Arguments to Binary addition`;
 
 describe(nameTask, function () {
   const equal = chai.assert.equal;
@@ -12,6 +12,9 @@ describe(nameTask, function () {
   const isNull = chai.assert.isNull;
   const isTrue = chai.assert.isTrue;
   const isFalse = chai.assert.isFalse;
+  /* Утверждает, что объект правдив
+     Например: 'Что-нибудь' === правдив */
+  const isOk = chai.assert.isOk;
   const approximately = chai.assert.approximately;
   const oneOf = chai.assert.oneOf;
   const isNotEmpty = chai.assert.isNotEmpty;
@@ -26,9 +29,18 @@ describe(nameTask, function () {
   const includeDeepOrderedMembers = chai.assert.includeDeepOrderedMembers;
 
   it('test', () => {
-    equal(nextLetter('My Name Is Zoo'), 'Nz Obnf Jt App');
-    equal(nextLetter('What is your name'), 'Xibu jt zpvs obnf');
-    equal(nextLetter('zOo'), 'aPp');
+    let actual = arr2bin([1, 2]);
+    isDefined(actual);
+    strictEqual(actual, '11');
+    strictEqual(arr2bin([1, 2, 3, 4, 5]), '1111');
+    strictEqual(arr2bin([1, 10, 100, 1000]), '10001010111');
+    strictEqual(arr2bin([null]), '0');
+    strictEqual(arr2bin([1, null]), '1');
+    strictEqual(arr2bin([true, true, false, 15]), '1111');
+    strictEqual(arr2bin([NaN]), 'NaN');
+    strictEqual(arr2bin([null, 7, 9, null]), '10000');
+    strictEqual(arr2bin([]), '0');
+    strictEqual(arr2bin([2, 2, null, 1]), '101');
   });
 });
 

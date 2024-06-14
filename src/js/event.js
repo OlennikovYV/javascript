@@ -1,13 +1,6 @@
 function arr2bin(arr) {
   return arr
-    .reduce((sum, el) => {
-      if (Number.isNaN(el)) return NaN;
-      if (Number.isInteger(el)) {
-        sum += el;
-      }
-
-      return sum;
-    }, 0)
+    .reduce((sum, el) => (typeof el == 'number' ? sum + el : sum), 0)
     .toString(2);
 }
 

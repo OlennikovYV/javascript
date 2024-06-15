@@ -1,6 +1,6 @@
 mocha.setup('bdd');
 
-const nameTask = `Arguments to Binary addition`;
+const nameTask = `Find the longest gap!`;
 
 describe(nameTask, function () {
   const equal = chai.assert.equal;
@@ -28,19 +28,11 @@ describe(nameTask, function () {
     Например: [{b:1},{a:2}] === [{b:1},{a:2}] */
   const includeDeepOrderedMembers = chai.assert.includeDeepOrderedMembers;
 
-  it('test', () => {
-    let actual = arr2bin([1, 2]);
-    isDefined(actual);
-    strictEqual(actual, '11');
-    strictEqual(arr2bin([1, 2, 3, 4, 5]), '1111');
-    strictEqual(arr2bin([1, 10, 100, 1000]), '10001010111');
-    strictEqual(arr2bin([null]), '0');
-    strictEqual(arr2bin([1, null]), '1');
-    strictEqual(arr2bin([true, true, false, 15]), '1111');
-    strictEqual(arr2bin([NaN]), 'NaN');
-    strictEqual(arr2bin([null, 7, 9, null]), '10000');
-    strictEqual(arr2bin([]), '0');
-    strictEqual(arr2bin([2, 2, null, 1]), '101');
+  it('Freebies', function () {
+    strictEqual(gap(9), 2, 'gap(9)');
+    strictEqual(gap(529), 4, 'gap(529)');
+    strictEqual(gap(20), 1, 'gap(20)');
+    strictEqual(gap(15), 0, 'gap(15)');
   });
 });
 

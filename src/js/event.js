@@ -1,16 +1,11 @@
-function arr2bin(arr) {
-  return arr
-    .reduce((sum, el) => (typeof el == 'number' ? sum + el : sum), 0)
-    .toString(2);
+function gap(num) {
+  const gaps = num.toString(2).match(/1[0]+(?=1)/g);
+  const maxGaps = gaps ? Math.max(...gaps.map(el => el.length - 1)) : 0;
+
+  return maxGaps;
 }
 
-console.log(arr2bin([1, 2])); // '11'
-console.log(arr2bin([1, 2, 3, 4, 5])); // '1111'
-console.log(arr2bin([1, 10, 100, 1000])); // '10001010111'
-console.log(arr2bin([null])); // '0'
-console.log(arr2bin([1, null])); // '1'
-console.log(arr2bin([true, true, false, 15])); // '1111'
-console.log(arr2bin([NaN])); // 'NaN'
-console.log(arr2bin([null, 7, 9, null])); // '10000'
-console.log(arr2bin([])); // '0'
-console.log(arr2bin([2, 2, null, 1])); // '101'
+console.log(gap(9)); //2
+console.log(gap(529)); //4
+console.log(gap(20)); //1
+console.log(gap(15)); //0

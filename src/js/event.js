@@ -1,11 +1,24 @@
-function gap(num) {
-  const gaps = num.toString(2).match(/1[0]+(?=1)/g);
-  const maxGaps = gaps ? Math.max(...gaps.map(el => el.length - 1)) : 0;
+function vectorLength(vector) {
+  const [[x1, y1], [x2, y2]] = vector;
 
-  return maxGaps;
+  return Math.sqrt((x1 - x2) ** 2 + (y1 - y2) ** 2);
 }
 
-console.log(gap(9)); //2
-console.log(gap(529)); //4
-console.log(gap(20)); //1
-console.log(gap(15)); //0
+console.log(
+  vectorLength([
+    [0, 1],
+    [0, 0],
+  ])
+); // 1
+console.log(
+  vectorLength([
+    [0, 3],
+    [4, 0],
+  ])
+); // 5
+console.log(
+  vectorLength([
+    [1, -1],
+    [1, -1],
+  ])
+); // 0

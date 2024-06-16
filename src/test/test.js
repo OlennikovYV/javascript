@@ -1,6 +1,6 @@
 mocha.setup('bdd');
 
-const nameTask = `Find the longest gap!`;
+const nameTask = `[Geometry A-2]: Length of a vector`;
 
 describe(nameTask, function () {
   const equal = chai.assert.equal;
@@ -16,6 +16,9 @@ describe(nameTask, function () {
      Например: 'Что-нибудь' === правдив */
   const isOk = chai.assert.isOk;
   const approximately = chai.assert.approximately;
+  /* Утверждает, что целевое значение соответствует
+     ожидаемому в пределах диапазона +/- дельта */
+  const closeTo = chai.assert.closeTo;
   const oneOf = chai.assert.oneOf;
   const isNotEmpty = chai.assert.isNotEmpty;
   const lengthOf = chai.assert.lengthOf;
@@ -28,11 +31,31 @@ describe(nameTask, function () {
     Например: [{b:1},{a:2}] === [{b:1},{a:2}] */
   const includeDeepOrderedMembers = chai.assert.includeDeepOrderedMembers;
 
-  it('Freebies', function () {
-    strictEqual(gap(9), 2, 'gap(9)');
-    strictEqual(gap(529), 4, 'gap(529)');
-    strictEqual(gap(20), 1, 'gap(20)');
-    strictEqual(gap(15), 0, 'gap(15)');
+  it('test', () => {
+    closeTo(
+      vectorLength([
+        [0, 1],
+        [0, 0],
+      ]),
+      1,
+      1e-7
+    );
+    closeTo(
+      vectorLength([
+        [0, 3],
+        [4, 0],
+      ]),
+      5,
+      1e-7
+    );
+    closeTo(
+      vectorLength([
+        [1, -1],
+        [1, -1],
+      ]),
+      0,
+      1e-7
+    );
   });
 });
 

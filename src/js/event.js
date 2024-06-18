@@ -1,12 +1,10 @@
 const beeramid = function (bonus, price) {
+  let beers = Math.floor(bonus / price);
   let row = 0;
-  let sum = 0;
 
-  while (((sum += row ** 2 * price), sum <= bonus)) {
-    row++;
-  }
+  while (beers >= ++row * row) beers -= row * row;
 
-  return sum <= bonus ? row : row > 1 ? --row : 0;
+  return --row;
 };
 
 console.log(beeramid(9, 2)); // 1

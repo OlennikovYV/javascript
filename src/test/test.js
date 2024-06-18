@@ -1,6 +1,6 @@
 mocha.setup('bdd');
 
-const nameTask = `Vampire Numbers`;
+const nameTask = `Beeramid`;
 
 describe(nameTask, function () {
   const equal = chai.assert.equal;
@@ -32,36 +32,16 @@ describe(nameTask, function () {
   const includeDeepOrderedMembers = chai.assert.includeDeepOrderedMembers;
 
   it('Fixed Tests', () => {
-    strictEqual(
-      vampireTest(21, 6),
-      true,
-      'Basic: 21 * 6 = 126 should return true'
-    );
-    strictEqual(
-      vampireTest(204, 615),
-      true,
-      'Basic: 204 * 615 = 125460 should return true'
-    );
-    strictEqual(
-      vampireTest(30, -51),
-      true,
-      'One Negative: 30 * -51 = -1530 should return true'
-    );
-    strictEqual(
-      vampireTest(-246, -510),
-      false,
-      "Double Negatives: -246 * -510 = 125460 should return false (The negative signs aren't present on the product)"
-    );
-    strictEqual(
-      vampireTest(2947050, 8469153),
-      true,
-      'Large: 2947050 * 8469153 = 24959017348650 should return true'
-    );
-    strictEqual(
-      vampireTest(2947051, 8469153),
-      false,
-      'Large: 2947051 * 8469153 = 24959025817803 should return false'
-    );
+    equal(beeramid(9, 2), 1);
+    equal(beeramid(10, 2), 2);
+    equal(beeramid(11, 2), 2);
+    equal(beeramid(21, 1.5), 3);
+    equal(beeramid(454, 5), 5);
+    equal(beeramid(455, 5), 6);
+    equal(beeramid(4, 4), 1);
+    equal(beeramid(3, 4), 0);
+    equal(beeramid(0, 4), 0);
+    equal(beeramid(-1, 4), 0);
   });
 });
 

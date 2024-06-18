@@ -1,16 +1,21 @@
-function vampireTest(a, b) {
-  const convertToSortString = str =>
-    str
-      .split('')
-      .sort((a, b) => a.localeCompare(b))
-      .join('');
+const beeramid = function (bonus, price) {
+  let row = 0;
+  let sum = 0;
 
-  return convertToSortString(a + '' + b) == convertToSortString(a * b + '');
-}
+  while (((sum += row ** 2 * price), sum <= bonus)) {
+    row++;
+  }
 
-console.log(vampireTest(21, 6)); // true
-console.log(vampireTest(204, 615)); // true
-console.log(vampireTest(30, -51)); // true
-console.log(vampireTest(-246, -510)); // false
-console.log(vampireTest(2947050, 8469153)); // true
-console.log(vampireTest(2947051, 8469153)); // false
+  return sum <= bonus ? row : row > 1 ? --row : 0;
+};
+
+console.log(beeramid(9, 2)); // 1
+console.log(beeramid(10, 2)); // 2
+console.log(beeramid(11, 2)); // 2
+console.log(beeramid(21, 1.5)); // 3
+console.log(beeramid(454, 5)); // 5
+console.log(beeramid(455, 5)); // 6
+console.log(beeramid(4, 4)); // 1
+console.log(beeramid(3, 4)); // 0
+console.log(beeramid(0, 4)); // 0
+console.log(beeramid(-1, 4)); // 0

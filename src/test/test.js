@@ -1,6 +1,6 @@
 mocha.setup('bdd');
 
-const nameTask = `Easy Balance Checking`;
+const nameTask = `Geometric sequence - sum of all elements`;
 
 describe(nameTask, function () {
   const equal = chai.assert.equal;
@@ -31,9 +31,12 @@ describe(nameTask, function () {
     Например: [{b:1},{a:2}] === [{b:1},{a:2}] */
   const includeDeepOrderedMembers = chai.assert.includeDeepOrderedMembers;
 
-  it('Basic tests', () => {
-    equal(balance(b1), b1sol);
-    equal(balance(b2), b2sol);
+  it('Should pass sample tests', function () {
+    equal(GeometricSequenceSum(2, 3, 5), 242);
+    equal(GeometricSequenceSum(1, 1, 2), 2);
+    equal(GeometricSequenceSum(2, 2, 10), 2046);
+    equal(GeometricSequenceSum(1, -2, 10), -341);
+    equal(GeometricSequenceSum(1, 0.5, 10), 1.998046875);
   });
 });
 

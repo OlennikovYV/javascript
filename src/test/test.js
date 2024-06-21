@@ -1,6 +1,6 @@
 mocha.setup('bdd');
 
-const nameTask = `Geometric sequence - sum of all elements`;
+const nameTask = `Filter out for good!`;
 
 describe(nameTask, function () {
   const equal = chai.assert.equal;
@@ -32,11 +32,33 @@ describe(nameTask, function () {
   const includeDeepOrderedMembers = chai.assert.includeDeepOrderedMembers;
 
   it('Should pass sample tests', function () {
-    equal(GeometricSequenceSum(2, 3, 5), 242);
-    equal(GeometricSequenceSum(1, 1, 2), 2);
-    equal(GeometricSequenceSum(2, 2, 10), 2046);
-    equal(GeometricSequenceSum(1, -2, 10), -341);
-    equal(GeometricSequenceSum(1, 0.5, 10), 1.998046875);
+    let array = [1, 2, 3, 4, 5];
+    let predicate = i => i % 2 === 0;
+    let removed = array.remove(predicate);
+
+    deepEqual(removed, [2, 4]);
+    deepEqual(array, [1, 3, 5]);
+
+    array = [1, 2, 3, 4, 5];
+    predicate = i => i % 2 !== 0;
+    removed = array.remove(predicate);
+
+    deepEqual(removed, [1, 3, 5]);
+    deepEqual(array, [2, 4]);
+
+    array = [2, 2, 2, 2, 2];
+    predicate = i => i === 2;
+    removed = array.remove(predicate);
+
+    deepEqual(removed, [2, 2, 2, 2, 2]);
+    deepEqual(array, []);
+
+    array = ['a', 'b', 'c', 'd', 'e'];
+    predicate = i => i >= 'a' && i <= 'd';
+    removed = array.remove(predicate);
+
+    deepEqual(removed, ['a', 'b', 'c', 'd']);
+    deepEqual(array, ['e']);
   });
 });
 

@@ -1,18 +1,37 @@
-function GeometricSequenceSum(firstTerm, commonRatio, amountOfTerms) {
-  let sum = firstTerm;
-  let prevTerm = firstTerm;
+Array.prototype.remove = function (pred) {
+  const result = this.filter(el => pred(el));
+  const deleteList = this.filter(el => !pred(el));
 
-  for (let i = 1; i < amountOfTerms; i++) {
-    const seq = prevTerm * commonRatio;
-    sum += seq;
-    prevTerm = seq;
-  }
+  this.splice(0, this.length);
+  deleteList.forEach(el => this.push(el));
 
-  return sum;
-}
+  return result;
+};
 
-console.log(GeometricSequenceSum(2, 3, 5)); // 242
-console.log(GeometricSequenceSum(1, 1, 2)); // 2
-console.log(GeometricSequenceSum(2, 2, 10)); // 2046
-console.log(GeometricSequenceSum(1, -2, 10)); // -341
-console.log(GeometricSequenceSum(1, 0.5, 10)); // 1.998046875
+let array = [1, 2, 3, 4, 5];
+let predicate = i => i % 2 === 0;
+let removed = array.remove(predicate);
+
+console.log(removed); // [2, 4]
+console.log(array, [1, 3, 5]);
+
+array = [1, 2, 3, 4, 5];
+predicate = i => i % 2 !== 0;
+removed = array.remove(predicate);
+
+console.log(removed); // [1, 3, 5]
+console.log(array, [2, 4]);
+
+array = [2, 2, 2, 2, 2];
+predicate = i => i === 2;
+removed = array.remove(predicate);
+
+console.log(removed); // [2, 2, 2, 2, 2]
+console.log(array, []);
+
+array = ['a', 'b', 'c', 'd', 'e'];
+predicate = i => i >= 'a' && i <= 'd';
+removed = array.remove(predicate);
+
+console.log(removed); // ['a', 'b', 'c', 'd']
+console.log(array, ['e']);

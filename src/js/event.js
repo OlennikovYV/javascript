@@ -3,9 +3,7 @@ const lengthOfSequence = function (arr, n) {
   const endPart = arr.lastIndexOf(n);
   const countN = arr.filter(el => el == n).length;
 
-  return beginPart == -1 || endPart == -1 || beginPart == endPart || countN > 2
-    ? 0
-    : endPart - beginPart + 1;
+  return countN == 2 ? endPart - beginPart + 1 : 0;
 };
 
 console.log(lengthOfSequence([1], 0)); // 0

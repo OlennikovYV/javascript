@@ -1,6 +1,6 @@
 mocha.setup('bdd');
 
-const nameTask = `Filter out for good!`;
+const nameTask = `Finding length of the sequence`;
 
 describe(nameTask, function () {
   const equal = chai.assert.equal;
@@ -31,34 +31,22 @@ describe(nameTask, function () {
     Например: [{b:1},{a:2}] === [{b:1},{a:2}] */
   const includeDeepOrderedMembers = chai.assert.includeDeepOrderedMembers;
 
-  it('Should pass sample tests', function () {
-    let array = [1, 2, 3, 4, 5];
-    let predicate = i => i % 2 === 0;
-    let removed = array.remove(predicate);
-
-    deepEqual(removed, [2, 4]);
-    deepEqual(array, [1, 3, 5]);
-
-    array = [1, 2, 3, 4, 5];
-    predicate = i => i % 2 !== 0;
-    removed = array.remove(predicate);
-
-    deepEqual(removed, [1, 3, 5]);
-    deepEqual(array, [2, 4]);
-
-    array = [2, 2, 2, 2, 2];
-    predicate = i => i === 2;
-    removed = array.remove(predicate);
-
-    deepEqual(removed, [2, 2, 2, 2, 2]);
-    deepEqual(array, []);
-
-    array = ['a', 'b', 'c', 'd', 'e'];
-    predicate = i => i >= 'a' && i <= 'd';
-    removed = array.remove(predicate);
-
-    deepEqual(removed, ['a', 'b', 'c', 'd']);
-    deepEqual(array, ['e']);
+  it('test', () => {
+    equal(lengthOfSequence([1], 0), 0);
+    equal(lengthOfSequence([1], 1), 0);
+    equal(
+      lengthOfSequence([1, 1], 1),
+      2,
+      'Returns two when there are only two elements in the array'
+    );
+    equal(
+      lengthOfSequence([1, 2, 3, 1], 1),
+      4,
+      'Returns four for an array of length four and the number to be searched at the boundaries'
+    );
+    equal(lengthOfSequence([-7, 5, 0, 2, 9, 5], 5), 5, 'Returns five');
+    equal(lengthOfSequence([-7, 6, 2, -7, 4], -7), 4, 'Returns four');
+    equal(lengthOfSequence([-7, 3, -7, -7, 2, 1], -7), 0);
   });
 });
 

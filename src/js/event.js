@@ -1,37 +1,17 @@
-Array.prototype.remove = function (pred) {
-  const result = this.filter(el => pred(el));
-  const deleteList = this.filter(el => !pred(el));
+const lengthOfSequence = function (arr, n) {
+  const beginPart = arr.indexOf(n);
+  const endPart = arr.lastIndexOf(n);
+  const countN = arr.filter(el => el == n).length;
 
-  this.splice(0, this.length);
-  deleteList.forEach(el => this.push(el));
-
-  return result;
+  return beginPart == -1 || endPart == -1 || beginPart == endPart || countN > 2
+    ? 0
+    : endPart - beginPart + 1;
 };
 
-let array = [1, 2, 3, 4, 5];
-let predicate = i => i % 2 === 0;
-let removed = array.remove(predicate);
-
-console.log(removed); // [2, 4]
-console.log(array, [1, 3, 5]);
-
-array = [1, 2, 3, 4, 5];
-predicate = i => i % 2 !== 0;
-removed = array.remove(predicate);
-
-console.log(removed); // [1, 3, 5]
-console.log(array, [2, 4]);
-
-array = [2, 2, 2, 2, 2];
-predicate = i => i === 2;
-removed = array.remove(predicate);
-
-console.log(removed); // [2, 2, 2, 2, 2]
-console.log(array, []);
-
-array = ['a', 'b', 'c', 'd', 'e'];
-predicate = i => i >= 'a' && i <= 'd';
-removed = array.remove(predicate);
-
-console.log(removed); // ['a', 'b', 'c', 'd']
-console.log(array, ['e']);
+console.log(lengthOfSequence([1], 0)); // 0
+console.log(lengthOfSequence([1], 1)); // 0
+console.log(lengthOfSequence([1, 1], 1)); // 2
+console.log(lengthOfSequence([1, 2, 3, 1], 1)); // 4
+console.log(lengthOfSequence([-7, 5, 0, 2, 9, 5], 5)); // 5
+console.log(lengthOfSequence([-7, 6, 2, -7, 4], -7)); // 4
+console.log(lengthOfSequence([-7, 3, -7, -7, 2, 1], -7)); // 0

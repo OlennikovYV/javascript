@@ -1,6 +1,6 @@
 mocha.setup('bdd');
 
-const nameTask = `Finding length of the sequence`;
+const nameTask = `Alan Partridge I - Partridge Watch`;
 
 describe(nameTask, function () {
   const equal = chai.assert.equal;
@@ -31,22 +31,38 @@ describe(nameTask, function () {
     Например: [{b:1},{a:2}] === [{b:1},{a:2}] */
   const includeDeepOrderedMembers = chai.assert.includeDeepOrderedMembers;
 
-  it('test', () => {
-    equal(lengthOfSequence([1], 0), 0);
-    equal(lengthOfSequence([1], 1), 0);
-    equal(
-      lengthOfSequence([1, 1], 1),
-      2,
-      'Returns two when there are only two elements in the array'
+  it('Testing for fixed tests', () => {
+    strictEqual(part(['Grouse', 'Partridge', 'Pheasant']), "Mine's a Pint!");
+    strictEqual(
+      part(['Pheasant', 'Goose', 'Starling', 'Robin']),
+      "Lynn, I've pierced my foot on a spike!!"
     );
-    equal(
-      lengthOfSequence([1, 2, 3, 1], 1),
-      4,
-      'Returns four for an array of length four and the number to be searched at the boundaries'
+    strictEqual(
+      part([
+        'Grouse',
+        'Partridge',
+        'Pheasant',
+        'Goose',
+        'Starling',
+        'Robin',
+        'Thrush',
+        'Emu',
+        'PearTree',
+        'Chat',
+        'Dan',
+        'Square',
+        'Toblerone',
+        'Lynn',
+        'AlphaPapa',
+        'BMW',
+        'Graham',
+        'Tool',
+        'Nomad',
+        'Finger',
+        'Hamster',
+      ]),
+      "Mine's a Pint!!!!!!!!"
     );
-    equal(lengthOfSequence([-7, 5, 0, 2, 9, 5], 5), 5, 'Returns five');
-    equal(lengthOfSequence([-7, 6, 2, -7, 4], -7), 4, 'Returns four');
-    equal(lengthOfSequence([-7, 3, -7, -7, 2, 1], -7), 0);
   });
 });
 

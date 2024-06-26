@@ -1,49 +1,24 @@
-const terms = [
-  'Partridge',
-  'PearTree',
-  'Chat',
-  'Dan',
-  'Toblerone',
-  'Lynn',
-  'AlphaPapa',
-  'Nomad',
-];
+class Quark {
+  constructor(color, flavor) {
+    this.color = color;
+    this.flavor = flavor;
+    this.baryon_number = 1 / 3;
+  }
 
-function part(x) {
-  let countTerms = x.filter(el => terms.includes(el)).length;
-
-  if (countTerms > 0) return `Mine's a Pint${'!'.repeat(countTerms)}`;
-
-  return "Lynn, I've pierced my foot on a spike!!";
+  interact(quark) {
+    const thisColor = this.color;
+    this.color = quark.color;
+    quark.color = thisColor;
+  }
 }
 
-console.log(part(['Grouse', 'Partridge', 'Pheasant']));
-// 'Mine\'s a Pint!'
-console.log(part(['Pheasant', 'Goose', 'Starling', 'Robin']));
-// 'Lynn, I\'ve pierced my foot on a spike!!'
-console.log(
-  part([
-    'Grouse',
-    'Partridge',
-    'Pheasant',
-    'Goose',
-    'Starling',
-    'Robin',
-    'Thrush',
-    'Emu',
-    'PearTree',
-    'Chat',
-    'Dan',
-    'Square',
-    'Toblerone',
-    'Lynn',
-    'AlphaPapa',
-    'BMW',
-    'Graham',
-    'Tool',
-    'Nomad',
-    'Finger',
-    'Hamster',
-  ])
-);
-// 'Mine\'s a Pint!!!!!!!!'
+let q1 = new Quark('red', 'up');
+let q2 = new Quark('blue', 'strange');
+
+console.log(q1.color); // 'red'
+console.log(q2.flavor); // 'strange'
+console.log(q2.baryon_number); // 1 / 3
+
+q1.interact(q2);
+console.log(q1.color); // 'blue'
+console.log(q2.color); // 'red'

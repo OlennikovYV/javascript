@@ -1,6 +1,6 @@
 mocha.setup('bdd');
 
-const nameTask = `Alan Partridge I - Partridge Watch`;
+const nameTask = `Thinkful - Object Drills: Quarks`;
 
 describe(nameTask, function () {
   const equal = chai.assert.equal;
@@ -31,38 +31,18 @@ describe(nameTask, function () {
     Например: [{b:1},{a:2}] === [{b:1},{a:2}] */
   const includeDeepOrderedMembers = chai.assert.includeDeepOrderedMembers;
 
-  it('Testing for fixed tests', () => {
-    strictEqual(part(['Grouse', 'Partridge', 'Pheasant']), "Mine's a Pint!");
-    strictEqual(
-      part(['Pheasant', 'Goose', 'Starling', 'Robin']),
-      "Lynn, I've pierced my foot on a spike!!"
-    );
-    strictEqual(
-      part([
-        'Grouse',
-        'Partridge',
-        'Pheasant',
-        'Goose',
-        'Starling',
-        'Robin',
-        'Thrush',
-        'Emu',
-        'PearTree',
-        'Chat',
-        'Dan',
-        'Square',
-        'Toblerone',
-        'Lynn',
-        'AlphaPapa',
-        'BMW',
-        'Graham',
-        'Tool',
-        'Nomad',
-        'Finger',
-        'Hamster',
-      ]),
-      "Mine's a Pint!!!!!!!!"
-    );
+  let q1 = new Quark('red', 'up');
+  let q2 = new Quark('blue', 'strange');
+
+  it('Test #color and #flavor', () => {
+    strictEqual(q1.color, 'red');
+    strictEqual(q2.flavor, 'strange');
+    strictEqual(q2.baryon_number, 1 / 3);
+  });
+  it('Test #interact', () => {
+    q1.interact(q2);
+    strictEqual(q1.color, 'blue');
+    strictEqual(q2.color, 'red');
   });
 });
 

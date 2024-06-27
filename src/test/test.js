@@ -1,6 +1,6 @@
 mocha.setup('bdd');
 
-const nameTask = `Thinkful - Object Drills: Quarks`;
+const nameTask = `esrever esreveR!`;
 
 describe(nameTask, function () {
   const equal = chai.assert.equal;
@@ -31,18 +31,15 @@ describe(nameTask, function () {
     Например: [{b:1},{a:2}] === [{b:1},{a:2}] */
   const includeDeepOrderedMembers = chai.assert.includeDeepOrderedMembers;
 
-  let q1 = new Quark('red', 'up');
-  let q2 = new Quark('blue', 'strange');
-
-  it('Test #color and #flavor', () => {
-    strictEqual(q1.color, 'red');
-    strictEqual(q2.flavor, 'strange');
-    strictEqual(q2.baryon_number, 1 / 3);
-  });
-  it('Test #interact', () => {
-    q1.interact(q2);
-    strictEqual(q1.color, 'blue');
-    strictEqual(q2.color, 'red');
+  it('test', () => {
+    equal(esrever('an Easy one?'), 'eno ysaE na?');
+    equal(
+      esrever('a small lOan OF 1,000,000 $!'),
+      '$ 000,000,1 FO naOl llams a!'
+    );
+    equal(esrever('<?> &!.".'), '".!& >?<.');
+    equal(esrever('b3tTer p4ss thIS 0ne.'), 'en0 SIht ss4p reTt3b.');
+    equal(esrever(''), '');
   });
 });
 

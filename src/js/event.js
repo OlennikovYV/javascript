@@ -1,20 +1,16 @@
-class Quark {
-  constructor(color, flavor) {
-    Object.assign(this, { color, flavor, baryon_number: 1 / 3 });
-  }
+function esrever(str) {
+  const reverse = str => str.split('').reverse().join('');
 
-  interact(quark) {
-    [this.color, quark.color] = [quark.color, this.color];
+  if (/[!?.]$/.test(str)) {
+    const withOutEnd = str.substr(0, str.length - 1);
+    return reverse(withOutEnd) + str[str.length - 1];
+  } else {
+    return reverse(str);
   }
 }
 
-let q1 = new Quark('red', 'up');
-let q2 = new Quark('blue', 'strange');
-
-console.log(q1.color); // 'red'
-console.log(q2.flavor); // 'strange'
-console.log(q2.baryon_number); // 1 / 3
-
-q1.interact(q2);
-console.log(q1.color); // 'blue'
-console.log(q2.color); // 'red'
+console.log(esrever('an Easy one?')); // 'eno ysaE na?'
+console.log(esrever('a small lOan OF 1,000,000 $!')); // '$ 000,000,1 FO naOl llams a!'
+console.log(esrever('<?> &!.".')); // '".!& >?<.'
+console.log(esrever('b3tTer p4ss thIS 0ne.')); // 'en0 SIht ss4p reTt3b.'
+console.log(esrever('')); // ''

@@ -1,12 +1,5 @@
 function esrever(str) {
-  const reverse = str => str.split('').reverse().join('');
-
-  if (/[!?.]$/.test(str)) {
-    const withOutEnd = str.substr(0, str.length - 1);
-    return reverse(withOutEnd) + str[str.length - 1];
-  } else {
-    return reverse(str);
-  }
+  return str.slice(0, -1).split('').reverse().join('') + str.slice(-1);
 }
 
 console.log(esrever('an Easy one?')); // 'eno ysaE na?'

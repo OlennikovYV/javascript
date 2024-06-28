@@ -1,4 +1,4 @@
-const hasOneChar = s => new Set(s).size === 1;
+const hasOneChar = s => /^(.)\1*$/.test(s);
 
 console.log(hasOneChar('a')); // true
 console.log(hasOneChar('aaaaa')); // true

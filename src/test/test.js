@@ -1,6 +1,6 @@
 mocha.setup('bdd');
 
-const nameTask = `esrever esreveR!`;
+const nameTask = `Is my string repeating the same character over and over ?`;
 
 describe(nameTask, function () {
   const equal = chai.assert.equal;
@@ -31,15 +31,12 @@ describe(nameTask, function () {
     Например: [{b:1},{a:2}] === [{b:1},{a:2}] */
   const includeDeepOrderedMembers = chai.assert.includeDeepOrderedMembers;
 
-  it('test', () => {
-    equal(esrever('an Easy one?'), 'eno ysaE na?');
-    equal(
-      esrever('a small lOan OF 1,000,000 $!'),
-      '$ 000,000,1 FO naOl llams a!'
-    );
-    equal(esrever('<?> &!.".'), '".!& >?<.');
-    equal(esrever('b3tTer p4ss thIS 0ne.'), 'en0 SIht ss4p reTt3b.');
-    equal(esrever(''), '');
+  it('Tests', () => {
+    strictEqual(hasOneChar('a'), true);
+    strictEqual(hasOneChar('aaaaa'), true);
+    strictEqual(hasOneChar('aaaab'), false);
+    strictEqual(hasOneChar('bbbbb'), true);
+    strictEqual(hasOneChar('bbabb'), false);
   });
 });
 

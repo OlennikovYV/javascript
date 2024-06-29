@@ -1,13 +1,10 @@
-const func = item => item % 2 == 0;
+const func = item => (item & 1) == 0;
 
-function map(arr, somefunction) {
-  if (typeof somefunction != 'function')
-    return 'given argument is not a function';
-
-  if (arr.every(item => parseInt(item)) == false)
+function map(arr, func) {
+  if (typeof func != 'function') return 'given argument is not a function';
+  if (arr.length < 1 || arr.some(isNaN))
     return 'array should contain only numbers';
-
-  return arr.map(item => somefunction(item));
+  return arr.map(func);
 }
 
 console.log(map([27, 18, 5, '8', '66'], func));

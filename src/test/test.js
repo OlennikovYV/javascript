@@ -1,6 +1,6 @@
 mocha.setup('bdd');
 
-const nameTask = `Is my string repeating the same character over and over ?`;
+const nameTask = `Map function issue`;
 
 describe(nameTask, function () {
   const equal = chai.assert.equal;
@@ -31,12 +31,16 @@ describe(nameTask, function () {
     Например: [{b:1},{a:2}] === [{b:1},{a:2}] */
   const includeDeepOrderedMembers = chai.assert.includeDeepOrderedMembers;
 
-  it('Tests', () => {
-    strictEqual(hasOneChar('a'), true);
-    strictEqual(hasOneChar('aaaaa'), true);
-    strictEqual(hasOneChar('aaaab'), false);
-    strictEqual(hasOneChar('bbbbb'), true);
-    strictEqual(hasOneChar('bbabb'), false);
+  it('test', () => {
+    deepEqual(map([27, 18, 5, '8', '66'], func), [
+      false,
+      true,
+      false,
+      true,
+      true,
+    ]);
+    strictEqual(map([48, 33, 2, 1], 'str'), 'given argument is not a function');
+    strictEqual(map([8, 12, 't'], func), 'array should contain only numbers');
   });
 });
 

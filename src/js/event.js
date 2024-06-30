@@ -1,21 +1,15 @@
-const func = item => (item & 1) == 0;
+function reverseIt(data) {
+  if (typeof data == 'number') {
+    return +String(data).split('').reverse().join('');
+  }
+  if (typeof data == 'string') {
+    return data.split('').reverse().join('');
+  }
 
-function map(arr, func) {
-  if (typeof func != 'function') return 'given argument is not a function';
-  if (arr.length < 1 || arr.some(isNaN))
-    return 'array should contain only numbers';
-  return arr.map(func);
+  return data;
 }
 
-console.log(map([27, 18, 5, '8', '66'], func));
-// [
-//   false,
-//   true,
-//   false,
-//   true,
-//   true,
-// ]
-console.log(map([48, 33, 2, 1], 'str'));
-// 'given argument is not a function'
-console.log(map([8, 12, 't'], func));
-// 'array should contain only numbers'
+console.log(reverseIt('Hello')); // 'olleH'
+console.log(reverseIt(314159)); // 951413
+console.log(reverseIt('314159')); // '951413'
+console.log(reverseIt([])); // []

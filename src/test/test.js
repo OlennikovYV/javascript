@@ -1,6 +1,6 @@
 mocha.setup('bdd');
 
-const nameTask = `Map function issue`;
+const nameTask = `reverseIt`;
 
 describe(nameTask, function () {
   const equal = chai.assert.equal;
@@ -32,15 +32,10 @@ describe(nameTask, function () {
   const includeDeepOrderedMembers = chai.assert.includeDeepOrderedMembers;
 
   it('test', () => {
-    deepEqual(map([27, 18, 5, '8', '66'], func), [
-      false,
-      true,
-      false,
-      true,
-      true,
-    ]);
-    strictEqual(map([48, 33, 2, 1], 'str'), 'given argument is not a function');
-    strictEqual(map([8, 12, 't'], func), 'array should contain only numbers');
+    strictEqual(reverseIt('Hello'), 'olleH', 'Not quite');
+    strictEqual(reverseIt(314159), 951413, 'Not quite');
+    strictEqual(reverseIt('314159'), '951413', 'Not quite');
+    deepEqual(reverseIt([]), [], 'Not quite');
   });
 });
 

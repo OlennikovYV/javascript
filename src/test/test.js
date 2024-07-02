@@ -1,6 +1,6 @@
 mocha.setup('bdd');
 
-const nameTask = `Sequence generator`;
+const nameTask = `Cost of my ride`;
 
 describe(nameTask, function () {
   const equal = chai.assert.equal;
@@ -32,14 +32,11 @@ describe(nameTask, function () {
   const includeDeepOrderedMembers = chai.assert.includeDeepOrderedMembers;
 
   it('test', () => {
-    deepEqual(sequence(3, 4), [4, 4, 4], 'number filled');
-    deepEqual(sequence(3, 's'), ['s', 's', 's'], 'string filled');
-    deepEqual(sequence(5, []), [[], [], [], [], []], '5 empty arrays');
-    deepEqual(
-      sequence(5, (x, idx) => idx % 2),
-      [0, 1, 0, 1, 0],
-      'have to filled by two parram function pattern'
-    );
+    strictEqual(insurance(18, 'medium', 7), 490);
+    strictEqual(insurance(30, 'full-size', 30), 1950);
+
+    strictEqual(insurance(21, 'economy', -10), 0);
+    strictEqual(insurance(42, 'my custom car', 7), 455);
   });
 });
 

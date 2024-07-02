@@ -1,11 +1,29 @@
-function sequence(n, pattern) {
-  return Array.from(
-    { length: n },
-    typeof pattern == 'function' ? pattern : _ => pattern
-  );
+function insurance(age, size, numofdays) {
+  const dailyPrice = 50;
+  const ageDailyPrice = age < 25 ? 10 : 0;
+  let sizePrice;
+
+  if (numofdays < 0) return 0;
+
+  switch (size) {
+    case 'economy':
+      sizePrice = 0;
+      break;
+    case 'medium':
+      sizePrice = 10;
+      break;
+    case 'full-size':
+      sizePrice = 15;
+      break;
+    default:
+      sizePrice = 15;
+  }
+
+  return numofdays * (sizePrice + dailyPrice + ageDailyPrice);
 }
 
-console.log(sequence(3, 4)); // [4, 4, 4]
-console.log(sequence(3, 's')); // ['s', 's', 's']
-console.log(sequence(5, [])); // [[], [], [], [], []]
-console.log(sequence(5, (x, idx) => idx % 2)); // [0, 1, 0, 1, 0]
+console.log(insurance(18, 'medium', 7)); // 490
+console.log(insurance(30, 'full-size', 30)); // 1950
+
+console.log(insurance(21, 'economy', -10)); // 0
+console.log(insurance(42, 'my custom car', 7)); // 455

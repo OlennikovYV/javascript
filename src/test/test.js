@@ -1,6 +1,6 @@
 mocha.setup('bdd');
 
-const nameTask = `Cost of my ride`;
+const nameTask = `Squeaky Clean`;
 
 describe(nameTask, function () {
   const equal = chai.assert.equal;
@@ -32,11 +32,13 @@ describe(nameTask, function () {
   const includeDeepOrderedMembers = chai.assert.includeDeepOrderedMembers;
 
   it('test', () => {
-    strictEqual(insurance(18, 'medium', 7), 490);
-    strictEqual(insurance(30, 'full-size', 30), 1950);
-
-    strictEqual(insurance(21, 'economy', -10), 0);
-    strictEqual(insurance(42, 'my custom car', 7), 455);
+    deepEqual(squeakyClean([1, 2, 3, -1, 1.1]), [1, 2, 3, -1, 1.1]);
+    deepEqual(squeakyClean(['hello', '14']), ['hello', '14']);
+    deepEqual(squeakyClean(['click1', 'click2', null, '', '', 'submitForm']), [
+      'click1',
+      'click2',
+      'submitForm',
+    ]);
   });
 });
 

@@ -1,6 +1,6 @@
 mocha.setup('bdd');
 
-const nameTask = `Squeaky Clean`;
+const nameTask = `Personalized brand list`;
 
 describe(nameTask, function () {
   const equal = chai.assert.equal;
@@ -31,14 +31,33 @@ describe(nameTask, function () {
     Например: [{b:1},{a:2}] === [{b:1},{a:2}] */
   const includeDeepOrderedMembers = chai.assert.includeDeepOrderedMembers;
 
-  it('test', () => {
-    deepEqual(squeakyClean([1, 2, 3, -1, 1.1]), [1, 2, 3, -1, 1.1]);
-    deepEqual(squeakyClean(['hello', '14']), ['hello', '14']);
-    deepEqual(squeakyClean(['click1', 'click2', null, '', '', 'submitForm']), [
-      'click1',
-      'click2',
-      'submitForm',
-    ]);
+  it('One brand tests', function () {
+    includeDeepOrderedMembers(sortedBrands([]), [], 'Empty history');
+    includeDeepOrderedMembers(
+      sortedBrands([phoneSamsung]),
+      ['Samsung'],
+      'Only one Samsung'
+    );
+    includeDeepOrderedMembers(
+      sortedBrands([phoneIphone, phoneIphone, phoneIphone]),
+      ['iPhone'],
+      'Multiple iPhone'
+    );
+  });
+
+  it('Multiple brand tests', function () {
+    includeDeepOrderedMembers(
+      sortedBrands([
+        phoneSamsung,
+        phoneIphone,
+        phoneIphone,
+        phoneIphone,
+        phoneSamsung,
+        phoneSamsung,
+      ]),
+      ['Samsung', 'iPhone'],
+      'various Samsung wins'
+    );
   });
 });
 

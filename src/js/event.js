@@ -1,10 +1,7 @@
 function matrix(array) {
-  const length = array[0].length;
-  const result = [...array];
+  for (let i = 0; i < array.length; i++) array[i][i] = array[i][i] < 0 ? 0 : 1;
 
-  for (let i = 0; i < array.length; i++) array[i][i] = array[i][i] >= 0 ? 1 : 0;
-
-  return result;
+  return array;
 }
 
 console.log(

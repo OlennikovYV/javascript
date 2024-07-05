@@ -1,68 +1,73 @@
-function sortedBrands(history) {
-  const historyWithoutDup = history.filter(
-    (current, i, arr) =>
-      arr.findIndex(last => last.brand === current.brand) === i
-  );
-  const historyWithPopularity = history.reduce((popular, el) => {
-    const brand = el.brand;
+function matrix(array) {
+  const length = array[0].length;
+  const result = [...array];
 
-    popular[brand] = (popular[brand] || 0) + 1;
-    return popular;
-  }, {});
-  const result = [...historyWithoutDup]
-    .sort((a, b) => {
-      const brandA = a.brand;
-      const brandB = b.brand;
-      const popularSort =
-        historyWithPopularity[brandB] - historyWithPopularity[brandA];
-
-      if (popularSort == 0)
-        return (
-          historyWithoutDup.findIndex(el => el.brand == brandA) -
-          historyWithoutDup.findIndex(el => el.brand == brandB)
-        );
-
-      return popularSort;
-    })
-    .map(el => el.brand);
+  for (let i = 0; i < array.length; i++) array[i][i] = array[i][i] >= 0 ? 1 : 0;
 
   return result;
 }
 
-const phoneSamsung = { name: 'Samsung Phone', price: 25, brand: 'Samsung' };
-const phoneIphone = { name: 'iPhone', price: 20000, brand: 'iPhone' };
-
-console.log(sortedBrands([])); // []
-console.log(sortedBrands([phoneSamsung])); // ['Samsung']
-console.log(sortedBrands([phoneIphone, phoneIphone, phoneIphone])); // ['iPhone'],
-
 console.log(
-  sortedBrands([
-    phoneSamsung,
-    phoneIphone,
-    phoneIphone,
-    phoneIphone,
-    phoneSamsung,
-    phoneSamsung,
+  matrix([
+    [-1, 4, -5, -9, 3],
+    [6, -4, -7, 4, -5],
+    [3, 5, 4, -9, -1],
+    [1, 5, -7, -8, -9],
+    [-3, 2, 1, -5, 6],
   ])
 );
-// ['Samsung', 'iPhone']
+// [
+//   [0, 4, -5, -9, 3],
+//   [6, 0, -7, 4, -5],
+//   [3, 5, 1, -9, -1],
+//   [1, 5, -7, 0, -9],
+//   [-3, 2, 1, -5, 1],
+// ]
 console.log(
-  sortedBrands([
-    { name: 'LG Phone1', price: 35, brand: 'LG' },
-    { name: 'LG Phone2', price: 25, brand: 'LG' },
-    { name: 'Samsung Phone1', price: 25, brand: 'Samsung' },
+  matrix([
+    [-1, 4, -5, -9, 3],
+    [6, 8, -7, 4, -5],
+    [3, 5, 1, -9, -1],
+    [1, 5, -7, 15, -9],
+    [-3, 2, 1, -5, -6],
   ])
-); // ['LG', 'Samsung']
+);
+// [
+//   [0, 4, -5, -9, 3],
+//   [6, 1, -7, 4, -5],
+//   [3, 5, 1, -9, -1],
+//   [1, 5, -7, 1, -9],
+//   [-3, 2, 1, -5, 0],
+// ]
 console.log(
-  sortedBrands([
-    { name: 'LG Phone1', price: 35, brand: 'LG' },
-    { name: 'Samsung Phone1', price: 25, brand: 'Samsung' },
-    { name: 'LG Phone2', price: 25, brand: 'LG' },
-    { name: 'Nokia Phone1', price: 2, brand: 'Nokia' },
-    { name: 'Nokia Phone2', price: 2, brand: 'Nokia' },
-    { name: 'Samsung Phone2', price: 5, brand: 'Samsung' },
-    { name: 'Samsung Phone3', price: 15, brand: 'Samsung' },
-    { name: 'Samsung Phone2', price: 5, brand: 'Samsung' },
+  matrix([
+    [-1, 4, -5, -9, 3, 8],
+    [6, 8, -7, 4, -5, -1],
+    [3, 5, 1, -9, -1, 6],
+    [1, 5, -7, 15, -9, 3],
+    [-3, 2, 1, -5, -6, 0],
+    [8, 2, 0, -2, 4, -5],
   ])
-); // ['Samsung', 'LG', 'Nokia']
+);
+// [
+//   [0, 4, -5, -9, 3, 8],
+//   [6, 1, -7, 4, -5, -1],
+//   [3, 5, 1, -9, -1, 6],
+//   [1, 5, -7, 1, -9, 3],
+//   [-3, 2, 1, -5, 0, 0],
+//   [8, 2, 0, -2, 4, 0],
+// ]
+console.log(
+  matrix([
+    [1, 1, -5, 5],
+    [2, -4, 11, 2],
+    [3, 1, -1, 4],
+    [2, -6, 8, 10],
+  ])
+);
+// [
+//   [1, 1, -5, 5],
+//   [2, 0, 11, 2],
+//   [3, 1, 0, 4],
+//   [2, -6, 8, 1],
+// ]

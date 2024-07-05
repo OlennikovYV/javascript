@@ -1,6 +1,6 @@
 mocha.setup('bdd');
 
-const nameTask = `Personalized brand list`;
+const nameTask = `Change two-dimensional array`;
 
 describe(nameTask, function () {
   const equal = chai.assert.equal;
@@ -31,32 +31,70 @@ describe(nameTask, function () {
     Например: [{b:1},{a:2}] === [{b:1},{a:2}] */
   const includeDeepOrderedMembers = chai.assert.includeDeepOrderedMembers;
 
-  it('One brand tests', function () {
-    includeDeepOrderedMembers(sortedBrands([]), [], 'Empty history');
-    includeDeepOrderedMembers(
-      sortedBrands([phoneSamsung]),
-      ['Samsung'],
-      'Only one Samsung'
-    );
-    includeDeepOrderedMembers(
-      sortedBrands([phoneIphone, phoneIphone, phoneIphone]),
-      ['iPhone'],
-      'Multiple iPhone'
-    );
-  });
-
-  it('Multiple brand tests', function () {
-    includeDeepOrderedMembers(
-      sortedBrands([
-        phoneSamsung,
-        phoneIphone,
-        phoneIphone,
-        phoneIphone,
-        phoneSamsung,
-        phoneSamsung,
+  it('Fixed tests', function () {
+    deepEqual(
+      matrix([
+        [-1, 4, -5, -9, 3],
+        [6, -4, -7, 4, -5],
+        [3, 5, 4, -9, -1],
+        [1, 5, -7, -8, -9],
+        [-3, 2, 1, -5, 6],
       ]),
-      ['Samsung', 'iPhone'],
-      'various Samsung wins'
+      [
+        [0, 4, -5, -9, 3],
+        [6, 0, -7, 4, -5],
+        [3, 5, 1, -9, -1],
+        [1, 5, -7, 0, -9],
+        [-3, 2, 1, -5, 1],
+      ]
+    );
+    deepEqual(
+      matrix([
+        [-1, 4, -5, -9, 3],
+        [6, 8, -7, 4, -5],
+        [3, 5, 1, -9, -1],
+        [1, 5, -7, 15, -9],
+        [-3, 2, 1, -5, -6],
+      ]),
+      [
+        [0, 4, -5, -9, 3],
+        [6, 1, -7, 4, -5],
+        [3, 5, 1, -9, -1],
+        [1, 5, -7, 1, -9],
+        [-3, 2, 1, -5, 0],
+      ]
+    );
+    deepEqual(
+      matrix([
+        [-1, 4, -5, -9, 3, 8],
+        [6, 8, -7, 4, -5, -1],
+        [3, 5, 1, -9, -1, 6],
+        [1, 5, -7, 15, -9, 3],
+        [-3, 2, 1, -5, -6, 0],
+        [8, 2, 0, -2, 4, -5],
+      ]),
+      [
+        [0, 4, -5, -9, 3, 8],
+        [6, 1, -7, 4, -5, -1],
+        [3, 5, 1, -9, -1, 6],
+        [1, 5, -7, 1, -9, 3],
+        [-3, 2, 1, -5, 0, 0],
+        [8, 2, 0, -2, 4, 0],
+      ]
+    );
+    deepEqual(
+      matrix([
+        [1, 1, -5, 5],
+        [2, -4, 11, 2],
+        [3, 1, -1, 4],
+        [2, -6, 8, 10],
+      ]),
+      [
+        [1, 1, -5, 5],
+        [2, 0, 11, 2],
+        [3, 1, 0, 4],
+        [2, -6, 8, 1],
+      ]
     );
   });
 });
